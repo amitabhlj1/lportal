@@ -8,9 +8,9 @@
     Document Title
     =============================================
     -->
-    <title></title>
-    <meta name="description" content=""/>
-    <meta name="keywords" content=""/>
+    <title><?php echo $title_of_page; ?></title>
+    <meta name="description" content="<?php echo $description; ?>"/>
+    <meta name="keywords" content="<?php echo $keywords; ?>"/>
     <meta name="revisit-after" content="2 days"/>
     <meta name="robots" content="index,follow"/>
     <meta name="copyright" content="LangJobs:2007-20"/>
@@ -53,6 +53,17 @@
     <!-- Main stylesheet and color file-->
     <link href="<?php echo base_url(); ?>assets/css/style.css" rel="stylesheet">
     <link id="color-scheme" href="<?php echo base_url(); ?>assets/css/colors/default.css" rel="stylesheet">
+    <?php
+      if(isset($login)){ ?>
+          <script type="text/javascript" src="//platform.linkedin.com/in.js">
+            api_key: 81vvayxozb8pl5
+            authorize: true
+            onLoad: onLinkedInLoad
+            scope: r_basicprofile r_emailaddress
+        </script>
+    <?php
+      }
+    ?>
   </head>
   <body data-spy="scroll" data-target=".onpage-navigation" data-offset="60">
     <main>
