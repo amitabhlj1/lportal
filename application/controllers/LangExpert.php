@@ -21,7 +21,7 @@ class LangExpert extends CI_Controller
 		
 		$title['login'] = 1;
         $this->load->view('include/header',$title);
-		$this->load->view('Language_expert');
+		$this->load->view('language_expert');
         $this->load->view('include/footer');
 	}
 	
