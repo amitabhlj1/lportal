@@ -62,6 +62,7 @@ class LangExpert extends CI_Controller
 		}
 		else
 		{
+			$code = $this->My_model->getRandomString(3);
 			$today = date('Y-m-d');
 			$data = array(
 				'first_name' => $this->input->post('first_name'),
@@ -69,6 +70,7 @@ class LangExpert extends CI_Controller
 				'email' => $this->input->post('email'),
 				'password' => md5($this->input->post('password')),
 				'country' => $this->input->post('country'),
+				'code'  => $code,
 				'created' => $today
 				);
 			$iInserId = $this->My_model->insertRecord('lang_expert',$data);
