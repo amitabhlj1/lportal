@@ -813,7 +813,7 @@ a,
 /* Forms common style */
 .form-control {
   font-family: "Roboto Condensed", sans-serif;
-  text-transform: uppercase;
+  text-transform: none;
   letter-spacing: 2px;
   font-size: 11px;
   height: 33px;
@@ -2924,4 +2924,11 @@ Google map
   .works-grid-5 .work-item {
     width: 100%;
   }
+}
+
+.error_red {
+  border: 1px solid #FF0000;
+}
+.error_green {
+  border: 1px solid #EAEAEA;
 }

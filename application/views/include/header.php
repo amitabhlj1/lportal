@@ -53,6 +53,22 @@
     <!-- Main stylesheet and color file-->
     <link href="<?php echo base_url(); ?>assets/css/style.css" rel="stylesheet">
     <link id="color-scheme" href="<?php echo base_url(); ?>assets/css/colors/default.css" rel="stylesheet">
+	  
+	<script src="<?php echo base_url(); ?>assets/js/common.js"></script>
+	<script>
+		var baseurl = "<?php echo base_url();?>";
+	</script>
+	<?php
+     if(isset($login)) { ?>
+          <script type="text/javascript" src="//platform.linkedin.com/in.js">
+            api_key: 81vvayxozb8pl5
+            authorize: true
+            onLoad: onLinkedInLoad
+            scope: r_basicprofile r_emailaddress rw_company_admin w_share
+        </script>
+	 <?php
+      	}
+	 ?>
   </head>
   <body data-spy="scroll" data-target=".onpage-navigation" data-offset="60">
     <main>
@@ -62,7 +78,7 @@
       <nav id="main_menu" class="navbar navbar-custom navbar-fixed-top navbar-transparent" role="navigation">
         <div class="container">
           <div class="navbar-header">
-            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#custom-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="index.php">Langjobs.com</a>
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#custom-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="<?php echo base_url();?>">Langjobs.com</a>
           </div>
           <div class="collapse navbar-collapse" id="custom-collapse">
             <ul class="nav navbar-nav navbar-right">
@@ -74,7 +90,6 @@
                   <li class="dropdown"><a href="translation-services.php">Translation</a></li>
                   <li class="dropdown"><a href="interpretation-services.php">Interpretation</a></li>
                   <li class="dropdown"><a href="localization-services.php">Localization</a></li>
-                  <li class="dropdown"><a href="internationalization-services.php">Internationalization</a></li>
                   <li class="dropdown"><a href="transcription-services.php">Language Transcription</a></li>
                   <li class="dropdown"><a href="voiceover-services.php">Voice-over</a></li>
                   <li class="dropdown"><a href="language-training.php">Language Training</a></li>
@@ -82,7 +97,23 @@
                 </ul>
               </li>
               <li><a href="contact.php"><i class="fa fa-phone"></i>Contact Us</a></li>
+				<li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown"><i class="fa fa-th-list"></i>Login</a>
+                <ul class="dropdown-menu">
+                  <li class="dropdown"><a href="<?php echo base_url();?>LangExpert">Language Expert</a></li>
+                  <li class="dropdown"><a href="<?php echo base_url();?>LangEmployer">Language Employer</a></li>
+                </ul>
+              </li>
             </ul>
           </div>
         </div>
       </nav>
+	<script>
+		//following function is written just to remove the navbar-transparent class from the navbar.
+		//So that it could be stay visible on other pages
+		function remove_class_from_menu(){
+			var element = document.getElementById("main_menu");
+			element.className = element.className.replace(/\bnavbar-transparent\b/g, "");
+			//console.log("called");
+		}
+		remove_class_from_menu();
+	</script>
