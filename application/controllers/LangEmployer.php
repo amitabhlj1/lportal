@@ -49,6 +49,7 @@ class LangEmployer extends CI_Controller
 		}
 		else
 		{
+			$code = $this->My_model->getRandomString(3);
 			$today = date('Y-m-d');
 			$data = array(
 				'first_name' => $this->input->post('first_name'),
@@ -57,6 +58,7 @@ class LangEmployer extends CI_Controller
 				'password' => md5($this->input->post('password')),
 				'country' => $this->input->post('country'),
 				'company_name' => $this->input->post('company_name'),
+				'code'  => $code,
 				'created' => $today
 				);
 			$iInserId = $this->My_model->insertRecord('lang_company',$data);

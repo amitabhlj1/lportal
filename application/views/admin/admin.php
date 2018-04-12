@@ -15,7 +15,7 @@
 					  <th>Company</th>					  
 					  <th>Email</th>				  
 					  <th>Mobile</th>
-					  <th>Country</th>
+					  <th>Social</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -31,7 +31,7 @@
 					  <td><?php echo $employer->company_name;?></td>
 					  <td><?php echo $employer->email;?></td>						  
 					  <td><?php echo $employer->mobile;?></td>
-					  <td><?php echo $isSocial;?>%</td>
+					  <td><?php echo $isSocial;?></td>
 					  <td>							
 						<?php 
 							if($employer->status == 1)

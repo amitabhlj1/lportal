@@ -8,7 +8,7 @@
     Document Title
     =============================================
     -->
-    <title></title>
+    <title><?php echo $title_of_page; ?></title>
     <meta name="description" content=""/>
     <meta name="keywords" content=""/>
     <meta name="revisit-after" content="2 days"/>
@@ -53,6 +53,7 @@
     <!-- Main stylesheet and color file-->
     <link href="<?php echo base_url(); ?>assets/css/style.css" rel="stylesheet">
     <link id="color-scheme" href="<?php echo base_url(); ?>assets/css/colors/default.css" rel="stylesheet">
+<<<<<<< HEAD
 	  
 	<script src="<?php echo base_url(); ?>assets/js/common.js"></script>
 	<script>
@@ -60,15 +61,27 @@
 	</script>
 	<?php
      if(isset($login)) { ?>
+=======
+    <?php
+      if(isset($login)){ ?>
+>>>>>>> 6ee57fd5484ef9e1e99fc92866882c045f02dd64
           <script type="text/javascript" src="//platform.linkedin.com/in.js">
             api_key: 81vvayxozb8pl5
             authorize: true
             onLoad: onLinkedInLoad
+<<<<<<< HEAD
             scope: r_basicprofile r_emailaddress rw_company_admin w_share
         </script>
 	 <?php
       	}
 	 ?>
+=======
+            scope: r_basicprofile r_emailaddress
+        </script>
+    <?php
+      }
+    ?>
+>>>>>>> 6ee57fd5484ef9e1e99fc92866882c045f02dd64
   </head>
   <body data-spy="scroll" data-target=".onpage-navigation" data-offset="60">
     <main>

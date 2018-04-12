@@ -13,10 +13,18 @@ class Admin extends CI_Controller
 
 	function index()
 	{	
-		$where = array('status' => 1);
+		$this->load->view('admin/include/header'); 
+		$this->load->view('admin/login'); 
+	    $this->load->view('admin/include/footer');		 	
+	}
+	
+	function Dashboard()
+	{	
+		if( !$this->session->userdata('admin_id') )
+			redirect('ado/Admin/logout','refresh'); 
 		
-		$data['experts']    = $this->My_model->selectRecord('lang_expert','*',$where,'','');
-		$data['employers']  = $this->My_model->selectRecord('lang_company','*',$where,'','');
+		$data['experts']    = $this->My_model->selectRecord('lang_expert','*','','','');
+		$data['employers']  = $this->My_model->selectRecord('lang_company','*','','','');
 		
 		//echo "<pre />"; print_r($data); 
 		$this->load->view('admin/include/header'); 
@@ -86,4 +94,51 @@ class Admin extends CI_Controller
 		$this->My_model->updateRecord('job_category',$data);	
 	}
 	
+	public function loginValidate()
+	{   
+		//die('88');		
+		$this->load->library('form_validation');
+
+		$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|xss_clean');
+		$this->form_validation->set_rules('password', 'Password', 'required|xss_clean');
+		
+		if ($this->form_validation->run() == FALSE)
+		{
+			$this->load->view('admin/include/header');
+			$this->load->view('admin/login');
+			$this->load->view('admin/include/footer');	
+		}
+		else
+		{    			
+			$data = array( 				
+				'email' => $this->input->post('email'), 
+				'password' => $this->input->post('password')			
+			);
+			
+			//print_r($data); die('88');
+			$bLogin = $this->admin_model->login_admin($data);
+			//echo "==> ". $bLogin; die();
+			if($bLogin == -1)
+				$data['error'] = 'your account is not activated!';
+			else
+				$data['error'] = 'User name or Password is incorrect!';
+			
+				$this->load->view('admin/include/header');	
+				$this->load->view('admin/login',$data);
+				$this->load->view('admin/include/footer');			
+		}
+	}
+	
+	public function forgotPassword()
+	{				
+		$this->load->view('admin/include/header');	
+		$this->load->view('admin/forgot_password');
+		$this->load->view('admin/include/footer');	
+	}
+	
+	public function logout()
+	{   			
+		$this->session->sess_destroy();
+		redirect('ado/Admin','refresh');  
+	}
 }

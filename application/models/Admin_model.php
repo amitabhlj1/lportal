@@ -11,27 +11,26 @@ class Admin_model extends CI_Model {
 	public function login_admin($data)
     {		
 
-		$query = $this->db->get_where('admin_user', array('user_name' => $data['user_name'],'password' => md5($data['password'])) );
+		$query = $this->db->get_where('admin_user', array('email' => $data['email'],'password' => md5($data['password'])) );
 		$aResult = $query->result_array() ;
 		//echo "<pre />"; print_r($aResult); die();
 		//echo " >> ". $query->num_rows();die;
-		if( $query->num_rows() > 0 && ( $aResult[0]['status'] != 0 ) )
+		if( $query->num_rows() > 0 && ( $aResult[0]['status'] == 1 ) )
 		{						
 			$aSess = array(							
 					'admin_id' => $aResult[0]['id'],
-					'admin_name'  => $aResult[0]['user_name'],
-					'user_type'  => $aResult[0]['user_type']
+					'adm_email' => $aResult[0]['email']
 					);
 			$this->session->set_userdata($aSess);
-			redirect('ado/admin/');           // super admin
+			redirect('ado/Admin/Dashboard');           // super admin
 		}
 		else if( $query->num_rows() > 0 && ( $aResult[0]['status'] == 0 ) )
 		{
-			return '-1';
+			return '-1';   // not active
 		}
 		else
 		{
-		    return false;
+		    return '0';     // email or psw wrong
 		}		
     }
 	

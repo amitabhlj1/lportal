@@ -180,8 +180,8 @@
 							</div>
 							<div class="pull-left info">
 								<p>Hello, <?php 
-									if($this->session->userdata('admin_name'))
-										echo $this->session->userdata('admin_name');
+									if($this->session->userdata('admin_id'))
+										echo $this->session->userdata('adm_email');
 									else
 										echo "jane";
 								?></p>
@@ -236,33 +236,33 @@
 
                 <!-- Main content -->
 				<section class="content">
-                    <div class="row" style="margin-bottom:5px;">
 				<?php
-				if( $this->session->userdata('user_type') != 3 && $this->session->userdata('user_type') != 4)
-				{ 					
-				?>                                        
-						<div class="col-md-2">
-                            <div class="sm-st clearfix">
-                                <span class="sm-st-icon st-red"><i class="fa fa-check-square-o"></i></span>
-                                <div class="sm-st-info">
-									<a href="<?php echo base_url();?>ado/mstudent/">
-										<span>&nbsp;</span>Language Experts
-									</a>
-                                </div>
-                            </div>
-                        </div>
-					<?php
-				} 
-					
-				if($this->session->userdata('user_type') == 1 || $this->session->userdata('user_type') == 4) 
+				$iExperts = '';
+				$iEmployers = '';
+				if($this->session->userdata('admin_id'))
 				{
+					$iExperts = $this->My_model->getNumRows('lang_expert','status',1);
+					$iEmployers = $this->My_model->getNumRows('lang_company','status',1);
+				}	
 				?>
+                <div class="row" style="margin-bottom:5px;">
+				                                     
+					<div class="col-md-2">
+						<div class="sm-st clearfix">
+							<span class="sm-st-icon st-red"><i class="fa fa-check-square-o"></i></span>
+							<div class="sm-st-info">&nbsp;<b><?php echo $iExperts;?></b>
+								<a href="<?php echo base_url();?>ado/mstudent/">
+									<span>&nbsp;</span>Language Experts
+								</a>
+							</div>
+						</div>
+					</div>
 					<div class="col-md-2">
                         <div class="sm-st clearfix">
                             <span class="sm-st-icon st-blue"><i class="fa fa-user"></i></span>
-                        <div class="sm-st-info">
+                        <div class="sm-st-info">&nbsp; <?php echo $iEmployers;?></b>
 							<a href="<?php echo base_url();?>ado/Studycontent">
-								<span>&nbsp;</span>Content 
+								<span>&nbsp;</span>Employers 
 							</a>
                         </div>
 						</div>
@@ -277,6 +277,5 @@
                         </div>
 						</div>
                     </div>
-				<?php } ?>
 				</div>
 			</section>
