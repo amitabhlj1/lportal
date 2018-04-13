@@ -18,7 +18,9 @@ class LangExpert extends CI_Controller
 	*/
 	public function index()
 	{
-		
+		$title['title_of_page'] = "";
+        $title['description'] = "";
+        $title['keywords'] ="";
 		$title['login'] = 1;
         $this->load->view('include/header',$title);
 		$this->load->view('language_expert');
@@ -78,7 +80,75 @@ class LangExpert extends CI_Controller
 			// send verification mail
 		}
 	}
-	
+	/*
+	** register and logging a new language expert using linkedin javascript
+	** @param - none
+	*/
+    public function linkedinlogin(){
+        $where = array(
+            'social_id_no' => $this->input->post('social_id_no')
+        );
+        $check = $this->My_model->selectRecord('lang_expert', '*', $where);
+        $whr2 = array(
+            'c_code' => $this->input->post('country') 
+        );
+        //this is retreving country code from our tables
+        $retrieve = $this->My_model->selectRecord('country', '*', $whr2);
+        $cid = $retrieve[0]->id;
+        $today = date('Y-m-d');
+        $done;
+        if($check){
+            //since there is already a row present with same id;
+            $update_data = array(
+                'first_name' => $this->input->post('first_name'),
+				'last_name' => $this->input->post('last_name'),
+				'email' => $this->input->post('email'),
+                'country' => $cid,
+                'image' => $this->input->post('image'),
+                'social_login' => 1,
+                'social_name' => $this->input->post('social_name'),
+                'last_login' => $today,
+                'status' => 1
+            );
+            $done = $this->My_model->updateRecord('lang_expert', $update_data, $where);
+        } else {
+           $code = $this->My_model->getRandomString(3);
+            $insert_data = array(
+                'first_name' => $this->input->post('first_name'),
+				'last_name' => $this->input->post('last_name'),
+				'email' => $this->input->post('email'),
+                'country' => $cid,
+                'image' => $this->input->post('image'),
+                'code' => $code,
+                'social_login' => 1,
+                'social_id_no' =>$this->input->post('social_id_no'),
+                'social_name' => $this->input->post('social_name'),
+                'email_verify' =>1,
+                'last_login' => $today,
+                'created' => $today,
+                'status' => 1
+            );
+            $done = $this->My_model->insertRecord('lang_expert',$insert_data);
+        }
+        if($done){
+            $whr3 = array(
+                'social_id_no' => $this->input->post('social_id_no') 
+            );
+            $retrieveid = $this->My_model->selectRecord('lang_expert', '*', $whr3);
+            $exp_id = $retrieveid[0]->id;
+            $aSess = array(		
+					'exp_id' => $aResult[0]['id'],
+					'first_name' => $aResult[0]['first_name'],
+					'last_name' => $aResult[0]['last_name'],
+					'image'  => $aResult[0]['image'],
+					'email'  => $aResult[0]['email']
+					);
+			$this->session->set_userdata($aSess);
+            echo '1';
+        } else {
+            echo '-1';
+        }
+    }
 	/*
 	** check unique language expert
 	** @param - email id

@@ -73,21 +73,10 @@
 			 </a>  
 		  </div>
 			
-        <div class="text-center btn btn-xs btn-primary form-control" style="background-color:#0077b5;">
+        <div class="text-center btn btn-xs btn-primary form-control" style="background-color:#0077b5; margin-top:2em;">
             <script type="in/Login"></script>
         </div>
 		</form>
-		<div id="profileData" style="display: none;">
-            <p><a href="javascript:void(0);" onclick="logout()">Logout</a></p>
-            <div id="picture"></div>
-            <div class="info">
-                <p id="name"></p>
-                <p id="intro"></p>
-                <p id="email"></p>
-                <p id="location"></p>
-                <p id="link"></p>
-            </div>
-        </div>
 		<div class="ajax-response font-alt" id="loginResponse" style="color:green"></div>
 	  </div>
 	</div>
@@ -217,13 +206,24 @@
     // Handle the successful return from the API call
     function displayProfileData(data){
         var user = data.values[0];
-        document.getElementById("picture").innerHTML = '<img src="'+user.pictureUrl+'" />';
-        document.getElementById("name").innerHTML = user.firstName+' '+user.lastName;
-        document.getElementById("intro").innerHTML = user.headline;
-        document.getElementById("email").innerHTML = user.emailAddress;
-        document.getElementById("location").innerHTML = user.location.name;
-        document.getElementById("link").innerHTML = '<a href="'+user.publicProfileUrl+'" target="_blank">Visit profile</a>';
-        document.getElementById('profileData').style.display = 'block';
+        //console.log(user);
+        $.ajax({
+			type: "POST",
+			url: baseurl+ "LangExpert/linkedinlogin",
+			dataType: 'html',
+			data: {first_name:user.firstName,last_name:user.lastName,email:user.emailAddress,country:user.location.country.code,image:user.pictureUrl,	social_id_no:user.id,social_name:'l'},
+			success: function(res)
+			{
+				if(res == '-1')
+					$("#loginResponse").html('Your registration pending,Please wait');
+				else 
+					window.location.href = baseurl+'ado/Expert/';
+			},
+			error: function (request, status, error) 
+			{
+				alert(request.responseText);
+			}
+		});       
     }
 
     // Handle an error response from the API call
