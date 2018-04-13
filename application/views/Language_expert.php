@@ -215,9 +215,10 @@
 			success: function(res)
 			{
 				if(res == '-1')
-					$("#loginResponse").html('Your registration pending,Please wait');
+					$("#loginResponse").html('Something went wrong,Please try again later');
 				else 
-					window.location.href = baseurl+'ado/Expert/';
+					window.location.href = baseurl+'expert';
+                    //$("#loginResponse").html(res);
 			},
 			error: function (request, status, error) 
 			{

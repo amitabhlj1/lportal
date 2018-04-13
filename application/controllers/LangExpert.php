@@ -98,7 +98,6 @@ class LangExpert extends CI_Controller
         $today = date('Y-m-d');
         $done;
         if($check){
-            //since there is already a row present with same id;
             $update_data = array(
                 'first_name' => $this->input->post('first_name'),
 				'last_name' => $this->input->post('last_name'),
@@ -111,6 +110,7 @@ class LangExpert extends CI_Controller
                 'status' => 1
             );
             $done = $this->My_model->updateRecord('lang_expert', $update_data, $where);
+            //$this->My_model->printQuery(); die('Hahahah');
         } else {
            $code = $this->My_model->getRandomString(3);
             $insert_data = array(
@@ -130,18 +130,15 @@ class LangExpert extends CI_Controller
             );
             $done = $this->My_model->insertRecord('lang_expert',$insert_data);
         }
-        if($done){
-            $whr3 = array(
-                'social_id_no' => $this->input->post('social_id_no') 
-            );
-            $retrieveid = $this->My_model->selectRecord('lang_expert', '*', $whr3);
-            $exp_id = $retrieveid[0]->id;
+        if($done==1 || $done==0){
+            $retrieveid = $this->My_model->selectRecord('lang_expert', '*', $where);
+            //$exp_id = $retrieveid[0]->id;
             $aSess = array(		
-					'exp_id' => $aResult[0]['id'],
-					'first_name' => $aResult[0]['first_name'],
-					'last_name' => $aResult[0]['last_name'],
-					'image'  => $aResult[0]['image'],
-					'email'  => $aResult[0]['email']
+					'exp_id' => $retrieveid[0]->id,
+					'first_name' => $retrieveid[0]->first_name,
+					'last_name' => $retrieveid[0]->last_name,
+					'image'  => $retrieveid[0]->image,
+					'email'  => $retrieveid[0]->email
 					);
 			$this->session->set_userdata($aSess);
             echo '1';
