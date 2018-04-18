@@ -70,7 +70,7 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
 <div class="container" >
     <div class="profile-head">
         <div class="col-md- col-sm-4 col-xs-12">
-            <img src="<?php echo $usr[0]->image; ?>" class="img-responsive" />
+            <img src="<?php if(!empty($usr[0]->image)){echo $usr[0]->image;} else {echo base_url()."assets/1.png";} ?>" class="img-responsive" />
         </div>
         <!--col-md-4 col-sm-4 col-xs-12 close-->
 
@@ -78,9 +78,10 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
             <h5><?php echo $usr[0]->first_name." ".$usr[0]->last_name; ?></h5>
             <p><?php echo $usr[0]->profile_name; ?></p>
             <ul>
-                <li><span class="glyphicon glyphicon-briefcase"></span> <?php echo $usr[0]->total_exp; ?></li>
-                <li><span class="glyphicon glyphicon-map-marker"></span> <?php echo $country[0]->c_name; ?> </li>
-                <li><span class="glyphicon glyphicon-home"></span> <?php echo $city[0]->name.", ".$state[0]->name; ?></li>
+                <li><span class="fa fa-bolt"></span> <?php if(!empty($usr[0]->profile_name)){ echo $usr[0]->profile_name; } else {echo "N.A.";}?></li>
+                <li><span class="glyphicon glyphicon-briefcase"></span> <?php if(!empty($usr[0]->total_exp)){ echo $usr[0]->total_exp; } else {echo "N.A.";}?> </li>
+                <li><span class="glyphicon glyphicon-map-marker"></span> <?php if(!empty($country[0]->c_name)){ echo $country[0]->c_name;} else {echo "N.A.";} ?> </li>
+                <li><span class="glyphicon glyphicon-home"></span> <?php if(!empty($city[0]->name || $state[0]->name)){ echo $city[0]->name.", ".$state[0]->name;} else {echo "N.A.";} ?></li>
             </ul>
         </div>
         <!--col-md-8 col-sm-8 col-xs-12 close-->
@@ -117,7 +118,7 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
                 <div class="col-sm-11" style="float:left;">
                    <h2 style="text-align:left;">Resume</h2>
                     <div class="hve-pro">
-                        <p><?php echo $usr[0]->about_me ?></p>
+                        <p><?php if(!empty($usr[0]->about_me)) {echo $usr[0]->about_me;} else {echo "Please update your profile for better visibility";} ?></p>
                     </div>
                     <!--hve-pro close-->
                 </div>
@@ -138,16 +139,31 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
                                 <tr>
                                     <td><?php
                                             if(!empty($usr[0]->fid)){
-                                                echo "<span class='social_links'> <a href='".$usr[0]->fid."'><i class='fa fa-facebook'></i>".$usr[0]->fid."</a></span>";
+                                                echo "<i class='fa fa-facebook-square'></i> Facebook: <a href='".$usr[0]->fid."'>".$usr[0]->fid."</a>";
                                             } 
+                                        ?>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><?php
                                             if(!empty($usr[0]->tid)){
-                                                echo "<span class='social_links'> <a href='".$usr[0]->tid."'><i class='fa fa-twitter'></i>".$usr[0]->tid."</a></span>";
+                                                echo "<i class='fa fa-twitter-square'></i> Twitter: <a href='".$usr[0]->tid."'>".$usr[0]->tid."</a>";
                                             }
-                                            if(!empty($usr[0]->qid)){
-                                                echo "<span class='social_links'> <a href='".$usr[0]->lid."'><i class='fa fa-quora'></i>".$usr[0]->lid."</a></span>";
+                                        ?>
+                                    </td>
+                                </tr>
+                                <tr>
+                                   <td><?php
+                                        if(!empty($usr[0]->qid)){
+                                                echo "<i class='fa fa-quora'></i> Quora: <a href='".$usr[0]->lid."'>".$usr[0]->lid."</a>";
                                             }
-                                            if(!empty($usr[0]->lid)){
-                                                echo "<span class='social_links'> <a href='".$usr[0]->lid."'><i class='fa fa-linkedin'></i>".$usr[0]->lid."</a></span>";
+                                       ?>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><?php
+                                        if(!empty($usr[0]->lid)){
+                                                echo "<i class='fa fa-linkedin-square'></i> Linkedin: <a href='".$usr[0]->lid."'>".$usr[0]->lid."</a>";
                                             }
                                         ?>
                                     </td>
@@ -183,7 +199,7 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
                         <?php    
                                 }
                             } else {
-                                echo "<div class='text-center'>Education Details have not been updated yet!</div>";
+                                echo "<div class='text-center'>Education Details have not been updated yet! Please update your profile soon, to achieve better visibility</div>";
                             }
                         ?>
                     </div>
@@ -215,7 +231,7 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
                         <?php    
                                 }
                             } else{
-                                echo "<div class='text-center'>Work history not found!</div>";
+                                echo "<div class='text-center'>Work history not found! Please update your profile soon, to achieve better visibility</div>";
                             }
                         ?>
                     </div>
