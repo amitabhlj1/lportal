@@ -23,8 +23,12 @@ class Admin extends CI_Controller
 		if( !$this->session->userdata('admin_id') )
 			redirect('ado/Admin/logout','refresh'); 
 		
-		$data['experts']    = $this->My_model->selectRecord('lang_expert','*','','','');
-		$data['employers']  = $this->My_model->selectRecord('lang_company','*','','','');
+		$aOrder = array('criteria' => 'created','order' => 'DESC');
+		$iLimit  = 5;
+		$data['experts']    = $this->My_model->selectRecord('lang_expert','*','',$aOrder,$iLimit);
+		//$this->My_model->PrintQuery();
+		$data['employers']  = $this->My_model->selectRecord('lang_company','*','',$aOrder,$iLimit);
+		//$data['jobs']    = $this->My_model->selectRecord('jobs','*','','','');
 		
 		//echo "<pre />"; print_r($data); 
 		$this->load->view('admin/include/header'); 
@@ -32,6 +36,47 @@ class Admin extends CI_Controller
 	    $this->load->view('admin/include/footer');		 	
 	}
 	
+	function experts()
+	{	
+		if( !$this->session->userdata('admin_id') )
+			redirect('ado/Admin/logout','refresh'); 
+		
+		$data['experts']    = $this->My_model->selectRecord('lang_expert','*','','','');
+		echo "<pre />"; print_r($data); die();
+		
+		//echo "<pre />"; print_r($data); 
+		$this->load->view('admin/include/header'); 
+		$this->load->view('admin/experts',$data); 
+	    $this->load->view('admin/include/footer');		 	
+	}
+	
+	function employers()
+	{	
+		if( !$this->session->userdata('admin_id') )
+			redirect('ado/Admin/logout','refresh'); 
+		
+		$data['employers']    = $this->My_model->selectRecord('lang_company','*','','','');
+		echo "<pre />"; print_r($data); die();
+		
+		//echo "<pre />"; print_r($data); 
+		$this->load->view('admin/include/header'); 
+		$this->load->view('admin/employers',$data); 
+	    $this->load->view('admin/include/footer');		 	
+	}
+	
+	function jobs()
+	{	
+		if( !$this->session->userdata('admin_id') )
+			redirect('ado/Admin/logout','refresh'); 
+		
+		$data['jobs']    = $this->My_model->selectRecord('jobs','*','','','');
+		echo "<pre />"; print_r($data); die();
+		
+		//echo "<pre />"; print_r($data); 
+		$this->load->view('admin/include/header'); 
+		$this->load->view('admin/jobs',$data); 
+	    $this->load->view('admin/include/footer');		 	
+	}
 	/*
 	** jobs category listinng
 	** @param - none
@@ -90,8 +135,10 @@ class Admin extends CI_Controller
 	**/
 	function changeStatus($id,$val,$table)
 	{	
-		$data = array('cat_name' => $this->input->post('cat_name'));
-		$this->My_model->updateRecord('job_category',$data);	
+		$where   = array('id' => $id);
+		$data = array('status' => $val);
+		$this->My_model->updateRecord($table,$data,$where);
+		redirect('ado/Admin/Dashboard');
 	}
 	
 	public function loginValidate()

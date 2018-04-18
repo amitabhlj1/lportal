@@ -42,6 +42,7 @@ class Employer_model extends CI_Model {
 					'emp_id' => $aResult[0]['id'],
 					'first_name' => $aResult[0]['first_name'],
 					'last_name' => $aResult[0]['last_name'],
+					'comp_name' => $aResult[0]['company_name'],
 					'image'  => $aResult[0]['image'],
 					'email'  => $aResult[0]['email']
 					);
