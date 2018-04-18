@@ -185,7 +185,7 @@
 				else if(res == '2')
 					$("#loginResponse").html('Wrong email id or password');
 				else 
-					window.location.href = baseurl+'ado/Expert/';	
+					window.location.href = baseurl+'expert';	
 			},
 			error: function (request, status, error) 
 			{
