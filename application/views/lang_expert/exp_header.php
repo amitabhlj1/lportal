@@ -81,25 +81,11 @@
           </div>
           <div class="collapse navbar-collapse" id="custom-collapse">
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="index.php"><i class="fa fa-home"></i>Home</a></li>
-              <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown"><i class="fa fa-th-list"></i>Services</a>
+              <li><a href="index.php"><i class="fa fa-search"></i>Search Jobs</a></li>
+              <li><a href="contact.php"><i class="fa fa-book"></i>Freelance Projects</a></li>
+              <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown"><i class="fa fa-user-circle"></i><?php echo $this->session->userdata('first_name'); ?></a>
                 <ul class="dropdown-menu">
-                  <li class="dropdown"><a href="language-jobs.php">Job Portal</a></li>
-                  <li class="dropdown"><a href="recruitment-services.php">Recruitment</a></li>
-                  <li class="dropdown"><a href="translation-services.php">Translation</a></li>
-                  <li class="dropdown"><a href="interpretation-services.php">Interpretation</a></li>
-                  <li class="dropdown"><a href="localization-services.php">Localization</a></li>
-                  <li class="dropdown"><a href="transcription-services.php">Language Transcription</a></li>
-                  <li class="dropdown"><a href="voiceover-services.php">Voice-over</a></li>
-                  <li class="dropdown"><a href="language-training.php">Language Training</a></li>
-                  <li class="dropdown"><a href="toptenreasons.php">Why chose Langjobs?</a></li>
-                </ul>
-              </li>
-              <li><a href="contact.php"><i class="fa fa-phone"></i>Contact Us</a></li>
-				<li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown"><i class="fa fa-th-list"></i>Login</a>
-                <ul class="dropdown-menu">
-                  <li class="dropdown"><a href="<?php echo base_url();?>LangExpert">Language Expert</a></li>
-                  <li class="dropdown"><a href="<?php echo base_url();?>LangEmployer">Language Employer</a></li>
+                  <li class="dropdown"><a href="<?php echo base_url();?>expert/logout"><i class="fa fa-sign-out"></i>Logout</a></li>
                 </ul>
               </li>
             </ul>

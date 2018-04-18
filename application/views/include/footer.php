@@ -38,14 +38,14 @@
                   <h5 class="widget-title font-alt">Popular Posts</h5>
                   <ul class="widget-posts">
                     <li class="clearfix">
-                      <div class="widget-posts-image"><a href="#"><img src="assets/images/rp-1.jpg" alt="Post Thumbnail"/></a></div>
+                      <div class="widget-posts-image"><a href="#"><img src="#" alt="Post Thumbnail"/></a></div>
                       <div class="widget-posts-body">
                         <div class="widget-posts-title"><a href="#">Designer Desk Essentials</a></div>
                         <div class="widget-posts-meta">23 january</div>
                       </div>
                     </li>
                     <li class="clearfix">
-                      <div class="widget-posts-image"><a href="#"><img src="assets/images/rp-2.jpg" alt="Post Thumbnail"/></a></div>
+                      <div class="widget-posts-image"><a href="#"><img src="#" alt="Post Thumbnail"/></a></div>
                       <div class="widget-posts-body">
                         <div class="widget-posts-title"><a href="#">Realistic Business Card Mockup</a></div>
                         <div class="widget-posts-meta">15 February</div>
@@ -86,10 +86,104 @@
     <script src="<?php echo base_url(); ?>assets/lib/imagesloaded/imagesloaded.pkgd.js"></script>
     <script src="<?php echo base_url(); ?>assets/lib/flexslider/jquery.flexslider.js"></script>
     <script src="<?php echo base_url(); ?>assets/lib/owl.carousel/dist/owl.carousel.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/lib/smoothscroll.js"></script>
     <script src="<?php echo base_url(); ?>assets/lib/magnific-popup/dist/jquery.magnific-popup.js"></script>
     <script src="<?php echo base_url(); ?>assets/lib/simple-text-rotator/jquery.simple-text-rotator.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/js/plugins.js"></script>
     <script src="<?php echo base_url(); ?>assets/js/main.js"></script>
+    <script>
+        // for profile page;
+        //tab js//
+        $(document).ready(function(e) {
+        $('.form').find('input, textarea').on('keyup blur focus', function (e) {
+          var $this = $(this),
+              label = $this.prev('label');
+
+              if (e.type === 'keyup') {
+                    if ($this.val() === '') {
+                  label.removeClass('active highlight');
+                } else {
+                  label.addClass('active highlight');
+                }
+            } else if (e.type === 'blur') {
+                if( $this.val() === '' ) {
+                    label.removeClass('active highlight'); 
+                    } else {
+                    label.removeClass('highlight');   
+                    }   
+            } else if (e.type === 'focus') {
+
+              if( $this.val() === '' ) {
+                    label.removeClass('highlight'); 
+                    } 
+              else if( $this.val() !== '' ) {
+                    label.addClass('highlight');
+                    }
+            }
+
+        });
+        $('.tab a').on('click', function (e) {
+          e.preventDefault();
+          $(this).parent().addClass('active');
+          $(this).parent().siblings().removeClass('active');
+          target = $(this).attr('href');
+
+          $('.tab-content > div').not(target).hide();
+
+          $(target).fadeIn(600);
+
+        });
+        //canvas off js//
+        $('#menu_icon').click(function(){
+                if($("#content_details").hasClass('drop_menu'))
+                {
+                $("#content_details").addClass('drop_menu1').removeClass('drop_menu');
+            }
+                else{
+                    $("#content_details").addClass('drop_menu').removeClass('drop_menu1');
+                    }
+
+
+            });
+
+        });
+    </script>
+    <script>
+        function show_state(x){
+            var cid = x;
+            //alert(cid);
+            $.ajax({
+                type: "POST",
+                url: baseurl+ "expert/return_states",
+                dataType: 'html',
+                data: {country: cid},
+                success: function(res)
+                {
+                    $("#states").html(res);		
+                },
+                error: function (request, status, error) 
+                {
+                    alert(request.responseText);
+                }
+            });
+        }
+        function show_cities(x){
+            var stid = x;
+            //alert(cid);
+            $.ajax({
+                type: "POST",
+                url: baseurl+ "expert/return_cities",
+                dataType: 'html',
+                data: {state: stid},
+                success: function(res)
+                {
+                    $("#cities").html(res);		
+                },
+                error: function (request, status, error) 
+                {
+                    alert(request.responseText);
+                }
+            });
+        }
+    </script>
   </body>
 </html>

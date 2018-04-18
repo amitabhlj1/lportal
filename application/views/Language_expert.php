@@ -73,10 +73,9 @@
 			 </a>  
 		  </div>
 			
-			<div class="text-center">
-				<br />
-				<script type="in/Login"></script>
-			</div>
+        <div class="text-center btn btn-xs btn-primary form-control" style="background-color:#0077b5; margin-top:2em;">
+            <script type="in/Login"></script>
+        </div>
 		</form>
 		<div class="ajax-response font-alt" id="loginResponse" style="color:green"></div>
 	  </div>
@@ -186,7 +185,7 @@
 				else if(res == '2')
 					$("#loginResponse").html('Wrong email id or password');
 				else 
-					window.location.href = baseurl+'ado/Expert/';	
+					window.location.href = baseurl+'expert';	
 			},
 			error: function (request, status, error) 
 			{
@@ -194,4 +193,52 @@
 			}
 		});
 	}
+    // Setup an event listener to make an API call once auth is complete
+    function onLinkedInLoad() {
+        IN.Event.on(IN, "auth", getProfileData);
+    }
+    
+    // Use the API call wrapper to request the member's profile data
+    function getProfileData() {
+        IN.API.Profile("me").fields("id", "first-name", "last-name", "headline", "location", "picture-url", "public-profile-url", "email-address").result(displayProfileData).error(onError);
+    }
+
+    // Handle the successful return from the API call
+    function displayProfileData(data){
+        var user = data.values[0];
+        //console.log(user);
+        $.ajax({
+			type: "POST",
+			url: baseurl+ "LangExpert/linkedinlogin",
+			dataType: 'html',
+			data: {first_name:user.firstName,last_name:user.lastName,email:user.emailAddress,country:user.location.country.code,image:user.pictureUrl,	social_id_no:user.id,social_name:'l'},
+			success: function(res)
+			{
+				if(res == '-1')
+					$("#loginResponse").html('Something went wrong,Please try again later');
+				else 
+					window.location.href = baseurl+'expert';
+                    //$("#loginResponse").html(res);
+			},
+			error: function (request, status, error) 
+			{
+				alert(request.responseText);
+			}
+		});       
+    }
+
+    // Handle an error response from the API call
+    function onError(error) {
+        console.log(error);
+    }
+    
+    // Destroy the session of linkedin
+    function logout(){
+        IN.User.logout(removeProfileData);
+    }
+    
+    // Remove profile data from page
+    function removeProfileData(){
+        document.getElementById('profileData').remove();
+    }
 </script>
