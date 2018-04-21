@@ -81,7 +81,7 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
                 <li><span class="fa fa-bolt"></span> <?php if(!empty($usr[0]->profile_name)){ echo $usr[0]->profile_name; } else {echo "N.A.";}?></li>
                 <li><span class="glyphicon glyphicon-briefcase"></span> <?php if(!empty($usr[0]->total_exp)){ echo $usr[0]->total_exp; } else {echo "N.A.";}?> </li>
                 <li><span class="glyphicon glyphicon-map-marker"></span> <?php if(!empty($country[0]->c_name)){ echo $country[0]->c_name;} else {echo "N.A.";} ?> </li>
-                <li><span class="glyphicon glyphicon-home"></span> <?php if(!empty($city[0]->name || $state[0]->name)){ echo $city[0]->name.", ".$state[0]->name;} else {echo "N.A.";} ?></li>
+                <li><span class="glyphicon glyphicon-home"></span> <?php if(!empty($city || $state)){ echo $city[0]->name.", ".$state[0]->name;} else {echo "N.A.";} ?></li>
             </ul>
         </div>
         <!--col-md-8 col-sm-8 col-xs-12 close-->
