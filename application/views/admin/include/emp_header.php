@@ -177,7 +177,7 @@
 
                 <!-- Main content -->
 				<?php
-				$iJobs = 10; //$this->My_model->getNumRows('employee','school_id',$this->session->userdata('school_id'));
+				$iJobs = $this->My_model->getNumRows('jobs','company_id',$this->session->userdata('emp_id'));
 				//$iStudents = $this->My_model->getNumRows('student','school_id',$this->session->userdata('school_id'));
 				?>
 				<section class="content">
@@ -187,21 +187,11 @@
                             <div class="sm-st clearfix">
                                 <span class="sm-st-icon st-red"><i class="fa fa-check-square-o"></i></span>
                                 <div class="sm-st-info">
-									<a href="<?php echo base_url();?>ado/School/Students/">
+									<a href="<?php echo base_url();?>ado/Employer/jobs/">
 										<span><?php echo $iJobs;?></span>Jobs
 									</a>
                                 </div>
                             </div>
                         </div>	         
-                       	<div class="col-md-2">
-                            <div class="sm-st clearfix">
-                                <span class="sm-st-icon st-red"><i class="fa fa-user"></i></span>
-                                <div class="sm-st-info">
-									<a href="<?php echo base_url();?>ado/School/Teachers">
-										<span><?php echo $iJobs;?></span>Teacher
-									</a>
-                                </div>
-							</div>
-                        </div>
 					</div>
 			</section>

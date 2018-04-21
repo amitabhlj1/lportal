@@ -15,6 +15,7 @@
 					  <th>Email</th>				  
 					  <th>Mobile</th>
 					  <th>Social</th>
+					  <th>Action</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -31,12 +32,16 @@
 					  <td><?php echo $employer->email;?></td>						  
 					  <td><?php echo $employer->mobile;?></td>
 					  <td><?php echo $isSocial;?></td>
-					  <td>							
+					  <td>		
+						  <a href="#" data-toggle="modal" data-target="#empview" onclick="employerDetails(<?php echo $employer->id;?>);">
+								<span class="glyphicon glyphicon-eye-open" title="view details"></span>
+						  </a>
+						  &nbsp;&nbsp; &nbsp;&nbsp;
 						<?php 
 							if($employer->status == 1)
 							{
 							?>
-								<a href="<?php echo base_url();?>ado/Admin/changeStatus/<?php echo $employer->id;?>/0/lang_company" >
+								<a href="<?php echo base_url();?>ado/Admin/changeStatus/<?php echo $employer->id;?>/0/lang_company/Dashboard" >
 									<span class="label label-success" title="change status (delete this)">&nbsp;</span>
 								</a>
 							<?php
@@ -44,7 +49,7 @@
 							else
 							{
 							?>
-								<a href="<?php echo base_url();?>ado/Admin/changeStatus/<?php echo $employer->id;?>/1/lang_company" >
+								<a href="<?php echo base_url();?>ado/Admin/changeStatus/<?php echo $employer->id;?>/1/lang_company/Dashboard" >
 									<span class="label label-danger" title="change status (undelete this)">&nbsp;</span>
 								</a>
 							<?php
@@ -67,6 +72,21 @@
 	    </section>
 	</div><!--end col-6 -->
 </div>	
+
+<div class="modal fade" id="empview" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Employer Details</h4>
+        </div>
+        <div class="modal-body">
+			<table id="emp_dt" class="table table-hover"></table>			
+        </div>
+      </div>
+    </div>
+</div>
+	
 <div class="row">
    <div class="col-md-12">
 		<section class="panel">
@@ -96,12 +116,16 @@
 					  <td><?php echo $expert->email;?></td>						  
 					  <td><?php echo $expert->mobile;?></td>
 					  <td><?php echo $isSocial;?></td>
-					  <td>							
+					  <td>	
+						  <a href="#" data-toggle="modal" data-target="#expview" onclick="expertDetails(<?php echo $expert->id;?>);">
+								<span class="glyphicon glyphicon-eye-open" title="view details"></span>
+						  </a>
+						  &nbsp;&nbsp; &nbsp;&nbsp;
 						<?php 
 							if($expert->status == 1)
 							{
 							?>
-								<a href="<?php echo base_url();?>ado/Admin/changeStatus/<?php echo $expert->id;?>/0/lang_expert" >
+								<a href="<?php echo base_url();?>ado/Admin/changeStatus/<?php echo $expert->id;?>/0/lang_expert/Dashboard" >
 									<span class="label label-success" title="change status (delete this)">&nbsp;</span>
 								</a>
 							<?php
@@ -109,7 +133,7 @@
 							else
 							{
 							?>
-								<a href="<?php echo base_url();?>ado/Admin/changeStatus/<?php echo $expert->id;?>/1/lang_expert" >
+								<a href="<?php echo base_url();?>ado/Admin/changeStatus/<?php echo $expert->id;?>/1/lang_expert/Dashboard" >
 									<span class="label label-danger" title="change status (undelete this)">&nbsp;</span>
 								</a>
 							<?php
@@ -134,3 +158,17 @@
 	</div><!--end col-6 -->
 </div>	
 </section><!-- /.content -->
+
+<div class="modal fade" id="expview" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Expert Details</h4>
+        </div>
+        <div class="modal-body">
+			<table id="exp_dt" class="table table-hover"></table>			
+        </div>
+      </div>
+    </div>
+</div>

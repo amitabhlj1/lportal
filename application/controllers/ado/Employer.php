@@ -33,14 +33,12 @@ class Employer extends CI_Controller
 		if( !$this->session->userdata('emp_id') )
 			redirect('ado/Employer/logout','refresh'); 
 	
-		$iLimit = 5;
 		$aOrder = array('criteria' => 'created', 'order' => 'desc' );
 		$where = array('company_id' => $this->session->userdata('emp_id'));
 		
-		$data['jobs'] = $this->My_model->selectRecord('jobs','*',$where,$aOrder,$iLimit);
+		$data['jobs'] = $this->My_model->selectRecord('jobs','*',$where,$aOrder,'');
 		
-		echo "<pre />"; print_r($data); 
-		die();
+		//echo "<pre />"; print_r($data); die();
 		$this->load->view('admin/include/emp_header'); 
 		$this->load->view('admin/employer/jobs',$data); 
 	    $this->load->view('admin/include/footer');		 	
@@ -59,6 +57,84 @@ class Employer extends CI_Controller
 	    $this->load->view('admin/include/footer');		 	
 	}
 	
+	function saveJob()
+	{	
+		if( !$this->session->userdata('emp_id') )
+			redirect('ado/Employer/logout','refresh'); 
+		
+		$today = date('Y-m-d'); 
+		$data = array(
+			'j_type' => $this->input->post('j_type'),
+			'j_category' => $this->input->post('j_category'),
+			'company_id' => $this->session->userdata('emp_id'),
+			'title' => $this->input->post('title'),
+			'skills' => $this->input->post('skills'),
+			'description' => $this->input->post('description'),
+			'last_date' => $this->input->post('last_date'),
+			'created' => $today
+			);
+		$iInserId = $this->My_model->insertRecord('jobs',$data);
+		//echo $iInserId;
+		//echo "<pre />"; print_r($data); 
+		if($iInserId)
+		{
+			$this->session->set_flashdata('verify_msg','<div class="alert alert-block alert-success">
+						<button data-dismiss="alert" class="close close-sm" type="button">
+							<i class="fa fa-times"></i>
+						</button>
+						Job added/edited succesfully!
+					</div>');
+			redirect('ado/Employer/');
+		}
+		else
+		{
+			$this->session->set_flashdata('verify_msg','<div class="alert alert-block alert-danger">
+						<button data-dismiss="alert" class="close close-sm" type="button">
+							<i class="fa fa-times"></i>
+						</button>
+						<strong>Error!</strong>Try After sometime!
+					</div>');
+			redirect('ado/Employer/');
+		}
+			
+	}
+	
+	function viewJob()
+	{	
+		$where     = array('id' => $this->input->post('job_id'));
+		$aJob = $this->My_model->selectRecord('jobs','*',$where,'','');
+		?>
+		<tr>
+			<td>Type :&nbsp;</td><td><?php echo $aJob[0]->j_type;?></td>
+		</tr>
+		<tr>
+			<td>Category :&nbsp;</td><td><?php echo $aJob[0]->j_category;?></td>
+		</tr>
+		<tr>
+			<td>Title:&nbsp;</td><td><?php echo $aJob[0]->title;?></td>
+		</tr>
+		<tr>
+			<td>Details:&nbsp;</td><td><?php echo $aJob[0]->description;?></td>
+		</tr>
+		<tr>
+			<td>Applicants:&nbsp;</td><td><?php echo $aJob[0]->j_applicants;?></td>
+		</tr>
+		<?php	 	
+	}
+	
+	function viewApplicants($job_id)
+	{	
+		if( !$this->session->userdata('emp_id') )
+			redirect('ado/Employer/logout','refresh'); 
+	
+		$where = array('company_id' => $this->session->userdata('emp_id'),'job_id' => $job_id);
+		$data['applicants'] = $this->My_model->selectRecord('job_apply','*',$where,'','');
+		
+		$this->load->view('admin/include/emp_header'); 
+		$this->load->view('admin/employer/applicant',$data); 
+	    $this->load->view('admin/include/footer');		 	
+	}
+	
 	function profile()
 	{	
 		if( !$this->session->userdata('emp_id') )
@@ -68,8 +144,7 @@ class Employer extends CI_Controller
 		$where = array('id' => $this->session->userdata('emp_id'));
 		$data['profile']    = $this->My_model->selectRecord('lang_company','*',$where,'','');
 		
-		//echo "<pre />"; print_r($data); 
-		//die();
+		//echo "<pre />"; print_r($data); //die();
 		$this->load->view('admin/include/emp_header'); 
 		$this->load->view('admin/employer/profile',$data); 
 	    $this->load->view('admin/include/footer');		 	
@@ -78,7 +153,6 @@ class Employer extends CI_Controller
 	function changeLogo()
 	{	
 		//echo FCPATH ; die();
-		//echo FCPATH ."  KKKKK" ;
 		$empPath = 'assets/uploads/employer/';
 		$path =  FCPATH.$empPath;
 		 //"""F:/xampp/htdocs/upload_ci/assets/tmp/";
@@ -86,7 +160,6 @@ class Employer extends CI_Controller
 		$valid_formats = array("jpg", "png", "gif", "bmp","jpeg","PNG","JPG","JPEG","GIF","BMP");
 		if(isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST")
 		{
-			//include_once 'includes/getExtension.php';
 			$imagename = $_FILES['photoimg']['name'];
 			$size = $_FILES['photoimg']['size'];
 							
@@ -148,7 +221,6 @@ class Employer extends CI_Controller
 	public function saveAddress()
 	{			
 		$data = array('address' => $this->input->post('address'));	
-				//die('update');
 		$where = array('id' => $this->session->userdata('emp_id'));				
 		$iStatus = $this->My_model->updateRecord('lang_company',$data,$where);
 		echo $iStatus;		

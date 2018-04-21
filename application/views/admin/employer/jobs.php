@@ -38,7 +38,7 @@
 					  <td><?php echo $job->title;?></td>						  
 					  <td>
 						  <a href="<?php echo base_url();?>Employer/viewApplicants/<?php echo $job->id;?>"><?php echo $job->j_applicants;?>
-						  </a>
+						  </a>	  
 					  </td>
 					  <td><?php echo $job->created;?></td>
 					  <td><?php echo $job->last_date;?></td>
@@ -51,7 +51,7 @@
 						  <a href="#" data-toggle="modal" data-target="#expview" onclick="editJob(<?php echo $job->id;?>);">
 							<span class="glyphicon glyphicon-pencil" title="edit this"></span>
 						  </a>
-					  </td>	  
+					  </td> 		
 					</tr>
 					<?php
 					}

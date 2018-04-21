@@ -10,14 +10,8 @@
 						<button class="btn btn-sm btn-primary pull-right" type="submit">cancel</button>
 				</a>		
 			</header>
-			<div class="panel-body">
-				<span id="mailmessage" style="color:green">
-					<?php if(!empty($msgsucc)) {
-						echo $msgsucc;
-						} ?>
-				</span>		
-				<form class="form-horizontal" id="eventfrm" role="form" method="post" action="<?php echo base_url()?>talgo/events/saveEvent">					
-				
+			<div class="panel-body">	
+				<form class="form-horizontal" id="eventfrm" role="form" method="post" action="<?php echo base_url()?>ado/Employer/saveJob">
 					<p class="help-block"><div id="msg_succ" style="margin-left:200px;color:#44e028"></div></p>
 					<div class="form-group">					
 					  <label for="inputEmail1" class="col-lg-2 col-sm-2 control-label">Job Type</label>
@@ -34,13 +28,13 @@
 							<option value="part time" <?php echo $strSel;?>>Part Time</option>
 							<option value="Project based" <?php echo $strSel;?>>Project Based</option>
 						  </select>
-						  <p class="help-block"><div id="err_key" style="color:#F83A18"></div></p>
+						  <p class="help-block"><div id="err_type" style="color:#F83A18"></div></p>
 					  </div>
 				    </div>
 					<div class="form-group">					
 					  <label for="inputEmail1" class="col-lg-2 col-sm-2 control-label">Category</label>
 					  <div class="col-lg-10">
-						<select required="true" class="form-control m-b-10" name="language" id="language">
+						<select required="true" class="form-control m-b-10" name="j_category" id="j_category">
 							<option value="">Select</option>
 							<?php
 								foreach($cats as $cat)	
@@ -53,20 +47,20 @@
 								<option value="<?php echo $cat->id; ?>" <?php echo $strSel;?>><?php echo $cat->cat_name; ?></option>
 							<?php } ?>							    
                             </select>
-						  <p class="help-block"><div id="err_key" style="color:#F83A18"></div></p>
+						  <p class="help-block"><div id="err_cat" style="color:#F83A18"></div></p>
 					  </div>
 				    </div>
 					<div class="form-group">					
 					  <label for="inputEmail1" class="col-lg-2 col-sm-2 control-label">Title</label>
 					  <div class="col-lg-10">
-						  <input type="text" required="true" class="form-control" name="event_title" id="event_title" placeholder="title" value="" maxlength="200">
+						  <input type="text" required="true" class="form-control" name="title" id="title" placeholder="job title" value="" maxlength="200">
 						  <p class="help-block"><div id="err_title" style="color:#F83A18"></div></p>
 					  </div>
 				    </div>	
 					<div class="form-group">
 					  <label for="description" class="col-lg-2 col-sm-2 control-label">Skills</label><div class="col-lg-10">
 						 <input type="text" class="form-control" name="skills" id="skills" placeholder="title" value="" maxlength="400">
-						  <p class="help-block"><div id="err_desc" style="color:#F83A18"></div></p>
+						  <p class="help-block"><div id="err_skills" style="color:#F83A18"></div></p>
 					  </div>
 				    </div>					
 					<div class="form-group">
@@ -74,7 +68,13 @@
 					  <label for="inputEmail1" class="col-lg-2 col-sm-2 control-label">Job Detail</label>
 					  <div class="col-lg-10">
 						  <textarea id="description" name="description" class="msg-input" placeholder="Job details..." rows="6" cols="90"></textarea>
-						  <p class="help-block"><div id="err_desc" style="color:#F83A18"></div></p>
+						  <p class="help-block"><div id="err_det" style="color:#F83A18"></div></p>
+					  </div>
+				    </div>
+					<div class="form-group">
+					  <label for="description" class="col-lg-2 col-sm-2 control-label">Last Date</label><div class="col-lg-10">
+						 <input type="date" class="form-control" name="last_date" id="last_date" placeholder="title" value="" maxlength="400">
+						  <p class="help-block"><div id="err_ldate" style="color:#F83A18"></div></p>
 					  </div>
 				    </div>
 				    <div class="form-group">
@@ -94,26 +94,42 @@
 <script>
 function saveJobs()
 {		
-	$("#err_key").html('');
+	$("#err_type").html('');
+	//$("#err_cat").html('');
 	$("#err_title").html('');
-	$("#err_desc").html('');
-	$("#err_date").html('');
+	$("#err_skills").html('');
+	$("#err_det").html('');
 	
-	var event_keywords  = $("#event_keywords").val();
-	var event_title     = $("#event_title").val();	
-	var event_date      = $("#event_date").val();
+	var j_type     = $("#j_type").val();
+	var j_category = $("#j_category").val();
+	var title      = $("#title").val();
+	var skills     = $("#skills").val();
+	var description = $("#description").val();
 	
-	if(event_keywords == '')
+	if(j_type == '')
 	{
-		$("#err_key").html('please write keywords');		
+		$("#err_type").html('please select job type');		
 		return false;
 	}	
-	if(event_title == '')
+	/*
+	if(j_category == '')
 	{
-		$("#err_title").html('please write event title');		
+		$("#err_cat").html('please select job category');		
 		return false;
-	}			
+	}
+	*/
+	if(title == '')
+	{
+		$("#err_title").html('please enter job title');		
+		return false;
+	}
 	
+	if(description == '')
+	{
+		$("#err_det").html('please enter job description');		
+		return false;
+	}
+	// submit form
 	$("#eventfrm").submit();
 }
 </script>

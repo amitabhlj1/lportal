@@ -28,7 +28,6 @@ class Admin extends CI_Controller
 		$data['experts']    = $this->My_model->selectRecord('lang_expert','*','',$aOrder,$iLimit);
 		//$this->My_model->PrintQuery();
 		$data['employers']  = $this->My_model->selectRecord('lang_company','*','',$aOrder,$iLimit);
-		//$data['jobs']    = $this->My_model->selectRecord('jobs','*','','','');
 		
 		//echo "<pre />"; print_r($data); 
 		$this->load->view('admin/include/header'); 
@@ -42,12 +41,30 @@ class Admin extends CI_Controller
 			redirect('ado/Admin/logout','refresh'); 
 		
 		$data['experts']    = $this->My_model->selectRecord('lang_expert','*','','','');
-		echo "<pre />"; print_r($data); die();
+		//echo "<pre />"; print_r($data); die();
 		
-		//echo "<pre />"; print_r($data); 
 		$this->load->view('admin/include/header'); 
 		$this->load->view('admin/experts',$data); 
 	    $this->load->view('admin/include/footer');		 	
+	}
+	
+	function expertDetails()
+	{	
+		if( !$this->session->userdata('admin_id') )
+			redirect('ado/Admin/logout','refresh'); 
+		$where     = array('id' => $this->input->post('id'));
+		$aEmployer = $this->My_model->selectRecord('lang_expert','*',$where,'','');
+		?>
+		<tr>
+			<td>Profile Name :&nbsp;</td><td><?php echo $aEmployer[0]->profile_name;?></td>
+		</tr>
+		<tr>
+			<td>Skills:&nbsp;</td><td><?php echo $aEmployer[0]->skills;?></td>
+		</tr>
+		<tr>
+			<td>About:&nbsp;</td><td><?php echo $aEmployer[0]->about_me;?></td>
+		</tr>
+		<?php
 	}
 	
 	function employers()
@@ -56,7 +73,7 @@ class Admin extends CI_Controller
 			redirect('ado/Admin/logout','refresh'); 
 		
 		$data['employers']    = $this->My_model->selectRecord('lang_company','*','','','');
-		echo "<pre />"; print_r($data); die();
+		//echo "<pre />"; print_r($data); die();
 		
 		//echo "<pre />"; print_r($data); 
 		$this->load->view('admin/include/header'); 
@@ -64,7 +81,29 @@ class Admin extends CI_Controller
 	    $this->load->view('admin/include/footer');		 	
 	}
 	
-	function jobs()
+	function employerDetails()
+	{	
+		if( !$this->session->userdata('admin_id') )
+			redirect('ado/Admin/logout','refresh'); 
+		$where     = array('id' => $this->input->post('emp_id'));
+		$aEmployer = $this->My_model->selectRecord('lang_company','*',$where,'','');
+		?>
+		<tr>
+			<td>Company :&nbsp;</td><td><?php echo $aEmployer[0]->company_name;?></td>
+		</tr>
+		<tr>
+			<td>Address:&nbsp;</td><td><?php echo $aEmployer[0]->address;?></td>
+		</tr>
+		<tr>
+			<td>Size:&nbsp;</td><td><?php echo $aEmployer[0]->no_emp;?></td>
+		</tr>
+		<tr>
+			<td>About:&nbsp;</td><td><?php echo $aEmployer[0]->company_description;?></td>
+		</tr>
+		<?php
+	}
+	
+	function Jobs()
 	{	
 		if( !$this->session->userdata('admin_id') )
 			redirect('ado/Admin/logout','refresh'); 
@@ -83,6 +122,9 @@ class Admin extends CI_Controller
 	**/
 	function Category() 
 	{	
+		if( !$this->session->userdata('admin_id') )
+			redirect('ado/Admin/logout','refresh'); 
+		
 		//$where = array('status' => 1);
 		$data['categorys']  = $this->My_model->selectRecord('job_category','*','','','');
 		
@@ -101,6 +143,35 @@ class Admin extends CI_Controller
 		$data = array('cat_name' => $this->input->post('cat_name'));
 		$this->My_model->insertRecord('job_category',$data);
 		redirect('ado/Admin/Category');
+	}
+	
+	
+	/*
+	** job Skills listinng
+	** @param - none
+	**/
+	function Skills() 
+	{	
+		if( !$this->session->userdata('admin_id') )
+			redirect('ado/Admin/logout','refresh'); 
+		
+		$data['skills']  = $this->My_model->selectRecord('job_skills','*','','','');
+		
+		//echo "<pre />"; print_r($data); 
+		$this->load->view('admin/include/header'); 
+		$this->load->view('admin/skills',$data); 
+	    $this->load->view('admin/include/footer');		 	
+	}
+	
+	/*
+	** save jobs skills
+	** @param - none
+	**/
+	function saveSkill()
+	{	
+		$data = array('name' => $this->input->post('name'));
+		$this->My_model->insertRecord('job_skills',$data);
+		redirect('ado/Admin/Skills');
 	}
 	
 	/*
@@ -131,14 +202,14 @@ class Admin extends CI_Controller
 	
 	/*
 	** change status 
-	** @param - id,new status,table name
+	** @param - id,new status,table name,section
 	**/
-	function changeStatus($id,$val,$table)
+	function changeStatus($id,$val,$table,$section)
 	{	
 		$where   = array('id' => $id);
 		$data = array('status' => $val);
 		$this->My_model->updateRecord($table,$data,$where);
-		redirect('ado/Admin/Dashboard');
+		redirect("ado/Admin/$section");
 	}
 	
 	public function loginValidate()

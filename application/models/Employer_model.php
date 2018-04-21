@@ -48,7 +48,7 @@ class Employer_model extends CI_Model {
 					);
 			$this->session->set_userdata($aSess);			
 			//redirect('ado/School/');
-			echo '3';	
+			return '3';	
 		}
 		else if( $query->num_rows() > 0 &&  $aResult[0]['email_verify'] == 0  )
 		{
@@ -56,7 +56,29 @@ class Employer_model extends CI_Model {
 		}
 		else if( $query->num_rows() > 0 && $aResult[0]['status'] == 0  )
 		{
-			return '-1';
+			/*
+			**   old 
+			*/
+			// changed on 19th April (login without activation by admin)
+			//return '-1';
+			
+			
+			/// new 
+			$data = array('last_login' => date('Y-m-d'));
+			$where = array('id' => $aResult[0]['id']);
+			$this->My_model->updateRecord('lang_company',$data,$where);
+			
+			$aSess = array(		
+					'emp_id' => $aResult[0]['id'],
+					'first_name' => $aResult[0]['first_name'],
+					'last_name' => $aResult[0]['last_name'],
+					'comp_name' => $aResult[0]['company_name'],
+					'image'  => $aResult[0]['image'],
+					'email'  => $aResult[0]['email']
+					);
+			$this->session->set_userdata($aSess);			
+			//redirect('ado/School/');
+			return '3';	
 		}
 				
     }

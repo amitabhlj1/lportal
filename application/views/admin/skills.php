@@ -7,16 +7,16 @@
 		<section class="panel">
 					<?php echo $this->session->flashdata('verify_msg'); ?>					
 		  <header class="panel-heading">
-			  Category
+			  Skills
 			</header>	
 			<div class="panel-body table-responsive">
 				<div class="panel-body">
-				  <form class="form-horizontal" role="form" method="post" action="<?php echo base_url();?>ado/Admin/saveCategory">
-						<input type="hidden"  name="classId" value="<?php echo isset($categorys[0]->id) ? $categorys[0]->id : ""; ?>">
+				  <form class="form-horizontal" role="form" method="post" action="<?php echo base_url();?>ado/Admin/saveSkill">
+						<input type="hidden"  name="classId" value="<?php echo isset($skills[0]->id) ? $skills[0]->id : ""; ?>">
 						<div class="form-group">
 						  <label for="inputEmail1" class="col-lg-2 col-sm-2 control-label">Name</label>
 						  <div class="col-lg-6">
-								<input type='text' class="form-control m-b-6" id="cat_name" name="cat_name" required="true" placeholder="category name" maxlength="50">
+								<input type='text' class="form-control m-b-6" id="name" name="name" required="true" placeholder="skill name" maxlength="90">
 							  <p class="help-block" style="color:#F83A18"><span id="err_clas"></span></p>
 						  </div>
 						</div>
@@ -48,30 +48,29 @@
 					</thead>
 					<tbody>
 					<?php	
-						//echo "<pre />"; print_r($students);
-						if(is_array($categorys) )
+						if(is_array($skills) )
 						{
 							$count = 1;						
-							foreach($categorys as $category)
+							foreach($skills as $skill)
 							{
 							?>
 							<tr>
 								<td><?php echo $count;?></td>
-								<td><?php echo $category->cat_name ;?></td>
+								<td><?php echo $skill->name ;?></td>
 								<td>							
 								<?php 
-								if($category->status == 1)
+								if($skill->status == 1)
 								{
 								?>
-									<a href="<?php echo base_url();?>ado/Admin/changeStatus/<?php echo $category->id;?>/0/job_category/Category" >
+									<a href="<?php echo base_url();?>ado/Admin/changeStatus/<?php echo $skill->id;?>/0/job_skills/Skills" >
 										<span title="change status (delete this)"><i style="color:green" class="fa fa-times-circle-o"></i></span>
-									</a>			
+									</a>	
 								<?php
 								}
 								else
 								{
 								?>
-									<a href="<?php echo base_url();?>ado/Admin/changeStatus/<?php echo $category->id;?>/1/job_category/Category" >
+									<a href="<?php echo base_url();?>ado/Admin/changeStatus/<?php echo $skill->id;?>/1/job_skills/Skills" >
 										<span class="glyphicon glyphicon-ok-circle" title="change status (undelete this)" style="color:red">&nbsp;</span>
 									</a>
 								<?php
