@@ -43,6 +43,7 @@
 						<tr>
 						  <th class="nosort">#</th>
 						  <th>Name</th>
+						  <th>Action</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -62,16 +63,15 @@
 								if($category->status == 1)
 								{
 								?>
-									<a href="<?php echo base_url();?>ado/Admin/changeStatus/0/<?php echo $category->id;?>" >
+									<a href="<?php echo base_url();?>ado/Admin/changeStatus/<?php echo $category->id;?>/0/job_category/Category" >
 										<span title="change status (delete this)"><i style="color:green" class="fa fa-times-circle-o"></i></span>
-									</a>
-										
+									</a>			
 								<?php
 								}
 								else
 								{
 								?>
-									<a href="<?php echo base_url();?>ado/Admin/changeStatus/1/<?php echo $category->id;?>" >
+									<a href="<?php echo base_url();?>ado/Admin/changeStatus/<?php echo $category->id;?>/1/job_category/Category" >
 										<span class="glyphicon glyphicon-ok-circle" title="change status (undelete this)" style="color:red">&nbsp;</span>
 									</a>
 								<?php

@@ -30,7 +30,7 @@
     <!-- Theme style -->
     <link href="<?php echo base_url();?>assets/admin/css/style.css" rel="stylesheet" type="text/css" />
 
-
+	<script src="<?php echo base_url();?>assets/vendors/jquery/dist/jquery.min.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -38,15 +38,16 @@
           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
           <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
           <![endif]-->
-
-          <style type="text/css">
-
-          </style>
+	  <style type="text/css">
+	  </style>
+	<script>
+		var baseurl = "<?php echo base_url();?>";
+	</script>
     </head>
     <body class="skin-black">		
         <!-- header logo: style can be found in header.less -->
         <header class="header">			
-			<a href="<?php echo base_url();?>" class="logo" target="_blank">LangSchool</a>			
+			<a href="<?php echo base_url();?>" class="logo" target="_blank">LangJobs</a>			
             <!-- Header Navbar: style can be found in header.less -->
             <nav class="navbar navbar-static-top" role="navigation">				
                 <!-- Sidebar toggle button-->
@@ -119,8 +120,8 @@
                                 <i class="fa fa-user"></i>
                                 <span>
 									<?php 
-										if($this->session->userdata('admin_name'))
-											echo $this->session->userdata('admin_name');
+										if($this->session->userdata('admin_id'))
+											echo $this->session->userdata('adm_email');
 										else
 											echo "jane";
 									?>
@@ -145,16 +146,14 @@
 
                                 <li class="divider"></li>
                                     <li>
-										<?php if($this->session->userdata('user_type') == 3)
-										{
-										?>
+										
                                         <a href="<?php echo base_url();?>ado/Admin/profile">
 											<i class="fa fa-user fa-fw pull-right"></i>Profile
                                         </a>										
                                         <a href="<?php echo base_url();?>ado/Admin/changePassword">
 											<i class="fa fa-cog fa-fw pull-right"></i>Change Password
                                         </a>
-										<?php } ?>
+										
                                         </li>
 
                                         <li class="divider"></li>
@@ -203,9 +202,19 @@
 						<!-- sidebar menu: : style can be found in sidebar.less -->
 						<ul class="sidebar-menu">
 							<li class="active">						
-							<a href="<?php echo base_url();?>ado/Admin/" class="logo">
-								<i class="fa fa-dashboard"></i> <span>Dashboard</span>
-							</a>			
+								<a href="<?php echo base_url();?>ado/Admin/Dashboard" class="logo">
+									<i class="fa fa-dashboard"></i> <span>Dashboard</span>
+								</a>			
+							</li>
+							<li>
+								<a href="<?php echo base_url();?>ado/Admin/Category">
+									<i class="fa fa-gavel"></i><span>Job Category</span>
+								</a>
+							</li>
+							<li>
+								<a href="<?php echo base_url();?>ado/Admin/Skills">
+									<i class="fa fa-gavel"></i><span>Job Skills</span>
+								</a>
 							</li>
 							<li>
 								<a href="<?php echo base_url();?>ado/Admin/Country">
@@ -215,11 +224,6 @@
 							<li>
 								<a href="<?php echo base_url();?>ado/Admin/Language">
 									<i class="fa fa-gavel"></i><span>Language</span>
-								</a>
-							</li>
-							<li>
-								<a href="<?php echo base_url();?>ado/Admin/Category">
-									<i class="fa fa-gavel"></i><span>Category</span>
 								</a>
 							</li>
 							<li>
@@ -239,10 +243,12 @@
 				<?php
 				$iExperts = '';
 				$iEmployers = '';
+				$iJobs = '';	
 				if($this->session->userdata('admin_id'))
 				{
 					$iExperts = $this->My_model->getNumRows('lang_expert','status',1);
 					$iEmployers = $this->My_model->getNumRows('lang_company','status',1);
+					$iJobs = $this->My_model->getNumRows('jobs','status',1);
 				}	
 				?>
                 <div class="row" style="margin-bottom:5px;">
@@ -251,7 +257,7 @@
 						<div class="sm-st clearfix">
 							<span class="sm-st-icon st-red"><i class="fa fa-check-square-o"></i></span>
 							<div class="sm-st-info">&nbsp;<b><?php echo $iExperts;?></b>
-								<a href="<?php echo base_url();?>ado/mstudent/">
+								<a href="<?php echo base_url();?>ado/Admin/experts/">
 									<span>&nbsp;</span>Language Experts
 								</a>
 							</div>
@@ -260,8 +266,8 @@
 					<div class="col-md-2">
                         <div class="sm-st clearfix">
                             <span class="sm-st-icon st-blue"><i class="fa fa-user"></i></span>
-                        <div class="sm-st-info">&nbsp; <?php echo $iEmployers;?></b>
-							<a href="<?php echo base_url();?>ado/Studycontent">
+                        <div class="sm-st-info">&nbsp; <b><?php echo $iEmployers;?></b>
+							<a href="<?php echo base_url();?>ado/Admin/employers">
 								<span>&nbsp;</span>Employers 
 							</a>
                         </div>
@@ -270,8 +276,18 @@
 					<div class="col-md-2">
                         <div class="sm-st clearfix">
                             <span class="sm-st-icon st-blue"><i class="fa fa-user"></i></span>
+                        <div class="sm-st-info">&nbsp; <b><?php echo $iJobs;?></b>
+							<a href="<?php echo base_url();?>ado/Admin/jobs">
+								<span>&nbsp;</span>Jobs 
+							</a>
+                        </div>
+						</div>
+                    </div>
+					<div class="col-md-2">
+                        <div class="sm-st clearfix">
+                            <span class="sm-st-icon st-blue"><i class="fa fa-user"></i></span>
                         <div class="sm-st-info">
-							<a href="<?php echo base_url();?>ado/Enquiry">
+							<a href="<?php echo base_url();?>ado/Admin/enquiry">
 								<span>&nbsp;</span>Enquiry
 							</a>
                         </div>

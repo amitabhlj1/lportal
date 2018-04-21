@@ -25,19 +25,9 @@
 	<!--
 	<script src="<?php echo base_url();?>assets/admin/js/datetime/bootstrap-datetimepicker.min.js"></script>
 	-->
-	
     <!-- jQuery Sparklines -->
     <script src="<?php echo base_url();?>assets/vendors/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
-    <!-- Flot -->
-    <script src="<?php echo base_url();?>assets/vendors/Flot/jquery.flot.js"></script>
-    <script src="<?php echo base_url();?>assets/vendors/Flot/jquery.flot.pie.js"></script>
-    <script src="<?php echo base_url();?>assets/vendors/Flot/jquery.flot.time.js"></script>
-    <script src="<?php echo base_url();?>assets/vendors/Flot/jquery.flot.stack.js"></script>
-    <script src="<?php echo base_url();?>assets/vendors/Flot/jquery.flot.resize.js"></script>
-    <!-- Flot plugins -->
-    <script src="<?php echo base_url();?>assets/vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
-    <script src="<?php echo base_url();?>assets/vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
-    <script src="<?php echo base_url();?>assets/vendors/flot.curvedlines/curvedLines.js"></script>
+    
     <!-- DateJS -->
     <script src="<?php echo base_url();?>assets/vendors/DateJS/build/date.js"></script>
     <!-- bootstrap-daterangepicker -->
@@ -46,6 +36,6 @@
     		
     <!-- Custom Theme Scripts -->
     <script src="<?php echo base_url();?>assets/build/js/custom.min.js"></script>
-
+    <script src="<?php echo base_url();?>assets/js/common.js"></script>
   </body>
 </html>

@@ -61,7 +61,7 @@
 								if($language->status == 1)
 								{
 								?>
-									<a href="<?php echo base_url();?>ado/Admin/changeStatus/0/<?php echo $language->id;?>" >
+									<a href="<?php echo base_url();?>ado/Admin/changeStatus/<?php echo $language->id;?>/0/language/Language" >
 										<span title="change status (delete this)"><i style="color:green" class="fa fa-times-circle-o"></i></span>
 									</a>
 										
@@ -70,7 +70,7 @@
 								else
 								{
 								?>
-									<a href="<?php echo base_url();?>ado/Admin/changeStatus/1/<?php echo $language->id;?>" >
+									<a href="<?php echo base_url();?>ado/Admin/changeStatus/<?php echo $language->id;?>/1/language/Language" >
 										<span class="glyphicon glyphicon-ok-circle" title="change status (undelete this)" style="color:red">&nbsp;</span>
 									</a>
 								<?php
