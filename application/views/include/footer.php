@@ -184,6 +184,34 @@
                 }
             });
         }
+        function add_new_wh_form (){
+            var form = document.getElementById('whistory');
+            var new_element = '<form class="form-horizontal main_form text-left" action="<?php echo base_url() ?>expert/add_wh" method="post" ><fieldset class="well" style="display:block; width:90%;overflow:auto;margin-left:4%;background-color:#fff;"><legend style="color:#282f46;text-transform:uppercase;font-weight:bold;width:max-content;">Add New Work History</legend><div class="form-group col-md-12"><label class="col-md-10 control-label">Designation/Profile Name</label><div class="col-md-12 inputGroupContainer"><div class="input-group"><input name="designation" placeholder="Language translator" class="form-control" type="text" value=""></div> </div></div><div class="form-group col-md-12"><label class="col-md-10 control-label">Company/Organisation Name</label><div class="col-md-12 inputGroupContainer"><div class="input-group"><input name="company_name" placeholder="Name of the organisation you worked for" class="form-control" type="text" value=""></div></div></div><div class="form-group col-md-12"><label class="col-md-10 control-label">From - To</label><div class="col-md-6 inputGroupContainer"><div class="input-group"><input name="y_from" class="form-control" type="date" value=""></div></div><div class="col-md-6 inputGroupContainer"><div class="input-group"><input name="y_to" class="form-control" type="date" value=""></div></div></div><div class="form-group col-md-12"><label class="col-md-10 control-label">Work description / Your responsibilities</label><div class="col-md-12 inputGroupContainer"><div class="input-group"><textarea class="form-control" name="work_description"></textarea></div></div></div><div class="form-group col-md-12"><div class="col-md-12 inputGroupContainer"><div class="input-group"><input type="submit" class="btn btn-success" value="Save" /></div></div></div></fieldset></form>';
+            form.innerHTML = "";
+            form.innerHTML = new_element;
+            document.getElementById('add_wh').style.display="none";
+        }
+        function delete_wh(x){
+            var whid = x;
+            var r = confirm("Are you sure you want to delete this entry?");
+            if (r == true) {
+                $.ajax({
+                    type: "POST",
+                    url: baseurl+ "expert/del_whistory",
+                    dataType: 'html',
+                    data: {id: whid},
+                    success: function(res)
+                    {
+                        $('#response_wh').show();
+                        window.location.href = baseurl+'expert';
+                    },
+                    error: function (request, status, error) 
+                    {
+                        alert(request.responseText);
+                    }
+                });
+            }
+        }
     </script>
   </body>
 </html>

@@ -72,4 +72,36 @@ class Expert extends CI_Controller
         }
         echo "</select>";
     }
+    public function del_whistory(){
+        $where = array('id' => $this->input->post('id'));
+        echo $del_wh = $this->My_model->deleteRecordPerm('lang_expert_wh', $where);
+    }
+    public function update_wh(){
+        $where = array('id' => $this->input->post('id'));
+        $update_data = array(
+            'designation' => $this->input->post('designation'),
+            'company_name' => $this->input->post('company_name'),
+            'y_from' => $this->input->post('y_from'),
+            'y_to'  => $this->input->post('y_to'),
+            'work_description'  => $this->input->post('work_description')
+        );
+        $updt = $this->My_model->updateRecord('lang_expert_wh', $update_data, $where);
+        if($updt == '1' || $updt == '0'){
+            redirect('/expert');
+        } else {
+            echo "<script>alert('Something went wrong, Please try again later!');</script>";
+        }
+    }
+    public function add_wh(){
+        $wh_arr = array(
+            'exp_id' =>$this->session->userdata('exp_id'), 
+            'designation' => $this->input->post('designation'),
+            'company_name' => $this->input->post('company_name'),
+            'y_from' => $this->input->post('y_from'),
+            'y_to' => $this->input->post('y_to'),
+            'work_description' => $this->input->post('work_description')
+        );
+        echo $ins = $this->My_model->insertRecord('lang_expert_wh', $wh_arr);
+        redirect('/expert');
+    }
 }

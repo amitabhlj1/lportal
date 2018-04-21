@@ -101,11 +101,15 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
     <ul class="nav nav-tabs nav-menu" role="tablist">
         <li class="active">
             <a href="#profile" role="tab" data-toggle="tab">
-                  <i class="fa fa-male"></i> Profile
+                  <i class="fa fa-user-o"></i> Profile
               </a>
         </li>
         <li><a href="#change" role="tab" data-toggle="tab">
-              <i class="fa fa-key"></i> Edit Profile
+              <i class="fa fa-pencil"></i> Edit Profile
+              </a>
+        </li>
+        <li><a href="#work_history" role="tab" data-toggle="tab">
+              <i class="fa fa-briefcase"></i> Work History
               </a>
         </li>
     </ul>
@@ -438,6 +442,82 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
             <!--container close -->
         </div>
         <!--tab-pane close-->
+        <div class="tab-pane fade" id="work_history">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h2 class="register">Add / Remove Work History <button id="add_wh" class="btn btn-xs btn-primary" onclick="add_new_wh_form()" title="Add another work history"><i class="fa fa-plus"></i></button></h2>
+                    </div>
+                </div>
+                <br/>
+                <div class="row">
+                   <div id="response_wh" style="color:red;font:10px;display:none;">Work History Deleted!</div>
+                        <fieldset id="whistory">
+                        <?php 
+                            if($work_history){ 
+                                $count=1;
+                                foreach($work_history as $w){ ?>
+                                   <form class="form-horizontal main_form text-left" action="<?php echo base_url() ?>expert/update_wh" method="post" >
+                                    <fieldset class="well" style="display:block; width:90%;overflow:auto;margin-left:4%;background-color:#fff;">
+                                        <legend style="color:#282f46;text-transform:uppercase;font-weight:bold;width:max-content;">Work History <?php echo $count; ?> | <button class="btn btn-danger btn-xs" title="Delete work history" onclick="delete_wh(<?php echo $w->id; ?>)"><i class="fa fa-trash"></i></button></legend>
+                                         <div class="form-group col-md-12">
+                                            <label class="col-md-10 control-label">Designation/Profile Name</label>
+                                            <div class="col-md-12 inputGroupContainer">
+                                                <div class="input-group">
+                                                    <input type="hidden" name="id" value="<?php echo $w->id ?>" />
+                                                    <input name="designation" placeholder="Language translator" class="form-control" type="text" value="<?php if(!empty($w->designation)){echo $w->designation;} ?>">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label class="col-md-10 control-label">Company/Organisation Name</label>
+                                            <div class="col-md-12 inputGroupContainer">
+                                                <div class="input-group">
+                                                    <input name="company_name" placeholder="Name of the organisation you worked for" class="form-control" type="text" value="<?php if(!empty($w->company_name)){echo $w->company_name;} ?>">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label class="col-md-10 control-label">From - To</label>
+                                            <div class="col-md-6 inputGroupContainer">
+                                                <div class="input-group">
+                                                    <input name="y_from" class="form-control" type="date" value="<?php if(!empty($w->y_from)){echo $w->y_from;} ?>">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 inputGroupContainer">
+                                                <div class="input-group">
+                                                    <input name="y_to" class="form-control" type="date" value="<?php if(!empty($w->y_to)){echo $w->y_to;} ?>">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label class="col-md-10 control-label">Work description / Your responsibilities</label>
+                                            <div class="col-md-12 inputGroupContainer">
+                                                <div class="input-group">
+                                                    <textarea class="form-control" name="work_description"><?php if(!empty($w->work_description)){echo $w->work_description;} ?></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <div class="col-md-12 inputGroupContainer">
+                                                <div class="input-group">
+                                                    <input type="submit" class="btn btn-success" value="Save" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                 </form>
+                        <?php
+                                    $count++;
+                                }
+                            } else {
+                                
+                            }
+                        ?>
+                        </fieldset>
+                </div>
+            </div>
+        </div>
     </div>
     <!--tab-content close-->
 </div>
