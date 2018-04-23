@@ -109,7 +109,11 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
               </a>
         </li>
         <li><a href="#work_history" role="tab" data-toggle="tab">
-              <i class="fa fa-briefcase"></i> Work History
+              <i class="fa fa-briefcase"></i> Edit Work
+              </a>
+        </li>
+        <li><a href="#edu_history" role="tab" data-toggle="tab">
+              <i class="fa fa-mortar-board"></i> Edit Education
               </a>
         </li>
     </ul>
@@ -122,7 +126,7 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
                 <div class="col-sm-11" style="float:left;">
                    <h2 style="text-align:left;">Resume</h2>
                     <div class="hve-pro">
-                        <p><?php if(!empty($usr[0]->about_me)) {echo $usr[0]->about_me;} else {echo "Please update your profile for better visibility";} ?></p>
+                        <p><?php if(!empty($usr[0]->about_me)) {echo $usr[0]->about_me;} else {echo "Please update your profile for better visibility / Click on Edit Profile Button";} ?></p>
                     </div>
                     <!--hve-pro close-->
                 </div>
@@ -511,13 +515,97 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
                                     $count++;
                                 }
                             } else {
-                                
+                                echo "Work Details have not been updated yet! Please click on Add (+) button";
                             }
                         ?>
                         </fieldset>
                 </div>
             </div>
         </div>
+        <!--tab---for--education---history-->
+        
+        <div class="tab-pane fade" id="edu_history">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h2 class="register">Add / Remove Education History <button id="add_wh" class="btn btn-xs btn-primary" onclick="add_new_edu_form()" title="Add another work history"><i class="fa fa-plus"></i></button></h2>
+                    </div>
+                </div>
+                <br/>
+                <div class="row">
+                   <div id="response_wh" style="color:red;font:10px;display:none;">Work History Deleted!</div>
+                        <fieldset id="edu_his">
+                           <?php
+                                if($education){
+                                    $cnt = 1;
+                                    foreach($education as $ed){ ?>
+                                        <form class="form-horizontal main_form text-left" action="<?php echo base_url() ?>expert/update_edu" method="post">
+                                        <fieldset class="well" style="display:block; width:90%;overflow:auto;margin-left:4%;background-color:#fff;">
+                                            <legend style="color:#282f46;text-transform:uppercase;font-weight:bold;width:max-content;">
+                                                 Education History <?php echo $cnt; ?> | <button class="btn btn-danger btn-xs" title="Delete Education History" onclick=""><i class="fa fa-trash"></i></button>
+                                            </legend>
+                                            <div class="form-group col-md-12">
+                                                <label class="col-md-10 control-label">Exam name</label>
+                                                <div class="col-md-12 inputGroupContainer">
+                                                    <div class="input-group">
+                                                        <input type="hidden" name="id" value="<?php echo $ed->id ?>" />
+                                                        <input name="exam_name" placeholder="Higher Secondary / Graduation / Bachelors / Masters" class="form-control" type="text" value="<?php if(!empty($ed->exam_name)){echo $ed->exam_name;} ?>">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-12">
+                                                <label class="col-md-10 control-label">College / University name</label>
+                                                <div class="col-md-12 inputGroupContainer">
+                                                    <div class="input-group">
+                                                        <input name="college_name" placeholder="Name of your university / college" class="form-control" type="text" value="<?php if(!empty($ed->college_name)){echo $ed->college_name;} ?>">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-12">
+                                                <label class="col-md-10 control-label">Passing Year</label>
+                                                <div class="col-md-12 inputGroupContainer">
+                                                    <div class="input-group">
+                                                        <input name="p_year" placeholder="year" class="form-control" type="text" value="<?php if(!empty($ed->p_year)){echo $ed->p_year;} ?>">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-12">
+                                                <label class="col-md-10 control-label">Score / Mark</label>
+                                                <div class="col-md-12 inputGroupContainer">
+                                                    <div class="input-group">
+                                                        <input name="marks" placeholder="Scored %age or CGPA" class="form-control" type="text" value="<?php if(!empty($ed->marks)){echo $ed->marks;} ?>">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-12">
+                                                <label class="col-md-10 control-label">Remarks / Some Words</label>
+                                                <div class="col-md-12 inputGroupContainer">
+                                                    <div class="input-group">
+                                                        <textarea class="form-control" name="remarks"><?php if(!empty($ed->remarks)){echo $ed->remarks;} ?></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-12">
+                                                <div class="col-md-12 inputGroupContainer">
+                                                    <div class="input-group">
+                                                        <input type="submit" class="btn btn-success" value="Save" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                        </form>
+                            <?php    
+                                    $cnt++;
+                                    }
+                                } else {
+                                   echo "Education Details have not been updated yet! Please click on Add (+) button"; 
+                                }
+                            ?>
+                        </fieldset>
+                </div>
+            </div>
+        </div>
+        
     </div>
     <!--tab-content close-->
 </div>

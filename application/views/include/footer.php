@@ -191,6 +191,13 @@
             form.innerHTML = new_element;
             document.getElementById('add_wh').style.display="none";
         }
+        function add_new_edu_form(){
+            var form = document.getElementById('edu_his');
+            var new_element = '<form class="form-horizontal main_form text-left" action="<?php echo base_url() ?>expert/add_edu" method="post"><fieldset class="well" style="display:block; width:90%;overflow:auto;margin-left:4%;background-color:#fff;"><legend style="color:#282f46;text-transform:uppercase;font-weight:bold;width:max-content;">Add New Education History</button></legend><div class="form-group col-md-12"><label class="col-md-10 control-label">Exam name</label><div class="col-md-12 inputGroupContainer"><div class="input-group"><input name="exam_name" placeholder="Higher Secondary / Graduation / Bachelors / Masters" class="form-control" type="text" value=""></div></div></div><div class="form-group col-md-12"><label class="col-md-10 control-label">College / University name</label><div class="col-md-12 inputGroupContainer"><div class="input-group"><input name="college_name" placeholder="Name of your university / college" class="form-control" type="text" value=""></div></div></div><div class="form-group col-md-12"><label class="col-md-10 control-label">Passing Year</label><div class="col-md-12 inputGroupContainer"><div class="input-group"><input name="p_year" placeholder="year" class="form-control" type="text" value=""></div></div></div><div class="form-group col-md-12"><label class="col-md-10 control-label">Score / Mark</label><div class="col-md-12 inputGroupContainer"><div class="input-group"><input name="marks" placeholder="Scored %age or CGPA" class="form-control" type="text" value=""></div></div></div><div class="form-group col-md-12"><label class="col-md-10 control-label">Remarks / Some Words</label><div class="col-md-12 inputGroupContainer"><div class="input-group"><textarea class="form-control" name="remarks"></textarea></div></div></div><div class="form-group col-md-12"><div class="col-md-12 inputGroupContainer"><div class="input-group"><input type="submit" class="btn btn-success" value="Save" /></div></div></div></fieldset></form>';
+            form.innerHTML = "";
+            form.innerHTML = new_element;
+            document.getElementById('add_wh').style.display="none";
+        }
         function delete_wh(x){
             var whid = x;
             var r = confirm("Are you sure you want to delete this entry?");
