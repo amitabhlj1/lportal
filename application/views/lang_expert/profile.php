@@ -4,7 +4,7 @@ body { background:#ffffff;}
 .module{padding: 80px 0; !important}
 .page-header {background:#ccc;margin:0;}
 .profile-head { width:100%;background-color: rgb(40, 47, 70);float: left;padding: 15px 5px;}
-.profile-head img { height:200px; width:200px; margin:0 auto; border:5px solid #fff; border-radius:50%;}
+.profile-head img { height:200px; width:200px; margin:0 auto; border-radius:50%;}
 .profile-head h5 {width: 100%;padding:5px 5px 0px 5px;text-align:justify;font-weight: bold;color: #fff;font-size: 25px;text-transform:capitalize;
 margin-bottom: 0;}
 .profile-head p {width: 100%;text-align: justify;padding:0px 5px 5px 5px;color: #fff;font-size:17px;text-transform:capitalize;margin:0;}
@@ -28,7 +28,7 @@ margin-bottom: 0;}
 .tab-content>.active {margin-top:10px;/*width:100% !important;*/} 
 
 /* edit profile css*/
-
+#uppic{position: absolute;left: 42.5%;bottom: -4%;}
 .hve-pro {background-image: linear-gradient(to right top, #ff6600, #de284e, #9a1f68, #ea3f31, #fa5c0c);padding: 5px; width:100%; height:auto;float:left;}
 .hve-pro p {float: left;color:#fff;font-size: 15px;text-transform: capitalize;padding: 5px 20px;text-shadow: 2px 2px black;text-align: left;}
 h2.register { padding:10px 25px; text-transform:capitalize;font-size: 25px;color: rgb(255, 102, 0);}
@@ -38,8 +38,7 @@ legend {color:#ff3200;border-bottom:0px solid;}
 .main_form {background-color: #;}
 label.control-label {font-weight: 100; margin-bottom:5px !important; 
 text-align:left !important; text-transform:uppercase; color:#798288;}
-.submit-button {color: #fff;background-color:rgb(255, 102, 0);width:190px;border: 0px solid;border-radius: 0px; transition:all ease 0.3s;margin: 5px;
-float:left;}
+.submit-button {color: #fff;background-color:rgb(255, 102, 0);width:190px;border: 0px solid;border-radius: 0px; transition:all ease 0.3s;margin: 5px;float:left;}
 .submit-button:hover, .submit-button:focus {color: #fff;background-color:rgb(0, 4, 51);}
 .hint_icon {color:#ff3200;}
 .form-control:focus {border-color: #ff3200;}
@@ -47,13 +46,6 @@ select.selectpicker { color:#99999c;}
 select.selectpicker option { color:#000 !important;}
 select.selectpicker option:first-child { color:#99999c;}
 .input-group { width:100%;}
-.uplod-picture {width: 100%; background-color:#;color: #fff; padding:20px 10px;margin-bottom:10px;}
-.uplod-file {position: relative;overflow: hidden;color: #fff;background-color: rgb(0, 4, 51);border: 0px solid #a02e09;border-radius: 0px;
- transition:all ease 0.3s;margin: 5px;}
-.uplod-file input[type=file] {position: absolute;top: 0;right: 0;min-width: 100%;min-height: 100%;font-size: 100px;text-align: right;
-filter: alpha(opacity=0);opacity: 0;outline: none;background: white;cursor: inherit;display: block;}
-.uplod-file:hover, .uplod-file:focus {color: #fff;background-color:rgb(255, 102, 0);}
-h4.pro-title { font-size:24px; color:rgba(0, 4, 51, 0.96); text-transform:capitalize; text-align:justify;padding: 10px 15px;}
 .nav-menu li a {margin: 5px 5px 5px 5px;position: relative;display: block;padding: 10px 50px;border: 0px solid !important;box-shadow: none !important;
 background-color: rgb(0, 4, 51) !important;color: #fff !important;    white-space: nowrap;}
 .nav-menu li.active a {background-color: rgb(255, 102, 0) !important;}
@@ -71,6 +63,9 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
     <div class="profile-head">
         <div class="col-md- col-sm-4 col-xs-12">
             <img src="<?php if(!empty($usr[0]->image)){echo $usr[0]->image;} else {echo base_url()."assets/1.png";} ?>" class="img-responsive" />
+            <label class="btn btn-xs btn-primary" id="uppic" title="Change Profile Image">
+                <i class="fa fa-camera"></i> <input type="file" style="display: none;">
+            </label>
         </div>
         <!--col-md-4 col-sm-4 col-xs-12 close-->
 
@@ -85,9 +80,6 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
             </ul>
         </div>
         <!--col-md-8 col-sm-8 col-xs-12 close-->
-
-
-
 
     </div>
     <!--profile-head close-->
@@ -270,13 +262,13 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
                 <br />
                 <div class="row">
 
-                    <form class="form-horizontal main_form text-left" action=" " method="post" id="contact_form">
+                    <form class="form-horizontal main_form text-left" action="<?php echo base_url(); ?>expert/edit_basic_detail" method="post" id="contact_form">
                         <fieldset>
                             <div class="form-group col-md-12">
                                 <label class="col-md-10 control-label">First Name</label>
                                 <div class="col-md-12 inputGroupContainer">
                                     <div class="input-group">
-                                        <input name="first_name" placeholder="First Name" class="form-control" type="text" value="<?php if(!empty($usr[0]->first_name)){echo $usr[0]->first_name;} ?>">
+                                        <input name="first_name" placeholder="First Name" class="form-control" type="text" value="<?php if(!empty($usr[0]->first_name)){echo $usr[0]->first_name;} ?>" required>
                                     </div>
                                 </div>
                             </div>
@@ -287,7 +279,7 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
                                 <label class="col-md-10 control-label">Last Name</label>
                                 <div class="col-md-12 inputGroupContainer">
                                     <div class="input-group">
-                                        <input name="last_name" placeholder="Last Name" class="form-control" type="text" value="<?php if(!empty($usr[0]->last_name)){echo $usr[0]->last_name;} ?>">
+                                        <input name="last_name" placeholder="Last Name" class="form-control" type="text" value="<?php if(!empty($usr[0]->last_name)){echo $usr[0]->last_name;} ?>" required>
                                     </div>
                                 </div>
                             </div>
@@ -298,7 +290,7 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
                                 <label class="col-md-10 control-label">Current Designation/Profile</label>
                                 <div class="col-md-12 inputGroupContainer">
                                     <div class="input-group">
-                                        <input name="profile_name" placeholder="Translator, Analyst.." class="form-control" type="text" value="<?php if(!empty($usr[0]->profile_name)){echo $usr[0]->profile_name;} ?>">
+                                        <input name="profile_name" placeholder="Translator, Analyst.." class="form-control" type="text" value="<?php if(!empty($usr[0]->profile_name)){echo $usr[0]->profile_name;} ?>" required>
                                     </div>
                                 </div>
                             </div>
@@ -316,12 +308,21 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
                                 </div>
                             </div>
                             <!-- Text input-->
+                            
+                            <div class="form-group col-md-12">
+                                <label class="col-md-10 control-label">Date of Birth</label>
+                                <div class="col-md-12 inputGroupContainer">
+                                    <div class="input-group">
+                                        <input name="dob" class="form-control" type="date" value="<?php if(!empty($usr[0]->profile_name)){echo $usr[0]->profile_name;} ?>" required>
+                                    </div>
+                                </div>
+                            </div>
 
                             <div class="form-group col-md-12">
                                 <label class="col-md-10 control-label">Mobile #</label>
                                 <div class="col-md-12 inputGroupContainer">
                                     <div class="input-group">
-                                        <input name="mobile" placeholder="+91-9835101010" class="form-control" type="text" value="<?php if(!empty($usr[0]->mobile)){echo $usr[0]->mobile;} ?>">
+                                        <input name="mobile" placeholder="+91-9835101010" class="form-control" type="text" value="<?php if(!empty($usr[0]->mobile)){echo $usr[0]->mobile;} ?>" required>
                                     </div>
                                 </div>
                             </div>
@@ -330,7 +331,7 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
                                 <label class="col-md-10 control-label">Mini Resume / About Me</label>
                                 <div class="col-md-12 inputGroupContainer">
                                     <div class="input-group">
-                                        <textarea class="form-control" name="about_me" placeholder="I am an experienced translator working for a great MNC from last 2 years......"><?php if(!empty($usr[0]->about_me)){echo $usr[0]->about_me;}?></textarea>
+                                        <textarea class="form-control" name="about_me" placeholder="I am an experienced translator working for a great MNC from last 2 years......" required><?php if(!empty($usr[0]->about_me)){echo $usr[0]->about_me;}?></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -353,14 +354,22 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
                                                 </select>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" id="states">
-                                                <select class="form-control" name="state">
-                                                    <option value="<?php echo $usr[0]->state ?>"><?php echo $state[0]->name; ?></option>
-                                                </select>
+                                                <?php
+                                                    if(!empty($state)){
+                                                ?>
+                                                   <select class="form-control" name="state">
+                                                        <option value="<?php echo $usr[0]->state ?>"><?php echo $state[0]->name; ?></option>
+                                                    </select>
+                                                <?php
+                                                    }
+                                                ?>
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" id="cities">
-                                                <select class="form-control" name="city">
-                                                    <option value="<?php echo $usr[0]->city ?>"><?php echo $city[0]->name; ?></option>
-                                                </select>
+                                                <?php if(!empty($city)){ ?>
+                                                    <select class="form-control" name="city">
+                                                        <option value="<?php echo $usr[0]->city ?>"><?php echo $city[0]->name; ?></option>
+                                                    </select>
+                                                <?php } ?>
                                             </div>
                                         </div>
                                     </div>
@@ -371,7 +380,7 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
                                 <label class="col-md-10 control-label">Total Experience</label>
                                 <div class="col-md-12 selectContainer">
                                     <div class="input-group">
-                                        <input name="total_exp" placeholder="4 years 4 month" class="form-control" type="text" value="<?php if(!empty($usr[0]->total_exp)){echo $usr[0]->total_exp;}?>">
+                                        <input name="total_exp" placeholder="4 years 4 month" class="form-control" type="text" value="<?php if(!empty($usr[0]->total_exp)){echo $usr[0]->total_exp;}?>" required>
                                     </div>
                                 </div>
                             </div>
@@ -380,7 +389,7 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
                                 <label class="col-md-10 control-label">Facebook profile link</label>
                                 <div class="col-md-12 selectContainer">
                                     <div class="input-group">
-                                        <input name="fid" placeholder="https://www.facebook.com/someusername" class="form-control" type="text" <?php if(!empty($usr[0]->fid)){echo $usr[0]->fid;}?>>
+                                        <input name="fid" placeholder="https://www.facebook.com/someusername" class="form-control" type="text" <?php if(!empty($usr[0]->fid)){echo $usr[0]->fid;}?> required>
                                     </div>
                                 </div>
                             </div>
@@ -389,7 +398,7 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
                                 <label class="col-md-10 control-label">Twitter profile link</label>
                                 <div class="col-md-12 selectContainer">
                                     <div class="input-group">
-                                        <input name="tid" placeholder="https://twitter.com/your_twitter" class="form-control" type="text" <?php if(!empty($usr[0]->tid)){echo $usr[0]->tid;}?>>
+                                        <input name="tid" placeholder="https://twitter.com/your_twitter" class="form-control" type="text" <?php if(!empty($usr[0]->tid)){echo $usr[0]->tid;}?> required>
                                     </div>
                                 </div>
                             </div>
@@ -398,7 +407,7 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
                                 <label class="col-md-10 control-label">Quora profile link</label>
                                 <div class="col-md-12 selectContainer">
                                     <div class="input-group">
-                                        <input name="qid" placeholder="https://www.quora.com/profile/smartusername" class="form-control" type="text" <?php if(!empty($usr[0]->qid)){echo $usr[0]->qid;}?>>
+                                        <input name="qid" placeholder="https://www.quora.com/profile/smartusername" class="form-control" type="text" <?php if(!empty($usr[0]->qid)){echo $usr[0]->qid;}?> required>
                                     </div>
                                 </div>
                             </div>
@@ -407,7 +416,7 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
                                 <label class="col-md-10 control-label">Linkedin profile link</label>
                                 <div class="col-md-12 selectContainer">
                                     <div class="input-group">
-                                        <input name="lid" placeholder="https://www.linkedin.com/countrycode/profilename" class="form-control" type="text" <?php if(!empty($usr[0]->lid)){echo $usr[0]->lid;}?>>
+                                        <input name="lid" placeholder="https://www.linkedin.com/countrycode/profilename" class="form-control" type="text" <?php if(!empty($usr[0]->lid)){echo $usr[0]->lid;}?> required>
                                     </div>
                                 </div>
                             </div>
@@ -416,19 +425,9 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
                                 <label class="col-md-10 control-label">Your skills/Expertise</label>
                                 <div class="col-md-12 selectContainer">
                                     <div class="input-group">
-                                       <input name="skills" placeholder="comma seperated skills. eg: translation, transliteration..." class="form-control" type="text" <?php if(!empty($usr[0]->skills)){echo $usr[0]->skills;}?>> 
+                                       <input name="skills" placeholder="comma seperated skills. eg: translation, transliteration..." class="form-control" type="text" <?php if(!empty($usr[0]->skills)){echo $usr[0]->skills;}?> required> 
                                     </div>
                                 </div>
-                            </div>
-                            <!-- upload profile picture -->
-                            <div class="col-md-12 text-left">
-                                <div class="uplod-picture">
-                                    <span class="btn btn-default uplod-file">
-                                        Upload Profile image: <input type="file" />
-                                    </span> 
-                                    <img src="<?php echo $usr[0]->image ?>" class="img img-thumbnail" height="100" width="100">    
-                                </div>
-                                <!--uplod-picture close-->
                             </div>
                             <!--col-md-12 close-->
                             <!-- Button -->

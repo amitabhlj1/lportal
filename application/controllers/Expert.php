@@ -87,7 +87,10 @@ class Expert extends CI_Controller
         );
         $updt = $this->My_model->updateRecord('lang_expert_wh', $update_data, $where);
         if($updt == '1' || $updt == '0'){
-            redirect('/expert');
+            echo "<script>
+                    alert('Work details updated!'); 
+                    window.location.href = '".base_url('expert')."';
+                </script>";
         } else {
             echo "<script>alert('Something went wrong, Please try again later!');</script>";
         }
@@ -103,5 +106,68 @@ class Expert extends CI_Controller
         );
         echo $ins = $this->My_model->insertRecord('lang_expert_wh', $wh_arr);
         redirect('/expert');
+    }
+    public function update_edu(){
+        $whr = array('id' => $this->input->post('id'));
+        $ed_arr = array(
+            'exam_name' => $this->input->post('exam_name'),
+            'college_name' => $this->input->post('college_name'),
+            'p_year' => $this->input->post('p_year'),
+            'marks' => $this->input->post('marks'),
+            'remarks' => $this->input->post('remarks'),
+        );
+        $updt = $this->My_model->updateRecord('lang_expert_ed', $ed_arr, $whr);
+        if($updt == '1' || $updt == '0'){
+            echo "<script>
+                    alert('Education details updated!'); 
+                    window.location.href = '".base_url('expert')."';
+                </script>";
+        } else {
+            echo $updt; die();
+        }
+    }
+    public function add_edu(){
+        $wh_arr = array(
+            'exp_id' =>$this->session->userdata('exp_id'), 
+            'exam_name' => $this->input->post('exam_name'),
+            'college_name' => $this->input->post('college_name'),
+            'p_year' => $this->input->post('p_year'),
+            'marks' => $this->input->post('marks'),
+            'remarks' => $this->input->post('remarks'),
+        );
+    }
+    public function edit_basic_detail(){
+       $states =""; $cities ="";
+        if($this->input->post('state')){
+            $states = $this->input->post('state');
+        } else {
+            $states = null;
+        }
+        if($this->input->post('cities')){
+            $cities = $this->input->post('cities');
+        } else {
+            $cities = null;
+        }
+        
+        $insert_val = array(
+            'first_name' => $this->input->post('first_name'),
+            'last_name' => $this->input->post('last_name'),
+            'profile_name' => $this->input->post('profile_name'),
+            'gender' => $this->input->post('gender'),
+            'dob' => $this->input->post('dob'),
+            'mobile' => $this->input->post('mobile'),
+            'about_me' => $this->input->post('about_me'),
+            'country' => $this->input->post('country'),
+            'states' => $states,
+            'cities' => $cities,
+            'total_exp' => $this->input->post('total_exp'),
+            'fid' => $this->input->post('fid'),
+            'tid' => $this->input->post('tid'),
+            'qid' => $this->input->post('qid'),
+            'lid' => $this->input->post('lid'),
+            'skills' => $this->input->post('skills')
+        );
+        
+        var_dump($insert_val);
     }
 }
