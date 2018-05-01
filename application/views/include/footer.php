@@ -200,6 +200,7 @@
         }
         function delete_wh(x){
             var whid = x;
+            var formid = "#wh"+x;
             var r = confirm("Are you sure you want to delete this entry?");
             if (r == true) {
                 $.ajax({
@@ -209,8 +210,32 @@
                     data: {id: whid},
                     success: function(res)
                     {
+                        $(formid).hide();
                         $('#response_wh').show();
-                        window.location.href = baseurl+'expert';
+                        window.location.href = baseurl+'expert#work_history';
+                    },
+                    error: function (request, status, error) 
+                    {
+                        alert(request.responseText);
+                    }
+                });
+            }
+        }
+        function del_edu(x){
+            var edid = x;
+            var formid = "#ed"+x;
+            var r = confirm("Are you sure you want to delete this entry?");
+            if (r == true) {
+                $.ajax({
+                    type: "POST",
+                    url: baseurl+ "expert/delete_edu",
+                    dataType: 'html',
+                    data: {id: edid},
+                    success: function(res)
+                    {
+                        $(formid).hide();
+                        $('#response_ed').show();
+                        window.location.href = baseurl+'expert#edu_history';
                     },
                     error: function (request, status, error) 
                     {

@@ -313,7 +313,7 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
                                 <label class="col-md-10 control-label">Date of Birth</label>
                                 <div class="col-md-12 inputGroupContainer">
                                     <div class="input-group">
-                                        <input name="dob" class="form-control" type="date" value="<?php if(!empty($usr[0]->profile_name)){echo $usr[0]->profile_name;} ?>" required>
+                                        <input name="dob" class="form-control" type="date" value="<?php if(!empty($usr[0]->dob)){echo $usr[0]->dob;} ?>" required>
                                     </div>
                                 </div>
                             </div>
@@ -389,7 +389,7 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
                                 <label class="col-md-10 control-label">Facebook profile link</label>
                                 <div class="col-md-12 selectContainer">
                                     <div class="input-group">
-                                        <input name="fid" placeholder="https://www.facebook.com/someusername" class="form-control" type="text" <?php if(!empty($usr[0]->fid)){echo $usr[0]->fid;}?> required>
+                                        <input name="fid" placeholder="https://www.facebook.com/someusername" class="form-control" type="url" value="<?php if(!empty($usr[0]->fid)){echo $usr[0]->fid;}?>" required>
                                     </div>
                                 </div>
                             </div>
@@ -398,7 +398,7 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
                                 <label class="col-md-10 control-label">Twitter profile link</label>
                                 <div class="col-md-12 selectContainer">
                                     <div class="input-group">
-                                        <input name="tid" placeholder="https://twitter.com/your_twitter" class="form-control" type="text" <?php if(!empty($usr[0]->tid)){echo $usr[0]->tid;}?> required>
+                                        <input name="tid" placeholder="https://twitter.com/your_twitter" class="form-control" type="url" value="<?php if(!empty($usr[0]->tid)){echo $usr[0]->tid;}?>" required>
                                     </div>
                                 </div>
                             </div>
@@ -407,7 +407,7 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
                                 <label class="col-md-10 control-label">Quora profile link</label>
                                 <div class="col-md-12 selectContainer">
                                     <div class="input-group">
-                                        <input name="qid" placeholder="https://www.quora.com/profile/smartusername" class="form-control" type="text" <?php if(!empty($usr[0]->qid)){echo $usr[0]->qid;}?> required>
+                                        <input name="qid" placeholder="https://www.quora.com/profile/smartusername" class="form-control" type="url" value="<?php if(!empty($usr[0]->qid)){echo $usr[0]->qid;}?>" required>
                                     </div>
                                 </div>
                             </div>
@@ -416,7 +416,7 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
                                 <label class="col-md-10 control-label">Linkedin profile link</label>
                                 <div class="col-md-12 selectContainer">
                                     <div class="input-group">
-                                        <input name="lid" placeholder="https://www.linkedin.com/countrycode/profilename" class="form-control" type="text" <?php if(!empty($usr[0]->lid)){echo $usr[0]->lid;}?> required>
+                                        <input name="lid" placeholder="https://www.linkedin.com/countrycode/profilename" class="form-control" type="url" value="<?php if(!empty($usr[0]->lid)){echo $usr[0]->lid;}?>" required>
                                     </div>
                                 </div>
                             </div>
@@ -425,7 +425,7 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
                                 <label class="col-md-10 control-label">Your skills/Expertise</label>
                                 <div class="col-md-12 selectContainer">
                                     <div class="input-group">
-                                       <input name="skills" placeholder="comma seperated skills. eg: translation, transliteration..." class="form-control" type="text" <?php if(!empty($usr[0]->skills)){echo $usr[0]->skills;}?> required> 
+                                       <input name="skills" placeholder="comma seperated skills. eg: translation, transliteration..." class="form-control" type="text" value="<?php if(!empty($usr[0]->skills)){echo $usr[0]->skills;}?>" required> 
                                     </div>
                                 </div>
                             </div>
@@ -460,9 +460,9 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
                             if($work_history){ 
                                 $count=1;
                                 foreach($work_history as $w){ ?>
-                                   <form class="form-horizontal main_form text-left" action="<?php echo base_url() ?>expert/update_wh" method="post" >
+                                   <form class="form-horizontal main_form text-left" action="<?php echo base_url() ?>expert/update_wh" method="post" id="wh<?php echo $w->id; ?>">
                                     <fieldset class="well" style="display:block; width:90%;overflow:auto;margin-left:4%;background-color:#fff;">
-                                        <legend style="color:#282f46;text-transform:uppercase;font-weight:bold;width:max-content;">Work History <?php echo $count; ?> | <button class="btn btn-danger btn-xs" title="Delete work history" onclick="delete_wh(<?php echo $w->id; ?>)"><i class="fa fa-trash"></i></button></legend>
+                                        <legend style="color:#282f46;text-transform:uppercase;font-weight:bold;width:max-content;">Work History <?php echo $count; ?> | <button type="button" class="btn btn-danger btn-xs" title="Delete work history" onclick="delete_wh(<?php echo $w->id; ?>)"><i class="fa fa-trash"></i></button></legend>
                                          <div class="form-group col-md-12">
                                             <label class="col-md-10 control-label">Designation/Profile Name</label>
                                             <div class="col-md-12 inputGroupContainer">
@@ -532,16 +532,16 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
                 </div>
                 <br/>
                 <div class="row">
-                   <div id="response_wh" style="color:red;font:10px;display:none;">Work History Deleted!</div>
+                   <div id="response_ed" style="color:red;font:10px;display:none;">Education History Deleted!</div>
                         <fieldset id="edu_his">
                            <?php
                                 if($education){
                                     $cnt = 1;
                                     foreach($education as $ed){ ?>
-                                        <form class="form-horizontal main_form text-left" action="<?php echo base_url() ?>expert/update_edu" method="post">
+                                        <form class="form-horizontal main_form text-left" action="<?php echo base_url() ?>expert/update_edu" method="post" id="ed<?php echo $ed->id ?>">
                                         <fieldset class="well" style="display:block; width:90%;overflow:auto;margin-left:4%;background-color:#fff;">
                                             <legend style="color:#282f46;text-transform:uppercase;font-weight:bold;width:max-content;">
-                                                 Education History <?php echo $cnt; ?> | <button class="btn btn-danger btn-xs" title="Delete Education History" onclick=""><i class="fa fa-trash"></i></button>
+                                                 Education History <?php echo $cnt; ?> | <button type="button" class="btn btn-danger btn-xs" title="Delete Education History" onclick="del_edu(<?php echo $ed->id ?>)"><i class="fa fa-trash"></i></button>
                                             </legend>
                                             <div class="form-group col-md-12">
                                                 <label class="col-md-10 control-label">Exam name</label>

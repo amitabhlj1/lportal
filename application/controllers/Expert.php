@@ -56,7 +56,7 @@ class Expert extends CI_Controller
         $s = $this->input->post('country');
         $where = array('c_id' => $s);
         $state = $this->My_model->selectRecord('states', '*', $where);
-        echo "<select class='form-control' name='states' onchange='show_cities(this.value)'>";
+        echo "<select class='form-control' name='state' onchange='show_cities(this.value)'>";
         foreach($state as $st){
             echo "<option value='$st->id'>$st->name</option>";
         }
@@ -127,7 +127,7 @@ class Expert extends CI_Controller
         }
     }
     public function add_edu(){
-        $wh_arr = array(
+        $edu_arr = array(
             'exp_id' =>$this->session->userdata('exp_id'), 
             'exam_name' => $this->input->post('exam_name'),
             'college_name' => $this->input->post('college_name'),
@@ -135,6 +135,19 @@ class Expert extends CI_Controller
             'marks' => $this->input->post('marks'),
             'remarks' => $this->input->post('remarks'),
         );
+        $ins = $this->My_model->insertRecord('lang_expert_ed', $edu_arr);
+        if($ins){
+            echo "<script>
+                    alert('New Education detail added'); 
+                    window.location.href = '".base_url('expert')."';
+                </script>";
+        } else {
+            echo $ins; die();
+        }
+    }
+    public function delete_edu(){
+        $where = array('id' => $this->input->post('id'));
+        echo $del_ed = $this->My_model->deleteRecordPerm('lang_expert_ed', $where);
     }
     public function edit_basic_detail(){
        $states =""; $cities ="";
@@ -143,12 +156,13 @@ class Expert extends CI_Controller
         } else {
             $states = null;
         }
+        
         if($this->input->post('cities')){
             $cities = $this->input->post('cities');
         } else {
             $cities = null;
         }
-        
+        $where = array('id' =>$this->session->userdata('exp_id'));
         $insert_val = array(
             'first_name' => $this->input->post('first_name'),
             'last_name' => $this->input->post('last_name'),
@@ -158,8 +172,8 @@ class Expert extends CI_Controller
             'mobile' => $this->input->post('mobile'),
             'about_me' => $this->input->post('about_me'),
             'country' => $this->input->post('country'),
-            'states' => $states,
-            'cities' => $cities,
+            'state' => $states,
+            'city' => $cities,
             'total_exp' => $this->input->post('total_exp'),
             'fid' => $this->input->post('fid'),
             'tid' => $this->input->post('tid'),
@@ -167,7 +181,15 @@ class Expert extends CI_Controller
             'lid' => $this->input->post('lid'),
             'skills' => $this->input->post('skills')
         );
-        
-        var_dump($insert_val);
+        //var_dump($this->input->post('state'));
+        $updt = $this->My_model->updateRecord('lang_expert', $insert_val, $where);
+        if($updt == '1' || $updt == '0'){
+            echo "<script>
+                    alert('Profile details updated!'); 
+                    window.location.href = '".base_url('expert')."';
+                </script>";
+        } else {
+            echo $updt; die();
+        }
     }
 }
