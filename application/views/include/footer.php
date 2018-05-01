@@ -90,6 +90,7 @@
     <script src="<?php echo base_url(); ?>assets/lib/simple-text-rotator/jquery.simple-text-rotator.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/js/plugins.js"></script>
     <script src="<?php echo base_url(); ?>assets/js/main.js"></script>
+    <script src="<?php echo base_url();?>assets/js/jquery.form.js"></script>
     <script>
         // for profile page;
         //tab js//
@@ -244,6 +245,26 @@
                 });
             }
         }
+    </script>
+    <script type="text/javascript" >
+     $(document).ready(function() { 
+
+                $('#photoimg').off('click').on('change', function(){ 
+                    $("#imageform").ajaxForm({target: '#preview', 
+                         beforeSubmit:function(){ 
+                            $("#imageloadstatus").show();
+                            $("#imageloadbutton").hide();
+                         }, 
+                         success:function(){ 
+                            location.reload(true); 
+                         }, 
+                         error:function(res){
+                            console.log(res);
+                            $("#imageloadstatus").hide();
+                            $("#imageloadbutton").show();
+                         } }).submit();
+                });
+            }); 
     </script>
   </body>
 </html>

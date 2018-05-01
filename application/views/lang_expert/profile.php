@@ -4,7 +4,7 @@ body { background:#ffffff;}
 .module{padding: 80px 0; !important}
 .page-header {background:#ccc;margin:0;}
 .profile-head { width:100%;background-color: rgb(40, 47, 70);float: left;padding: 15px 5px;}
-.profile-head img { height:200px; width:200px; margin:0 auto; border-radius:50%;}
+.profile-head img { height:220px; width:220px; margin:0 auto; border-radius:50%;}
 .profile-head h5 {width: 100%;padding:5px 5px 0px 5px;text-align:justify;font-weight: bold;color: #fff;font-size: 25px;text-transform:capitalize;
 margin-bottom: 0;}
 .profile-head p {width: 100%;text-align: justify;padding:0px 5px 5px 5px;color: #fff;font-size:17px;text-transform:capitalize;margin:0;}
@@ -28,12 +28,35 @@ margin-bottom: 0;}
 .tab-content>.active {margin-top:10px;/*width:100% !important;*/} 
 
 /* edit profile css*/
-#uppic{position: absolute;left: 42.5%;bottom: -4%;}
-.hve-pro {background-image: linear-gradient(to right top, #ff6600, #de284e, #9a1f68, #ea3f31, #fa5c0c);padding: 5px; width:100%; height:auto;float:left;}
-.hve-pro p {float: left;color:#fff;font-size: 15px;text-transform: capitalize;padding: 5px 20px;text-shadow: 2px 2px black;text-align: left;}
+.rlabel{text-align:left;margin-left:-15px;width:max-content; background:rgb(40, 47, 70); padding: 0.5% 0.5% 0.5% 2.5%; color: white; border-left: 4px solid gold;}
+    .smblock{
+        border: 0.5px solid #eee;
+        padding: 8px;
+    }
+.uppic{position: absolute;left: 42.5%;bottom: -4%;}
+.loader2 {
+  border: 8px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 8px solid #3498db;
+  width: 20px;
+  height: 20px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+    
 h2.register { padding:10px 25px; text-transform:capitalize;font-size: 25px;color: rgb(255, 102, 0);}
 .fom-main { overflow:hidden;}
-
+p{margin-bottom: 0px;}
 legend {color:#ff3200;border-bottom:0px solid;}
 .main_form {background-color: #;}
 label.control-label {font-weight: 100; margin-bottom:5px !important; 
@@ -49,7 +72,7 @@ select.selectpicker option:first-child { color:#99999c;}
 .nav-menu li a {margin: 5px 5px 5px 5px;position: relative;display: block;padding: 10px 50px;border: 0px solid !important;box-shadow: none !important;
 background-color: rgb(0, 4, 51) !important;color: #fff !important;    white-space: nowrap;}
 .nav-menu li.active a {background-color: rgb(255, 102, 0) !important;}
-table{margin-left: 5%; width: 80% !important;}
+table{ width: 80% !important;}
 table>tbody>tr>td{text-align: left;margin-left: 2%; border-top: none !important;}
 table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
     .social_links{padding: 5px; font-size: 12px;}
@@ -61,19 +84,32 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
 <section class="module">
 <div class="container" >
     <div class="profile-head">
-        <div class="col-md- col-sm-4 col-xs-12">
-            <img src="<?php if(!empty($usr[0]->image)){echo $usr[0]->image;} else {echo base_url()."assets/1.png";} ?>" class="img-responsive" />
-            <label class="btn btn-xs btn-primary" id="uppic" title="Change Profile Image">
-                <i class="fa fa-camera"></i> <input type="file" style="display: none;">
-            </label>
+        <div class="col-md- col-sm-4 col-xs-12" id="preview">
+            <?php
+                if(!$usr[0]->social_login == 1){
+                    $empPath = 'assets/uploads/experts/';
+            ?>
+             <img src="<?php if(!empty($usr[0]->image)){echo base_url().$empPath.$usr[0]->image;} else {echo base_url()."assets/1.png";} ?>" class="img-responsive" />
+              <form id="imageform" action="<?php echo base_url(); ?>expert/upload_profile_image" method="post" enctype="multipart/form-data">
+               <label class="btn btn-xs btn-primary uppic" id="imageloadbutton" title="Change Profile Image">
+                <i class="fa fa-camera"></i> <input type="file" id="photoimg" name="photoimg" style="display: none;">
+               </label>
+               <div class="uppic loader2" id="imageloadstatus" style="display:none;"></div>
+              </form>
+            <?php
+                } else { ?>
+                <img src="<?php if(!empty($usr[0]->image)){echo $usr[0]->image;} else {echo base_url()."assets/1.png";} ?>" class="img-responsive" />
+            <?php     
+                }
+            ?>
         </div>
         <!--col-md-4 col-sm-4 col-xs-12 close-->
 
         <div class="col-md-5 col-sm-5 col-xs-12">
             <h5><?php echo $usr[0]->first_name." ".$usr[0]->last_name; ?></h5>
-            <p><?php echo $usr[0]->profile_name; ?></p>
+            <p><span class="fa fa-bolt"></span> <?php if(!empty($usr[0]->profile_name)){ echo $usr[0]->profile_name; } else {echo "N.A.";}?></p>
             <ul>
-                <li><span class="fa fa-bolt"></span> <?php if(!empty($usr[0]->profile_name)){ echo $usr[0]->profile_name; } else {echo "N.A.";}?></li>
+                <li><span class="fa fa-calendar"></span> <?php if(!empty($usr[0]->dob)){ echo date('F j, Y',strtotime($usr[0]->dob)); } else {echo "N.A.";}?></li>
                 <li><span class="glyphicon glyphicon-briefcase"></span> <?php if(!empty($usr[0]->total_exp)){ echo $usr[0]->total_exp; } else {echo "N.A.";}?> </li>
                 <li><span class="glyphicon glyphicon-map-marker"></span> <?php if(!empty($country[0]->c_name)){ echo $country[0]->c_name;} else {echo "N.A.";} ?> </li>
                 <li><span class="glyphicon glyphicon-home"></span> <?php if(!empty($city || $state)){ echo $city[0]->name.", ".$state[0]->name;} else {echo "N.A.";} ?></li>
@@ -116,64 +152,64 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
         <div class="tab-pane fade active in" id="profile">
             <div class="container">
                 <div class="col-sm-11" style="float:left;">
-                   <h2 style="text-align:left;">Resume</h2>
-                    <div class="hve-pro">
+                   <h4 class="rlabel" style="margin-left:-30px; margin-top:0px;"><i class="fa fa-file-text-o"></i> Mini Resume</h4>
+                    <div class="module-subtitle font-serif" style="margin-bottom:0px; text-align:center;">
                         <p><?php if(!empty($usr[0]->about_me)) {echo $usr[0]->about_me;} else {echo "Please update your profile for better visibility / Click on Edit Profile Button";} ?></p>
                     </div>
-                    <!--hve-pro close-->
                 </div>
                 <!--col-sm-12 close-->
                 <br clear="all" />
                 <div class="row">
                    <div class="col-md-11 table-responsive">
-                        <hr style="width:100%; margin-left:1%;border-color:rgb(40, 47, 70);"/>
-                        <h4 style="text-align:left;margin-left:12px;">Basic Details</h4>
-                        <table class="table" style="width:100%;">
-                            <tbody>
-                                <tr>
-                                    <td><i class="fa fa-envelope"></i> Email: <?php if($usr[0]->email == ''){echo "<span style='color:red;'>Not Available</span>";} else {echo $usr[0]->email;}; ?></td>
-                                </tr>
-                                <tr>
-                                    <td><i class="fa fa-phone"></i> Mobile: <?php if($usr[0]->mobile == ""){echo "<span style='color:red;'>Not Available</span>"; }else{echo $usr[0]->mobile;}; ?></td>
-                                </tr>
-                                <tr>
-                                    <td><?php
-                                            if(!empty($usr[0]->fid)){
-                                                echo "<i class='fa fa-facebook-square'></i> Facebook: <a href='".$usr[0]->fid."'>".$usr[0]->fid."</a>";
-                                            } 
-                                        ?>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><?php
-                                            if(!empty($usr[0]->tid)){
-                                                echo "<i class='fa fa-twitter-square'></i> Twitter: <a href='".$usr[0]->tid."'>".$usr[0]->tid."</a>";
-                                            }
-                                        ?>
-                                    </td>
-                                </tr>
-                                <tr>
-                                   <td><?php
-                                        if(!empty($usr[0]->qid)){
-                                                echo "<i class='fa fa-quora'></i> Quora: <a href='".$usr[0]->lid."'>".$usr[0]->lid."</a>";
-                                            }
-                                       ?>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><?php
-                                        if(!empty($usr[0]->lid)){
-                                                echo "<i class='fa fa-linkedin-square'></i> Linkedin: <a href='".$usr[0]->lid."'>".$usr[0]->lid."</a>";
-                                            }
-                                        ?>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <h4 class="rlabel"><i class="fa fa-columns"></i> Basic Details</h4>
+                        <div class="row" style="margin-left:12px;text-align:left;">
+                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 smblock">
+                                <i class="fa fa-envelope"></i> <?php if($usr[0]->email == ''){echo "<span style='color:red;'>Not Available</span>";} else {echo $usr[0]->email;}; ?>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 smblock">
+                                <i class="fa fa-phone"></i> <?php if($usr[0]->mobile == ""){echo "<span style='color:red;'>Not Available</span>"; }else{echo $usr[0]->mobile;}; ?>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 smblock">
+                               <?php
+                                    if(!empty($usr[0]->fid)){
+                                        echo "<i class='fa fa-facebook-square'></i> <a href='".$usr[0]->fid."'>Facebook</a>";
+                                    } else {
+                                        echo "<i class='fa fa-facebook-square'></i> Not Updated Yet";
+                                    }
+                                ?>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 smblock">
+                               <?php
+                                    if(!empty($usr[0]->tid)){
+                                        echo "<i class='fa fa-twitter-square'></i> <a href='".$usr[0]->tid."'>Twitter</a>";
+                                    } else {
+                                        echo "<i class='fa fa-twitter-square'></i> Not Updated Yet";
+                                    }
+                                ?>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 smblock">
+                               <?php
+                                if(!empty($usr[0]->qid)){
+                                        echo "<i class='fa fa-quora'></i> <a href='".$usr[0]->qid."'>Quora</a>";
+                                    } else {
+                                        echo "<i class='fa fa-quora'></i> Not Updated Yet";
+                                    }
+                               ?>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 smblock">
+                               <?php
+                                if(!empty($usr[0]->lid)){
+                                        echo "<i class='fa fa-linkedin-square'></i> <a href='".$usr[0]->lid."'>Linkedin</a>";
+                                    } else {
+                                    echo "<i class='fa fa-linkedin-square'></i> Not Updated Yet";
+                                }
+                                ?>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-11 table-responsive">
-                        <hr style="width:100%; margin-left:1%;border-color:rgb(40, 47, 70);"/>
-                        <h4 style="text-align:left;margin-left:12px;">Education</h4>
+                    <div>
+                    <div class="col-md-6 table-responsive">
+                        <h4 class="rlabel" style="width:100%;border-right:4px solid gold;"><i class="fa fa-graduation-cap"></i> Education</h4>
                         <?php 
                             if($education){ 
                                 foreach($education as $edu){
@@ -203,9 +239,8 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
                             }
                         ?>
                     </div>
-                    <div class="col-md-11 table-responsive">
-                        <hr style="width:100%; margin-left:1%;border-color:rgb(40, 47, 70);"/>
-                        <h4 style="text-align:left;margin-left:12px;">Experience</h4>
+                    <div class="col-md-6 table-responsive">
+                        <h4 class="rlabel" style="width:100%;border-right:4px solid gold;"><i class="fa fa-suitcase"></i> Work Experience</h4>
                         <?php 
                             if($work_history){ 
                                 foreach($work_history as $wh){
@@ -235,7 +270,7 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
                             }
                         ?>
                     </div>
-                    
+                    </div>
                     <!--col-md-11 close-->
                 </div>
                 <!--row close-->
