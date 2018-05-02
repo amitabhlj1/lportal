@@ -42,7 +42,7 @@ class Expert extends CI_Controller
         );
         $data['education'] = $this->My_model->selectRecord('lang_expert_ed', '*', $whr5);
         $data['work_history'] = $this->My_model->selectRecord('lang_expert_wh', '*', $whr5);
-        $this->load->view('lang_expert/exp_header', $title);
+        $this->load->view('include/header', $title);
 		$this->load->view('lang_expert/profile', $data);
         $this->load->view('include/footer');
 	}
@@ -166,8 +166,8 @@ class Expert extends CI_Controller
             $states = null;
         }
         
-        if($this->input->post('cities')){
-            $cities = $this->input->post('cities');
+        if($this->input->post('city')){
+            $cities = $this->input->post('city');
         } else {
             $cities = null;
         }

@@ -52,7 +52,15 @@
     <link href="<?php echo base_url(); ?>assets/lib/simple-text-rotator/simpletextrotator.css" rel="stylesheet">
     <!-- Main stylesheet and color file-->
     <link href="<?php echo base_url(); ?>assets/css/style.css" rel="stylesheet">
-    <link id="color-scheme" href="<?php echo base_url(); ?>assets/css/colors/default.css" rel="stylesheet">	  
+    <link id="color-scheme" href="<?php echo base_url(); ?>assets/css/colors/default.css" rel="stylesheet">
+    <style>
+    input#search_btn{
+        background-image: url(<?php echo base_url(); ?>assets/images/search_icon_white.png);
+        background-repeat: no-repeat;
+        background-position: 44%;
+        background-size: contain; 
+    }
+    </style>	  
 	<script src="<?php echo base_url(); ?>assets/js/common.js"></script>
 	<script>
 		var baseurl = "<?php echo base_url();?>";
@@ -80,6 +88,9 @@
             <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#custom-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="<?php echo base_url();?>">Langjobs.com</a>
           </div>
           <div class="collapse navbar-collapse" id="custom-collapse">
+           <?php
+              if(!$this->session->userdata('exp_id')){
+            ?>
             <ul class="nav navbar-nav navbar-right">
               <li><a href="index.php"><i class="fa fa-home"></i>Home</a></li>
               <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown"><i class="fa fa-th-list"></i>Services</a>
@@ -103,6 +114,20 @@
                 </ul>
               </li>
             </ul>
+            <?php
+              } else { ?>
+                <ul class="nav navbar-nav navbar-right">
+                  <li><a href="index.php"><i class="fa fa-search"></i>Search Jobs</a></li>
+                  <li><a href="contact.php"><i class="fa fa-book"></i>Freelance Projects</a></li>
+                  <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown"><i class="fa fa-user-circle"></i><?php echo $this->session->userdata('first_name'); ?></a>
+                    <ul class="dropdown-menu">
+                      <li class="dropdown"><a href="<?php echo base_url();?>expert/logout"><i class="fa fa-sign-out"></i>Logout</a></li>
+                    </ul>
+                  </li>
+                </ul>
+             <?php  
+              }
+            ?>
           </div>
         </div>
       </nav>

@@ -172,7 +172,7 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
                             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 smblock">
                                <?php
                                     if(!empty($usr[0]->fid)){
-                                        echo "<i class='fa fa-facebook-square'></i> <a href='".$usr[0]->fid."'>Facebook</a>";
+                                        echo "<i class='fa fa-facebook-square'></i> <a href='".$usr[0]->fid."'>Facebook <i class='fa fa-external-link-square'></i></a>";
                                     } else {
                                         echo "<i class='fa fa-facebook-square'></i> Not Updated Yet";
                                     }
@@ -181,7 +181,7 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
                             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 smblock">
                                <?php
                                     if(!empty($usr[0]->tid)){
-                                        echo "<i class='fa fa-twitter-square'></i> <a href='".$usr[0]->tid."'>Twitter</a>";
+                                        echo "<i class='fa fa-twitter-square'></i> <a href='".$usr[0]->tid."'>Twitter <i class='fa fa-external-link-square'></i></a>";
                                     } else {
                                         echo "<i class='fa fa-twitter-square'></i> Not Updated Yet";
                                     }
@@ -190,7 +190,7 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
                             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 smblock">
                                <?php
                                 if(!empty($usr[0]->qid)){
-                                        echo "<i class='fa fa-quora'></i> <a href='".$usr[0]->qid."'>Quora</a>";
+                                        echo "<i class='fa fa-quora'></i> <a href='".$usr[0]->qid."'>Quora <i class='fa fa-external-link-square'></i></a>";
                                     } else {
                                         echo "<i class='fa fa-quora'></i> Not Updated Yet";
                                     }
@@ -199,7 +199,7 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
                             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 smblock">
                                <?php
                                 if(!empty($usr[0]->lid)){
-                                        echo "<i class='fa fa-linkedin-square'></i> <a href='".$usr[0]->lid."'>Linkedin</a>";
+                                        echo "<i class='fa fa-linkedin-square'></i> <a href='".$usr[0]->lid."'>Linkedin <i class='fa fa-external-link-square'></i></a>";
                                     } else {
                                     echo "<i class='fa fa-linkedin-square'></i> Not Updated Yet";
                                 }
@@ -240,7 +240,7 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
                         ?>
                     </div>
                     <div class="col-md-6 table-responsive">
-                        <h4 class="rlabel" style="width:100%;border-right:4px solid gold;"><i class="fa fa-suitcase"></i> Work Experience</h4>
+                        <h4 class="rlabel" style="width:100%;border-right:4px solid gold;text-align:right;"><i class="fa fa-suitcase"></i> Work Experience</h4>
                         <?php 
                             if($work_history){ 
                                 foreach($work_history as $wh){

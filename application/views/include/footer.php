@@ -1,79 +1,78 @@
 <div class="module-small bg-dark">
-          <div class="container">
-            <div class="row">
-              <div class="col-sm-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
                 <div class="widget">
-                  <h5 class="widget-title font-alt">About Titan</h5>
-                  <p>The languages only differ in their grammar, their pronunciation and their most common words.</p>
-                  <p>Phone: +1 234 567 89 10</p>Fax: +1 234 567 89 10
-                  <p>Email:<a href="#">somecompany@example.com</a></p>
+                    <h5 class="widget-title font-alt">About Langjobs</h5>
+                    <p>Language shouldn't become a barrier in finding your dreams</p>
+                    <p>Phone: +91-11-4601-3636</p>Mobile: +91-93114-88060
+                    <p>Email: <a href="mailto:amitabh@langjobs.com" target="_top">amitabh@langjobs.com</a></p>
                 </div>
-              </div>
-              <div class="col-sm-3">
-                <div class="widget">
-                  <h5 class="widget-title font-alt">Recent Comments</h5>
-                  <ul class="icon-list">
-                    <li>Maria on <a href="#">Designer Desk Essentials</a></li>
-                    <li>John on <a href="#">Realistic Business Card Mockup</a></li>
-                    <li>Andy on <a href="#">Eco bag Mockup</a></li>
-                    <li>Jack on <a href="#">Bottle Mockup</a></li>
-                    <li>Mark on <a href="#">Our trip to the Alps</a></li>
-                  </ul>
-                </div>
-              </div>
-              <div class="col-sm-3">
-                <div class="widget">
-                  <h5 class="widget-title font-alt">Blog Categories</h5>
-                  <ul class="icon-list">
-                    <li><a href="#">Photography - 7</a></li>
-                    <li><a href="#">Web Design - 3</a></li>
-                    <li><a href="#">Illustration - 12</a></li>
-                    <li><a href="#">Marketing - 1</a></li>
-                    <li><a href="#">Wordpress - 16</a></li>
-                  </ul>
-                </div>
-              </div>
-              <div class="col-sm-3">
-                <div class="widget">
-                  <h5 class="widget-title font-alt">Popular Posts</h5>
-                  <ul class="widget-posts">
-                    <li class="clearfix">
-                      <div class="widget-posts-image"><a href="#"><img src="#" alt="Post Thumbnail"/></a></div>
-                      <div class="widget-posts-body">
-                        <div class="widget-posts-title"><a href="#">Designer Desk Essentials</a></div>
-                        <div class="widget-posts-meta">23 january</div>
-                      </div>
-                    </li>
-                    <li class="clearfix">
-                      <div class="widget-posts-image"><a href="#"><img src="#" alt="Post Thumbnail"/></a></div>
-                      <div class="widget-posts-body">
-                        <div class="widget-posts-title"><a href="#">Realistic Business Card Mockup</a></div>
-                        <div class="widget-posts-meta">15 February</div>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
             </div>
-          </div>
+            <div class="col-sm-3">
+                <div class="widget">
+                    <h5 class="widget-title font-alt">In the News</h5>
+                    <ul class="icon-list">
+                        <li>multilingual.com <a href="<?php echo base_url(); ?>assets/images/multilingual.jpg">considers us as India's 1st specialized language consultancy.</a></li>
+                        <li>livehindustan.com <a href="https://www.livehindustan.com/news/tayaarinews/tayaarinews/article1-story-67-67-116909.html">LangJobs as Language Jobs Marketplace.</a></li>
+                        <li>businesstoday.in<a href="https://www.businesstoday.in/moneytoday/cover-story/temporary-relief/story/8843.html">Article on Temporary Relief.</a></li>
+                        <li>Winning Edge <a href="<?php echo base_url(); ?>assets/images/langjobs.jpg">LangJobs as Innovative Websites from India.</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="widget">
+                    <h5 class="widget-title font-alt">Linked Links</h5>
+                    <ul class="icon-list">
+                        <li><a href="http://langecole.com/">Langecole</a></li>
+                        <li><a href="https://www.liveecole.com/">Liveecole</a></li>
+                        <li><a href="#">Methodology</a></li>
+                        <li><a href="#">languages</a></li>
+                        <li><a href="#">contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="widget">
+                    <h5 class="widget-title font-alt">Other Links</h5>
+                    <ul class="widget-posts">
+                        <li class="clearfix">
+                            <div class="widget-posts-image"><a href="https://www.ndtv.com/video/mindspace/heads-up/career-in-solar-energy-make-the-most-out-of-the-sun-315747"><img src="<?php echo base_url() ?>assets/images/amitabh.png"/></a></div>
+                            <div class="widget-posts-body">
+                                <div class="widget-posts-title"><a href="https://www.ndtv.com/video/mindspace/heads-up/career-in-solar-energy-make-the-most-out-of-the-sun-315747">Skills required for Language experts</a></div>
+                                <div class="widget-posts-meta">3rd April 2014</div>
+                            </div>
+                        </li>
+                        <li class="clearfix">
+                            <div class="widget-posts-image"><a href="http://langecole.com/cultural_center"><img src="<?php echo base_url(); ?>assets/images/cultural_center.jpg" alt="Post Thumbnail"/></a></div>
+                            <div class="widget-posts-body">
+                                <div class="widget-posts-title"><a href="http://langecole.com/cultural_center">Cultural Centers</a></div>
+                                <div class="widget-posts-meta">January 2018</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <hr class="divider-d">
-        <footer class="footer bg-dark">
-          <div class="container">
-            <div class="row">
-              <div class="col-sm-6">
-                <p class="copyright font-alt">&copy; 2017&nbsp;<a href="index.html">TitaN</a>, All Rights Reserved</p>
-              </div>
-              <div class="col-sm-6">
-                <div class="footer-social-links"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-dribbble"></i></a><a href="#"><i class="fa fa-skype"></i></a>
-                </div>
-              </div>
+    </div>
+</div>
+<hr class="divider-d">
+<footer class="footer bg-dark">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <p class="copyright font-alt">&copy; 2018&nbsp;<a href="index.html">langjobs.com</a>, All Rights Reserved</p>
             </div>
-          </div>
-        </footer>
-      </div>
-      <div class="scroll-up"><a href="#totop"><i class="fa fa-angle-double-up"></i></a></div>
-    </main>
+            <div class="col-sm-6">
+                <div class="footer-social-links"><a href="https://www.facebook.com/langjobs.india"><i class="fa fa-facebook"></i></a><a href="https://twitter.com/langjobs"><i class="fa fa-twitter"></i></a><a href="https://www.linkedin.com/groups/706847/profile"><i class="fa fa-linkedin-square"></i></a><a href="skype:amitabh216?call"><i class="fa fa-skype"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+<div class="scroll-up"><a href="#totop"><i class="fa fa-angle-double-up"></i></a></div>
+</main>
     <!--  
     JavaScripts
     =============================================
@@ -91,6 +90,20 @@
     <script src="<?php echo base_url(); ?>assets/js/plugins.js"></script>
     <script src="<?php echo base_url(); ?>assets/js/main.js"></script>
     <script src="<?php echo base_url();?>assets/js/jquery.form.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/b-1.5.1/datatables.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/res/Obj.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/AddTags.js"></script>
+    <script>
+        $("#tags_1").addTags();
+        $(document).ready(function() {
+            //console.log('awesome');
+            $('#job_table1').DataTable({
+                language: {
+                    searchPlaceholder: "Quick Search in table"
+                }
+            });
+        } );
+    </script>
     <script>
         // for profile page;
         //tab js//

@@ -1,0 +1,55 @@
+/* Theme */
+/* Colors */
+/* Sizes */
+.addui-Tags .addui-Tags-tag {
+  display: inline-block;
+  background: #a2c7ec;
+  color: rgba(0, 0, 0, 0.87);
+  margin: 1px 7px 0px 0px;
+  padding: 0 5px;
+  border-radius: 10%;
+}
+
+.addui-Tags .addui-Tags-tag.addui-Tags-removable {
+  cursor: pointer;
+}
+
+.addui-Tags .addui-Tags-tag.addui-Tags-removable:after {
+  display: inline-block;
+  content: "X";
+  width: 14px;
+  height: 14px;
+  margin: 4px -11px 0px 5px;
+  background: #fff;
+  font-family: monospace;
+  color: #101010;
+  border-radius: 999px;
+  border: 0.5px solid;
+  font-size: 10px;
+  line-height: 12px;
+  text-align: center;
+  vertical-align: top;
+}
+
+.addui-Tags .addui-Tags-tag.addui-Tags-removable:hover {
+  text-decoration: line-through;
+}
+
+.addui-Tags .addui-Tags-tag.addui-Tags-removable:hover:after {
+  background: #a0a0a0;
+}
+
+.addui-Tags .addui-Tags-input {
+  border: 0;
+  background: transparent;
+  margin: 4px;
+  padding: 4px 8px;
+  outline: none;
+  width: 100%;
+  font-family: inherit;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.addui-Tags .addui-Tags-input:focus {
+  border-bottom: 1px solid #3f51b5;
+}
