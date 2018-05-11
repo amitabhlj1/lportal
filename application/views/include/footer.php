@@ -1,79 +1,78 @@
 <div class="module-small bg-dark">
-          <div class="container">
-            <div class="row">
-              <div class="col-sm-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
                 <div class="widget">
-                  <h5 class="widget-title font-alt">About Titan</h5>
-                  <p>The languages only differ in their grammar, their pronunciation and their most common words.</p>
-                  <p>Phone: +1 234 567 89 10</p>Fax: +1 234 567 89 10
-                  <p>Email:<a href="#">somecompany@example.com</a></p>
+                    <h5 class="widget-title font-alt">About Langjobs</h5>
+                    <p>Language shouldn't become a barrier in finding your dreams</p>
+                    <p>Phone: +91-11-4601-3636</p>Mobile: +91-93114-88060
+                    <p>Email: <a href="mailto:amitabh@langjobs.com" target="_top">amitabh@langjobs.com</a></p>
                 </div>
-              </div>
-              <div class="col-sm-3">
-                <div class="widget">
-                  <h5 class="widget-title font-alt">Recent Comments</h5>
-                  <ul class="icon-list">
-                    <li>Maria on <a href="#">Designer Desk Essentials</a></li>
-                    <li>John on <a href="#">Realistic Business Card Mockup</a></li>
-                    <li>Andy on <a href="#">Eco bag Mockup</a></li>
-                    <li>Jack on <a href="#">Bottle Mockup</a></li>
-                    <li>Mark on <a href="#">Our trip to the Alps</a></li>
-                  </ul>
-                </div>
-              </div>
-              <div class="col-sm-3">
-                <div class="widget">
-                  <h5 class="widget-title font-alt">Blog Categories</h5>
-                  <ul class="icon-list">
-                    <li><a href="#">Photography - 7</a></li>
-                    <li><a href="#">Web Design - 3</a></li>
-                    <li><a href="#">Illustration - 12</a></li>
-                    <li><a href="#">Marketing - 1</a></li>
-                    <li><a href="#">Wordpress - 16</a></li>
-                  </ul>
-                </div>
-              </div>
-              <div class="col-sm-3">
-                <div class="widget">
-                  <h5 class="widget-title font-alt">Popular Posts</h5>
-                  <ul class="widget-posts">
-                    <li class="clearfix">
-                      <div class="widget-posts-image"><a href="#"><img src="#" alt="Post Thumbnail"/></a></div>
-                      <div class="widget-posts-body">
-                        <div class="widget-posts-title"><a href="#">Designer Desk Essentials</a></div>
-                        <div class="widget-posts-meta">23 january</div>
-                      </div>
-                    </li>
-                    <li class="clearfix">
-                      <div class="widget-posts-image"><a href="#"><img src="#" alt="Post Thumbnail"/></a></div>
-                      <div class="widget-posts-body">
-                        <div class="widget-posts-title"><a href="#">Realistic Business Card Mockup</a></div>
-                        <div class="widget-posts-meta">15 February</div>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
             </div>
-          </div>
+            <div class="col-sm-3">
+                <div class="widget">
+                    <h5 class="widget-title font-alt">In the News</h5>
+                    <ul class="icon-list">
+                        <li>multilingual.com <a href="<?php echo base_url(); ?>assets/images/multilingual.jpg">considers us as India's 1st specialized language consultancy.</a></li>
+                        <li>livehindustan.com <a href="https://www.livehindustan.com/news/tayaarinews/tayaarinews/article1-story-67-67-116909.html">LangJobs as Language Jobs Marketplace.</a></li>
+                        <li>businesstoday.in<a href="https://www.businesstoday.in/moneytoday/cover-story/temporary-relief/story/8843.html">Article on Temporary Relief.</a></li>
+                        <li>Winning Edge <a href="<?php echo base_url(); ?>assets/images/langjobs.jpg">LangJobs as Innovative Websites from India.</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="widget">
+                    <h5 class="widget-title font-alt">Linked Links</h5>
+                    <ul class="icon-list">
+                        <li><a href="http://langecole.com/">Langecole</a></li>
+                        <li><a href="https://www.liveecole.com/">Liveecole</a></li>
+                        <li><a href="#">Methodology</a></li>
+                        <li><a href="#">languages</a></li>
+                        <li><a href="#">contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="widget">
+                    <h5 class="widget-title font-alt">Other Links</h5>
+                    <ul class="widget-posts">
+                        <li class="clearfix">
+                            <div class="widget-posts-image"><a href="https://www.ndtv.com/video/mindspace/heads-up/career-in-solar-energy-make-the-most-out-of-the-sun-315747"><img src="<?php echo base_url() ?>assets/images/amitabh.png"/></a></div>
+                            <div class="widget-posts-body">
+                                <div class="widget-posts-title"><a href="https://www.ndtv.com/video/mindspace/heads-up/career-in-solar-energy-make-the-most-out-of-the-sun-315747">Skills required for Language experts</a></div>
+                                <div class="widget-posts-meta">3rd April 2014</div>
+                            </div>
+                        </li>
+                        <li class="clearfix">
+                            <div class="widget-posts-image"><a href="http://langecole.com/cultural_center"><img src="<?php echo base_url(); ?>assets/images/cultural_center.jpg" alt="Post Thumbnail"/></a></div>
+                            <div class="widget-posts-body">
+                                <div class="widget-posts-title"><a href="http://langecole.com/cultural_center">Cultural Centers</a></div>
+                                <div class="widget-posts-meta">January 2018</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <hr class="divider-d">
-        <footer class="footer bg-dark">
-          <div class="container">
-            <div class="row">
-              <div class="col-sm-6">
-                <p class="copyright font-alt">&copy; 2017&nbsp;<a href="index.html">TitaN</a>, All Rights Reserved</p>
-              </div>
-              <div class="col-sm-6">
-                <div class="footer-social-links"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-dribbble"></i></a><a href="#"><i class="fa fa-skype"></i></a>
-                </div>
-              </div>
+    </div>
+</div>
+<hr class="divider-d">
+<footer class="footer bg-dark">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <p class="copyright font-alt">&copy; 2018&nbsp;<a href="index.html">langjobs.com</a>, All Rights Reserved</p>
             </div>
-          </div>
-        </footer>
-      </div>
-      <div class="scroll-up"><a href="#totop"><i class="fa fa-angle-double-up"></i></a></div>
-    </main>
+            <div class="col-sm-6">
+                <div class="footer-social-links"><a href="https://www.facebook.com/langjobs.india"><i class="fa fa-facebook"></i></a><a href="https://twitter.com/langjobs"><i class="fa fa-twitter"></i></a><a href="https://www.linkedin.com/groups/706847/profile"><i class="fa fa-linkedin-square"></i></a><a href="skype:amitabh216?call"><i class="fa fa-skype"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+<div class="scroll-up"><a href="#totop"><i class="fa fa-angle-double-up"></i></a></div>
+</main>
     <!--  
     JavaScripts
     =============================================
@@ -90,6 +89,21 @@
     <script src="<?php echo base_url(); ?>assets/lib/simple-text-rotator/jquery.simple-text-rotator.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/js/plugins.js"></script>
     <script src="<?php echo base_url(); ?>assets/js/main.js"></script>
+    <script src="<?php echo base_url();?>assets/js/jquery.form.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/b-1.5.1/datatables.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/res/Obj.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/AddTags.js"></script>
+    <script>
+        $("#tags_1").addTags();
+        $(document).ready(function() {
+            //console.log('awesome');
+            $('#job_table1').DataTable({
+                language: {
+                    searchPlaceholder: "Quick Search in table"
+                }
+            });
+        } );
+    </script>
     <script>
         // for profile page;
         //tab js//
@@ -184,6 +198,86 @@
                 }
             });
         }
+        function add_new_wh_form (){
+            var form = document.getElementById('whistory');
+            var new_element = '<form class="form-horizontal main_form text-left" action="<?php echo base_url() ?>expert/add_wh" method="post" ><fieldset class="well" style="display:block; width:90%;overflow:auto;margin-left:4%;background-color:#fff;"><legend style="color:#282f46;text-transform:uppercase;font-weight:bold;width:max-content;">Add New Work History</legend><div class="form-group col-md-12"><label class="col-md-10 control-label">Designation/Profile Name</label><div class="col-md-12 inputGroupContainer"><div class="input-group"><input name="designation" placeholder="Language translator" class="form-control" type="text" value="" required></div> </div></div><div class="form-group col-md-12"><label class="col-md-10 control-label">Company/Organisation Name</label><div class="col-md-12 inputGroupContainer"><div class="input-group"><input name="company_name" placeholder="Name of the organisation you worked for" class="form-control" type="text" value="" required></div></div></div><div class="form-group col-md-12"><label class="col-md-10 control-label">From - To</label><div class="col-md-6 inputGroupContainer"><div class="input-group"><input name="y_from" class="form-control" type="date" value="" required></div></div><div class="col-md-6 inputGroupContainer"><div class="input-group"><input name="y_to" class="form-control" type="date" value="" required></div></div></div><div class="form-group col-md-12"><label class="col-md-10 control-label">Work description / Your responsibilities</label><div class="col-md-12 inputGroupContainer"><div class="input-group"><textarea placeholder="What you used to do, what was your role in the organization?" class="form-control" name="work_description" required></textarea></div></div></div><div class="form-group col-md-12"><div class="col-md-12 inputGroupContainer"><div class="input-group"><input type="submit" class="btn btn-success" value="Save" /></div></div></div></fieldset></form>';
+            form.innerHTML = "";
+            form.innerHTML = new_element;
+            document.getElementById('add_wh').style.display="none";
+        }
+        function add_new_edu_form(){
+            var form = document.getElementById('edu_his');
+            var new_element = '<form class="form-horizontal main_form text-left" action="<?php echo base_url() ?>expert/add_edu" method="post"><fieldset class="well" style="display:block; width:90%;overflow:auto;margin-left:4%;background-color:#fff;"><legend style="color:#282f46;text-transform:uppercase;font-weight:bold;width:max-content;">Add New Education History</button></legend><div class="form-group col-md-12"><label class="col-md-10 control-label">Exam name</label><div class="col-md-12 inputGroupContainer"><div class="input-group"><input name="exam_name" placeholder="Higher Secondary / Graduation / Bachelors / Masters" class="form-control" type="text" value=""></div></div></div><div class="form-group col-md-12"><label class="col-md-10 control-label">College / University name</label><div class="col-md-12 inputGroupContainer"><div class="input-group"><input name="college_name" placeholder="Name of your university / college" class="form-control" type="text" value=""></div></div></div><div class="form-group col-md-12"><label class="col-md-10 control-label">Passing Year</label><div class="col-md-12 inputGroupContainer"><div class="input-group"><input name="p_year" placeholder="year" class="form-control" type="text" value=""></div></div></div><div class="form-group col-md-12"><label class="col-md-10 control-label">Score / Mark</label><div class="col-md-12 inputGroupContainer"><div class="input-group"><input name="marks" placeholder="Scored %age or CGPA" class="form-control" type="text" value=""></div></div></div><div class="form-group col-md-12"><label class="col-md-10 control-label">Remarks / Some Words</label><div class="col-md-12 inputGroupContainer"><div class="input-group"><textarea class="form-control" name="remarks"></textarea></div></div></div><div class="form-group col-md-12"><div class="col-md-12 inputGroupContainer"><div class="input-group"><input type="submit" class="btn btn-success" value="Save" /></div></div></div></fieldset></form>';
+            form.innerHTML = "";
+            form.innerHTML = new_element;
+            document.getElementById('add_wh').style.display="none";
+        }
+        function delete_wh(x){
+            var whid = x;
+            var formid = "#wh"+x;
+            var r = confirm("Are you sure you want to delete this entry?");
+            if (r == true) {
+                $.ajax({
+                    type: "POST",
+                    url: baseurl+ "expert/del_whistory",
+                    dataType: 'html',
+                    data: {id: whid},
+                    success: function(res)
+                    {
+                        $(formid).hide();
+                        $('#response_wh').show();
+                        window.location.href = baseurl+'expert#work_history';
+                    },
+                    error: function (request, status, error) 
+                    {
+                        alert(request.responseText);
+                    }
+                });
+            }
+        }
+        function del_edu(x){
+            var edid = x;
+            var formid = "#ed"+x;
+            var r = confirm("Are you sure you want to delete this entry?");
+            if (r == true) {
+                $.ajax({
+                    type: "POST",
+                    url: baseurl+ "expert/delete_edu",
+                    dataType: 'html',
+                    data: {id: edid},
+                    success: function(res)
+                    {
+                        $(formid).hide();
+                        $('#response_ed').show();
+                        window.location.href = baseurl+'expert#edu_history';
+                    },
+                    error: function (request, status, error) 
+                    {
+                        alert(request.responseText);
+                    }
+                });
+            }
+        }
+    </script>
+    <script type="text/javascript" >
+     $(document).ready(function() { 
+
+                $('#photoimg').off('click').on('change', function(){ 
+                    $("#imageform").ajaxForm({target: '#preview', 
+                         beforeSubmit:function(){ 
+                            $("#imageloadstatus").show();
+                            $("#imageloadbutton").hide();
+                         }, 
+                         success:function(){ 
+                            location.reload(true); 
+                         }, 
+                         error:function(res){
+                            console.log(res);
+                            $("#imageloadstatus").hide();
+                            $("#imageloadbutton").show();
+                         } }).submit();
+                });
+            }); 
     </script>
   </body>
 </html>
