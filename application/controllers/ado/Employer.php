@@ -8,7 +8,7 @@ class Employer extends CI_Controller
 		$this->load->library('session');
 		$this->load->helper(array('form', 'url'));
 		$this->load->model('My_model');	
-		$this->load->model('admin_model');		
+		$this->load->model('Employer_model');		
 	}
 
 	function index()
@@ -17,11 +17,19 @@ class Employer extends CI_Controller
 			redirect('ado/Employer/logout','refresh'); 
 		
 		//echo "<pre />"; print_r($this->session->userdata());
-		$iLimit = 5;
+		
+		// full time / part time jobs
+		$iLimit = 10;
 		$aOrder = array('criteria' => 'created', 'order' => 'desc' );
 		$where = array('company_id' => $this->session->userdata('emp_id'));
 		$data['jobs'] = $this->My_model->selectRecord('jobs','*',$where,$aOrder,$iLimit);
 		//echo "<pre />"; print_r($data); 
+		
+		// project based / part time jobs
+		$aOrder = array('criteria' => 'created', 'order' => 'desc' );
+		$where = array('company_id' => $this->session->userdata('emp_id'));
+		$data['jobs'] = $this->My_model->selectRecord('jobs','*',$where,$aOrder,$iLimit);
+		
 		//die();
 		$this->load->view('admin/include/emp_header'); 
 		$this->load->view('admin/employer/dashboard',$data); 
@@ -52,87 +60,309 @@ class Employer extends CI_Controller
 		$where = array('status' => 1);
 		$data['cats'] = $this->My_model->selectRecord('job_category','*',$where,'','');
 		
+		$data['langs'] = $this->My_model->selectRecord('language','*',$where,'','');
+		
+		$data['skills'] = $this->My_model->selectRecord('job_skills','*',$where,'','');
+		
 		$this->load->view('admin/include/emp_header'); 
 		$this->load->view('admin/employer/add_job',$data); 
 	    $this->load->view('admin/include/footer');		 	
 	}
 	
+	/*
+	** save freelance/project based jobs
+	**/
+	function saveProjectJob()
+	{	
+		if( !$this->session->userdata('emp_id') )
+			redirect('ado/Employer/logout','refresh'); 
+		
+		//echo "<pre />"; print_r($this->input->post());
+		
+		if(!empty($this->input->post('j_id')))    // edit job
+		{ 
+			$strSkills = implode(',',$this->input->post('skills'));
+			$data = array(
+				'j_category' => $this->input->post('j_category'),
+				'company_id' => $this->session->userdata('emp_id'),
+				'from_language' => $this->input->post('from_language'),
+				'to_language' => $this->input->post('to_language'),
+				'title' => $this->input->post('title'),
+				'skills' => $strSkills,
+				'description' => $this->input->post('description'),
+				'total_exp' => $this->input->post('total_exp'),
+				'unit_name' => $this->input->post('unit_name'),
+				'unit_numbers' => $this->input->post('unit_numbers'),
+				'work_rate' => $this->input->post('work_rate'),
+				'last_date' => $this->input->post('last_date')
+				);
+			$where = array('id' => $this->input->post('j_id'));
+			$bUpdate = $this->My_model->updateRecord('jobs',$data,$where);
+			if($bUpdate)
+			{
+				$this->session->set_flashdata('verify_msg','<div class="alert alert-block alert-success">
+							<button data-dismiss="alert" class="close close-sm" type="button">
+								<i class="fa fa-times"></i>
+							</button>
+							Job edited succesfully!
+						</div>');
+				redirect('ado/Employer/');
+			}
+			else
+				redirect('ado/Employer/');	
+		}
+		else                                     // new job
+		{	
+			//die('new prj based ');
+			$strSkills = implode(',',$this->input->post('f_skills'));
+			$today = date('Y-m-d'); 
+			$data = array(
+				'j_type' => 3,                       // project based / freelance
+				'j_category' => $this->input->post('f_j_category'),
+				'company_id' => $this->session->userdata('emp_id'),
+				'from_language' => $this->input->post('f_language'),
+				'to_language' => $this->input->post('to_language'),
+				'title' => $this->input->post('f_title'),
+				'skills' => $strSkills,
+				'description' => $this->input->post('f_description'),
+				'total_exp' => $this->input->post('total_exp'),
+				'unit_name' => $this->input->post('unit_name'),
+				'unit_numbers' => $this->input->post('unit_numbers'),
+				'work_rate' => $this->input->post('work_rate'),
+				'last_date' => $this->input->post('last_date'),
+				'created' => $today
+				);
+			
+			//echo "<pre />"; print_r($data);
+			
+			$iInserId = $this->My_model->insertRecord('jobs',$data);
+			
+			if($iInserId)
+			{
+				$this->session->set_flashdata('verify_msg','<div class="alert alert-block alert-success">
+							<button data-dismiss="alert" class="close close-sm" type="button">
+								<i class="fa fa-times"></i>
+							</button>
+							new Job added succesfully!
+						</div>');
+				redirect('ado/Employer/');
+			}
+			else
+			{
+				$this->session->set_flashdata('verify_msg','<div class="alert alert-block alert-danger">
+							<button data-dismiss="alert" class="close close-sm" type="button">
+								<i class="fa fa-times"></i>
+							</button>
+							<strong>Error!</strong>please try after sometime!
+						</div>');
+				redirect('ado/Employer/');
+			}
+		}
+	}
+	
+	/*
+	**   save full time part time job
+	*/
 	function saveJob()
 	{	
 		if( !$this->session->userdata('emp_id') )
 			redirect('ado/Employer/logout','refresh'); 
 		
-		$today = date('Y-m-d'); 
-		$data = array(
-			'j_type' => $this->input->post('j_type'),
-			'j_category' => $this->input->post('j_category'),
-			'company_id' => $this->session->userdata('emp_id'),
-			'title' => $this->input->post('title'),
-			'skills' => $this->input->post('skills'),
-			'description' => $this->input->post('description'),
-			'last_date' => $this->input->post('last_date'),
-			'created' => $today
-			);
-		$iInserId = $this->My_model->insertRecord('jobs',$data);
-		//echo $iInserId;
-		//echo "<pre />"; print_r($data); 
-		if($iInserId)
-		{
-			$this->session->set_flashdata('verify_msg','<div class="alert alert-block alert-success">
-						<button data-dismiss="alert" class="close close-sm" type="button">
-							<i class="fa fa-times"></i>
-						</button>
-						Job added/edited succesfully!
-					</div>');
-			redirect('ado/Employer/');
+		if(!empty($this->input->post('j_id')))    // edit job
+		{ 
+			$strLangs = implode(',',$this->input->post('languages'));
+			$strSkills = implode(',',$this->input->post('skills'));
+			$data = array(
+				'j_category' => $this->input->post('j_category'),
+				'languages' => $strLangs,
+				'title' => $this->input->post('title'),
+				'skills' => $strSkills,
+				'description' => $this->input->post('description'),
+				'total_exp' => $this->input->post('total_exp'),
+				'last_date' => $this->input->post('last_date'),
+				);
+			$where = array('id' => $this->input->post('j_id'));
+			$bUpdate = $this->My_model->updateRecord('jobs',$data,$where);
+			if($bUpdate)
+			{
+				$this->session->set_flashdata('verify_msg','<div class="alert alert-block alert-success">
+							<button data-dismiss="alert" class="close close-sm" type="button">
+								<i class="fa fa-times"></i>
+							</button>
+							Job edited succesfully!
+						</div>');
+				redirect('ado/Employer/');
+			}
+			else
+				redirect('ado/Employer/');	
 		}
-		else
-		{
-			$this->session->set_flashdata('verify_msg','<div class="alert alert-block alert-danger">
-						<button data-dismiss="alert" class="close close-sm" type="button">
-							<i class="fa fa-times"></i>
-						</button>
-						<strong>Error!</strong>Try After sometime!
-					</div>');
-			redirect('ado/Employer/');
+		else                                     // new job
+		{	
+			$today = date('Y-m-d'); 
+			$strLangs = implode(',',$this->input->post('languages'));
+			$strSkills = implode(',',$this->input->post('skills'));
+			$data = array(
+				'j_type' => 1,           // full time 
+				'j_category' => $this->input->post('j_category'),
+				'company_id' => $this->session->userdata('emp_id'),
+				'languages' => $strLangs,
+				'title' => $this->input->post('title'),
+				'skills' => $strSkills,
+				'description' => $this->input->post('description'),
+				'total_exp' => $this->input->post('total_exp'),
+				'last_date' => $this->input->post('last_date'),
+				'created' => $today
+				);
+			//echo "<pre />"; print_r($data); die(' NNNN');
+			$iInserId = $this->My_model->insertRecord('jobs',$data);
+			
+			if($iInserId)
+			{
+				$this->session->set_flashdata('verify_msg','<div class="alert alert-block alert-success">
+							<button data-dismiss="alert" class="close close-sm" type="button">
+								<i class="fa fa-times"></i>
+							</button>
+							new Job added succesfully!
+						</div>');
+				redirect('ado/Employer/');
+			}
+			else
+			{
+				$this->session->set_flashdata('verify_msg','<div class="alert alert-block alert-danger">
+							<button data-dismiss="alert" class="close close-sm" type="button">
+								<i class="fa fa-times"></i>
+							</button>
+							<strong>Error!</strong>please try after sometime!
+						</div>');
+				redirect('ado/Employer/');
+			}
 		}
+	}
+	
+	function editJob($job_id=null)
+	{	
+		if( !$this->session->userdata('emp_id') )
+			redirect('ado/Employer/logout','refresh'); 
+		
+		if(empty($job_id))      // to validate employer and job
+			redirect('ado/Employer/logout','refresh');
+		
+		$where = array('status' => 1);
+		$data['cats'] = $this->My_model->selectRecord('job_category','*',$where,'','');
+		
+		$data['langs'] = $this->My_model->selectRecord('language','*',$where,'','');
+		
+		$data['skills'] = $this->My_model->selectRecord('job_skills','*',$where,'','');
+		
+		$where = array('id' => $job_id,'company_id' => $this->session->userdata('emp_id'));
+		$data['jobs'] = $this->My_model->selectRecord('jobs','*',$where,'','');
+		
+		// to match employer and job
+		if(!is_array($data['jobs']))
+			redirect('ado/Employer');
+		
+		$this->load->view('admin/include/emp_header'); 
+		$this->load->view('admin/employer/edit_job',$data); 
+	    $this->load->view('admin/include/footer');	
 			
 	}
 	
 	function viewJob()
 	{	
-		$where     = array('id' => $this->input->post('job_id'));
-		$aJob = $this->My_model->selectRecord('jobs','*',$where,'','');
+		$job_type = $this->input->post('job_type');
+		$strType = $job_type == 3 ? 'freelance/prj based' : 'full / part time';
+		
+		$aJob    = $this->Employer_model->jobDetails($this->input->post('job_id'));
+		
+		//echo "<pre />"; print_r($aJob); die('JKK');
 		?>
 		<tr>
-			<td>Type :&nbsp;</td><td><?php echo $aJob[0]->j_type;?></td>
+			<td width='25%'><b>Type :</b>&nbsp;</td><td><?php echo $strType;?></td>
 		</tr>
 		<tr>
-			<td>Category :&nbsp;</td><td><?php echo $aJob[0]->j_category;?></td>
+			<td><b>Category :</b>&nbsp;</td><td><?php echo $aJob[0]->cat_name;?></td>
 		</tr>
+		<?php
+		if(!empty($aJob[0]->skills))
+		{
+			$aSkills  = $this->Employer_model->jobSkills($aJob[0]->skills);	
+		?>
 		<tr>
-			<td>Title:&nbsp;</td><td><?php echo $aJob[0]->title;?></td>
+			<td><b>Skills :</b>&nbsp;</td><td><?php echo $aSkills[0]->skills;?></td>
 		</tr>
+		<?php
+		}
+		
+		if($job_type != 3)
+		{
+			$aLangs  = $this->Employer_model->jobLangs($aJob[0]->languages);	
+		?>
+			<tr>
+				<td><b>Languages:</b>&nbsp;</td><td><?php echo $aLangs[0]->langs;?></td>
+			</tr>
+		<?php
+		}
+		?>
 		<tr>
-			<td>Details:&nbsp;</td><td><?php echo $aJob[0]->description;?></td>
+			<td><b>Title:</b>&nbsp;</td><td><?php echo $aJob[0]->title;?></td>
 		</tr>
+		<tr><td>&nbsp;</td></tr>
 		<tr>
-			<td>Applicants:&nbsp;</td><td><?php echo $aJob[0]->j_applicants;?></td>
+			<td><b>Details:</b>&nbsp;</td><td><?php echo $aJob[0]->description;?></td>
+		</tr>
+		<tr><td>&nbsp;</td></tr>
+		<?php
+		if($job_type == 3)
+		{
+		?>
+			<tr>
+				<td><b>From Language:</b>&nbsp;</td><td><?php echo $aJob[0]->f_lang;?></td>
+			</tr>
+			<tr>
+				<td><b>To Language:</b>&nbsp;</td><td><?php echo $aJob[0]->t_lang;?></td>
+			</tr>
+			<tr>
+				<td><b>Unit Name:</b>&nbsp;</td><td><?php echo $this->config->item('job_units')[$aJob[0]->unit_name];?></td>
+			</tr>
+ 			<tr>
+				<td><b>Unit Numbers:</b>&nbsp;</td><td><?php echo $aJob[0]->unit_numbers;?></td>
+			</tr>
+			<tr>
+				<td><b>Work Rate:</b>&nbsp;</td><td><?php echo $aJob[0]->work_rate;?></td>
+			</tr>
+		<?php
+		}
+		?>
+		<tr>
+			<td><b>Applicants:</b>&nbsp;</td><td><?php echo $aJob[0]->j_applicants;?></td>
 		</tr>
 		<?php	 	
 	}
 	
-	function viewApplicants($job_id)
+	function viewApplicants()
 	{	
-		if( !$this->session->userdata('emp_id') )
-			redirect('ado/Employer/logout','refresh'); 
-	
-		$where = array('company_id' => $this->session->userdata('emp_id'),'job_id' => $job_id);
-		$data['applicants'] = $this->My_model->selectRecord('job_apply','*',$where,'','');
-		
-		$this->load->view('admin/include/emp_header'); 
-		$this->load->view('admin/employer/applicant',$data); 
-	    $this->load->view('admin/include/footer');		 	
+		$job_id = $this->input->post('job_id');
+		$aApplicants = $this->Employer_model->getJobApplicants($job_id);
+		//echo "<pre />"; print_r($aApplicants); die('JKK');
+		?>
+		<thead>
+			<tr>
+				<td>Name</td>
+				<td>Apply Date</td>
+				<td>Action</td>
+			</tr>
+		</thead>	
+		<?php
+		foreach($aApplicants as $apl)
+		{
+		?>
+		<tr>
+			<td><?php echo $apl->first_name;?></td>
+			<td><?php echo date('F  j, Y',strtotime($apl->apply_date));?></td>
+			<td>profile</td>
+		</tr>
+		<?php
+		}
 	}
 	
 	function profile()
@@ -221,6 +451,17 @@ class Employer extends CI_Controller
 	public function saveAddress()
 	{			
 		$data = array('address' => $this->input->post('address'));	
+		$where = array('id' => $this->session->userdata('emp_id'));				
+		$iStatus = $this->My_model->updateRecord('lang_company',$data,$where);
+		echo $iStatus;		
+	}
+	
+	/*
+	**  save Company description
+	*/
+	public function changeDesc()
+	{			
+		$data = array('company_description' => $this->input->post('company_description'));	
 		$where = array('id' => $this->session->userdata('emp_id'));				
 		$iStatus = $this->My_model->updateRecord('lang_company',$data,$where);
 		echo $iStatus;		

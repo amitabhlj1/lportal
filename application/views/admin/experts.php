@@ -40,7 +40,7 @@
 							if($expert->status == 1)
 							{
 							?>
-								<a href="<?php echo base_url();?>ado/Admin/changeStatus/<?php echo $expert->id;?>/0/lang_company/employers" >
+								<a href="<?php echo base_url();?>ado/Admin/changeStatus/<?php echo $expert->id;?>/0/lang_expert/experts" >
 									<span class="label label-success" title="change status (delete this)">&nbsp;</span>
 								</a>
 							<?php
@@ -48,7 +48,7 @@
 							else
 							{
 							?>
-								<a href="<?php echo base_url();?>ado/Admin/changeStatus/<?php echo $expert->id;?>/1/lang_company/employers" >
+								<a href="<?php echo base_url();?>ado/Admin/changeStatus/<?php echo $expert->id;?>/1/lang_expert/experts" >
 									<span class="label label-danger" title="change status (undelete this)">&nbsp;</span>
 								</a>
 							<?php

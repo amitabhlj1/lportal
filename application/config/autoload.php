@@ -103,8 +103,7 @@ $autoload['helper'] = array('url','security');
 | config files.  Otherwise, leave it blank.
 |
 */
-$autoload['config'] = array();
-
+$autoload['config'] = array('myglobals');
 /*
 | -------------------------------------------------------------------
 |  Auto-load Language files

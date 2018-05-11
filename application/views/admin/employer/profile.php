@@ -65,11 +65,10 @@
 								</tr>
 								<tr>
 									<td>Company Description</td>
-									<td><?php echo $profile[0]->company_description ; ?></td>
-									<td>
-										<input type="text" id="company_description" name="company_description" placeholder="about company" value="" maxlength="110">
+									<td colspan="2">
+										<textarea id='cmpdes' placeholder="about company"><?php echo $profile[0]->company_description ; ?></textarea>
 										<span onclick="javascript:changeDesc();" style="cursor:pointer;">Change</span>
-									    <p id="chngeDesc" style="color:red"></p>										
+									    <p id="chngeDesc" style="color:red"></p>		
 									</td>
 								</tr>
 								<tr>
@@ -273,37 +272,37 @@
 			}
 		});	
 	}
-	function saveAbout()
+	// save company description 
+	function changeDesc()
 	{
-		//alert('kk');
-		$("#errabout").html('');	
+		$("#chngeDesc").html('');	
 		
 		var about_me = tinyMCE.activeEditor.getContent();	 // get content from tinimce
 	
 		var strwords = about_me.replace(/(<([^>]+)>)/ig,"") ;  // Article remove html
 		var words = strwords.trim().split(/\s+/).length;       // Article word limit
-	
+		//alert(words); return false;
 		if(about_me == '')
 		{
-			$("#errabout").html('please write about youself');		
+			$("#chngeDesc").html('please write compony description');		
 			return false;
 		}		
 		if( (words < 20) || (words > 200) )
 		{
-			$("#errabout").html('Number of words should be between 20 and 200');		
+			$("#chngeDesc").html('Number of words should be between 20 and 200');		
 			return false;
 		}	
 			
 		$.ajax({
 			type: "POST",
-			url: baseurl+ "student/saveAbout",
+			url: baseurl+ "ado/Employer/changeDesc",
 			dataType: 'html',
-			data: {about_me: about_me},
+			data: {company_description: about_me},
 			success: function(res)
 			{
-				//alert(res);	return false;		
+				alert(res);	return false;		
 				if(res > 0)			
-					$("#errabout").html('Data saved successffuly.');		
+					$("#chngeDesc").html('Data saved successffuly.');		
 			},
 			error: function (request, status, error) 
 			{

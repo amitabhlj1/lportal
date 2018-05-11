@@ -8,6 +8,58 @@ class Employer_model extends CI_Model {
         $this->load->library('user_agent');
     }
 	
+	/**
+	** function to get jopb applicatnts
+	** $param - job_id
+	*/
+	public function getJobApplicants($job_id = null)
+	{	
+		$this->db->select ('apl.* , exp.first_name'); 
+		$this->db->from ( 'job_apply  apl' );
+		$this->db->join ( 'lang_expert exp','exp.id = apl.expert_id' , 'left' );		
+		if($job_id)
+		{
+			$aWhere = array('apl.job_id' => $job_id);
+			
+			if(!empty($this->session->userdata('emp_id')))  // if a employer 
+				$aWhere['apl.company_id'] = $this->session->userdata('emp_id');
+			
+			$this->db->where($aWhere);
+		}
+		$query = $this->db->get ();
+		
+		$aResults  = $query->result ();
+		//echo "<pre />"; print_r($aResults); die('PLLL');
+		return $aResults;
+	}
+	
+	/**
+	** function to get job Details
+	** $param - job_id
+	*/
+	public function jobDetails($job_id)
+	{	
+		$this->db->select ('jb.* , lng1.name as f_lang, lng2.name as t_lang, cat.cat_name'); 
+		$this->db->from ( 'jobs jb' );
+		$this->db->join ( 'language lng1','lng1.id = jb.from_language' , 'left' );
+		$this->db->join ( 'language lng2','lng2.id = jb.to_language' , 'left' );
+		$this->db->join ( 'job_category cat','cat.id = jb.j_category' , 'left' );
+		if($job_id)
+		{
+			$aWhere = array('jb.id' => $job_id);
+			if(!empty($this->session->userdata('emp_id')))  // if a employer 
+				$aWhere['jb.company_id'] = $this->session->userdata('emp_id');
+			
+			$this->db->where($aWhere);
+		}
+		$query = $this->db->get ();
+		
+		//echo $this->db->last_query(); die();		
+		$aResults  = $query->result ();
+		//echo "<pre />"; print_r($aResults); die('PLLL');
+		return $aResults;
+	}
+	
 	public function login_user()
     {		
 		$data = array(
@@ -44,7 +96,8 @@ class Employer_model extends CI_Model {
 					'last_name' => $aResult[0]['last_name'],
 					'comp_name' => $aResult[0]['company_name'],
 					'image'  => $aResult[0]['image'],
-					'email'  => $aResult[0]['email']
+					'email'  => $aResult[0]['email'],
+					'r_plan'  => $aResult[0]['resume_plan']
 					);
 			$this->session->set_userdata($aSess);			
 			//redirect('ado/School/');
@@ -82,6 +135,20 @@ class Employer_model extends CI_Model {
 		}
 				
     }
+	
+	public function jobLangs($sIds)
+	{	
+		$query = $this->db->query("SELECT GROUP_CONCAT(`name`) AS langs FROM `language` WHERE `id` IN($sIds)");
+		$aResults = $query->result();	
+		return $aResults;
+	}
+	
+	public function jobSkills($sIds)
+	{	
+		$query = $this->db->query("SELECT GROUP_CONCAT(`name`) AS skills FROM `job_skills` WHERE `id` IN($sIds)");
+		$aResults = $query->result();	
+		return $aResults;
+	}
 	
 	public function change_password($data)
     {		

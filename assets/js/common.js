@@ -39,15 +39,16 @@ function expertDetails(id)
 
 }
 
-function viewJob(job_id)
+function viewJob(job_id,job_type)
 {
 	$.ajax({
 		type: "POST",
 		url: baseurl+ "ado/Employer/viewJob",
 		dataType: 'html',
-		data: {job_id:job_id},
+		data: {job_id:job_id,job_type:job_type},
 		success: function(res)
 		{
+			//console.log(res);
 			//alert(res);	//return false;		
 			$("#job_dt").html(res);								
 		},

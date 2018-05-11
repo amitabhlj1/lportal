@@ -89,7 +89,7 @@ class Admin extends CI_Controller
 		$aEmployer = $this->My_model->selectRecord('lang_company','*',$where,'','');
 		?>
 		<tr>
-			<td>Company :&nbsp;</td><td><?php echo $aEmployer[0]->company_name;?></td>
+			<td width='25%'>Company :&nbsp;</td><td><?php echo $aEmployer[0]->company_name;?></td>
 		</tr>
 		<tr>
 			<td>Address:&nbsp;</td><td><?php echo $aEmployer[0]->address;?></td>
@@ -109,7 +109,7 @@ class Admin extends CI_Controller
 			redirect('ado/Admin/logout','refresh'); 
 		
 		$data['jobs']    = $this->My_model->selectRecord('jobs','*','','','');
-		echo "<pre />"; print_r($data); die();
+		//echo "<pre />"; print_r($data); die();
 		
 		//echo "<pre />"; print_r($data); 
 		$this->load->view('admin/include/header'); 

@@ -5,7 +5,7 @@
 <!-- footer content -->
         <footer>
           <div class="pull-right">
-            copuright @<?php echo date('Y');?> &nbsp;&nbsp;<a href="http://www.langjobs.com">langJobs</a>
+            copyright @<?php echo date('Y');?> &nbsp;&nbsp;<a href="http://www.langjobs.com">langJobs</a>
 			&nbsp;&nbsp;
           </div>
           <div class="clearfix"></div>
