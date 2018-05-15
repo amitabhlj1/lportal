@@ -109,7 +109,10 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
             <h5><?php echo $usr[0]->first_name." ".$usr[0]->last_name; ?></h5>
             <p><span class="fa fa-bolt"></span> <?php if(!empty($usr[0]->profile_name)){ echo $usr[0]->profile_name; } else {echo "N.A.";}?></p>
             <ul>
-                <li><span class="fa fa-calendar"></span> <?php if(!empty($usr[0]->dob)){ echo date('F j, Y',strtotime($usr[0]->dob)); } else {echo "N.A.";}?></li>
+                <li><span class="fa fa-calendar"></span> <?php if(!empty($usr[0]->dob)){ //echo date('F j, Y',strtotime($usr[0]->dob));
+                                            $diff = (date('Y') - date('Y',strtotime($usr[0]->dob)));
+                                            echo $diff." Years Old";
+                                                                                       } else {echo "N.A.";}?></li>
                 <li><span class="glyphicon glyphicon-briefcase"></span> <?php if(!empty($usr[0]->total_exp)){ echo $usr[0]->total_exp; } else {echo "N.A.";}?> </li>
                 <li><span class="glyphicon glyphicon-map-marker"></span> <?php if(!empty($country[0]->c_name)){ echo $country[0]->c_name;} else {echo "N.A.";} ?> </li>
                 <li><span class="glyphicon glyphicon-home"></span> <?php if(!empty($city || $state)){ echo $city[0]->name.", ".$state[0]->name;} else {echo "N.A.";} ?></li>
