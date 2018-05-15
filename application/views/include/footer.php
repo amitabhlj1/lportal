@@ -93,6 +93,7 @@
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/b-1.5.1/datatables.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/res/Obj.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/AddTags.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
     <script>
         $("#tags_1").addTags();
         $(document).ready(function() {
@@ -102,6 +103,14 @@
                     searchPlaceholder: "Quick Search in table"
                 }
             });
+            
+            $('.select2').select2({
+                width:"100%",
+                border: "none",
+                allowClear: true,
+            });
+            $('.select2-selection').css('border-radius','0px');
+            $('.select2-container').children().css('border-radius','0px');
         } );
     </script>
     <script>
