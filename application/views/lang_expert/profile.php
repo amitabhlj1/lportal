@@ -647,6 +647,23 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
             </div>
         </div>
         
+        <div class="tab-pane fade" id="sample_history">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h2 class="register">Add / Remove Work Sample <button id="add_wh" class="btn btn-xs btn-primary" onclick="" title="Add another work history"><i class="fa fa-plus"></i></button></h2>
+                    </div>
+                </div>
+                <br/>
+                <div class="row">
+                   <div id="" style="color:red;font:10px;display:none;">Work Sample Deleted!</div>
+                        <fieldset id="">
+                           <legend style="color:#282f46;text-transform:uppercase;font-weight:bold;width:max-content;">Work Sample</legend>
+                        </fieldset>
+                </div>
+            </div>
+        </div>
+        
     </div>
     <!--tab-content close-->
 </div>
