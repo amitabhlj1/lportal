@@ -147,6 +147,10 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
               <i class="fa fa-mortar-board"></i> Edit Education
               </a>
         </li>
+        <li><a href="#sample_history" role="tab" data-toggle="tab" title="Upload Samples of your work">
+              <i class="fa fa-cloud-upload"></i> Upload Samples
+              </a>
+        </li>
     </ul>
     <!--nav-tabs close-->
 

@@ -311,4 +311,23 @@ class Expert extends CI_Controller
 		$img_filename = $newwidth.'_'.$actual_image_name;
 		return $img_filename;
 	}
+    
+    //Applying to the job
+    function apply_job($jid, $cid){
+        $to_insert = array(
+            'job_id' => $jid,
+            'company_id' => $cid,
+            'expert_id' => $this->session->userdata('exp_id'),
+            'apply_date' => date("Y-m-d")
+        );
+        $ins = $this->My_model->insertRecord('job_apply', $to_insert);
+        if($ins){
+            echo "<script>
+                    alert('Applied to Job Successfully'); 
+                    window.location.href = '".base_url('searchjob/jobdesc')."/".$jid."';
+                </script>";
+        } else {
+            echo $ins; die();
+        }
+    }
 }
