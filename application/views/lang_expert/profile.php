@@ -569,7 +569,7 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12">
-                        <h2 class="register">Add / Remove Education History <button id="add_wh" class="btn btn-xs btn-primary" onclick="add_new_edu_form()" title="Add another work history"><i class="fa fa-plus"></i></button></h2>
+                        <h2 class="register">Add / Remove Education History <button id="" class="btn btn-xs btn-primary" onclick="add_new_edu_form()" title="Add another work history"><i class="fa fa-plus"></i></button></h2>
                     </div>
                 </div>
                 <br/>
@@ -651,14 +651,91 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12">
-                        <h2 class="register">Add / Remove Work Sample <button id="add_wh" class="btn btn-xs btn-primary" onclick="" title="Add another work history"><i class="fa fa-plus"></i></button></h2>
+                        <h2 class="register">Add / Remove Work Samples <button class="btn btn-xs btn-primary" onclick="add_new_ws_form()" title="Add new work sample"><i class="fa fa-plus"></i></button></h2>
                     </div>
                 </div>
                 <br/>
                 <div class="row">
-                   <div id="" style="color:red;font:10px;display:none;">Work Sample Deleted!</div>
-                        <fieldset id="">
-                           <legend style="color:#282f46;text-transform:uppercase;font-weight:bold;width:max-content;">Work Sample</legend>
+                   <div id="response_ws" style="color:red;font:10px;display:none;">Work sample Deleted!</div>
+                        <fieldset id="wshistory">
+                        <?php 
+                            if($work_sample){ 
+                                $count=1;
+                                foreach($work_sample as $ws){ ?>
+                                   <form class="form-horizontal main_form text-left" action="<?php echo base_url() ?>expert/update_ws" method="post" id="ws<?php echo $ws->id; ?>" enctype="multipart/form-data">
+                                    <fieldset class="well" style="display:block; width:90%;overflow:auto;margin-left:4%;background-color:#fff;">
+                                        <legend style="color:#282f46;text-transform:uppercase;font-weight:bold;width:max-content;">Work Sample <?php echo $count; ?> | <button type="button" class="btn btn-danger btn-xs" title="Delete work sample" onclick="delete_ws(<?php echo $ws->id; ?>)"><i class="fa fa-trash"></i></button></legend>
+                                         <div class="form-group col-md-12">
+                                            <label class="col-md-10 control-label">Work Sample Name</label>
+                                            <div class="col-md-12 inputGroupContainer">
+                                                <div class="input-group">
+                                                    <input type="hidden" name="id" value="<?php echo $ws->id ?>" />
+                                                    <input name="sample_name" placeholder="Eg: English-Spanish Document..." class="form-control" type="text" value="<?php if(!empty($ws->sample_name)){echo $ws->sample_name;} ?>">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label class="col-md-10 control-label">Description of Sample</label>
+                                            <div class="col-md-12 inputGroupContainer">
+                                                <div class="input-group">
+                                                    <textarea name="description" placeholder="Eg: Did a translation work for a MNC in 2017... or a link or something.." class="form-control"><?php if(!empty($ws->description)){echo $ws->description;} ?></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label class="col-md-10 control-label">Uploaded Document</label>
+                                            <div class="col-md-12 inputGroupContainer">
+                                                <div class="input-group">
+                                                    <label class="btn btn-xs btn-primary" id="" title="Change document">
+                                                        <?php 
+                                                            if(!empty($ws->document)){
+                                                                $ext = explode('.', $ws->document)[1];
+                                                                $ico="";
+                                                                switch($ext) {
+                                                                    case "pdf": 
+                                                                        $ico = "<i class='fa fa-file-pdf-o'></i>"; break;
+                                                                    case "doc":
+                                                                    case "docx":
+                                                                        $ico = "<i class='fa fa-doc'></i>"; break;
+                                                                    case "jpg":
+                                                                    case "gif":
+                                                                    case "jpeg":
+                                                                        $ico = "<i class='fa fa-file-image-o'></i>";break;
+                                                                    case "mp4":
+                                                                    case "mkv":
+                                                                    case "3gp":
+                                                                    case "avi":
+                                                                    case "webm":
+                                                                        $ico = "<i class='fa fa-file-video-o'></i>"; break;
+                                                                    case "txt":
+                                                                        $ico = "<i class='fa fa-file-text-o'></i>"; break;
+                                                                    default:
+                                                                        $ico = "<i class='fa fa-file-o'></i>"; break;
+                                                                }
+                                                            }
+                                                             echo "Click here to replace the sample <span class='small'>(Use file < 500kb)</span>";
+                                                        ?>
+                                                        <input type="file" id="document" name="document" style="display: none;">
+                                                   </label> &nbsp; &nbsp; <label><?php echo " Current Document is : &nbsp;&nbsp;"; ?><a href="<?php echo base_url()."assets/uploads/sample_docs/".$ws->document?>" target="_blank" download><?php echo $ico." ".$ws->document; ?></a></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <div class="col-md-12 inputGroupContainer">
+                                                <div class="input-group">
+                                                    <input type="submit" class="btn btn-success" value="Save" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                 </form>
+                        <?php
+                                    $count++;
+                                }
+                            } else {
+                                echo "Work sample have not been updated yet! Please click on Add (+) button to upload new samples";
+                            }
+                        ?>
                         </fieldset>
                 </div>
             </div>

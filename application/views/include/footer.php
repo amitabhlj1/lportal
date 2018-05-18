@@ -221,6 +221,13 @@
             form.innerHTML = new_element;
             document.getElementById('add_wh').style.display="none";
         }
+        function add_new_ws_form (){
+            var form = document.getElementById('wshistory');
+            var new_element = '<form class="form-horizontal main_form text-left" action="<?php echo base_url() ?>expert/update_ws" method="post" enctype="multipart/form-data"><fieldset class="well" style="display:block; width:90%;overflow:auto;margin-left:4%;background-color:#fff;"><legend style="color:#282f46;text-transform:uppercase;font-weight:bold;width:max-content;">New Work Sample</legend><div class="form-group col-md-12"><label class="col-md-10 control-label">(*)Work Sample Name</label><div class="col-md-12 inputGroupContainer"><div class="input-group"><input name="sample_name" placeholder="Eg: English-Spanish Document..." class="form-control" type="text" required></div></div></div><div class="form-group col-md-12"><label class="col-md-10 control-label">(*)Description of Sample</label><div class="col-md-12 inputGroupContainer"><div class="input-group"><textarea name="description" placeholder="Eg: Did a translation work for a MNC in 2017... or a link or something.." class="form-control" required></textarea></div></div></div><div class="form-group col-md-12"><label class="col-md-10 control-label">(*)Uploaded Document</label><div class="col-md-12 inputGroupContainer"><div class="input-group"><label class="btn btn-xs btn-primary" id="" title="Change document"><i class="fa fa-upload"></i><input type="file" id="document" name="document" style="display: none;" required></label></div></div></div><div class="form-group col-md-12"><div class="col-md-12 inputGroupContainer"><div class="input-group"><input type="submit" class="btn btn-success" value="Save" /><br/><span class="small">(All fields are mandatory)</span></div></div></div></fieldset></form>';
+            form.innerHTML = "";
+            form.innerHTML = new_element;
+            //document.getElementById('add_ws').style.display="none";
+        }
         function delete_wh(x){
             var whid = x;
             var formid = "#wh"+x;
@@ -259,6 +266,28 @@
                         $(formid).hide();
                         $('#response_ed').show();
                         window.location.href = baseurl+'expert#edu_history';
+                    },
+                    error: function (request, status, error) 
+                    {
+                        alert(request.responseText);
+                    }
+                });
+            }
+        }
+        function delete_ws(x){
+            var wsid = x;
+            var formid = "#ws"+x;
+            var r = confirm("Are you sure you want to delete this entry?");
+            if (r == true) {
+                $.ajax({
+                    type: "POST",
+                    url: baseurl+ "expert/del_wshistory",
+                    dataType: 'html',
+                    data: {id: wsid},
+                    success: function(res)
+                    {
+                        $(formid).hide();
+                        $('#response_ws').show();
                     },
                     error: function (request, status, error) 
                     {

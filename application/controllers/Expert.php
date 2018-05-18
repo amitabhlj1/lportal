@@ -21,27 +21,32 @@ class Expert extends CI_Controller
         $title['keywords'] ="";
         $where = array('id' => $this->session->userdata('exp_id'));
         $data['usr'] = $this->My_model->selectRecord('lang_expert', '*', $where);
+        
         //To get the name of country
         $whr2 = array(
             'id' => $data['usr'][0]->country 
         );
         $data['country'] = $this->My_model->selectRecord('country', '*', $whr2);
+        
         //to get the name of state
         $whr3 = array(
             'id' => $data['usr'][0]->state
         );
         $data['state'] = $this->My_model->selectRecord('states', '*', $whr3);
+        
         //to get the name of city
         $whr4 = array(
             'id' => $data['usr'][0]->city
         );
         $data['city'] = $this->My_model->selectRecord('cities', '*', $whr4);
+        
         //to get the education feild of language experts
         $whr5 = array(
             'exp_id' => $this->session->userdata('exp_id')
         );
         $data['education'] = $this->My_model->selectRecord('lang_expert_ed', '*', $whr5);
         $data['work_history'] = $this->My_model->selectRecord('lang_expert_wh', '*', $whr5);
+        $data['work_sample'] = $this->My_model->selectRecord('lang_expert_ws', '*', $whr5);
         $this->load->view('include/header', $title);
 		$this->load->view('lang_expert/profile', $data);
         $this->load->view('include/footer');
@@ -78,6 +83,11 @@ class Expert extends CI_Controller
     public function del_whistory(){
         $where = array('id' => $this->input->post('id'));
         echo $del_wh = $this->My_model->deleteRecordPerm('lang_expert_wh', $where);
+    }
+    //Delete work sample
+    public function del_wshistory(){
+        $where = array('id' => $this->input->post('id'));
+        echo $del_wh = $this->My_model->deleteRecordPerm('lang_expert_ws', $where);
     }
     //Update work history
     public function update_wh(){
@@ -328,6 +338,99 @@ class Expert extends CI_Controller
                 </script>";
         } else {
             echo $ins; die();
+        }
+    }
+    
+    //updating work samples description
+    function update_ws(){
+        //code courtsey w3schools. modified it a bit
+        $target_dir = "assets/uploads/sample_docs/";
+        $target_file = $target_dir . basename($_FILES["document"]["name"]);
+        $uploadOk = 1;
+        $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+        // Check if file has some data or its a fake
+        if($this->input->post('document')) {
+            $check = filesize($_FILES["document"]["tmp_name"]);
+            if($check !== false) {
+                $uploadOk = 1;
+            } else {
+                $uploadOk = 0;
+            }
+        }
+        // Check if file already exists
+        if (file_exists($target_file)) {
+            echo "Sorry, file already exists.";
+            $uploadOk = 0;
+        }
+        // Check file size
+        if ($_FILES["document"]["size"] > 100000) {
+            echo "Sorry, your file is too large.";
+            $uploadOk = 0;
+        }
+        // Allow certain file formats
+//        if($imageFileType = "php" || $imageFileType = "c" || $imageFileType = "js" || $imageFileType = "py" ) {
+//            echo "Sorry,not a valid document.";
+//            $uploadOk = 0;
+//        }
+        // Check if $uploadOk is set to 0 by an error
+        if ($uploadOk == 0) {
+             echo "<script>
+                    alert('Unable to upload the file, try again later!'); 
+                    window.location.href = '".base_url('expert')."';
+                </script>";
+            // if everything is ok, try to upload file
+        } else {
+            if (move_uploaded_file($_FILES["document"]["tmp_name"], $target_file)) {
+                //echo "The file ". basename( $_FILES["document"]["name"]). " has been uploaded.";
+                //if post data has 'id' variable, then update else insert
+                if($this->input->post('id')){
+                    $where = array('id'=>$this->input->post('id'));
+                    $updt_data = array(
+                        'sample_name' => $this->input->post('sample_name'),
+                        'description' => $this->input->post('description'),
+                        'document' =>basename( $_FILES["document"]["name"])
+                    );
+                    
+                    $updt = $this->My_model->updateRecord('lang_expert_ws', $updt_data, $where);
+                    if($updt == '1' || $updt == '0'){
+                        echo "<script>
+                                alert('Work Sample updated!'); 
+                                window.location.href = '".base_url('expert')."';
+                            </script>";
+                    } else {
+                        echo "<script>
+                                alert('Something went wrong with updating work sample data, try again later!'); 
+                                window.location.href = '".base_url('expert')."';
+                            </script>";
+                    }
+                    
+                } else {
+                    $insert_data = array(
+                        'exp_id' => $this->session->userdata('exp_id'),
+                        'sample_name' => $this->input->post('sample_name'),
+                        'description' => $this->input->post('description'),
+                        'document' =>basename( $_FILES["document"]["name"]),
+                        'created' => date('Y-m-d')
+                    );
+                    $ins = $this->My_model->insertRecord('lang_expert_ws', $insert_data);
+                    if($ins){
+                        echo "<script>
+                                alert('Work Sample saved Successfully'); 
+                                window.location.href = '".base_url('expert')."';
+                            </script>";
+                    } else {
+                         echo "<script>
+                                alert('Something went wrong with saving work sample data, try again later!'); 
+                                window.location.href = '".base_url('expert')."';
+                            </script>";
+                    }
+                }
+            } else {
+                 echo "<script>
+                                alert('Sorry, Some error occured while uploading the file, Please try again later!'); 
+                                window.location.href = '".base_url('expert')."';
+                            </script>";
+            }
         }
     }
 }
