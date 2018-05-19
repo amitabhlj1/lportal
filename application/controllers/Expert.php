@@ -73,7 +73,7 @@ class Expert extends CI_Controller
         $s = $this->input->post('state');
         $where = array('s_id' => $s);
         $cities = $this->My_model->selectRecord('cities', '*', $where);
-        echo "<select class='form-control' name='cities'>";
+        echo "<select class='form-control' name='city'>";
         foreach($cities as $ct){
             echo "<option value='$ct->id'>$ct->name</option>";
         }
@@ -200,7 +200,8 @@ class Expert extends CI_Controller
             'lid' => $this->input->post('lid'),
             'skills' => $this->input->post('skills')
         );
-        //var_dump($this->input->post('state'));
+//        echo $this->input->post('city')."<br/>";
+//        var_dump($insert_val);
         $updt = $this->My_model->updateRecord('lang_expert', $insert_val, $where);
         if($updt == '1' || $updt == '0'){
             echo "<script>
@@ -359,12 +360,18 @@ class Expert extends CI_Controller
         }
         // Check if file already exists
         if (file_exists($target_file)) {
-            echo "Sorry, file already exists.";
+            echo "<script>
+                    alert('File already exists, Try renaming your file uniquely'); 
+                    window.location.href = '".base_url('expert')."';
+                </script>";
             $uploadOk = 0;
         }
         // Check file size
         if ($_FILES["document"]["size"] > 100000) {
-            echo "Sorry, your file is too large.";
+            echo "<script>
+                    alert('file too big. remember limit is 1000kb'); 
+                    window.location.href = '".base_url('expert')."';
+                </script>";
             $uploadOk = 0;
         }
         // Allow certain file formats
@@ -425,6 +432,77 @@ class Expert extends CI_Controller
                             </script>";
                     }
                 }
+            } else {
+                 echo "<script>
+                                alert('Sorry, Some error occured while uploading the file, Please try again later!'); 
+                                window.location.href = '".base_url('expert')."';
+                            </script>";
+            }
+        }
+    }
+    
+    /* Uploading Resume */
+    function update_resume(){
+        $where = array('id' => $this->session->userdata('exp_id'));
+        $target_dir = "assets/uploads/expert_resumes/";
+        $target_file = $target_dir . basename($_FILES["document"]["name"]);
+        $uploadOk = 1;
+        $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+        if($this->input->post('document')) {
+            $check = filesize($_FILES["document"]["tmp_name"]);
+            if($check !== false) {
+                $uploadOk = 1;
+            } else {
+                $uploadOk = 0;
+            }
+        }
+        // Check if file already exists
+        if (file_exists($target_file)) {
+            echo "<script>
+                    alert('File already exists, Try renaming your file uniquely'); 
+                    window.location.href = '".base_url('expert')."';
+                </script>";
+            $uploadOk = 0;
+        }
+        // Check file size
+        if ($_FILES["document"]["size"] > 1000000) {
+            echo "<script>
+                    alert('file too big. remember limit is 1000kb'); 
+                    window.location.href = '".base_url('expert')."';
+                </script>";
+            $uploadOk = 0;
+        }
+        // Allow certain file formats
+        if($imageFileType != "doc" && $imageFileType != "docx" && $imageFileType != "rtf" && $imageFileType != "odt" && $imageFileType != "pdf") {
+            echo "<script>
+                    alert('Only doc, docx, rtf, odt and pdf files are allowed. Upload valid document'); 
+                    window.location.href = '".base_url('expert')."';
+                </script>";
+            $uploadOk = 0;
+        }
+        // Check if $uploadOk is set to 0 by an error
+        if ($uploadOk == 0) {
+             echo "<script>
+                    alert('Unable to upload the file, try again later!'); 
+                    window.location.href = '".base_url('expert')."';
+                </script>";
+        } else {
+            if (move_uploaded_file($_FILES["document"]["tmp_name"], $target_file)) {
+                    $updt_data = array(
+                        'resume' =>basename( $_FILES["document"]["name"])
+                    );
+                    $updt = $this->My_model->updateRecord('lang_expert', $updt_data, $where);
+                    if($updt == '1' || $updt == '0'){
+                        echo "<script>
+                                alert('Resume updated!'); 
+                                window.location.href = '".base_url('expert')."';
+                            </script>";
+                    } else {
+                        echo "<script>
+                                alert('Something went wrong with updating work sample data, try again later!'); 
+                                window.location.href = '".base_url('expert')."';
+                            </script>";
+                    }
             } else {
                  echo "<script>
                                 alert('Sorry, Some error occured while uploading the file, Please try again later!'); 

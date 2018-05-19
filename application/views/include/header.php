@@ -119,7 +119,7 @@
               } else { ?>
                 <ul class="nav navbar-nav navbar-right">
                   <li><a href="<?php echo base_url(); ?>searchjob"><i class="fa fa-search"></i>Search Jobs</a></li>
-                  <li><a href="<?php echo base_url(); ?>"><i class="fa fa-book"></i>Freelance Projects</a></li>
+                  <li><a href="<?php echo base_url(); ?>searchproject"><i class="fa fa-book"></i>Freelance Projects</a></li>
                   <li><a href="<?php echo base_url(); ?>"><i class="fa fa-pencil-square-o"></i>Blog</a></li>
                   <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown"><i class="fa fa-user-circle"></i><?php echo $this->session->userdata('first_name'); ?></a>
                     <ul class="dropdown-menu">
