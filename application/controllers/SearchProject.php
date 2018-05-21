@@ -19,7 +19,7 @@ class SearchProject extends CI_Controller
         $data['lang'] = $this->My_model->selectRecord('language', '*', $common_where);
         $data['sectors'] = $this->My_model->selectRecord('job_category', '*', $common_where);
         $data['city'] = $this->My_model->selectRecord('cities', '*', '');
-        $data['jobs']="";
+        $data['jobs']=$this->My_model->selectRecord('jobs', '*', array('status' => '1', 'j_type'=>'3'));
         $this->load->view('include/header', $title);
 		$this->load->view('search_project', $data);
         $this->load->view('include/footer');
