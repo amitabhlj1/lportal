@@ -1,9 +1,11 @@
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.16/b-1.5.1/datatables.min.css"/>
 <style>
     .to_show{
         display: none;
     }
     .table-hover thead tr th{
         font-size: 100%;
+        letter-spacing: 0px;
     }
     @media only screen and (max-width: 500px) {
         .table thead tr th{
@@ -21,7 +23,7 @@
             display: inline-block;
             font-weight: bold;
         }
-        #job_table1_length{
+        .dataTables_length{
             display: none;
         }
     }
@@ -53,7 +55,7 @@
                         <thead>
                             <tr>
                                 <th><i class="fa fa-info-circle"></i> Project Title</th>
-                                <th><i class="fa fa-language"></i> Languages</th>
+                                <th><i class="fa fa-language"></i> Language</th>
                                 <th><i class="fa fa-list-alt"></i> Description</th>
                                 <th><i class="fa fa-dollar"></i> Rate</th>
                                 <th><i class="fa fa-calendar-o"></i> Date</th>

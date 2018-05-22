@@ -24,5 +24,17 @@ class SearchProject extends CI_Controller
 		$this->load->view('search_project', $data);
         $this->load->view('include/footer');
 	}
+    public function jobdesc($jid){
+        $title['title_of_page'] = "";
+        $title['description'] = "";
+        $title['keywords'] ="";
+        $where = array('id' => $jid, 'status' => '1');
+        $data['jobs'] = $this->My_model->selectRecord('jobs', '*', $where);
+        $cwhere = array('id' => $data['jobs'][0]->company_id);
+        $data['company_details'] = $this->My_model->selectRecord('lang_company', '*', $cwhere);
+        $this->load->view('include/header', $title);
+		$this->load->view('proj_desc', $data);
+        $this->load->view('include/footer');
+    }
 }
 ?>

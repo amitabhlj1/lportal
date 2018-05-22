@@ -7,7 +7,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-6 col-sm-offset-3">
-                <h2 class="module-title font-alt">JOB DESCRIPTION</h2>
+                <h2 class="module-title font-alt">PROJECT DESCRIPTION</h2>
                 <div class="module-subtitle font-serif">
                     <?php   //random motivation line, reading from a text file and displaying here 
                             $file = base_url("assets/motivation.txt");
@@ -88,10 +88,12 @@
                     <h3 class="features-title font-alt">Desired Profile</h3>
                     <p><?php 
                             if($jd->skills){
-                                echo "<b>Skills:</b> ".$jd->skills."<br/>";
-                            }
-                            if($jd->languages){
-                                echo "<b>Languages:</b> ".$jd->languages;
+                                echo "<b>Skills:</b>";
+                                foreach(explode(',', $jd->skills) as $s){
+                                    $sk = $this->My_model->selectRecord('job_skills', '*', array('id' => $s));
+                                    echo $sk[0]->name.", ";
+                                }
+                                echo "<br/>";
                             }   
                         ?></p>
                 </div>
@@ -133,18 +135,9 @@
             </div>
             <div class="col-md-2 col-sm-6 col-xs-12">
                 <div class="features-item">
-                    <div class="features-icon"><span class="icon-map-pin"></span></div>
-                    <h3 class="features-title font-alt">Location</h3>
-                    <p style="text-align:center;"><?php 
-                        if($jd->j_city){
-                            $cty = $this->My_model->selectRecord('cities', '*', array('id' => $jd->j_city));
-                            echo $cty[0]->name.", ";
-                        }
-                        if($jd->j_country){
-                            $cntry = $this->My_model->selectRecord('country', '*', array('id' => $jd->j_country));
-                            echo $cntry[0]->c_code;
-                        }
-                    ?></p>
+                    <div class="features-icon"><span class="fa fa-money"></span></div>
+                    <h3 class="features-title font-alt">Rate</h3>
+                    <p style="text-align:center;"><?php echo "$".$jd->work_rate."/".$this->config->config['job_units'][$jd->unit_name]." for ".$jd->unit_numbers." ".$this->config->config['job_units'][$jd->unit_name]; ?></p>
                 </div>
             </div>
             <div class="col-md-2 col-sm-6 col-xs-12">
