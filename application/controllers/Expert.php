@@ -342,6 +342,25 @@ class Expert extends CI_Controller
         }
     }
     
+    //Applying to the job
+    function apply_proj($jid, $cid){
+        $to_insert = array(
+            'job_id' => $jid,
+            'company_id' => $cid,
+            'expert_id' => $this->session->userdata('exp_id'),
+            'apply_date' => date("Y-m-d")
+        );
+        $ins = $this->My_model->insertRecord('job_apply', $to_insert);
+        if($ins){
+            echo "<script>
+                    alert('Applied to project Successfully'); 
+                    window.location.href = '".base_url('searchproject/jobdesc')."/".$jid."';
+                </script>";
+        } else {
+            echo $ins; die();
+        }
+    }
+    
     //updating work samples description
     function update_ws(){
         //code courtsey w3schools. modified it a bit
