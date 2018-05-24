@@ -138,7 +138,8 @@ class LangExpert extends CI_Controller
 					'first_name' => $retrieveid[0]->first_name,
 					'last_name' => $retrieveid[0]->last_name,
 					'image'  => $retrieveid[0]->image,
-					'email'  => $retrieveid[0]->email
+					'email'  => $retrieveid[0]->email,
+                    'social_login' => 1
 					);
 			$this->session->set_userdata($aSess);
             echo '1';

@@ -43,7 +43,8 @@ class LanguageExpert_model extends CI_Model {
 					'first_name' => $aResult[0]['first_name'],
 					'last_name' => $aResult[0]['last_name'],
 					'image'  => $aResult[0]['image'],
-					'email'  => $aResult[0]['email']
+					'email'  => $aResult[0]['email'],
+                    'social_login' => 0
 					);
 			$this->session->set_userdata($aSess);
 			echo '3';	
