@@ -156,10 +156,27 @@ function viewApplicants(job_id)
 	});
 }
 
-// change plan	
-function changePlan(rplan)
+// change resume subsciption plan	
+function changePlan(resume_plan)
 {
-	alert(rplan);
+	// redirect to resume plans details page and add payment gateway their
+	alert(rplan);  return false;
+	$.ajax({
+		type: "POST",
+		url: baseurl+ "ado/Employer/changePlan",
+		dataType: 'html',
+		data: {resume_plan:resume_plan},
+		success: function(res)
+		{
+			//console.log(res);
+			alert(res);	//return false;		
+			//$("#job_app").html(res);								
+		},
+		error: function (request, status, error) 
+		{
+			alert(request.responseText);
+		}
+	});
 }
 	
 </script>

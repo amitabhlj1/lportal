@@ -31,6 +31,8 @@
     <link href="<?php echo base_url();?>assets/admin/css/style.css" rel="stylesheet" type="text/css" />
 	<link href='https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css' rel='stylesheet' type='text/css'>
 	
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+	
 	<script src="<?php echo base_url();?>assets/vendors/jquery/dist/jquery.min.js"></script>
 	
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->

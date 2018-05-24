@@ -150,7 +150,7 @@
 				    </div>	
 					<div class="form-group">
 					  <label for="description" class="col-lg-2 col-sm-2 control-label">Skills</label><div class="col-lg-10">
-						<select required="true" class="form-control m-b-10" name="skills[]" id="skills" multiple>
+						<select required="true" class="form-control m-b-10 select2" name="skills[]" id="skills" multiple>
 							<option value="">Select</option>
 							<?php
 								$aSkills = explode(',',$jobs[0]->skills);
