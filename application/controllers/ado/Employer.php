@@ -349,7 +349,8 @@ class Employer extends CI_Controller
 			<tr>
 				<td>Name</td>
 				<td>Apply Date</td>
-				<td>Action</td>
+				<td>profile</td>
+				<td>Comments</td>
 			</tr>
 		</thead>	
 		<?php
@@ -359,10 +360,32 @@ class Employer extends CI_Controller
 		<tr>
 			<td><?php echo $apl->first_name;?></td>
 			<td><?php echo date('F  j, Y',strtotime($apl->apply_date));?></td>
-			<td>profile</td>
+			<td>View</td>
+			<td>
+				 <a href="#" data-toggle="modal" data-target="#commview" onclick="viewAllComments(<?php echo $job_id;?>,<?php echo $apl->expert_id;?>);">	
+				  View
+				</a>	 
+			</td>
 		</tr>
 		<?php
 		}
+	}
+	
+	function viewAllComments()
+	{	
+		$job_id = $this->input->post('job_id');
+		$exp_id = $this->input->post('exp_id');
+		
+		//$aApplicants = $this->Employer_model->getComments($job_id);
+		//echo "<pre />"; print_r($aApplicants); die('JKK');
+		?>
+		<thead>
+			<tr>
+				<td>Name</td>
+				
+			</tr>
+		</thead>	
+		<?php
 	}
 	
 	function profile()
