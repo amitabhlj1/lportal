@@ -93,6 +93,7 @@
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/b-1.5.1/datatables.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/res/Obj.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/AddTags.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
     <script>
         $("#tags_1").addTags();
         $(document).ready(function() {
@@ -102,6 +103,14 @@
                     searchPlaceholder: "Quick Search in table"
                 }
             });
+            
+            $('.select2').select2({
+                width:"100%",
+                border: "none",
+                allowClear: true,
+            });
+            $('.select2-selection').css('border-radius','0px');
+            $('.select2-container').children().css('border-radius','0px');
         } );
     </script>
     <script>
@@ -135,7 +144,7 @@
             }
 
         });
-        $('.tab a').on('click', function (e) {
+        $('.nav-tabs div a').on('click', function (e) {
           e.preventDefault();
           $(this).parent().addClass('active');
           $(this).parent().siblings().removeClass('active');
@@ -143,7 +152,7 @@
 
           $('.tab-content > div').not(target).hide();
 
-          $(target).fadeIn(600);
+          $(target).fadeIn(300);
 
         });
         //canvas off js//
@@ -200,17 +209,24 @@
         }
         function add_new_wh_form (){
             var form = document.getElementById('whistory');
-            var new_element = '<form class="form-horizontal main_form text-left" action="<?php echo base_url() ?>expert/add_wh" method="post" ><fieldset class="well" style="display:block; width:90%;overflow:auto;margin-left:4%;background-color:#fff;"><legend style="color:#282f46;text-transform:uppercase;font-weight:bold;width:max-content;">Add New Work History</legend><div class="form-group col-md-12"><label class="col-md-10 control-label">Designation/Profile Name</label><div class="col-md-12 inputGroupContainer"><div class="input-group"><input name="designation" placeholder="Language translator" class="form-control" type="text" value="" required></div> </div></div><div class="form-group col-md-12"><label class="col-md-10 control-label">Company/Organisation Name</label><div class="col-md-12 inputGroupContainer"><div class="input-group"><input name="company_name" placeholder="Name of the organisation you worked for" class="form-control" type="text" value="" required></div></div></div><div class="form-group col-md-12"><label class="col-md-10 control-label">From - To</label><div class="col-md-6 inputGroupContainer"><div class="input-group"><input name="y_from" class="form-control" type="date" value="" required></div></div><div class="col-md-6 inputGroupContainer"><div class="input-group"><input name="y_to" class="form-control" type="date" value="" required></div></div></div><div class="form-group col-md-12"><label class="col-md-10 control-label">Work description / Your responsibilities</label><div class="col-md-12 inputGroupContainer"><div class="input-group"><textarea placeholder="What you used to do, what was your role in the organization?" class="form-control" name="work_description" required></textarea></div></div></div><div class="form-group col-md-12"><div class="col-md-12 inputGroupContainer"><div class="input-group"><input type="submit" class="btn btn-success" value="Save" /></div></div></div></fieldset></form>';
+            var new_element = '<form class="form-horizontal main_form text-left" action="<?php echo base_url() ?>expert/add_wh" method="post" ><fieldset class="well"><legend>Add New Work History</legend><div class="form-group col-md-12"><label class="col-md-10 control-label">Designation/Profile Name</label><div class="col-md-12 inputGroupContainer"><div class="input-group"><input name="designation" placeholder="Language translator" class="form-control" type="text" value="" required></div> </div></div><div class="form-group col-md-12"><label class="col-md-10 control-label">Company/Organisation Name</label><div class="col-md-12 inputGroupContainer"><div class="input-group"><input name="company_name" placeholder="Name of the organisation you worked for" class="form-control" type="text" value="" required></div></div></div><div class="form-group col-md-12"><label class="col-md-10 control-label">From - To</label><div class="col-md-6 inputGroupContainer"><div class="input-group"><input name="y_from" class="form-control" type="date" value="" required></div></div><div class="col-md-6 inputGroupContainer"><div class="input-group"><input name="y_to" class="form-control" type="date" value="" required></div></div></div><div class="form-group col-md-12"><label class="col-md-10 control-label">Work description / Your responsibilities</label><div class="col-md-12 inputGroupContainer"><div class="input-group"><textarea placeholder="What you used to do, what was your role in the organization?" class="form-control" name="work_description" required></textarea></div></div></div><div class="form-group col-md-12"><div class="col-md-12 inputGroupContainer"><div class="input-group"><input type="submit" class="btn btn-success" value="Save" /></div></div></div></fieldset></form>';
             form.innerHTML = "";
             form.innerHTML = new_element;
             document.getElementById('add_wh').style.display="none";
         }
         function add_new_edu_form(){
             var form = document.getElementById('edu_his');
-            var new_element = '<form class="form-horizontal main_form text-left" action="<?php echo base_url() ?>expert/add_edu" method="post"><fieldset class="well" style="display:block; width:90%;overflow:auto;margin-left:4%;background-color:#fff;"><legend style="color:#282f46;text-transform:uppercase;font-weight:bold;width:max-content;">Add New Education History</button></legend><div class="form-group col-md-12"><label class="col-md-10 control-label">Exam name</label><div class="col-md-12 inputGroupContainer"><div class="input-group"><input name="exam_name" placeholder="Higher Secondary / Graduation / Bachelors / Masters" class="form-control" type="text" value=""></div></div></div><div class="form-group col-md-12"><label class="col-md-10 control-label">College / University name</label><div class="col-md-12 inputGroupContainer"><div class="input-group"><input name="college_name" placeholder="Name of your university / college" class="form-control" type="text" value=""></div></div></div><div class="form-group col-md-12"><label class="col-md-10 control-label">Passing Year</label><div class="col-md-12 inputGroupContainer"><div class="input-group"><input name="p_year" placeholder="year" class="form-control" type="text" value=""></div></div></div><div class="form-group col-md-12"><label class="col-md-10 control-label">Score / Mark</label><div class="col-md-12 inputGroupContainer"><div class="input-group"><input name="marks" placeholder="Scored %age or CGPA" class="form-control" type="text" value=""></div></div></div><div class="form-group col-md-12"><label class="col-md-10 control-label">Remarks / Some Words</label><div class="col-md-12 inputGroupContainer"><div class="input-group"><textarea class="form-control" name="remarks"></textarea></div></div></div><div class="form-group col-md-12"><div class="col-md-12 inputGroupContainer"><div class="input-group"><input type="submit" class="btn btn-success" value="Save" /></div></div></div></fieldset></form>';
+            var new_element = '<form class="form-horizontal main_form text-left" action="<?php echo base_url() ?>expert/add_edu" method="post"><fieldset class="well"><legend>Add New Education History</button></legend><div class="form-group col-md-12"><label class="col-md-10 control-label">Exam name</label><div class="col-md-12 inputGroupContainer"><div class="input-group"><input name="exam_name" placeholder="Higher Secondary / Graduation / Bachelors / Masters" class="form-control" type="text" value=""></div></div></div><div class="form-group col-md-12"><label class="col-md-10 control-label">College / University name</label><div class="col-md-12 inputGroupContainer"><div class="input-group"><input name="college_name" placeholder="Name of your university / college" class="form-control" type="text" value=""></div></div></div><div class="form-group col-md-12"><label class="col-md-10 control-label">Passing Year</label><div class="col-md-12 inputGroupContainer"><div class="input-group"><input name="p_year" placeholder="year" class="form-control" type="text" value=""></div></div></div><div class="form-group col-md-12"><label class="col-md-10 control-label">Score / Mark</label><div class="col-md-12 inputGroupContainer"><div class="input-group"><input name="marks" placeholder="Scored %age or CGPA" class="form-control" type="text" value=""></div></div></div><div class="form-group col-md-12"><label class="col-md-10 control-label">Remarks / Some Words</label><div class="col-md-12 inputGroupContainer"><div class="input-group"><textarea class="form-control" name="remarks"></textarea></div></div></div><div class="form-group col-md-12"><div class="col-md-12 inputGroupContainer"><div class="input-group"><input type="submit" class="btn btn-success" value="Save" /></div></div></div></fieldset></form>';
             form.innerHTML = "";
             form.innerHTML = new_element;
             document.getElementById('add_wh').style.display="none";
+        }
+        function add_new_ws_form (){
+            var form = document.getElementById('wshistory');
+            var new_element = '<form class="form-horizontal main_form text-left" action="<?php echo base_url() ?>expert/update_ws" method="post" enctype="multipart/form-data"><fieldset class="well"><legend>New Work Sample</legend><div class="form-group col-md-12"><label class="col-md-10 control-label">(*)Work Sample Name</label><div class="col-md-12 inputGroupContainer"><div class="input-group"><input name="sample_name" placeholder="Eg: English-Spanish Document..." class="form-control" type="text" required></div></div></div><div class="form-group col-md-12"><label class="col-md-10 control-label">(*)Description of Sample</label><div class="col-md-12 inputGroupContainer"><div class="input-group"><textarea name="description" placeholder="Eg: Did a translation work for a MNC in 2017... or a link or something.." class="form-control" required></textarea></div></div></div><div class="form-group col-md-12"><label class="col-md-10 control-label">(*)Uploaded Document</label><div class="col-md-12 inputGroupContainer"><div class="input-group"><label class="btn btn-xs btn-primary" id="" title="Change document"><i class="fa fa-upload"></i><input type="file" id="document" name="document" style="display: none;" required></label></div></div></div><div class="form-group col-md-12"><div class="col-md-12 inputGroupContainer"><div class="input-group"><input type="submit" class="btn btn-success" value="Save" /><br/><span class="small">(All fields are mandatory)</span></div></div></div></fieldset></form>';
+            form.innerHTML = "";
+            form.innerHTML = new_element;
+            //document.getElementById('add_ws').style.display="none";
         }
         function delete_wh(x){
             var whid = x;
@@ -250,6 +266,28 @@
                         $(formid).hide();
                         $('#response_ed').show();
                         window.location.href = baseurl+'expert#edu_history';
+                    },
+                    error: function (request, status, error) 
+                    {
+                        alert(request.responseText);
+                    }
+                });
+            }
+        }
+        function delete_ws(x){
+            var wsid = x;
+            var formid = "#ws"+x;
+            var r = confirm("Are you sure you want to delete this entry?");
+            if (r == true) {
+                $.ajax({
+                    type: "POST",
+                    url: baseurl+ "expert/del_wshistory",
+                    dataType: 'html',
+                    data: {id: wsid},
+                    success: function(res)
+                    {
+                        $(formid).hide();
+                        $('#response_ws').show();
                     },
                     error: function (request, status, error) 
                     {

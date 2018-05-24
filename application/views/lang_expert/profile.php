@@ -17,13 +17,10 @@ margin-bottom: 0;}
 .profile-head ul li a { color:#ffffff;}
 .profile-head h6 {width: 100%;text-align: center;font-weight: 100;color: #fff;font-size: 15px;text-transform: uppercase;margin-bottom: 0;}
 
-
+fieldset.well{display:block; width:90%;overflow:auto;margin-left:4%;background-color:#fff;}
+fieldset.well legend{color:#282f46;text-transform:uppercase;font-weight:bold;width:max-content;font-size: 100%;} 
 .nav-tabs {margin: 0;padding: 5px 0 0 0;border: 0;}
-.nav-tabs > li > a {background: #DADADA;border-radius: 0;
-    box-shadow: inset 0 -8px 7px -9px rgba(0,0,0,.4),-2px -2px 5px -2px rgba(0,0,0,.4);}
-.nav-tabs > li.active > a,
-.nav-tabs > li.active > a:hover {background: #F5F5F5;
-    box-shadow: inset 0 0 0 0 rgba(0,0,0,.4),-2px -3px 5px -2px rgba(0,0,0,.4);}
+
 .tab-pane {background: #ffffff;box-shadow: 0 0 4px rgba(0,0,0,.4);border-radius: 0;text-align: center;padding: 10px;}
 .tab-content>.active {margin-top:10px;/*width:100% !important;*/} 
 
@@ -53,7 +50,7 @@ margin-bottom: 0;}
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
-    
+   
 h2.register { padding:10px 25px; text-transform:capitalize;font-size: 25px;color: rgb(255, 102, 0);}
 .fom-main { overflow:hidden;}
 p{margin-bottom: 0px;}
@@ -69,9 +66,8 @@ select.selectpicker { color:#99999c;}
 select.selectpicker option { color:#000 !important;}
 select.selectpicker option:first-child { color:#99999c;}
 .input-group { width:100%;}
-.nav-menu li a {margin: 5px 5px 5px 5px;position: relative;display: block;padding: 10px 50px;border: 0px solid !important;box-shadow: none !important;
-background-color: rgb(0, 4, 51) !important;color: #fff !important;    white-space: nowrap;}
-.nav-menu li.active a {background-color: rgb(255, 102, 0) !important;}
+.nav-menu div.active a {background-color: rgb(255, 102, 0) !important;}
+.nav-menu div a{padding: 8px 0px;}
 table{ width: 80% !important;}
 table>tbody>tr>td{text-align: left;margin-left: 2%; border-top: none !important;}
 table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
@@ -109,8 +105,11 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
             <h5><?php echo $usr[0]->first_name." ".$usr[0]->last_name; ?></h5>
             <p><span class="fa fa-bolt"></span> <?php if(!empty($usr[0]->profile_name)){ echo $usr[0]->profile_name; } else {echo "N.A.";}?></p>
             <ul>
-                <li><span class="fa fa-calendar"></span> <?php if(!empty($usr[0]->dob)){ echo date('F j, Y',strtotime($usr[0]->dob)); } else {echo "N.A.";}?></li>
-                <li><span class="glyphicon glyphicon-briefcase"></span> <?php if(!empty($usr[0]->total_exp)){ echo $usr[0]->total_exp; } else {echo "N.A.";}?> </li>
+                <li><span class="fa fa-calendar"></span> <?php if(!empty($usr[0]->dob)){ //echo date('F j, Y',strtotime($usr[0]->dob));
+                                            $diff = (date('Y') - date('Y',strtotime($usr[0]->dob)));
+                                            echo $diff." Years Old";
+                                                                                       } else {echo "N.A.";}?></li>
+                <li><span class="glyphicon glyphicon-briefcase"></span> <?php  echo $this->config->config['job_exp'][$usr[0]->total_exp]; ?> </li>
                 <li><span class="glyphicon glyphicon-map-marker"></span> <?php if(!empty($country[0]->c_name)){ echo $country[0]->c_name;} else {echo "N.A.";} ?> </li>
                 <li><span class="glyphicon glyphicon-home"></span> <?php if(!empty($city || $state)){ echo $city[0]->name.", ".$state[0]->name;} else {echo "N.A.";} ?></li>
             </ul>
@@ -124,27 +123,38 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
 
 
 <div id="sticky" class="container">
-
-    <!-- Nav tabs -->
-    <ul class="nav nav-tabs nav-menu" role="tablist">
-        <li class="active">
-            <a href="#profile" role="tab" data-toggle="tab">
-                  <i class="fa fa-user-o"></i> Profile
-              </a>
-        </li>
-        <li><a href="#change" role="tab" data-toggle="tab">
+    <div class="row nav nav-tabs nav-menu" role="tablist">
+        <div class="active col-md-2 col-lg-2 col-sm-6 col-xs-12">
+            <a href="#profile" class="btn btn-primary form-control" role="tab" data-toggle="tab">
+                <i class="fa fa-user-o"></i> Profile
+            </a>
+        </div>
+        <div class="col-md-2 col-lg-2 col-sm-6 col-xs-12">
+            <a href="#change" class="btn btn-primary form-control" role="tab" data-toggle="tab">
               <i class="fa fa-pencil"></i> Edit Profile
-              </a>
-        </li>
-        <li><a href="#work_history" role="tab" data-toggle="tab">
+            </a>
+        </div>
+        <div class="col-md-2 col-lg-2 col-sm-6 col-xs-12">
+            <a href="#work_history" class="btn btn-primary form-control" role="tab" data-toggle="tab">
               <i class="fa fa-briefcase"></i> Edit Work
-              </a>
-        </li>
-        <li><a href="#edu_history" role="tab" data-toggle="tab">
+            </a>
+        </div>
+        <div class="col-md-2 col-lg-2 col-sm-6 col-xs-12">
+            <a href="#edu_history" class="btn btn-primary form-control" role="tab" data-toggle="tab">
               <i class="fa fa-mortar-board"></i> Edit Education
-              </a>
-        </li>
-    </ul>
+            </a>
+        </div>
+        <div class="col-md-2 col-lg-2 col-sm-6 col-xs-12">
+            <a href="#sample_history" class="btn btn-primary form-control" role="tab" data-toggle="tab" title="Upload Samples of your work">
+              <i class="fa fa-cloud-upload"></i> Upload Samples
+            </a>
+        </div>
+        <div class="col-md-2 col-lg-2 col-sm-6 col-xs-12">
+            <a href="#resume_upload" class="btn btn-primary form-control" role="tab" data-toggle="tab" title="Upload Resume">
+              <i class="fa fa-file-pdf-o"></i> Resume
+            </a>
+        </div>
+    </div>
     <!--nav-tabs close-->
 
     <!-- Tab panes -->
@@ -288,7 +298,7 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
             <div class="container fom-main">
                 <div class="row">
                     <div class="col-sm-12">
-                        <h2 class="register">Edit Your Profile/ Resume</h2>
+                        <h2 class="register">Edit Your Profile</h2>
                     </div>
                     <!--col-sm-12 close-->
 
@@ -415,7 +425,16 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
                                 <label class="col-md-10 control-label">Total Experience</label>
                                 <div class="col-md-12 selectContainer">
                                     <div class="input-group">
-                                        <input name="total_exp" placeholder="4 years 4 month" class="form-control" type="text" value="<?php if(!empty($usr[0]->total_exp)){echo $usr[0]->total_exp;}?>" required>
+                                        <!--input name="total_exp" placeholder="4 years 4 month" class="form-control" type="text" value="<?php if(!empty($usr[0]->total_exp)){echo $usr[0]->total_exp;}?>" required -->
+                                        <select name="total_exp" class="form-control">
+                                            <option value="">Select Your Experience</option>
+                                            <?php
+                                                foreach( $this->config->item('job_exp') as $key => $exp)	
+                                                {
+                                            ?>
+                                                <option value="<?php echo $key; ?>" <?php if($key == $usr[0]->total_exp){echo "selected";}?> ><?php echo $exp;?></option>
+                                            <?php } ?>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -496,8 +515,8 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
                                 $count=1;
                                 foreach($work_history as $w){ ?>
                                    <form class="form-horizontal main_form text-left" action="<?php echo base_url() ?>expert/update_wh" method="post" id="wh<?php echo $w->id; ?>">
-                                    <fieldset class="well" style="display:block; width:90%;overflow:auto;margin-left:4%;background-color:#fff;">
-                                        <legend style="color:#282f46;text-transform:uppercase;font-weight:bold;width:max-content;">Work History <?php echo $count; ?> | <button type="button" class="btn btn-danger btn-xs" title="Delete work history" onclick="delete_wh(<?php echo $w->id; ?>)"><i class="fa fa-trash"></i></button></legend>
+                                    <fieldset class="well" style="">
+                                        <legend style="">Work History <?php echo $count; ?> | <button type="button" class="btn btn-danger btn-xs" title="Delete work history" onclick="delete_wh(<?php echo $w->id; ?>)"><i class="fa fa-trash"></i></button></legend>
                                          <div class="form-group col-md-12">
                                             <label class="col-md-10 control-label">Designation/Profile Name</label>
                                             <div class="col-md-12 inputGroupContainer">
@@ -562,7 +581,7 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12">
-                        <h2 class="register">Add / Remove Education History <button id="add_wh" class="btn btn-xs btn-primary" onclick="add_new_edu_form()" title="Add another work history"><i class="fa fa-plus"></i></button></h2>
+                        <h2 class="register">Add / Remove Education History <button id="" class="btn btn-xs btn-primary" onclick="add_new_edu_form()" title="Add another work history"><i class="fa fa-plus"></i></button></h2>
                     </div>
                 </div>
                 <br/>
@@ -574,8 +593,8 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
                                     $cnt = 1;
                                     foreach($education as $ed){ ?>
                                         <form class="form-horizontal main_form text-left" action="<?php echo base_url() ?>expert/update_edu" method="post" id="ed<?php echo $ed->id ?>">
-                                        <fieldset class="well" style="display:block; width:90%;overflow:auto;margin-left:4%;background-color:#fff;">
-                                            <legend style="color:#282f46;text-transform:uppercase;font-weight:bold;width:max-content;">
+                                        <fieldset class="well">
+                                            <legend>
                                                  Education History <?php echo $cnt; ?> | <button type="button" class="btn btn-danger btn-xs" title="Delete Education History" onclick="del_edu(<?php echo $ed->id ?>)"><i class="fa fa-trash"></i></button>
                                             </legend>
                                             <div class="form-group col-md-12">
@@ -637,6 +656,159 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
                             ?>
                         </fieldset>
                 </div>
+            </div>
+        </div>
+        
+        <div class="tab-pane fade" id="sample_history">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h2 class="register">Add / Remove Work Samples <button class="btn btn-xs btn-primary" onclick="add_new_ws_form()" title="Add new work sample"><i class="fa fa-plus"></i></button></h2>
+                    </div>
+                </div>
+                <br/>
+                <div class="row">
+                   <div id="response_ws" style="color:red;font:10px;display:none;">Work sample Deleted!</div>
+                        <fieldset id="wshistory">
+                        <?php 
+                            if($work_sample){ 
+                                $count=1;
+                                foreach($work_sample as $ws){ ?>
+                                   <form class="form-horizontal main_form text-left" action="<?php echo base_url() ?>expert/update_ws" method="post" id="ws<?php echo $ws->id; ?>" enctype="multipart/form-data">
+                                    <fieldset class="well">
+                                        <legend>Work Sample <?php echo $count; ?> | <button type="button" class="btn btn-danger btn-xs" title="Delete work sample" onclick="delete_ws(<?php echo $ws->id; ?>)"><i class="fa fa-trash"></i></button></legend>
+                                         <div class="form-group col-md-12">
+                                            <label class="col-md-10 control-label">Work Sample Name</label>
+                                            <div class="col-md-12 inputGroupContainer">
+                                                <div class="input-group">
+                                                    <input type="hidden" name="id" value="<?php echo $ws->id ?>" />
+                                                    <input name="sample_name" placeholder="Eg: English-Spanish Document..." class="form-control" type="text" value="<?php if(!empty($ws->sample_name)){echo $ws->sample_name;} ?>">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label class="col-md-10 control-label">Description of Sample</label>
+                                            <div class="col-md-12 inputGroupContainer">
+                                                <div class="input-group">
+                                                    <textarea name="description" placeholder="Eg: Did a translation work for a MNC in 2017... or a link or something.." class="form-control"><?php if(!empty($ws->description)){echo $ws->description;} ?></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label class="col-md-10 control-label">Uploaded Document</label>
+                                            <div class="col-md-12 inputGroupContainer">
+                                                <div class="input-group">
+                                                    <label class="btn btn-xs btn-primary" id="" title="Change document">
+                                                        <?php 
+                                                            if(!empty($ws->document)){
+                                                                $ext = explode('.', $ws->document)[1];
+                                                                $ico="";
+                                                                switch($ext) {
+                                                                    case "pdf": 
+                                                                        $ico = "<i class='fa fa-file-pdf-o'></i>"; break;
+                                                                    case "doc":
+                                                                    case "docx":
+                                                                        $ico = "<i class='fa fa-doc'></i>"; break;
+                                                                    case "jpg":
+                                                                    case "gif":
+                                                                    case "jpeg":
+                                                                        $ico = "<i class='fa fa-file-image-o'></i>";break;
+                                                                    case "mp4":
+                                                                    case "mkv":
+                                                                    case "3gp":
+                                                                    case "avi":
+                                                                    case "webm":
+                                                                        $ico = "<i class='fa fa-file-video-o'></i>"; break;
+                                                                    case "txt":
+                                                                        $ico = "<i class='fa fa-file-text-o'></i>"; break;
+                                                                    default:
+                                                                        $ico = "<i class='fa fa-file-o'></i>"; break;
+                                                                }
+                                                            }
+                                                             echo "Click here to replace the sample <span class='small'>(Use file < 500kb)</span>";
+                                                        ?>
+                                                        <input type="file" id="document" name="document" style="display: none;">
+                                                   </label> &nbsp; &nbsp; <label><?php echo " Current Document is : &nbsp;&nbsp;"; ?><a href="<?php echo base_url()."assets/uploads/sample_docs/".$ws->document?>" target="_blank" download><?php echo $ico." ".$ws->document; ?></a></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <div class="col-md-12 inputGroupContainer">
+                                                <div class="input-group">
+                                                    <input type="submit" class="btn btn-success" value="Save" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                 </form>
+                        <?php
+                                    $count++;
+                                }
+                            } else {
+                                echo "Work sample have not been added yet! Please click on Add (+) button to upload new samples";
+                            }
+                        ?>
+                        </fieldset>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tab-pane fade" id="resume_upload">
+            <div class="container">
+                <div class="row">
+                    <?php 
+                        if(!empty($usr[0]->resume)){
+                            $ext = explode('.', $usr[0]->resume)[1];
+                            $ico="";
+                            switch($ext) {
+                                case "pdf": 
+                                    $ico = "<i class='fa fa-file-pdf-o'></i>"; break;
+                                case "doc":
+                                case "docx":
+                                    $ico = "<i class='fa fa-doc'></i>"; break;
+                                case "jpg":
+                                case "gif":
+                                case "jpeg":
+                                    $ico = "<i class='fa fa-file-image-o'></i>";break;
+                                case "mp4":
+                                case "mkv":
+                                case "3gp":
+                                case "avi":
+                                case "webm":
+                                    $ico = "<i class='fa fa-file-video-o'></i>"; break;
+                                case "txt":
+                                    $ico = "<i class='fa fa-file-text-o'></i>"; break;
+                                default:
+                                    $ico = "<i class='fa fa-file-o'></i>"; break;
+                            }
+                            echo "Your current Resume is: <a class='btn btn-danger btn-xs' href='".base_url()."assets/uploads/expert_resumes/".$usr[0]->resume."' download>".$ico." ".$usr[0]->resume."</a>";
+                        } else {
+                            echo "You have not uploaded any Resume/CV Yet. Please Upload it soon. Profiles with resumes get 2x more Views.";
+                        }
+                    ?>
+                </div>
+                <br/>
+                <fieldset class="well">
+                    <legend>Upload Resume</legend>
+                    <form class="form-horizontal main_form text-left" action="<?php echo base_url() ?>expert/update_resume" method="post" enctype="multipart/form-data">
+                    <div class="col-md-1"></div>
+                    <div class="form-group col-md-6">
+                        <div class="col-md-12 inputGroupContainer">
+                            <div class="input-group">
+                                <input type="file" class="form-control" name="document"/> <br/>
+                                <span class="small">Please upload only doc, docx, rtf, odt or pdf file only. max file size: 1000kb. </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <div class="col-md-12 inputGroupContainer">
+                            <div class="input-group">
+                                <button type="submit" class="btn btn-success">Upload</button>
+                            </div>
+                        </div>
+                    </div>
+                    </form>
+                </fieldset>
             </div>
         </div>
         

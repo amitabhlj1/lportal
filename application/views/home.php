@@ -114,7 +114,7 @@
             </ul>
           </div>
         </section>
-        <section class="module-small bg-dark">
+        <section class="module-small bg-dark" data-background="http://media.monsterindia.com/cmsimages/1468914963.jpg" style="background-image: url("http://media.monsterindia.com/cmsimages/1468914963.jpg");">
           <div class="container">
             <div class="row">
               <div class="col-sm-6 col-md-8 col-lg-6 col-lg-offset-2">

@@ -102,6 +102,19 @@ class LanguageExpert_model extends CI_Model {
 			return 2;			
 		}       
     }
+    
+    public function select_city_details() {
+        $response = array();
+        $sql = "SELECT cities.id, cities.name as city, states.name as state, country.c_name as country FROM cities LEFT JOIN states ON cities.s_id = states.id LEFT JOIN country ON states.c_id = country.id ORDER BY cities.name";
+        $result = $this->db->query($sql);
+        if ($result && $result->num_rows()) {
+//            foreach ($result->result() as $row) {
+//                $response[] = $row->fld_phone;
+//            }
+            $response = $result->result();
+        }
+        return $response;
+    }
 	
 }
 ?>
