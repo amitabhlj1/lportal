@@ -163,7 +163,7 @@ class Employer_model extends CI_Model {
 	public function forgotPassword($stremail)
     {
 		$where  =  array('user_name' => $stremail);
-		$aRes   = $this->My_model->selectRecord('admin_user','*',$where,'','');
+		$aRes   = $this->My_model->selectRecord('lang_company','*',$where,'','');
 		
 		//echo "<pre />";print_r($aRes)	; echo $aRes[0]->code ; die();
 		$this->load->library('email');
@@ -172,12 +172,12 @@ class Employer_model extends CI_Model {
 		$config['mailtype'] = 'html';
 		$this->email->initialize($config);
 		
-		$subject = 'Langecole Password change';
+		$subject = 'langjobs Password change';
 		$message = 'Dear User,<br /> <br />You recently requested password change. To reset your password, follow the link below: .<br /><br />
 					'.base_url().'talgo/admin/recoveryPassword/' . $aRes[0]->code . '<br /><br /><br />
 					<br /><br /><b>Thanks & Regards</b>, <br /> Langecole Team';
 			
-		$this->email->from('admin@langecole.com', 'langecole');
+		$this->email->from('admin@langjobs.com', 'langjobs');
 		$this->email->to($to_email); 
 						
 		$this->email->subject($subject);
