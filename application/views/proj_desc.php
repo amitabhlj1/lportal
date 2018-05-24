@@ -2,6 +2,56 @@
     .alt-features-item{
         margin: 20px 0px 0px 0px !important;
     }
+    .messages{
+        height: 30em;
+        max-height: 50em;
+        border: 1px solid;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+    .chat_div form{
+        margin-top: 5px;
+        border: 1px solid;
+    }
+    .left_div, .right_div{
+        width: 100%;
+    }
+    
+    .left_div>span, .right_div>span{
+        background: #7872a5;
+        color: #fff;
+        width: max-content;
+        padding: 2%;
+    }
+    .right_div{
+        text-align: right;
+    }
+    .right_div>span{
+        background: #3cb945;
+    }
+    #msg::-webkit-scrollbar-track
+    {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        background-color: #F5F5F5;
+        border-radius: 10px;
+    }
+
+    #msg::-webkit-scrollbar
+    {
+        width: 10px;
+        background-color: #F5F5F5;
+    }
+
+    #msg::-webkit-scrollbar-thumb
+    {
+        border-radius: 10px;
+        background-image: -webkit-gradient(linear,
+                                           left bottom,
+                                           left top,
+                                           color-stop(0.44, rgb(122,153,217)),
+                                           color-stop(0.72, rgb(73,125,189)),
+                                           color-stop(0.86, rgb(28,58,148)));
+    }
 </style>
 <section class="module" id="services">
     <div class="container">
@@ -28,11 +78,31 @@
                        <fieldset>
                            <legend>Employer's Message</legend>
                            <div class="chat_div">
-                                <div class="messages">
-                                    
+                                <div class="messages" id="msg">
+                                   <br/>
+                                    <?php 
+                                        foreach($comments as $c){ 
+                                            if($c->sender == 1){
+                                                echo "<div class='left_div'><span><img width='30' height='30' class='img img-circle' src='".base_url()."assets/uploads/employer/".$comp->company_logo."'> &nbsp;$c->comment</span></div><br/>";
+                                            } else {
+                                                if($this->session->userdata('social_login') == 1){
+                                                    $eimg = $this->session->userdata('image');
+                                                } else {
+                                                    if(!$this->session->userdata('image')){
+                                                        $eimg = base_url()."assets/1.png"; 
+                                                    } else {
+                                                        $eimg = base_url()."assets/uploads/expert/".$this->session->userdata('image');
+                                                    }
+                                                }
+                                                echo "<div class='right_div'><span>$c->comment &nbsp; <img class='img img-circle' width='30' height='30' src='$eimg'/></span></div><br/>";
+                                            }
+                                        }
+                                    ?>
                                 </div>
-                               <form class="form" action="" method="post">
-                                   <textarea class="form-control"></textarea>
+                               <form class="form" action="<?php echo base_url(); ?>searchproject/addcomment" method="post">
+                                   <textarea class="form-control" name="comment" placeholder="Your text here.."></textarea>
+                                   <input type="hidden" value="<?php echo $jd->id; ?>" name="job_id" />
+                                   <input type="hidden" value="<?php echo $comp->id; ?>" name="company_id" />
                                    <button class="form-control btn btn-primary" type="submit"><i class="fa fa-send"></i> Send</button>
                                </form>
                            </div>
@@ -332,3 +402,7 @@
         </div>
     </div>
 </section>
+<script>
+    var objDiv = document.getElementById("msg");
+    objDiv.scrollTop = objDiv.scrollHeight;
+</script>

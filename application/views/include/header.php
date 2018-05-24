@@ -124,7 +124,7 @@
                   <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown"><i class="fa fa-user-circle"></i><?php echo $this->session->userdata('first_name'); ?></a>
                     <ul class="dropdown-menu">
                       <li class="dropdown"><a href="<?php echo base_url();?>expert"><i class="fa fa-user-circle-o"></i> Profile</a></li>
-                      <li class="dropdown"><a href="<?php echo base_url();?>"><i class="fa fa-history"></i> Jobs Applied</a></li>
+                      <li class="dropdown"><a href="<?php echo base_url();?>applied_jobs"><i class="fa fa-history"></i> Jobs Applied</a></li>
                       <li class="dropdown"><a href="<?php echo base_url();?>expert/logout"><i class="fa fa-sign-out"></i>Logout</a></li>
                     </ul>
                   </li>
