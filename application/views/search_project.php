@@ -64,8 +64,12 @@
                         </thead>
                         <tbody>
                        <?php
-                            foreach($jobs as $j){ ?>
-                        <tr>
+							if($jobs)
+							{
+								foreach($jobs as $j)
+								{
+							?>
+                        	<tr>
                             <td><span class="to_show"><i class="fa fa-info-circle"></i> Project Title :</span> <?php echo $j->title; ?></td>
                             <td><span class="to_show"><i class="fa fa-language"></i> Languages :</span> 
                                <?php 
@@ -85,6 +89,7 @@
                         </tr>
                         <?php
                             }
+						}
                         ?>
                         </tbody>
                     </table>

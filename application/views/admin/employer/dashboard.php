@@ -70,8 +70,8 @@
 							<span title="view all applicants"><?php echo $job->j_applicants;?></span>
 						  </a>
 					  </td>
-					  <td><?php echo $job->created;?></td>
-					  <td><?php echo $job->last_date;?></td>
+					  <td><?php echo date('F  j, Y',strtotime($job->created)); ?> </td>
+					  <td><?php echo date('F  j, Y',strtotime($job->last_date));?></td>
 					  <td><?php echo $bStatus;?></td>
 					  <td>
 						  <a href="#" data-toggle="modal" data-target="#jobview" onclick="viewJob(<?php echo $job->id;?>, <?php echo $job->j_type?>);">
@@ -135,7 +135,45 @@
       </div>
     </div>
 </div>
+
+<div class="modal fade" id="commview" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Comments</h4>
+        </div>
+        <div class="modal-body">
+			<table id="comm_app" class="table table-hover">
+				<tr><td>COMMMMM</td></tr>
+			</table>			
+        </div>
+      </div>
+    </div>
+</div>
+
 <script>
+// view all comments for a job	
+function viewAllComments(job_id,exp_id)
+{		
+	$.ajax({
+		type: "POST",
+		url: baseurl+ "ado/Employer/viewAllComments",
+		dataType: 'html',
+		data: {job_id:job_id,exp_id:exp_id},
+		success: function(res)
+		{
+			//console.log(res);
+			//alert(res);	//return false;		
+			$("#comm_app").html(res);								
+		},
+		error: function (request, status, error) 
+		{
+			alert(request.responseText);
+		}
+	});
+}	
+	
 function viewApplicants(job_id)
 {		
 	$.ajax({
