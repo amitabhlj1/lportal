@@ -1,4 +1,3 @@
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.16/b-1.5.1/datatables.min.css"/>
 <style>
     .to_show{
         display: none;
