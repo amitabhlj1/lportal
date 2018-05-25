@@ -103,7 +103,9 @@
                     searchPlaceholder: "Quick Search in table"
                 }
             });
-            
+            $('#jhistory').DataTable({
+                "order": [[ 2, "desc" ]]
+            });
             $('.select2').select2({
                 width:"100%",
                 border: "none",
