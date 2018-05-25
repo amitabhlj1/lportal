@@ -21,4 +21,14 @@ class All_experts extends CI_Controller
 		$this->load->view('all_experts', $data);
         $this->load->view('include/footer');
 	}
+    public function profile($pid){
+        $data['expert_data'] = $this->My_model->selectRecord('lang_expert', '*', array('status' => 1, 'id' =>$pid));
+        $title['title_of_page'] = $data['expert_data'][0]->profile_name." | Langjobs Language Experts | ";
+        $title['description'] = "";
+        $title['keywords'] =$data['expert_data'][0]->skills.", langjob expert profile";
+        
+        $this->load->view('include/header', $title);
+		$this->load->view('expert_profile', $data);
+        $this->load->view('include/footer');
+    }
 }

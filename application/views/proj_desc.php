@@ -91,7 +91,7 @@
                                                     if(!$this->session->userdata('image')){
                                                         $eimg = base_url()."assets/1.png"; 
                                                     } else {
-                                                        $eimg = base_url()."assets/uploads/expert/".$this->session->userdata('image');
+                                                        $eimg = base_url()."assets/uploads/experts/".$this->session->userdata('image');
                                                     }
                                                 }
                                                 echo "<div class='right_div'><span>$c->comment &nbsp; <img class='img img-circle' width='30' height='30' src='$eimg'/></span></div><br/>";
