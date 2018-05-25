@@ -24,7 +24,7 @@
                     <legend>
                         View Job History
                     </legend>
-                    <table class="table table-hover">
+                    <table class="table table-hover" id="jhistory">
                         <thead>
                             <tr>
                                 <th>Job Type</th>
@@ -33,6 +33,25 @@
                                 <th>Actions</th>
                             </tr>
                         </thead>
+                        <tbody>
+                            <?php
+                                foreach($total_jobs as $tj){
+                                    echo "<tr>";
+                                    if($tj->j_type == 1){
+                                        echo "<td>Full/Part-time</td>";
+                                        echo "<td>".$tj->title."</td>";
+                                        echo "<td>".$tj->apply_date."</td>";
+                                        echo "<td><a href='".base_url()."SearchJob/jobdesc/".$tj->job_id."'><button class='btn btn-xs btn-info'><i class='fa fa-eye'></i></button></a></td>";
+                                    } else if($tj->j_type == 2) {
+                                        echo "<td>Freelance/Project</td>";
+                                        echo "<td>".$tj->title."</td>";
+                                        echo "<td>".$tj->apply_date."</td>";
+                                        echo "<td><a href='".base_url()."SearchProject/jobdesc/".$tj->job_id."'><button class='btn btn-xs btn-info'><i class='fa fa-eye'></i></button></a></td>";
+                                    }
+                                    echo "</tr>";
+                                }
+                            ?>
+                        </tbody>
                     </table>
                 </fieldset>
             </div>

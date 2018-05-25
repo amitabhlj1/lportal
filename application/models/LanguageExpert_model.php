@@ -117,5 +117,16 @@ class LanguageExpert_model extends CI_Model {
         return $response;
     }
 	
+    public function retrieve_jobs(){
+        $response = array();
+        $sql = "SELECT job_apply.job_id, jobs.j_type, jobs.title, job_apply.apply_date FROM `job_apply` INNER JOIN jobs ON jobs.id = job_apply.job_id WHERE job_apply.expert_id ='".$this->session->userdata('exp_id')."'";
+        $result = $this->db->query($sql);
+        if ($result && $result->num_rows()) {
+            foreach ($result->result() as $row) {
+                $response[] = $row;
+            }
+        }
+        return $response;
+    }
 }
 ?>

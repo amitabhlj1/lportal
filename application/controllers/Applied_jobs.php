@@ -18,7 +18,9 @@ class Applied_jobs extends CI_Controller
         $title['title_of_page'] = "";
         $title['description'] = "";
         $title['keywords'] ="";
-        $data['lang'] = $this->My_model->selectRecord('job_apply', '*', array('expert_id' => $this->session->userdata('exp_id')));
+        //$data['total_jobs'] = $this->My_model->selectRecord('job_apply', '*', array('expert_id' => $this->session->userdata('exp_id')));
+        $data['total_jobs'] = $this->LanguageExpert_model->retrieve_jobs();
+        //var_dump($data['total_jobs']); die();
         $this->load->view('include/header', $title);
 		$this->load->view('applied_jobs', $data);
         $this->load->view('include/footer');
