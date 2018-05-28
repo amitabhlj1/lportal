@@ -6,9 +6,10 @@
         background: linear-gradient(to right, #3c1053, #ad5389); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
         font-family: 'Anton', sans-serif;
         padding: 2px;
-        margin: 2px;
+        margin: 5px;
         color: #fff;
         border-radius:7px;
+        box-shadow: 5px 5px #050e23;
     }
     .well .profile, .well .name, .well .exp, .well .view_more, .well .skill{
         text-align: center;
@@ -53,7 +54,7 @@
             <div class="mb-sm-20 wow fadeInUp col-md-12 col-sm-12 col-xs-12 table-responsive">
                 <fieldset>
                     <legend>
-                        View Job History
+                        Language Experts at Langjobs
                     </legend>
 <!--
                     <table class="table table-hover" id="jhistory">

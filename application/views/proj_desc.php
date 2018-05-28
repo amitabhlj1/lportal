@@ -108,19 +108,13 @@
 
     #msg::-webkit-scrollbar
     {
-        width: 10px;
+        width: 5px;
         background-color: #F5F5F5;
     }
 
     #msg::-webkit-scrollbar-thumb
     {
-        border-radius: 10px;
-        background-image: -webkit-gradient(linear,
-                                           left bottom,
-                                           left top,
-                                           color-stop(0.44, rgb(122,153,217)),
-                                           color-stop(0.72, rgb(73,125,189)),
-                                           color-stop(0.86, rgb(28,58,148)));
+        background-color: #000000;
     }
 </style>
 <section class="module" id="services">
@@ -149,7 +143,8 @@
                            <legend>Employer's Message</legend>
                            <div class="chat_div">
                                 <div class="messages" id="msg">
-                                    <?php 
+                                    <?php
+                                        if($comments){
                                         foreach($comments as $c){ 
                                             if($c->sender == 1){ ?>
                                                 <span class="left"><?php echo "<img width='30' height='30' class='img img-circle' src='".base_url()."assets/uploads/employer/".$comp->company_logo."'> &nbsp;$c->comment"; ?>
@@ -176,10 +171,13 @@
                                             <?php
                                             }
                                         }
+                                        } else {
+                                            echo "<span>Hello from langecole, Your application has been sent to the employer. Please, Wait for the employer's message......</span>";
+                                        }
                                     ?>
                                 </div>
                                <form class="form" action="<?php echo base_url(); ?>searchproject/addcomment" method="post">
-                                   <textarea class="form-control" name="comment" placeholder="Your text here.."></textarea>
+                                   <textarea class="form-control" name="comment" placeholder="Your text here.. (use less than 300 characters)" maxlength="300"></textarea>
                                    <input type="hidden" value="<?php echo $jd->id; ?>" name="job_id" />
                                    <input type="hidden" value="<?php echo $comp->id; ?>" name="company_id" />
                                    <button class="form-control btn btn-primary" type="submit"><i class="fa fa-send"></i> Send</button>
