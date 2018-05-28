@@ -13,21 +13,91 @@
         margin-top: 5px;
         border: 1px solid;
     }
-    .left_div, .right_div{
-        width: 100%;
-    }
-    
-    .left_div>span, .right_div>span{
-        background: #7872a5;
+    #msg>span
+    {
+        display: inline-block;
+        max-width: 80%;
+        background-color: #7872a5;
+        padding: 5px;
+        border-radius: 4px;
+        position: relative;
+        border-width: 1px;
+        border-style: solid;
+        border-color: grey;
+        margin: 2%;
         color: #fff;
-        width: max-content;
-        padding: 2%;
     }
-    .right_div{
-        text-align: right;
+
+    #msg>.left
+    {
+        float: left;
     }
-    .right_div>span{
-        background: #3cb945;
+
+    #msg>span.left:after
+    {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        left: -8.5px;
+        top: 7px;
+        height: 0px;
+        width: 0px;
+        border-top: 8px solid transparent;
+        border-bottom: 8px solid transparent;
+        border-right: 8px solid #7872a5;
+    }
+
+    #msg>span.left:before
+    {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        left: -9px;
+        top: 7px;
+        height: 0px;
+        width: 0px;
+        border-top: 8px solid transparent;
+        border-bottom: 8px solid transparent;
+        border-right: 8px solid black;
+    }
+
+    #msg>span.right:after
+    {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        right: -8px;
+        top: 6px;
+        height: 0px;
+        width: 0px;
+        border-top: 8px solid transparent;
+        border-bottom: 8px solid transparent;
+        border-left: 8px solid #d49626;
+    }
+
+    #msg>span.right:before
+    {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        right: -9px;
+        top: 6px;
+        height: 0px;
+        width: 0px;
+        border-top: 8px solid transparent;
+        border-bottom: 8px solid transparent;
+        border-left: 8px solid black;
+    }
+
+    #msg>span.right
+    {
+        float: right;
+        background-color: #d49626;
+    }
+
+    #msg>.clear
+    {
+        clear: both;
     }
     #msg::-webkit-scrollbar-track
     {
@@ -79,11 +149,15 @@
                            <legend>Employer's Message</legend>
                            <div class="chat_div">
                                 <div class="messages" id="msg">
-                                   <br/>
                                     <?php 
                                         foreach($comments as $c){ 
-                                            if($c->sender == 1){
-                                                echo "<div class='left_div'><span><img width='30' height='30' class='img img-circle' src='".base_url()."assets/uploads/employer/".$comp->company_logo."'> &nbsp;$c->comment</span></div><br/>";
+                                            if($c->sender == 1){ ?>
+                                                <span class="left"><?php echo "<img width='30' height='30' class='img img-circle' src='".base_url()."assets/uploads/employer/".$comp->company_logo."'> &nbsp;$c->comment"; ?>
+                                                <br/>
+                                                <small><i class="fa fa-clock-o"></i> <?php echo date('d F Y', strtotime($c->created)); ?></small>
+                                                </span>
+                                                <div class="clear"></div>
+                                            <?php
                                             } else {
                                                 if($this->session->userdata('social_login') == 1){
                                                     $eimg = $this->session->userdata('image');
@@ -93,8 +167,13 @@
                                                     } else {
                                                         $eimg = base_url()."assets/uploads/experts/".$this->session->userdata('image');
                                                     }
-                                                }
-                                                echo "<div class='right_div'><span>$c->comment &nbsp; <img class='img img-circle' width='30' height='30' src='$eimg'/></span></div><br/>";
+                                                } ?>
+                                                <span class="right"><?php echo "$c->comment &nbsp; <img class='img img-circle' width='30' height='30' src='$eimg'/>"; ?>
+                                                <br/>
+                                                <small><i class="fa fa-clock-o"></i> <?php echo date('d F Y', strtotime($c->created)); ?></small>
+                                                </span>
+                                                <div class="clear"></div>
+                                            <?php
                                             }
                                         }
                                     ?>

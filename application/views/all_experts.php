@@ -1,27 +1,34 @@
 <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
 <style>
     .well{
-        background-image: url('https://www.planwallpaper.com/static/images/Alien_Ink_2560X1600_Abstract_Background_1.jpg');
-        background-size: contain;
+        background: #ad5389;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #3c1053, #ad5389);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #3c1053, #ad5389); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
         font-family: 'Anton', sans-serif;
         padding: 2px;
         margin: 2px;
-        height: 16em;
+        color: #fff;
+        border-radius:7px;
     }
     .well .profile, .well .name, .well .exp, .well .view_more, .well .skill{
         text-align: center;
     }
     .well .name{
-        font-size: 22px;
+        font-size: 250%;
         letter-spacing: 3px;
-        color: #4b4b58;
+        color: #fff;
     }
     .well .profile{
         letter-spacing: 4px;
     }
-    .well .exp{
+    .well .eimg{
+        text-align: center;
     }
-    
+    .well .eimg img{
+        height: 60px;
+        width: 60px;
+    }
+
 </style>
 <div class="main">&nbsp;</div><br/><br/>
 <section class="module-small bg-dark">
@@ -82,34 +89,38 @@
                     <?php
                         foreach($experts as $e){ ?>
                         <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12 well">
-                            <div class="eimg">
-                                <?php
-                                    if($e->social_login == 1){
-                                        $eimg = $e->image;
-                                    } else {
-                                        if(!$e->image){
-                                            $eimg = base_url()."assets/1.png"; 
+                            <div class="row">
+                                <div class="col-lg-8 col-md-8 col-xs-8 col-sm-8">
+                                    <div class="name">
+                                        <?php echo strtoupper($e->last_name." ".mb_substr($e->first_name, 0, 1, 'utf-8')); ?>
+                                    </div>
+                                </div>
+                                <div class="eimg col-lg-4 col-sm-4 col-md-4 col-xs-4">
+                                    <?php
+                                        if($e->social_login == 1){
+                                            $eimg = $e->image;
                                         } else {
-                                            $eimg = base_url()."assets/uploads/experts/".$e->image;
-                                        }
-                                    }              
-                                ?>
-                                <img src="<?php echo $eimg; ?>" height="40" width="40" class="img-rounded"/>
-                            </div>
-                            <div class="name">
-                                <?php echo strtoupper($e->last_name." ".mb_substr($e->first_name, 0, 1, 'utf-8')); ?>
-                            </div>
-                            <div class="profile">
-                                <?php echo $e->profile_name; ?>
-                            </div>
-                            <div class="exp">
-                                <?php echo $this->config->config['job_exp'][$e->total_exp]; ?>
-                            </div>
-                            <div class="skill">
-                                <?php if($e->skills){echo $e->skills;} else {echo "Language Expert";}; ?>
-                            </div>
-                            <div class="view_more">
-                               <?php echo "<a href='".base_url()."All_experts/profile/".$e->id."'><button class='btn btn-xs btn-success'>View More</button></a>"; ?>
+                                            if(!$e->image){
+                                                $eimg = base_url()."assets/1.png"; 
+                                            } else {
+                                                $eimg = base_url()."assets/uploads/experts/".$e->image;
+                                            }
+                                        }              
+                                    ?>
+                                    <img src="<?php echo $eimg; ?>" class="img-rounded"/>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                      <div class="profile">
+                                            <?php echo $e->profile_name; ?>
+                                        </div>
+                                        <div class="exp">
+                                            <?php echo $this->config->config['job_exp'][$e->total_exp]; ?>
+                                        </div>
+                                        <div class="skill">
+                                            <?php if($e->skills){echo $e->skills;} else {echo "Language Expert";}; ?>
+                                        </div>
+                                       <?php echo "<a href='".base_url()."All_experts/profile/".$e->id."'><button class='btn btn-xs btn-primary form-control'>View More</button></a>"; ?>
+                                </div>
                             </div>
                         </div>
                     <?php
