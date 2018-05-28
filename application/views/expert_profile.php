@@ -95,7 +95,13 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
         <!--col-md-4 col-sm-4 col-xs-12 close-->
 
         <div class="col-md-5 col-sm-5 col-xs-12">
-            <h5><?php echo $usr[0]->first_name." ".$usr[0]->last_name; ?></h5>
+            <h5>
+                <?php
+                    //If Recruiter is seeing this profile then show full name and details
+                    //echo $usr[0]->first_name." ".$usr[0]->last_name; 
+                    echo strtoupper($usr[0]->last_name." ".mb_substr($usr[0]->first_name, 0, 1, 'utf-8'));
+                ?>
+            </h5>
             <p><span class="fa fa-bolt"></span> <?php if(!empty($usr[0]->profile_name)){ echo $usr[0]->profile_name; } else {echo "N.A.";}?></p>
             <ul>
                 <li><span class="fa fa-calendar"></span> <?php if(!empty($usr[0]->dob)){ //echo date('F j, Y',strtotime($usr[0]->dob));
@@ -123,7 +129,7 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
                 <div class="col-sm-11" style="float:left;">
                    <h4 class="rlabel" style="margin-left:-30px; margin-top:0px;"><i class="fa fa-file-text-o"></i> Mini Resume</h4>
                     <div class="module-subtitle font-serif" style="margin-bottom:0px; text-align:center;">
-                        <p><?php if(!empty($usr[0]->about_me)) {echo $usr[0]->about_me;} else {echo "Please update your profile for better visibility / Click on Edit Profile Button";} ?></p>
+                        <p><?php if(!empty($usr[0]->about_me)) {echo $usr[0]->about_me;} else {echo "This user has not included his summary yet!";} ?></p>
                     </div>
                 </div>
                 <!--col-sm-12 close-->
@@ -133,10 +139,20 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
                         <h4 class="rlabel"><i class="fa fa-columns"></i> Basic Details</h4>
                         <div class="row" style="margin-left:12px;text-align:left;">
                             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 smblock">
-                                <i class="fa fa-envelope"></i> <?php if($usr[0]->email == ''){echo "<span style='color:red;'>Not Available</span>";} else {echo $usr[0]->email;}; ?>
+                                <i class="fa fa-envelope"></i> <?php 
+                                    if($usr[0]->email == ''){
+                                        echo "<span style='color:red;'>Not Available</span>";
+                                    } else {
+                                        echo $usr[0]->email;
+                                    } ?>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 smblock">
-                                <i class="fa fa-phone"></i> <?php if($usr[0]->mobile == ""){echo "<span style='color:red;'>Not Available</span>"; }else{echo $usr[0]->mobile;}; ?>
+                                <i class="fa fa-phone"></i> <?php 
+                                    if($usr[0]->mobile == ""){
+                                        echo "<span style='color:red;'>Not Available</span>"; 
+                                    } else {
+                                        echo $usr[0]->mobile;
+                                    } ?>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 smblock">
                                <?php
@@ -243,9 +259,6 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
                     <!--col-md-11 close-->
                 </div>
                 <!--row close-->
-
-
-
 
             </div>
             <!--container close-->

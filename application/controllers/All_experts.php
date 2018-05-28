@@ -23,7 +23,7 @@ class All_experts extends CI_Controller
 	}
     public function profile($pid){
         $data['usr'] = $this->My_model->selectRecord('lang_expert', '*', array('status' => 1, 'id' =>$pid));
-        $title['title_of_page'] = $data['usr'][0]->profile_name." | Langjobs Language Experts | ";
+        $title['title_of_page'] = $data['usr'][0]->last_name." - ".$data['usr'][0]->profile_name." | Langjobs Language Experts | ";
         $title['description'] = "";
         $title['keywords'] = $data['usr'][0]->skills.", langjob expert profile";
         
