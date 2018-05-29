@@ -81,6 +81,8 @@
                                 <div class="messages" id="msg">
                                    <br/>
                                     <?php 
+									if($comments)
+									{	
                                         foreach($comments as $c){ 
                                             if($c->sender == 1){
                                                 echo "<div class='left_div'><span><img width='30' height='30' class='img img-circle' src='".base_url()."assets/uploads/employer/".$comp->company_logo."'> &nbsp;$c->comment</span></div><br/>";
@@ -97,6 +99,7 @@
                                                 echo "<div class='right_div'><span>$c->comment &nbsp; <img class='img img-circle' width='30' height='30' src='$eimg'/></span></div><br/>";
                                             }
                                         }
+									}
                                     ?>
                                 </div>
                                <form class="form" action="<?php echo base_url(); ?>searchproject/addcomment" method="post">

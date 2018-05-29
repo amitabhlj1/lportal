@@ -362,8 +362,7 @@ class Employer extends CI_Controller
 			<td><?php echo date('F  j, Y',strtotime($apl->apply_date));?></td>
 			<td>View</td>
 			<td>
-				 <a href="#" data-toggle="modal" data-target="#commview" onclick="viewAllComments(<?php echo $job_id;?>,<?php echo $apl->expert_id;?>);">	
-				  View
+				 <a href="<?php echo base_url();?>ado/Employer/viewAllComments/<?php echo $job_id;?>/<?php echo $apl->expert_id;?>">View
 				</a>	 
 			</td>
 		</tr>
@@ -371,22 +370,92 @@ class Employer extends CI_Controller
 		}
 	}
 	
-	function viewAllComments()
+	function viewAllComments($job_id,$exp_id)
 	{	
+		
+		$data['comments'] = $this->My_model->selectRecord('comments', '*', array('job_id' => $job_id, 'company_id' => $this->session->userdata('emp_id'), 'expert_id' => $exp_id));
+		
+		$data['applicants'] = $this->Employer_model->getJobApplicants($job_id );
+		$data['job_id']  = $job_id;
+		$data['exp_id']  = $exp_id;
+		
+		$this->load->view('admin/include/emp_header'); 
+		$this->load->view('admin/employer/view_comments',$data); 
+	    $this->load->view('admin/include/footer');	
+	}
+	
+	
+	function viewInnerComments()
+	{	
+		
 		$job_id = $this->input->post('job_id');
 		$exp_id = $this->input->post('exp_id');
 		
-		//$aApplicants = $this->Employer_model->getComments($job_id);
-		//echo "<pre />"; print_r($aApplicants); die('JKK');
-		?>
-		<thead>
-			<tr>
-				<td>Name</td>
-				
-			</tr>
-		</thead>	
-		<?php
+		$aComments = $this->My_model->selectRecord('comments', '*', array('job_id' => $job_id, 'company_id' => $this->session->userdata('emp_id'), 'expert_id' => $exp_id));
+		
+		if($aComments)
+		{	
+			foreach($aComments as $c){ 
+				if($c->sender == 1){
+					echo "<div class='right_div'><span><img width='30' height='30' class='img img-circle' src='".base_url()."assets/uploads/employer/".$this->session->userdata('logo')."'> &nbsp;$c->comment</span></div><br/>";
+				} else {
+					if($this->session->userdata('social_login') == 1){
+						$eimg = $this->session->userdata('image');
+					} else {
+						if(!$this->session->userdata('image')){
+							$eimg = base_url()."assets/1.png"; 
+						} else {
+							$eimg = base_url()."assets/uploads/expert/".$this->session->userdata('image');
+						}
+					}
+					echo "<div class='left_div'><span>$c->comment &nbsp; <img class='img img-circle' width='30' height='30' src='$eimg'/></span></div><br/>";
+				}
+			}
+		}
 	}
+	
+	// add new comment
+	public function addcomment()
+	{
+        $data = array(
+            'job_id' => $this->input->post('job_id'),
+            'company_id' => $this->session->userdata('emp_id'),
+            'expert_id' => $this->input->post('exp_id'),
+            'sender' => 1,
+            'comment' => $this->input->post('comment'),
+            'created' => date('Y-m-d'),
+            'status' => 1
+        );
+		// add comment
+        $ins = $this->My_model->insertRecord('comments', $data);
+		
+		$job_id = $this->input->post('job_id');
+		$exp_id = $this->input->post('exp_id');
+		
+		$aComments = $this->My_model->selectRecord('comments', '*', array('job_id' => $job_id, 'company_id' => $this->session->userdata('emp_id'), 'expert_id' => $exp_id));
+		
+		$aExpert = $this->My_model->selectRecord('lang_expert', '*', array('id' => $exp_id));
+		if($aComments)
+		{	
+			foreach($aComments as $c){ 
+				if($c->sender == 1){
+					echo "<div class='right_div'><span><img width='30' height='30' class='img img-circle' src='".base_url()."assets/uploads/employer/".$this->session->userdata('logo')."'> &nbsp;$c->comment</span></div><br/>";
+				} else {
+					if($aExpert[0]->social_login == 1){
+						$eimg = $aExpert[0]->image;
+					} else {
+						if(!$aExpert[0]->image){
+							$eimg = base_url()."assets/1.png"; 
+						} else {
+							$eimg = base_url()."assets/uploads/expert/".$aExpert[0]->image;
+						}
+					}
+					echo "<div class='left_div'><span>$c->comment &nbsp; <img class='img img-circle' width='30' height='30' src='$eimg'/></span></div><br/>";
+				}
+			}
+		}
+		
+    }
 	
 	function profile()
 	{	

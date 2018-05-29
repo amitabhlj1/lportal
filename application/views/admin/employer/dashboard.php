@@ -1,3 +1,58 @@
+<style>
+    .alt-features-item{
+        margin: 20px 0px 0px 0px !important;
+    }
+    .messages{
+        height: 30em;
+        max-height: 50em;
+        border: 1px solid;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+    .chat_div form{
+        margin-top: 5px;
+        border: 1px solid;
+    }
+    .left_div, .right_div{
+        width: 100%;
+    }
+    
+    .left_div>span, .right_div>span{
+        background: #7872a5;
+        color: #fff;
+        width: max-content;
+        padding: 2%;
+    }
+    .right_div{
+        text-align: right;
+    }
+    .right_div>span{
+        background: #3cb945;
+    }
+    #msg::-webkit-scrollbar-track
+    {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        background-color: #F5F5F5;
+        border-radius: 10px;
+    }
+
+    #msg::-webkit-scrollbar
+    {
+        width: 10px;
+        background-color: #F5F5F5;
+    }
+
+    #msg::-webkit-scrollbar-thumb
+    {
+        border-radius: 10px;
+        background-image: -webkit-gradient(linear,
+                                           left bottom,
+                                           left top,
+                                           color-stop(0.44, rgb(122,153,217)),
+                                           color-stop(0.72, rgb(73,125,189)),
+                                           color-stop(0.86, rgb(28,58,148)));
+    }
+</style>
 <section class="content">
 
 <!-- Main row -->
@@ -124,7 +179,7 @@
 
 <div class="modal fade" id="appview" role="dialog">
     <div class="modal-dialog modal-sm">
-      <div class="modal-content">
+      <div class="modal-content" style="width:500px;height:600px;">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Applicants</h4>
@@ -136,26 +191,13 @@
     </div>
 </div>
 
-<div class="modal fade" id="commview" role="dialog">
-    <div class="modal-dialog modal-sm">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Comments</h4>
-        </div>
-        <div class="modal-body">
-			<table id="comm_app" class="table table-hover">
-				<tr><td>COMMMMM</td></tr>
-			</table>			
-        </div>
-      </div>
-    </div>
-</div>
-
 <script>
 // view all comments for a job	
 function viewAllComments(job_id,exp_id)
-{		
+{	
+	//alert(job_id + ' == ' + exp_id); return false;
+	//$('#job_id').val(job_id);
+	//$('#exp_id').val(exp_id);
 	$.ajax({
 		type: "POST",
 		url: baseurl+ "ado/Employer/viewAllComments",
@@ -173,6 +215,63 @@ function viewAllComments(job_id,exp_id)
 		}
 	});
 }	
+
+	
+function viewInnerComments(job_id,exp_id)
+{	
+	//alert(job_id + ' == ' + exp_id); return false;
+	//$('#job_id').val(job_id);
+	//$('#exp_id').val(exp_id);
+	$.ajax({
+		type: "POST",
+		url: baseurl+ "ado/Employer/viewInnerComments",
+		dataType: 'html',
+		data: {job_id:job_id,exp_id:exp_id},
+		success: function(res)
+		{
+			//console.log(res);
+			//alert(res);	return false;		
+			$("#j_comm").html(res);								
+		},
+		error: function (request, status, error) 
+		{
+			alert(request.responseText);
+		}
+	});
+}
+	
+function addComment()
+{	
+	
+	$("#err_comm").html('');
+	var comment = $("#comment").val();
+	if(comment == '')
+	{
+		$("#err_comm").html('please enter your comment');		
+		return false;
+	}
+	
+	var job_id = $("#job_id").val();
+	var exp_id = $("#exp_id").val();
+	
+	$.ajax({
+		type: "POST",
+		url: baseurl+ "ado/Employer/addComment",
+		dataType: 'html',
+		data: {job_id:job_id,exp_id:exp_id,comment:comment},
+		success: function(res)
+		{
+			$('#comment').val('');
+			//console.log(res);
+			//alert(res);	return false;		
+			$("#j_comm").html(res);								
+		},
+		error: function (request, status, error) 
+		{
+			alert(request.responseText);
+		}
+	});
+}
 	
 function viewApplicants(job_id)
 {		
@@ -217,4 +316,8 @@ function changePlan(resume_plan)
 	});
 }
 	
+</script>
+<script>
+    var objDiv = document.getElementById("comm_app");
+    objDiv.scrollTop = objDiv.scrollHeight;
 </script>
