@@ -59,25 +59,11 @@
 <div class="row">
    <div class="col-md-12">
 		<section class="panel">	
-		  <header class="panel-heading">My Plan
+		  <header class="panel-heading">
+			  Your current plan&nbsp;&nbsp;:&nbsp;<b><?php echo $this->config->item('rplans')[$this->session->userdata('r_plan')];?></b>
+			  <span class='pull-right'><a href='#'>Change plan</a></span>
 		  </header>							
-	    </section>
-	   <div class="panel-body table-responsive">
-			<div class="form-group">					
-			  <label for="inputEmail1" class="col-lg-2 col-sm-2 control-label">Change Plan</label>
-			  <div class="col-lg-10">
-			  <?php
-			  foreach($this->config->item('rplans') as $key => $plan ) 
-			  {
-				  $strChecked = ($this->session->userdata('r_plan') == $key) ? 'checked' : '';
-			  ?>
-				<input type="radio" name="resume_plan" value="<?php echo $key;?>" onclick="changePlan(this.value);" <?php echo $strChecked;?>> <?php echo $plan;?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	  
-			  <?php		  
-			  }
-			  ?>
-			  </div>
-			</div>
-	   </div>	
+	    </section>	
 	</div>
 </div>	
 <div class="row">
@@ -215,63 +201,7 @@ function viewAllComments(job_id,exp_id)
 		}
 	});
 }	
-
 	
-function viewInnerComments(job_id,exp_id)
-{	
-	//alert(job_id + ' == ' + exp_id); return false;
-	//$('#job_id').val(job_id);
-	//$('#exp_id').val(exp_id);
-	$.ajax({
-		type: "POST",
-		url: baseurl+ "ado/Employer/viewInnerComments",
-		dataType: 'html',
-		data: {job_id:job_id,exp_id:exp_id},
-		success: function(res)
-		{
-			//console.log(res);
-			//alert(res);	return false;		
-			$("#j_comm").html(res);								
-		},
-		error: function (request, status, error) 
-		{
-			alert(request.responseText);
-		}
-	});
-}
-	
-function addComment()
-{	
-	
-	$("#err_comm").html('');
-	var comment = $("#comment").val();
-	if(comment == '')
-	{
-		$("#err_comm").html('please enter your comment');		
-		return false;
-	}
-	
-	var job_id = $("#job_id").val();
-	var exp_id = $("#exp_id").val();
-	
-	$.ajax({
-		type: "POST",
-		url: baseurl+ "ado/Employer/addComment",
-		dataType: 'html',
-		data: {job_id:job_id,exp_id:exp_id,comment:comment},
-		success: function(res)
-		{
-			$('#comment').val('');
-			//console.log(res);
-			//alert(res);	return false;		
-			$("#j_comm").html(res);								
-		},
-		error: function (request, status, error) 
-		{
-			alert(request.responseText);
-		}
-	});
-}
 	
 function viewApplicants(job_id)
 {		
