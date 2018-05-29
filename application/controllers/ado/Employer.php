@@ -645,4 +645,13 @@ class Employer extends CI_Controller
 		$img_filename = $newwidth.'_'.$actual_image_name;
 		return $img_filename;
 	}
+    
+    function changeplan(){
+       if( !$this->session->userdata('emp_id') )
+			redirect('ado/Employer/logout','refresh'); 
+	
+		$this->load->view('admin/include/emp_header'); 
+		$this->load->view('admin/employer/changeplan'); 
+	    $this->load->view('admin/include/footer');	 
+    }
 }
