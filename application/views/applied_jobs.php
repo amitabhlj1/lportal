@@ -1,4 +1,3 @@
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.16/b-1.5.1/datatables.min.css"/>
 <div class="main">&nbsp;</div><br/><br/>
 <section class="module-small bg-dark">
   <div class="container">
@@ -52,7 +51,7 @@
                                         echo "</tr>";
                                     }
                                 } else {
-                                    echo "<tr><td colspan='4'>You have not applied to any jobs/freelancing project yet.</td></tr>";
+                                    echo "<tr><td colspan='4' align='center'>You have not applied to any jobs/freelancing project yet.</td></tr>";
                                 }
                             ?>
                         </tbody>

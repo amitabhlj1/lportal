@@ -1,5 +1,4 @@
 <link href="<?php echo base_url(); ?>assets/css/addTags.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.16/b-1.5.1/datatables.min.css"/>
 <style>
     .select2-container .select2-selection {
       height: 33px; 
