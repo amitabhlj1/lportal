@@ -16,6 +16,7 @@ class Expert extends CI_Controller
 	{
         if(!$this->session->userdata('exp_id') )
 			redirect('LangExpert','refresh');
+		
         $title['title_of_page'] = "";
         $title['description'] = "";
         $title['keywords'] ="";
@@ -44,6 +45,11 @@ class Expert extends CI_Controller
         $whr5 = array(
             'exp_id' => $this->session->userdata('exp_id')
         );
+		
+		// languages
+		$where = array('status' => 1);
+		$data['languages'] = $this->My_model->selectRecord('language', '*', $where);
+		
         $data['education'] = $this->My_model->selectRecord('lang_expert_ed', '*', $whr5);
         $data['work_history'] = $this->My_model->selectRecord('lang_expert_wh', '*', $whr5);
         $data['work_sample'] = $this->My_model->selectRecord('lang_expert_ws', '*', $whr5);
@@ -182,6 +188,7 @@ class Expert extends CI_Controller
             $cities = null;
         }
         $where = array('id' =>$this->session->userdata('exp_id'));
+		$strExpert = implode(',',$this->input->post('expert_in'));
         $insert_val = array(
             'first_name' => $this->input->post('first_name'),
             'last_name' => $this->input->post('last_name'),
@@ -189,6 +196,7 @@ class Expert extends CI_Controller
             'gender' => $this->input->post('gender'),
             'dob' => $this->input->post('dob'),
             'mobile' => $this->input->post('mobile'),
+			'expert_in' => $strExpert,
             'about_me' => $this->input->post('about_me'),
             'country' => $this->input->post('country'),
             'state' => $states,
@@ -201,7 +209,7 @@ class Expert extends CI_Controller
             'skills' => $this->input->post('skills')
         );
 //        echo $this->input->post('city')."<br/>";
-//        var_dump($insert_val);
+        //echo "<pre />" ; print_r($insert_val); die(' INN ');
         $updt = $this->My_model->updateRecord('lang_expert', $insert_val, $where);
         if($updt == '1' || $updt == '0'){
             echo "<script>

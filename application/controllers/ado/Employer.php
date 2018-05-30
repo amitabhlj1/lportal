@@ -360,7 +360,23 @@ class Employer extends CI_Controller
 		<tr>
 			<td><?php echo $apl->first_name;?></td>
 			<td><?php echo date('F  j, Y',strtotime($apl->apply_date));?></td>
-			<td>View</td>
+			
+			<td>
+				<?php
+				$set_atts = array(
+						'width'       => 850,
+						'height'      => 650,
+						'status'      => 'yes',
+						'resizable'   => 'yes',
+						'scrollbars'  => 'yes',
+						'window_name' => '_blank',
+						'screeny'     => 0,
+						'screenx'     => 0
+					);
+				// print codeigniter anchor_popup
+				echo anchor_popup("ado/Employer/viewProfile/$apl->expert_id", 'View Profile', $set_atts);
+				?>				
+			</td>
 			<td>
 				 <a href="<?php echo base_url();?>ado/Employer/viewAllComments/<?php echo $job_id;?>/<?php echo $apl->expert_id;?>">View
 				</a>	 
@@ -368,6 +384,51 @@ class Employer extends CI_Controller
 		</tr>
 		<?php
 		}
+	}
+	
+	/*
+	**  view expert profile
+	** @param - expert id
+	*/
+	
+	function viewProfile($pid)
+	{	
+		$data['usr'] = $this->My_model->selectRecord('lang_expert', '*', array('status' => 1, 'id' =>$pid));
+        $title['title_of_page'] = $data['usr'][0]->last_name." - ".$data['usr'][0]->profile_name." | Langjobs Language Experts | ";
+        $title['description'] = "";
+        $title['keywords'] = $data['usr'][0]->skills.", langjob expert profile";
+        
+        $whr5 = array(
+            'exp_id' => $data['usr'][0]->id
+        );
+        $data['education'] = $this->My_model->selectRecord('lang_expert_ed', '*', $whr5);
+        $data['work_history'] = $this->My_model->selectRecord('lang_expert_wh', '*', $whr5);
+        $data['work_sample'] = $this->My_model->selectRecord('lang_expert_ws', '*', $whr5);
+		
+		// check employer resume_view_history
+		$iCVCount = $this->My_model->getNumRows('resume_view_history','company_id',$this->session->userdata('emp_id')); 
+			  
+		$iBalance = $this->config->item('rplan_cv')[$this->session->userdata('r_plan')] - $iCVCount;
+		//echo  " Bal = " . $iBalance;
+		if( $iBalance > 0)    // add to resume_view_history
+		{
+			// check if this expert already added
+			$where = array('company_id' => $this->session->userdata('emp_id'),'expert_id' => $pid);
+			$aRes  = $this->My_model->selectRecord('resume_view_history', '*', $where);
+			//$this->My_model->printQuery();
+			if(!$aRes)           // add
+			{
+				$adata = array(
+					'company_id' => $this->session->userdata('emp_id'),
+					'expert_id' => $pid
+					);
+				$iInsert = $this->My_model->insertRecord('resume_view_history', $adata);
+			}
+		}
+		$data['balance'] = $iBalance;
+		$this->load->view('include/header', $title);
+		$this->load->view('expert_profile', $data);
+        $this->load->view('include/footer');
 	}
 	
 	function viewAllComments($job_id,$exp_id)
@@ -644,5 +705,22 @@ class Employer extends CI_Controller
 		imagedestroy($tmp);
 		$img_filename = $newwidth.'_'.$actual_image_name;
 		return $img_filename;
+	}
+	
+	/*
+	** resume view/download history
+	*/
+	
+	function resumeHistory()
+	{	
+		if( !$this->session->userdata('emp_id') )
+			redirect('ado/Employer/logout','refresh'); 
+		
+		$data['history'] = $this->Employer_model->getResumeViewHistory();
+		//echo "<pre />"; print_r($data); die();
+		
+		$this->load->view('admin/include/emp_header'); 
+		$this->load->view('admin/employer/resume_history',$data); 
+	    $this->load->view('admin/include/footer');		 	
 	}
 }
