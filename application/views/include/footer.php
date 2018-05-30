@@ -106,6 +106,7 @@
             $('#jhistory').DataTable({
                 "order": [[ 2, "desc" ]]
             });
+            $('#user_blog').DataTable();
             $('.select2').select2({
                 width:"100%",
                 border: "none",
