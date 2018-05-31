@@ -4,4 +4,5 @@
 + Assigning the project to a langexpert
 - Check to add multilingual support in db
 - Change UI
+- Notification
 

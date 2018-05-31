@@ -21,12 +21,13 @@
     <div class="container">
         <div class="row">
             <div class="mb-sm-20 wow fadeInUp col-md-12 col-sm-12 col-xs-12 table-responsive">
-                <form class="form-horizontal" method="post" action="<?php echo base_url(); ?>Blogs/save_article" enctype="multipart/form-data">
+                <form class="form-horizontal" method="post" action="<?php echo base_url(); ?>Blogs/update_article" enctype="multipart/form-data">
                         <fieldset>
                             <legend>Edit Blog Post</legend>
                             <div class="form-group">
                                 <label class="control-label col-sm-4 col-xs-12" for="topic">Blog Title</label>
                                 <div class="col-sm-6 col-xs-12">
+                                  <input type="hidden" name="id" value="<?php echo $blog->id; ?>" ?>
                                   <input name="topic" type="text" class="form-control" id="" placeholder="A good title can catch reader's eye faster" value="<?php echo $blog->topic; ?>" required>
                                 </div>
                             </div>
@@ -50,7 +51,7 @@
                                       <option>Type of this article</option>
                                       <?php
                                         foreach($type as $t){ ?>
-                                            <option value='<?php echo $t->id; ?>' <?php if(array_key_exists($t->id, $bt)){echo "selected";} ?> ><?php echo $t->name; ?></option>
+                                            <option value='<?php echo $t->id; ?>' <?php if(in_array($t->id, $bt)){echo "selected";} ?> ><?php echo $t->name; ?></option>
                                       <?php
                                         }
                                       ?>
@@ -59,14 +60,17 @@
                             </div>
                              <div class="form-group">
                                 <label class="control-label col-sm-4 col-xs-12" for="article">Blog image</label>
-                                <div class="col-sm-6 col-xs-12">
+                                <div class="col-sm-2 col-xs-12">
                                   <input name="image" type="file" class="form-control" />
+                                </div>
+                                <div class="col-sm-4 col-xs-12">
+                                    <b>Current blog image: </b><img src="<?php echo base_url() ?>assets/uploads/blog/<?php echo $blog->image; ?>" width="40">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-sm-4 col-xs-12" for="">&nbsp;</label>
                                 <div class="col-sm-6 col-xs-12">
-                                  <input type="submit" name="submit" id="submit" class="btn btn-success btn-xs form-control" value="Save this Article">
+                                  <input type="submit" name="submit" id="submit" class="btn btn-success btn-xs form-control" value="Update this Blog Post">
                                 </div>
                             </div>
                         </fieldset>
