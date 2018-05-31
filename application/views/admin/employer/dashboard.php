@@ -1,58 +1,3 @@
-<style>
-    .alt-features-item{
-        margin: 20px 0px 0px 0px !important;
-    }
-    .messages{
-        height: 30em;
-        max-height: 50em;
-        border: 1px solid;
-        overflow-y: auto;
-        overflow-x: hidden;
-    }
-    .chat_div form{
-        margin-top: 5px;
-        border: 1px solid;
-    }
-    .left_div, .right_div{
-        width: 100%;
-    }
-    
-    .left_div>span, .right_div>span{
-        background: #7872a5;
-        color: #fff;
-        width: max-content;
-        padding: 2%;
-    }
-    .right_div{
-        text-align: right;
-    }
-    .right_div>span{
-        background: #3cb945;
-    }
-    #msg::-webkit-scrollbar-track
-    {
-        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-        background-color: #F5F5F5;
-        border-radius: 10px;
-    }
-
-    #msg::-webkit-scrollbar
-    {
-        width: 10px;
-        background-color: #F5F5F5;
-    }
-
-    #msg::-webkit-scrollbar-thumb
-    {
-        border-radius: 10px;
-        background-image: -webkit-gradient(linear,
-                                           left bottom,
-                                           left top,
-                                           color-stop(0.44, rgb(122,153,217)),
-                                           color-stop(0.72, rgb(73,125,189)),
-                                           color-stop(0.86, rgb(28,58,148)));
-    }
-</style>
 <section class="content">
 
 <!-- Main row -->
@@ -61,6 +6,7 @@
 		<section class="panel">	
 		  <header class="panel-heading">
 			  Your current plan&nbsp;&nbsp;:&nbsp;<b><?php echo $this->config->item('rplans')[$this->session->userdata('r_plan')];?></b>
+
 			  <?php
 			  // calculate cv balance
 			  $iCVCount = $this->My_model->getNumRows('resume_view_history','company_id',$this->session->userdata('emp_id')); 
@@ -68,7 +14,9 @@
 			  $iBalance = $this->config->item('rplan_cv')[$this->session->userdata('r_plan')] - $iCVCount;
 			  echo '&nbsp;&nbsp;&nbsp; Balance Resumes :&nbsp;&nbsp;:&nbsp;'. $iBalance;
 			  ?>
-			  <span class='pull-right'><a href='#'>Change plan</a></span>
+			  
+			  <span class='pull-right'><a href='<?php echo base_url(); ?>ado/Employer/changeplan'>Change plan</a></span>
+
 		  </header>							
 	    </section>	
 	</div>
@@ -76,7 +24,7 @@
 <div class="row">
    <div class="col-md-12">
 		<section class="panel">
-					<?php echo $this->session->flashdata('verify_msg'); ?>	
+            <?php echo $this->session->flashdata('verify_msg'); ?>	
 		  <header class="panel-heading">Recent Jobs
 			  <span class="pull-right"><a href="<?php echo base_url();?>ado/Employer/addJob">Add New</a></span>
 		  </header>

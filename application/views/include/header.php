@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-US" dir="ltr">
   <head>
-    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--  
@@ -109,7 +109,8 @@
                 </ul>
               </li>
               <li><a href="<?php echo base_url(); ?>All_experts"><i class="fa fa-users"></i>Experts</a></li>
-				<li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown"><i class="fa fa-th-list"></i>Login</a>
+              <li><a href="<?php echo base_url(); ?>Blogs"><i class="fa fa-users"></i>Blogs</a></li>
+              <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown"><i class="fa fa-th-list"></i>Login</a>
                 <ul class="dropdown-menu">
                   <li class="dropdown"><a href="<?php echo base_url();?>LangExpert">Language Expert</a></li>
                   <li class="dropdown"><a href="<?php echo base_url();?>LangEmployer">Language Employer</a></li>
@@ -121,7 +122,12 @@
                 <ul class="nav navbar-nav navbar-right">
                   <li><a href="<?php echo base_url(); ?>searchjob"><i class="fa fa-search"></i>Search Jobs</a></li>
                   <li><a href="<?php echo base_url(); ?>searchproject"><i class="fa fa-book"></i>Freelance Projects</a></li>
-                  <li><a href="<?php echo base_url(); ?>"><i class="fa fa-pencil-square-o"></i>Blog</a></li>
+                  <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown"><i class="fa fa-pencil-square-o"></i>Blog</a>
+                    <ul class="dropdown-menu">
+                      <li class="dropdown"><a href="<?php echo base_url();?>Blogs/write"><i class="fa fa-pencil-square-o"></i> Write Blogs</a></li>
+                      <li class="dropdown"><a href="<?php echo base_url();?>"><i class="fa fa-pencil-square-o"></i> Edit Blogs</a></li>
+                    </ul>
+                  </li>
                   <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown"><i class="fa fa-user-circle"></i><?php echo $this->session->userdata('first_name'); ?></a>
                     <ul class="dropdown-menu">
                       <li class="dropdown"><a href="<?php echo base_url();?>expert"><i class="fa fa-user-circle-o"></i> Profile</a></li>
