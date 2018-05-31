@@ -183,4 +183,9 @@ class Blogs extends CI_Controller
             echo "<script>alert('Something went wrong, Please try again later!');</script>";
         }
     }
+    public function view($id){
+        $bid = explode('-', $id)[0];
+        $data['blogs'] = $this->LanguageExpert_model->fetch_blog($bid);
+        $this->My_model->printQuery(); die();
+    }
 }
