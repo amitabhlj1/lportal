@@ -1,3 +1,4 @@
+<link href="<?php echo base_url(); ?>assets/css/addTags.css" rel="stylesheet">
 <section class="content">
 <!-- Main row -->
 <div class="row">
@@ -147,7 +148,16 @@
 						  <input type="text" required="true" class="form-control" name="title" id="title" placeholder="job title" value="<?php echo $jobs[0]->title;?>" maxlength="200">
 						  <p class="help-block"><div id="err_title" style="color:#F83A18"></div></p>
 					  </div>
+				    </div>
+			
+					<div class="form-group">					
+					  <label for="inputEmail1" class="col-lg-2 col-sm-2 control-label">Keywords</label>
+					  <div class="col-lg-10">
+						  <input type="text" required="true" class="form-control" name="job_keywords" id="job_key" placeholder="comma separated job keywords" value="<?php echo $jobs[0]->job_keywords;?>" maxlength="450">
+						  <p class="help-block"><div id="err_ky" style="color:#F83A18"></div></p>
+					  </div>
 				    </div>	
+
 					<div class="form-group">
 					  <label for="description" class="col-lg-2 col-sm-2 control-label">Skills</label><div class="col-lg-10">
 						<select required="true" class="form-control m-b-10 select2" name="skills[]" id="skills" multiple>

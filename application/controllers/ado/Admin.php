@@ -35,6 +35,19 @@ class Admin extends CI_Controller
 	    $this->load->view('admin/include/footer');		 	
 	}
 	
+	function Blogs()
+	{	
+		if( !$this->session->userdata('admin_id') )
+			redirect('ado/Admin/logout','refresh'); 
+		
+		$data['blogs']    = $this->My_model->selectRecord('blog_articles','*','','','');
+		//echo "<pre />"; print_r($data); die();
+		
+		$this->load->view('admin/include/header'); 
+		$this->load->view('admin/blogs',$data); 
+	    $this->load->view('admin/include/footer');		 	
+	}
+	
 	function experts()
 	{	
 		if( !$this->session->userdata('admin_id') )

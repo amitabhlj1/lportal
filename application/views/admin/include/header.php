@@ -206,6 +206,11 @@
 									<i class="fa fa-dashboard"></i> <span>Dashboard</span>
 								</a>			
 							</li>
+							<li class="active">						
+								<a href="<?php echo base_url();?>ado/Admin/Blogs" class="logo">
+									<i class="fa fa-dashboard"></i> <span>Blogs</span>
+								</a>			
+							</li>
 							<li>
 								<a href="<?php echo base_url();?>ado/Admin/Category">
 									<i class="fa fa-gavel"></i><span>Job Category</span>

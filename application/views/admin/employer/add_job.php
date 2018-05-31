@@ -1,3 +1,4 @@
+<link href="<?php echo base_url(); ?>assets/css/addTags.css" rel="stylesheet">
 <section class="content">
 <!-- Main row -->
 <div class="row">
@@ -64,7 +65,16 @@
 						  <input type="text" required="true" class="form-control" name="title" id="title" placeholder="job title" value="" maxlength="200">
 						  <p class="help-block"><div id="err_title" style="color:#F83A18"></div></p>
 					  </div>
+				    </div>
+					
+					<div class="form-group">					
+					  <label for="inputEmail1" class="col-lg-2 col-sm-2 control-label">Keywords</label>
+					  <div class="col-lg-10">
+						  <input type="text" required="true" class="form-control" name="job_keywords" id="job_key" placeholder="comma separated job keywords" value="" maxlength="450">
+						  <p class="help-block"><div id="err_ky" style="color:#F83A18"></div></p>
+					  </div>
 				    </div>	
+	
 					<div class="form-group">
 					  <label for="description" class="col-lg-2 col-sm-2 control-label">Skills</label><div class="col-lg-10">
 						<select required="true" class="form-control m-b-10 select2" name="skills[]" id="skills" multiple>
@@ -83,7 +93,7 @@
 					<div class="form-group">
 						<p class="help-block"><div id="msg_succ" style="margin-left:200px;color:#44e028"></div></p>
 					  <label for="inputEmail1" class="col-lg-2 col-sm-2 control-label">Job Detail</label>
-					  <div class="col-lg-10">
+					  <div class="col-lg-10">job_keywords
 						  <textarea id="description" name="description" class="msg-input" placeholder="Job details..." rows="6" cols="90"></textarea>
 						  <p class="help-block"><div id="err_det" style="color:#F83A18"></div></p>
 					  </div>
@@ -106,7 +116,7 @@
 
 					<div class="form-group">
 					  <label for="description" class="col-lg-2 col-sm-2 control-label">Last Date</label><div class="col-lg-10">
-						 <input type="date" class="form-control" name="last_date" id="last_date" placeholder="title" value="" maxlength="400">
+						 <input type="date" class="form-control" name="last_date" id="last_date" placeholder="title" value="" maxlength="400" />
 						  <p class="help-block"><div id="err_ldate" style="color:#F83A18"></div></p>
 					  </div>
 				    </div>
@@ -179,6 +189,15 @@
 							  <p class="help-block"><div id="err_f_title" style="color:#F83A18"></div></p>
 						  </div>
 						</div>	
+
+						<div class="form-group">					
+						  <label for="inputEmail1" class="col-lg-2 col-sm-2 control-label">Keywords</label>
+						  <div class="col-lg-10">
+							  <input type="text" required="true" class="form-control" name="f_job_key" id="f_job_key" placeholder="comma separated job keywords" value="" maxlength="450">
+							  <p class="help-block"><div id="err_ky" style="color:#F83A18"></div></p>
+						  </div>
+				    	</div>	
+
 						<div class="form-group">
 						  <label for="description" class="col-lg-2 col-sm-2 control-label">Skills</label><div class="col-lg-10">
 							<select required="true" class="form-control m-b-10 select2" name="f_skills[]" id="f_skills" multiple>
@@ -237,7 +256,7 @@
 						<div class="form-group">
 						  <label for="description" class="col-lg-2 col-sm-2 control-label">Unit Numbers</label><div class="col-lg-10">
 							 <input type="number" class="form-control" name="unit_numbers" id="unit_numbers" placeholder="number of units" value="" maxlength="5">
-							  <p class="help-block"><div id="err_uval" style="color:#F83A18"></div></p>
+							  <p class="help-blocjob_keywordsk"><div id="err_uval" style="color:#F83A18"></div></p>
 						  </div>
 						</div>	
 						<div class="form-group">
@@ -267,6 +286,8 @@
 </section><!-- /.content -->
 <script type="text/javascript">
   var baseurl = "<?php print base_url(); ?>";
+	
+  $("#tags_1").addTags();	
 </script>
 <script>
 function jobType(j_type)
