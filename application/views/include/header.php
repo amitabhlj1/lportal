@@ -124,8 +124,8 @@
                   <li><a href="<?php echo base_url(); ?>searchproject"><i class="fa fa-book"></i>Freelance Projects</a></li>
                   <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown"><i class="fa fa-pencil-square-o"></i>Blog</a>
                     <ul class="dropdown-menu">
-                      <li class="dropdown"><a href="<?php echo base_url();?>Blogs/write"><i class="fa fa-pencil-square-o"></i> Write Blogs</a></li>
-                      <li class="dropdown"><a href="<?php echo base_url();?>"><i class="fa fa-pencil-square-o"></i> Edit Blogs</a></li>
+                      <li class="dropdown"><a href="<?php echo base_url();?>Blogs/write"><i class="fa fa-pencil-square-o"></i> Write Blog</a></li>
+                      <li class="dropdown"><a href="<?php echo base_url();?>Blogs/all_blog"><i class="fa fa-pencil-square-o"></i> Your Blogs</a></li>
                     </ul>
                   </li>
                   <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown"><i class="fa fa-user-circle"></i><?php echo $this->session->userdata('first_name'); ?></a>
