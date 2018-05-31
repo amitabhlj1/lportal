@@ -49,6 +49,91 @@ class LangExpert extends CI_Controller
         $this->load->view('include/footer');
 	}
 	
+	public function mailRecoverPassword()
+	{   
+		$email = $this->input->post('email');
+		$where = "(user_id="."'".$email."'" ." or email = "."'".$email."'".")";
+		$this->db->where($where);
+		$query = $this->db->get('lang_expert');
+		$aResult = $query->result_array() ;
+		
+		if($aResult)
+		{
+			$stremail = $aResult[0]['email'];
+			$strcode = $aResult[0]['code'];
+			
+			// send mail
+			$bStatus = $this->LanguageExpert_model->forgotPassword($stremail,$strcode);
+			if($bStatus)
+			{
+				echo '2';  // mail send 
+			}
+			else
+			{			
+				echo '3';    //
+			}
+		}
+		else
+			echo '0';    // error user not exist
+		
+		echo "<pre />";print_r($aResult); die();
+						
+	}
+	
+	/*
+	** function to reset password
+	** param - expert code 
+	*/
+	public function recoveryPassword($code)
+	{   
+		$data['code'] = $code;
+		$this->load->view('include/header'); 	
+		$this->load->view('new_password',$data);
+		$this->load->view('include/footer');				
+	}
+	
+	// save change password
+	public function validateResetPassword()
+	{   
+		$this->load->library('form_validation');
+
+		$this->form_validation->set_rules('password', 'Password', 'required|min_length[5]|max_length[10]|matches[confpass]|xss_clean');
+		$this->form_validation->set_rules('confpass', 'Password Confirmation', 'required|xss_clean');
+				
+		$data['code'] = $this->input->post('code');	
+		if ($this->form_validation->run() == FALSE)
+		{
+			$this->load->view('include/head');   
+			$this->load->view('include/header'); 	
+			$this->load->view('student/new_password',$data);
+			$this->load->view('include/footer');	
+		}
+		else
+		{
+			die('JJJ');
+			//check if code exist		
+			$iNum = $this->My_model->getNumRows('student','code',$this->input->post('code'));
+			if(!$iNum)
+			{
+				$this->session->set_flashdata('mail_msg','<div class="alert alert-success text-center">This code does not exist,Please try again!</div>');
+				redirect('student/forgotPassword');
+			}
+			else     
+			{
+			    // save password 
+				$strPass = $this->input->post('password');
+				$data = array( 				
+						'password' => md5($strPass)
+						);
+							
+				$where   = array('code' => $this->input->post('code'));
+				$bStatus = $this->My_model->updateRecord('student',$data,$where);
+				if($bStatus)
+					redirect('student/loginValidate'); 
+			}			
+		}			
+	}
+	
 	/*
 	** register new language expert
 	** @param - none

@@ -6,7 +6,17 @@
 		<section class="panel">	
 		  <header class="panel-heading">
 			  Your current plan&nbsp;&nbsp;:&nbsp;<b><?php echo $this->config->item('rplans')[$this->session->userdata('r_plan')];?></b>
+
+			  <?php
+			  // calculate cv balance
+			  $iCVCount = $this->My_model->getNumRows('resume_view_history','company_id',$this->session->userdata('emp_id')); 
+			  
+			  $iBalance = $this->config->item('rplan_cv')[$this->session->userdata('r_plan')] - $iCVCount;
+			  echo '&nbsp;&nbsp;&nbsp; Balance Resumes :&nbsp;&nbsp;:&nbsp;'. $iBalance;
+			  ?>
+			  
 			  <span class='pull-right'><a href='<?php echo base_url(); ?>ado/Employer/changeplan'>Change plan</a></span>
+
 		  </header>							
 	    </section>	
 	</div>

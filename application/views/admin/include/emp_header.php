@@ -166,8 +166,8 @@
 								</a>
 							</li>
 							<li>
-								<a href="<?php echo base_url();?>ado/Employer/Employer">
-									<i class="fa fa-gavel"></i><span>Management</span>
+								<a href="<?php echo base_url();?>ado/Employer/resumeHistory">
+									<i class="fa fa-gavel"></i><span>Resume ViewHistory</span>
 								</a>
 							</li>
 						</ul>

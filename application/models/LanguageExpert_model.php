@@ -70,24 +70,31 @@ class LanguageExpert_model extends CI_Model {
     }
 	
 	
-	public function forgotPassword($stremail)
+	public function forgotPassword($stremail,$strcode)
     {
-		$where  =  array('user_name' => $stremail);
-		$aRes   = $this->My_model->selectRecord('admin_user','*',$where,'','');
-		
-		//echo "<pre />";print_r($aRes)	; echo $aRes[0]->code ; die();
 		$this->load->library('email');
 		$to_email = $stremail;
 		
 		$config['mailtype'] = 'html';
 		$this->email->initialize($config);
 		
-		$subject = 'Langecole Password change';
+		$subject = 'LangJobs Password change';
 		$message = 'Dear User,<br /> <br />You recently requested password change. To reset your password, follow the link below: .<br /><br />
-					'.base_url().'talgo/admin/recoveryPassword/' . $aRes[0]->code . '<br /><br /><br />
-					<br /><br /><b>Thanks & Regards</b>, <br /> Langecole Team';
+					'.base_url().'LangExpert/recoveryPassword/' . $strcode . '<br /><br /><br />
+					<br /><br /><b>Thanks & Regards</b>, <br /> Langecole Team
+					<br />
+					(T) 011 - 46013636
+					<br />
+					(M) 9599938829, &nbsp; 9311488060
+					<br />
+					E-4,Defence colony,&nbsp;&nbsp; New Delhi -110024
+					<br /><br />
+					facebook.com/langecole.del
+					<br />
+					youtube.com/channel/UCXUSUrc39Ri7EprBuvcqQNQ
+					';
 			
-		$this->email->from('admin@langecole.com', 'langecole');
+		$this->email->from('info@langjob.com', 'LangJobs');
 		$this->email->to($to_email); 
 						
 		$this->email->subject($subject);
@@ -100,10 +107,12 @@ class LanguageExpert_model extends CI_Model {
 		}
 		else
 		{
-			return 2;			
+			return 2;
+			//echo $this->email->print_debugger();
+			//die();
 		}       
     }
-    
+	
     public function select_city_details() {
         $response = array();
         $sql = "SELECT cities.id, cities.name as city, states.name as state, country.c_name as country FROM cities LEFT JOIN states ON cities.s_id = states.id LEFT JOIN country ON states.c_id = country.id ORDER BY cities.name";

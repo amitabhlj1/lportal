@@ -340,6 +340,29 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
                                 </div>
                             </div>
                             
+							 <div class="form-group col-md-12">
+                                <label class="col-md-10 control-label">Expert In (language)</label>
+                                <div class="col-md-12 inputGroupContainer">
+                                    <div class="input-group">
+                                        <select name="expert_in[]" class="form-control select2" multiple>
+										<?php	
+                                            foreach($languages as $lang)
+											{
+												$aUsrLangs = explode(',',$usr[0]->expert_in);
+												
+												$strSel = in_array($lang->id,$aUsrLangs) ? 'selected' : '';
+											?>
+											<option value="<?php echo $lang->id; ?>" <?php echo $strSel ?> >
+												<?php echo $lang->name; ?>
+											</option>
+										<?php                                                            
+											}
+										?>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+							
                             <div class="form-group col-md-12">
                                 <label class="col-md-10 control-label">Gender</label>
                                 <div class="col-md-12 inputGroupContainer">
@@ -367,7 +390,7 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
                                 <label class="col-md-10 control-label">Mobile #</label>
                                 <div class="col-md-12 inputGroupContainer">
                                     <div class="input-group">
-                                        <input name="mobile" placeholder="+91-9835101010" class="form-control" type="text" value="<?php if(!empty($usr[0]->mobile)){echo $usr[0]->mobile;} ?>" required>
+                                        <input name="mobile" placeholder="+91-9835101010" class="form-control" type="text" value="<?php if(!empty($usr[0]->mobile)){echo $usr[0]->mobile;} ?>">
                                     </div>
                                 </div>
                             </div>
@@ -443,7 +466,7 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
                                 <label class="col-md-10 control-label">Facebook profile link</label>
                                 <div class="col-md-12 selectContainer">
                                     <div class="input-group">
-                                        <input name="fid" placeholder="https://www.facebook.com/someusername" class="form-control" type="url" value="<?php if(!empty($usr[0]->fid)){echo $usr[0]->fid;}?>" required>
+                                        <input name="fid" placeholder="https://www.facebook.com/someusername" class="form-control" type="url" value="<?php if(!empty($usr[0]->fid)){echo $usr[0]->fid;}?>">
                                     </div>
                                 </div>
                             </div>
@@ -452,7 +475,7 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
                                 <label class="col-md-10 control-label">Twitter profile link</label>
                                 <div class="col-md-12 selectContainer">
                                     <div class="input-group">
-                                        <input name="tid" placeholder="https://twitter.com/your_twitter" class="form-control" type="url" value="<?php if(!empty($usr[0]->tid)){echo $usr[0]->tid;}?>" required>
+                                        <input name="tid" placeholder="https://twitter.com/your_twitter" class="form-control" type="url" value="<?php if(!empty($usr[0]->tid)){echo $usr[0]->tid;}?>">
                                     </div>
                                 </div>
                             </div>
@@ -461,7 +484,7 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
                                 <label class="col-md-10 control-label">Quora profile link</label>
                                 <div class="col-md-12 selectContainer">
                                     <div class="input-group">
-                                        <input name="qid" placeholder="https://www.quora.com/profile/smartusername" class="form-control" type="url" value="<?php if(!empty($usr[0]->qid)){echo $usr[0]->qid;}?>" required>
+                                        <input name="qid" placeholder="https://www.quora.com/profile/smartusername" class="form-control" type="url" value="<?php if(!empty($usr[0]->qid)){echo $usr[0]->qid;}?>">
                                     </div>
                                 </div>
                             </div>
@@ -470,7 +493,7 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
                                 <label class="col-md-10 control-label">Linkedin profile link</label>
                                 <div class="col-md-12 selectContainer">
                                     <div class="input-group">
-                                        <input name="lid" placeholder="https://www.linkedin.com/countrycode/profilename" class="form-control" type="url" value="<?php if(!empty($usr[0]->lid)){echo $usr[0]->lid;}?>" required>
+                                        <input name="lid" placeholder="https://www.linkedin.com/countrycode/profilename" class="form-control" type="url" value="<?php if(!empty($usr[0]->lid)){echo $usr[0]->lid;}?>">
                                     </div>
                                 </div>
                             </div>

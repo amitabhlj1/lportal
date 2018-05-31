@@ -34,6 +34,37 @@ class Employer_model extends CI_Model {
 	}
 	
 	/**
+	** function to get number of cv viewd/downloaded
+	** $param - none
+	*/
+	public function cvNum()
+	{	
+		$aWhere = array('company_id' => 1);
+		$this->db->select ('SELECT count(*) AS nums'); 
+		$this->db->from ( 'resume_view_history' );
+		$this->db->where($aWhere);		
+		
+		$query = $this->db->get ();
+		
+		$aResults  = $query->result ();
+		//echo "<pre />"; print_r($aResults); die('PLLL');
+		return $aResults->nums ;
+	}
+	
+	
+	/**
+	** get comma sepatated language name
+	** $param - lang ids
+	*/
+	public function getLangList($langids)
+	{	
+		$query = $this->db->query("SELECT GROUP_CONCAT(name) AS langs FROM `language` WHERE id IN($langids)");
+		
+		$aResults  = $query->result ();
+		return $aResults[0]->langs ;
+	}
+	
+	/**
 	** function to get job Details
 	** $param - job_id
 	*/
@@ -55,6 +86,22 @@ class Employer_model extends CI_Model {
 		$query = $this->db->get ();
 		
 		//echo $this->db->last_query(); die();		
+		$aResults  = $query->result ();
+		//echo "<pre />"; print_r($aResults); die('PLLL');
+		return $aResults;
+	}
+	
+	/**
+	**  get resume download history
+	** $param - none
+	*/
+	public function getResumeViewHistory()
+	{	
+		$this->db->select ('apl.* , exp.first_name,exp.last_name'); 
+		$this->db->from ( 'resume_view_history  apl' );
+		$this->db->join ( 'lang_expert exp','exp.id = apl.expert_id' , 'left' );		
+		
+		$query = $this->db->get ();
 		$aResults  = $query->result ();
 		//echo "<pre />"; print_r($aResults); die('PLLL');
 		return $aResults;
@@ -160,12 +207,8 @@ class Employer_model extends CI_Model {
     }
 	
 	
-	public function forgotPassword($stremail)
+	public function forgotPassword($stremail,$strcode)
     {
-		$where  =  array('user_name' => $stremail);
-		$aRes   = $this->My_model->selectRecord('lang_company','*',$where,'','');
-		
-		//echo "<pre />";print_r($aRes)	; echo $aRes[0]->code ; die();
 		$this->load->library('email');
 		$to_email = $stremail;
 		
@@ -174,7 +217,7 @@ class Employer_model extends CI_Model {
 		
 		$subject = 'langjobs Password change';
 		$message = 'Dear User,<br /> <br />You recently requested password change. To reset your password, follow the link below: .<br /><br />
-					'.base_url().'talgo/admin/recoveryPassword/' . $aRes[0]->code . '<br /><br /><br />
+					'.base_url().'LangEmployer/recoveryPassword/' . $strcode . '<br /><br /><br />
 					<br /><br /><b>Thanks & Regards</b>, <br /> Langecole Team';
 			
 		$this->email->from('admin@langjobs.com', 'langjobs');
@@ -186,11 +229,11 @@ class Employer_model extends CI_Model {
 										
 		if($this->email->send())
 		{	
-			return 1;
+			return 1;    // email send
 		}
 		else
 		{
-			return 2;			
+			return 2;		// error sending mail	
 		}       
     }
 	

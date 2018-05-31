@@ -4,7 +4,7 @@
   <div class="container">
 	<div class="row">
 	  <div class="col-sm-6 col-sm-offset-3">
-		<h2 class="module-title font-alt">Language Expert</h2>
+		<h2 class="module-title font-alt">Language Employer</h2>
 		<div class="module-subtitle font-serif"></div>
 	  </div>
 	</div>
@@ -51,7 +51,7 @@ function recoverPassword()
 	
 	$.ajax({
 		type: "POST",
-		url: baseurl+ "LangExpert/mailRecoverPassword",
+		url: baseurl+ "LangEmployer/mailRecoverPassword",
 		dataType: 'html',
 		data: {email:email},
 		success: function(res)

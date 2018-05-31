@@ -79,4 +79,33 @@ class LangEmployer extends CI_Controller
         $this->load->view('include/footer');
 	}
 	
+	public function mailRecoverPassword()
+	{   
+		$email = $this->input->post('email');
+		$where = "(user_id="."'".$email."'" ." or email = "."'".$email."'".")";
+		$this->db->where($where);
+		$query = $this->db->get('lang_company');
+		$aResult = $query->result_array() ;
+		
+		if($aResult)
+		{
+			$stremail = $aResult[0]['email'];
+			$strcode = $aResult[0]['code'];
+			
+			// send mail
+			$bStatus = $this->Employer_model->forgotPassword($stremail,$strcode);
+			if($bStatus)
+			{
+				echo '2';  // mail send 
+			}
+			else
+			{			
+				echo '3';    //
+			}
+		}
+		else
+			echo '0';    // error user not exist
+							
+	}
+	
 }

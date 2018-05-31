@@ -75,6 +75,20 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
 .profile-head ul li {font-size: 12px !important;}
 .nav-menu li { width:50%;}
 }
+<?php
+	// if viwed by a lang employer hide header and footer
+	if($this->session->userdata('emp_id'))
+	{ ?>
+		#main_menu{
+			display: none;
+		}
+		
+		#ftr{
+			display: none;
+		}
+<?php		
+	}
+?>
 </style>
 <section class="module">
 <div class="container" >
@@ -104,10 +118,19 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
             </h5>
             <p><span class="fa fa-bolt"></span> <?php if(!empty($usr[0]->profile_name)){ echo $usr[0]->profile_name; } else {echo "N.A.";}?></p>
             <ul>
-                <li><span class="fa fa-calendar"></span> <?php if(!empty($usr[0]->dob)){ //echo date('F j, Y',strtotime($usr[0]->dob));
-                                            $diff = (date('Y') - date('Y',strtotime($usr[0]->dob)));
-                                            echo $diff." Years Old";
-                                                                                       } else {echo "N.A.";}?></li>
+                <li>
+					<span class="fa fa-calendar"></span> 
+					<?php 
+						if(!empty($usr[0]->expert_in))
+						{ 		
+							$strLangs = $this->Employer_model->getLangList($usr[0]->expert_in);
+	                     	echo "Expert In : &nbsp;&nbsp;" .$strLangs;
+                        }
+						else {
+							echo "N.A.";
+						}
+					?>
+				</li>
                 <li><span class="glyphicon glyphicon-briefcase"></span> <?php  echo $this->config->config['job_exp'][$usr[0]->total_exp]; ?> </li>
                 <li><span class="glyphicon glyphicon-map-marker"></span> <?php if(!empty($country[0]->c_name)){ echo $country[0]->c_name;} else {echo "N.A.";} ?> </li>
                 <li><span class="glyphicon glyphicon-home"></span> <?php //if(!empty($city || $state)){ echo $city[0]->name.", ".$state[0]->name;} else {echo "N.A.";} ?></li>
@@ -120,7 +143,12 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
 </div>
 <!--container close-->
 
-
+<?php
+if($this->session->userdata('emp_id'))
+{
+	if( $balance > 0 )
+	{	
+?>
 <div id="sticky" class="container">
     <!-- Tab panes -->
     <div class="tab-content">
@@ -267,5 +295,19 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
     </div>
     <!--tab-content close-->
 </div>
+<?php
+	}
+	else
+	{
+	?>
+	<div class="row">
+        <div class="col-md-11 table-responsive">
+			<h4> To View complete profile please Change/Upgrade your <a href="#">Plan</a></h4>
+		</div>
+	</div>	
+	<?php	
+	}
+}
+?>	
 <!--container close-->
 </section>

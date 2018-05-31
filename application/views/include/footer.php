@@ -1,4 +1,4 @@
-<div class="module-small bg-dark">
+<div class="module-small bg-dark" id='ftr'>
     <div class="container">
         <div class="row">
             <div class="col-sm-3">
