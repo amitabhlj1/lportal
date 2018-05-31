@@ -186,6 +186,16 @@ class Blogs extends CI_Controller
     public function view($id){
         $bid = explode('-', $id)[0];
         $data['blogs'] = $this->LanguageExpert_model->fetch_blog($bid);
-        $this->My_model->printQuery(); die();
+        //$this->My_model->printQuery(); die();
+        $title['title_of_page'] = $data['blogs'][0]->topic." | Blogs at Langjobs.com";
+        $title['description'] = mb_substr( $data['blogs'][0]->article, 0, 200, 'utf-8')." This page showcases language ability of our Language Experts.";
+        $title['keywords'] =$data['blogs'][0]->keywords." ";
+        $title['keyphrase'] = $data['blogs'][0]->keyphrase." ";
+        //$data['blogs'] = $this->My_model->selectRecord('blog_articles', '*', array('status' => 1));
+        $data['blogs'] = $this->LanguageExpert_model->fetch_blog();
+        
+        $this->load->view('include/header', $title);
+		$this->load->view('this_blog', $data);
+        $this->load->view('include/footer');
     }
 }

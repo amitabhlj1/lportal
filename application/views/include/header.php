@@ -9,8 +9,13 @@
     =============================================
     -->
     <title><?php echo $title_of_page; ?></title>
-    <meta name="description" content=""/>
-    <meta name="keywords" content=""/>
+    <meta name="description" content="<?php echo $description; ?>"/>
+    <meta name="keywords" content="<?php echo $keywords; ?>"/>
+    <?php 
+        if(isset($keyphrase)){
+            echo '<meta name="keyphrase" content="'.$keyphrase.'"/> ';    
+        }
+    ?>
     <meta name="revisit-after" content="2 days"/>
     <meta name="robots" content="index,follow"/>
     <meta name="copyright" content="LangJobs:2007-20"/>

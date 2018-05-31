@@ -1,4 +1,4 @@
-<section class="module bg-dark-60 blog-page-header" data-background="assets/images/blog_bg.jpg">
+<section class="module bg-dark-60 blog-page-header" data-background="<?php echo base_url() ?>assets/images/small_sections/blog.png">
   <div class="container">
     <div class="row">
       <div class="col-sm-6 col-sm-offset-3">
