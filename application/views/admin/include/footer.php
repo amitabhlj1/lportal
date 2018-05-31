@@ -33,7 +33,8 @@
 
 	<!-- Select2 js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
-
+	 <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/res/Obj.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/AddTags.js"></script>
     <!-- bootstrap-daterangepicker -->
     <!--<script src="<?php echo base_url();?>assets/vendors/moment/min/moment.min.js"></script>
     <script src="<?php echo base_url();?>assets/vendors/bootstrap-daterangepicker/daterangepicker.js"></script> -->
@@ -42,6 +43,7 @@
     <script src="<?php echo base_url();?>assets/build/js/custom.min.js"></script>
     <script src="<?php echo base_url();?>assets/js/common.js"></script>
   	<script>
+		
 		$(document).ready(function (){
 			$('.select2').select2({
 					width:"100%",
@@ -50,6 +52,9 @@
 					allowClear: true,
             	});
 			});
+		
+		$("#job_key").addTags();
+		$("#f_job_key").addTags();
 	</script>
 	  </body>
 </html>
