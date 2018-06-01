@@ -271,6 +271,36 @@ class Admin_model extends CI_Model {
 	}
 	
 	/**
+	** function to get student details
+	** $param - none
+	*/
+	public function blogDetails()
+	{	
+		$where = array('blg.id' => $this->input->post('blog_id'));
+		//$blog_id = ;
+		//print_r($qWhere); die();
+		$this->db->select ( 'blg.*,ex.first_name');
+		$this->db->from ( 'blog_articles blg' );				
+		$this->db->join ( 'lang_expert ex', 'blg.written_by = ex.id' , 'left' );
+		$this->db->where($where);
+		
+		$query = $this->db->get ();
+		$aResults = $query->result ();			
+		return $aResults;
+	}
+	
+	/**
+	**  get blog type of a blog
+	** $param - student id
+	*/
+	public function blogType($sIds=null)
+	{	
+		$query = $this->db->query("SELECT GROUP_CONCAT(`name`) AS types FROM `blog_types` WHERE `id` IN($sIds)");
+		$aResults = $query->result();	
+		return $aResults;
+	}
+	
+	/**
 	** function to language and topics details
 	** $param - 
 	*/

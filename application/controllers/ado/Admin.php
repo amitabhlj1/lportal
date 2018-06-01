@@ -38,15 +38,82 @@ class Admin extends CI_Controller
 	function Blogs()
 	{	
 		if( !$this->session->userdata('admin_id') )
-			redirect('ado/Admin/logout','refresh'); 
+			redirect('ado/Admin/logout','refresh');       
 		
-		$data['blogs']    = $this->My_model->selectRecord('blog_articles','*','','','');
+		$data['blogs'] = $this->My_model->selectRecord('blog_articles','*','','','');
 		//echo "<pre />"; print_r($data); die();
 		
 		$this->load->view('admin/include/header'); 
 		$this->load->view('admin/blogs',$data); 
 	    $this->load->view('admin/include/footer');		 	
 	}
+	
+	function viewBlog()
+	{	
+		
+		$aBlog    = $this->admin_model->blogDetails();
+		
+		//echo "<pre />"; print_r($aBlog); die('JKK');
+		?>
+		
+		<tr>
+			<td><b>Topic:</b>&nbsp;</td><td><?php echo $aBlog[0]->topic;?></td>
+		</tr>
+		<tr><td>&nbsp;</td></tr>
+		<tr>
+			<td><b>Description:</b>&nbsp;</td><td><?php echo $aBlog[0]->article;?></td>
+		</tr>
+		<?php
+		if( !empty($aBlog[0]->type) )
+		{
+			$aType = $this->admin_model->blogType($aBlog[0]->type);	
+		?>
+			<tr>
+				<td><b>Article Type:</b>&nbsp;</td><td><?php echo $aType[0]->types;?></td>
+			</tr>
+		<?php
+		}
+		?>
+		<tr>
+			<td><b>Written By:</b>&nbsp;</td><td><?php echo $aBlog[0]->first_name;?></td>
+		</tr>
+		<tr><td>&nbsp;</td></tr>
+		<?php	 	
+	}
+	
+	// edit blog
+	public function editBlog($bid)
+	{        
+        if( !$this->session->userdata('admin_id') )
+			redirect('ado/Admin/logout','refresh'); 
+		
+        $data['blog'] = $this->My_model->selectRecord('blog_articles', '*', array('id' => $bid));
+      
+		$this->load->view('admin/include/header'); 
+		$this->load->view('admin/edit_blog',$data); 
+	    $this->load->view('admin/include/footer');	     
+    }
+	
+	// update blog
+    public function updateBlog()
+	{
+        if( !$this->session->userdata('admin_id') )
+			redirect('ado/Admin/logout','refresh'); 
+		
+        $id = $this->input->post('b_id');
+        $aAdd = array( 	
+			'keywords' => $this->input->post('keywords'),
+			'keyphrase' => $this->input->post('keyphrase'),
+            'topic' => $this->input->post('topic'),
+            'article' => $this->input->post('article'),
+			);
+        
+        $updt = $this->My_model->updateRecord('blog_articles', $aAdd, array('id' => $id));
+       	if($updt)
+		{
+			redirect('ado/Admin/Blogs');
+		}
+    }
 	
 	function experts()
 	{	

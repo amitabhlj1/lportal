@@ -138,6 +138,43 @@ class LanguageExpert_model extends CI_Model {
         return $response;
     }
     
+	
+	 public function searchResult()
+	 {
+		$iLang   = $this->input->post('language');
+		//$iSec    = $this->input->post('sector');
+		$iLoc    = $this->input->post('locationCombo');
+		$iExp    = $this->input->post('experience');
+		$strKeyw = $this->input->post('keywords');
+		$where = 'WHERE jb.j_type=1 AND jb.status=1';
+		if(!empty($iLang))
+			$where .= " OR jb.language like '%".$iLang."%'";
+		 
+//		if(!empty($iLoc))
+//			$where .= "";
+		 
+		 if(!empty($iExp))
+			$where .= " OR jb.total_exp = ".$iExp;
+		 
+		 if(!empty($strKeyw))
+			$where .= " OR MATCH(jb.title, jb.job_keywords,jb.skills,jb.description)
+						AGAINST('$strKeyw' IN NATURAL LANGUAGE MODE) ";
+		 
+		//print_r($this->input->post()); die(); 
+		 $response = array();
+        $sql = "SELECT jb.*, lc.company_name, c.name FROM `jobs` jb INNER JOIN lang_company lc ON jb.company_id = lc.id INNER JOIN cities c on jb.j_city = c.id $where";
+		 
+		 echo "$sql"; die();
+		 
+        $result = $this->db->query($sql);
+        if ($result && $result->num_rows()) {
+            foreach ($result->result() as $row) {
+                $response[] = $row;
+            }
+        }
+        return $response;
+    }
+	
     public function fetch_blog($id=null){
         $response = array();
         if($id){

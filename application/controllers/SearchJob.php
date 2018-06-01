@@ -26,7 +26,10 @@ class SearchJob extends CI_Controller
 	}
     public function retrieve_jobs(){
         //Need a real query to work with. this is just a sample for completing the UI first.
-        $data['jobs'] = $this->My_model->selectRecord('jobs', '*', '');
+		
+			
+        $data['jobs'] = $this->LanguageExpert_model->searchResult();
+		//echo "<pre />"; print_r($data); die();
         $title['title_of_page'] = "";
         $title['description'] = "";
         $title['keywords'] ="";

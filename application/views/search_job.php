@@ -28,7 +28,7 @@
             <div class="container">
                 <div class="row">
                     <div class="mb-sm-20 wow fadeInUp col-md-12 col-sm-12 col-xs-12">
-                        <form action="<?php echo base_url(); ?>searchjob/retrieve_jobs" method="post" name="searchf">
+                        <form action="<?php echo base_url(); ?>SearchJob/retrieve_jobs" method="post" name="searchf">
                             <fieldset>
                                <legend>Advance Search options:</legend>
                                <div class="col-md-2 col-lg-2 col-xs-12 col-sm-6">
@@ -76,7 +76,7 @@
                               </select>
                             </div>
                             <div class="col-md-3 col-lg-3 col-xs-12 col-sm-12"> 
-                              <input id="tags_1" name="keywords" placeholder="Comma seperated keywords">
+                              <input type='text' id="tags_1" name="keywords" value="" placeholder="Comma seperated keywords">
                             </div>
                             <div class="col-md-1 col-lg-1 col-xs-12 col-sm-12">
                               <input id="search_btn" type="submit" name="empsearchbutton" class="btn btn-block btn-round btn-d" value="" title="Click to Search">
