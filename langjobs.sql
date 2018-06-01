@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 28, 2018 at 03:02 PM
+-- Generation Time: May 31, 2018 at 03:07 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -35,6 +35,82 @@ CREATE TABLE `admin_user` (
   `code` varchar(100) NOT NULL COMMENT 'security code',
   `status` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='admin users data';
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `blog_articles`
+--
+
+CREATE TABLE `blog_articles` (
+  `id` int(11) NOT NULL,
+  `keywords` varchar(300) NOT NULL,
+  `keyphrase` mediumtext,
+  `topic` varchar(300) NOT NULL,
+  `article` mediumtext NOT NULL,
+  `image` varchar(80) NOT NULL DEFAULT 'scene.jpg',
+  `type` varchar(20) NOT NULL,
+  `written_by` varchar(100) NOT NULL DEFAULT 'Admin',
+  `created` date NOT NULL,
+  `status` int(11) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `blog_articles`
+--
+
+INSERT INTO `blog_articles` (`id`, `keywords`, `keyphrase`, `topic`, `article`, `image`, `type`, `written_by`, `created`, `status`) VALUES
+(1, 'hindi, text, test', '', 'Hindi Testing', 'नई दिल्ली: सातवें वेतन आयोग (7th Pay Commission) -ग्रामीण डाक सेवकों द्वारा लगातार नौवें दिन बुधवार को हड़ताल जारी रखे जाने से देशभर के ग्रामीण क्षेत्रों में डाक सेवाएं बंद रहीं. सातवें वेतन आयोग के लागू नहीं करने के विरोध में 22 मई को शुरू हुई देशव्यापी हड़ताल के प्रदर्शनकारियों के एक धड़े का अनुबंध अखिल भारतीय ग्रामीण डाक सेवक संघ (एआईजीडीएसयू) से है.\r\n\r\nदेश भर में लगभग तीन लाख डाक सेवक हैं जो ग्रामीण डाक घरों में डाक पहुंचाने का काम करते हैं.\r\n', '25532_logo-1.jpg', '3,6', '2', '2018-05-30', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `blog_types`
+--
+
+CREATE TABLE `blog_types` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `blog_types`
+--
+
+INSERT INTO `blog_types` (`id`, `name`) VALUES
+(1, 'Personal'),
+(2, 'Politics'),
+(3, 'History'),
+(4, 'Geography'),
+(5, 'Social'),
+(6, 'Arts'),
+(7, 'Music'),
+(8, 'Dance'),
+(9, 'Movies'),
+(10, 'Theatre'),
+(11, 'Literature'),
+(12, 'Sports'),
+(13, 'Economics'),
+(14, 'Entrepreneurship'),
+(15, 'Expats Views'),
+(16, 'Government'),
+(17, 'International Relations'),
+(18, 'Healthcare'),
+(19, 'Safety'),
+(20, 'Yoga'),
+(21, 'Ayurveda'),
+(22, 'Sports'),
+(23, 'Society'),
+(24, 'People'),
+(25, 'Education'),
+(26, 'Traditions'),
+(27, 'Family'),
+(28, 'Language'),
+(29, 'Religion'),
+(30, 'Food and Beverages'),
+(31, 'Business'),
+(32, 'Tourism'),
+(33, 'Places');
 
 -- --------------------------------------------------------
 
@@ -2684,15 +2760,15 @@ CREATE TABLE `jobs` (
   `j_type` tinyint(1) NOT NULL COMMENT '1 - full time,2 -  part time, 3 - project / free lance',
   `j_category` smallint(4) NOT NULL COMMENT 'job category',
   `company_id` int(11) NOT NULL,
-  `languages` varchar(100) CHARACTER SET latin1 DEFAULT NULL COMMENT 'for full time job, knowledge of languages, comma separated  ',
+  `languages` varchar(100) DEFAULT NULL COMMENT 'for full time job, knowledge of languages, comma separated  ',
   `from_language` int(11) DEFAULT NULL COMMENT 'for freelance/project based jobs',
   `to_language` int(11) DEFAULT NULL COMMENT 'for freelance/project based jobs',
-  `title` varchar(200) CHARACTER SET latin1 NOT NULL,
-  `skills` varchar(250) CHARACTER SET latin1 NOT NULL,
-  `description` mediumtext CHARACTER SET latin1 NOT NULL,
+  `title` varchar(200) NOT NULL,
+  `skills` varchar(250) NOT NULL,
+  `description` longtext NOT NULL,
   `total_exp` tinyint(1) NOT NULL DEFAULT '0',
   `j_country` smallint(4) NOT NULL,
-  `j_city` varchar(100) CHARACTER SET latin1 NOT NULL,
+  `j_city` varchar(100) NOT NULL,
   `j_applicants` smallint(4) NOT NULL COMMENT 'number of applicants',
   `unit_name` smallint(4) NOT NULL COMMENT 'like minute,hour day',
   `unit_numbers` smallint(4) NOT NULL COMMENT 'number of units',
@@ -2708,7 +2784,7 @@ CREATE TABLE `jobs` (
 --
 
 INSERT INTO `jobs` (`id`, `j_type`, `j_category`, `company_id`, `languages`, `from_language`, `to_language`, `title`, `skills`, `description`, `total_exp`, `j_country`, `j_city`, `j_applicants`, `unit_name`, `unit_numbers`, `work_rate`, `tat`, `last_date`, `created`, `status`) VALUES
-(1, 1, 1, 1, 'French, hindi, english', 1, 2, 'jQuery Runner test', '', '????-?? ??? ????-???? ??? ????? ???? ?? ???? ???? ?? ???? ???? ?? ???? ??? ??? ???? ???????? ????? ???? ?? ??? ??? ??-?? ??????? ???????? ??? ?? ???? ???? ???????? ?? ???? ???? ?? ?????? ???? ??? ??? ????-????? ???? ?? ??????? ??? ??, ?? ????? ?? ?? ?? ??? ?? ????-???? ???? ??? ??? ?? ?? ??? ?????? ????? ???? ?????????? ??????? ????????? ???? ?? ??? ??? ???? ???? ?? ???? ????? ???? ?????? ?? ? ??? ??, ????? ??? ?????? ?? ????? ???? ??? ????? ???????? ???? ??-??? ?????-???? ???, ???? ??????? ?? ???? ???, ???? ???? ???? ?? ???????? ?? ??? ??? ??? ?? ???? ?? ??? ?????????? ?? ?? ??? ?? ???? ??? ??? ??, ?? ??? ?? ???? ?? ??? ??? ????? ??? ????? ?? ???? ???? ????? ????????? ??????? ?? ?????? ??? ??? ??-?? ? ?? ???-??? ???? ??????; ?? ? ?? ???-??? ???? ?????; ?? ? ?? ???-??? ???? ????...? ??????? ?? ??? ??? ???? ?? ??? ??? ??????? ???? ??? ???? ??-????? ?? ???????? ????, ??????????? ?????? ?? ??????? ?????? ?? ??? ?? ??? ??? ??? ????? ???? ??????, ??-??? ?? ???? ?? ??????, ???? ????? ?? ???? ?? ?? ?? ??? ????? ?? ??? ??? ??? ???? ???? ????? ??, ?? ??? ??? ??? ???? ??? ???? ???????? ??? ??????? ?? ???? ??? ???? ??? ???????? ?? ??? ????? ????? ?? ????? ?? ??? ??? ?? ???? ?? ?????? ?? ??? ?? ?? ?? ????-???? ??? ????? ?? ?? ???? ?? ????? ???? ?? ???????? ?? ??? ??? ?? ?????-??????? ?? ???????, ????? ??? ???? ??? ?? ?? ????? ????????? ?? ????? ?? ???? ??? ???? ??, ????? ?? ??? ??? ?? ?? ?? ???? ????? ?? ???? ?? ??? ???? ??? ???? ??? ????? ?? ????? ?? ???? ?? ?? ????...?', 1, 2, '1', 0, 0, 0, 0, '0000-00-00', '2018-05-02', '2018-05-14', 1),
+(1, 1, 1, 1, 'French, hindi, english', 1, 2, 'jQuery Runner test', '', 'नई दिल्ली: सातवें वेतन आयोग (7th Pay Commission) -ग्रामीण डाक सेवकों द्वारा लगातार नौवें दिन बुधवार को हड़ताल जारी रखे जाने से देशभर के ग्रामीण क्षेत्रों में डाक सेवाएं बंद रहीं. सातवें वेतन आयोग के लागू नहीं करने के विरोध में 22 मई को शुरू हुई देशव्यापी हड़ताल के प्रदर्शनकारियों के एक धड़े का अनुबंध अखिल भारतीय ग्रामीण डाक सेवक संघ (एआईजीडीएसयू) से है.\r\n\r\nदेश भर में लगभग तीन लाख डाक सेवक हैं जो ग्रामीण डाक घरों में डाक पहुंचाने का काम करते हैं.\r\n', 1, 2, '1', 0, 0, 0, 0, '0000-00-00', '2018-05-02', '2018-05-14', 1),
 (2, 2, 3, 1, '', 1, 2, 'Real time translation', '1,2', 'You have to work as a translator for our ambassador at Nigeria and Keep the relationship with our country safe', 3, 0, '', 0, 4, 5, 2500, '0000-00-00', '2018-05-20', '2018-05-19', 1);
 
 -- --------------------------------------------------------
@@ -2837,7 +2913,7 @@ CREATE TABLE `lang_company` (
 --
 
 INSERT INTO `lang_company` (`id`, `first_name`, `last_name`, `user_id`, `email`, `password`, `company_name`, `address`, `no_emp`, `mobile`, `resume_plan`, `plan_starts`, `company_description`, `company_website`, `company_logo`, `thumb_logo`, `country`, `state`, `city`, `image`, `code`, `social_login`, `social_id_no`, `social_name`, `email_verify`, `last_login`, `is_online`, `created`, `status`) VALUES
-(1, 'Peter', 'John', '', 'peter@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'Delta Corp', 'E-4', 'Between 1 to 50', '4646456', 0, '0000-00-00', '<p class=\"ui_qtext_para\">Before I could react the three occupants of the car came out and started abusing me in front of my son. My son got scared and he caught my hand tightly.</p>\n<p class=\"ui_qtext_para\">They were all goons and were <strong>speaking</strong> in the filthiest of language I had ever heard.</p>', 'www.delta.com', '100_1527159992.jpg', '50_1527159992.jpg', 0, '', '', '', '', 0, 0, '', 1, '2018-05-24', 0, '2018-04-10', 1),
+(1, 'Peter', 'John', '', 'peter@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'Delta Corp', 'E-4', 'Between 1 to 50', '4646456', 0, '0000-00-00', '<p class=\"ui_qtext_para\">Before I could react the three occupants of the car came out and started abusing me in front of my son. My son got scared and he caught my hand tightly.</p>\n<p class=\"ui_qtext_para\">They were all goons and were <strong>speaking</strong> in the filthiest of language I had ever heard.</p>', 'www.delta.com', '100_1527159992.jpg', '50_1527159992.jpg', 0, '', '', '', '', 0, 0, '', 1, '2018-05-30', 0, '2018-04-10', 1),
 (2, 'ravi', 'ku', '', 'ravi@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'fitz india', '', '', '', 0, '0000-00-00', '', '', '', '', 1, '', '', '', '', 1, 0, '', 0, '0000-00-00', 0, '2018-04-11', 0);
 
 -- --------------------------------------------------------
@@ -2886,7 +2962,7 @@ CREATE TABLE `lang_expert` (
 --
 
 INSERT INTO `lang_expert` (`id`, `first_name`, `last_name`, `profile_name`, `user_id`, `email`, `gender`, `dob`, `mobile`, `password`, `expert_in`, `skills`, `about_me`, `resume`, `country`, `state`, `city`, `image`, `total_exp`, `code`, `social_login`, `social_id_no`, `social_name`, `email_verify`, `fid`, `tid`, `qid`, `lid`, `last_login`, `is_online`, `created`, `status`) VALUES
-(2, 'vinod', 'kumar', 'Lead Support Engineer', 'ter4', 'vinod@gmail.com', 'male', '1994-02-07', '+91-9823471234', 'e10adc3949ba59abbe56e057f20f883e', '2', 'translator, account management', 'Just writing a gibberisj to make it look good', 'Deepak Bill Gas.pdf', 101, '7', '606', '200_1527248829.jpg', 3, '', 0, 0, '', 1, 'https://www.facebook.com/', 'https://twitter.com/', 'https://www.quora.com/', 'https://www.linkedin.com/', '2018-05-28', 0, '2018-04-10', 1),
+(2, 'vinod', 'kumar', 'Lead Support Engineer', 'ter4', 'vinod@gmail.com', 'male', '1994-02-07', '+91-9823471234', 'e10adc3949ba59abbe56e057f20f883e', '2', 'translator, account management', 'Just writing a gibberisj to make it look good', 'Deepak Bill Gas.pdf', 101, '7', '606', '200_1527248829.jpg', 3, '', 0, 0, '', 1, 'https://www.facebook.com/', 'https://twitter.com/', 'https://www.quora.com/', 'https://www.linkedin.com/', '2018-05-31', 0, '2018-04-10', 1),
 (3, 'Deepak', 'Singh', 'Manager', '', 'vve@gmail.com', 'male', '0000-00-00', '', 'e10adc3949ba59abbe56e057f20f883e', '2', '', '', '', 1, '', '', '', 0, 'OFN1523525014', 0, 0, '', 1, NULL, NULL, NULL, NULL, '2018-05-19', 0, '2018-04-12', 1),
 (4, 'Rajnish', 'Kumar', 'Software Engineer', '', 'rajnish.kumar@langecole.com', 'male', '0000-00-00', '', 'e10adc3949ba59abbe56e057f20f883e', '2', '', '', 'Rajnish Kumar.pdf', 1, '', '', '', 0, 'nMt1526715605', 0, 0, '', 1, NULL, NULL, NULL, NULL, '2018-05-19', 0, '2018-05-19', 1);
 
@@ -2955,13 +3031,6 @@ CREATE TABLE `lang_expert_ws` (
   `document` varchar(250) NOT NULL COMMENT 'path of the stored document',
   `created` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Work samples of Langexpert';
-
---
--- Dumping data for table `lang_expert_ws`
---
-
-INSERT INTO `lang_expert_ws` (`id`, `exp_id`, `sample_name`, `description`, `document`, `created`) VALUES
-(2, 2, 'Transliteration of Gita', 'I completed the audio transliteration of gita', 'Bugs.txt', '2018-05-18');
 
 -- --------------------------------------------------------
 
@@ -5186,6 +5255,18 @@ ALTER TABLE `admin_user`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `blog_articles`
+--
+ALTER TABLE `blog_articles`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `blog_types`
+--
+ALTER TABLE `blog_types`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `cities`
 --
 ALTER TABLE `cities`
@@ -5294,6 +5375,18 @@ ALTER TABLE `admin_user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `blog_articles`
+--
+ALTER TABLE `blog_articles`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `blog_types`
+--
+ALTER TABLE `blog_types`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+
+--
 -- AUTO_INCREMENT for table `cities`
 --
 ALTER TABLE `cities`
@@ -5369,7 +5462,7 @@ ALTER TABLE `lang_expert_wh`
 -- AUTO_INCREMENT for table `lang_expert_ws`
 --
 ALTER TABLE `lang_expert_ws`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `resume_view_history`
