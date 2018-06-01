@@ -32,6 +32,7 @@
 
 	<script src="<?php echo base_url();?>assets/vendors/jquery/dist/jquery.min.js"></script>
 
+	<script src="<?php echo base_url();?>assets/js/tinymce_3_5/jscripts/tiny_mce/tiny_mce.js" type="text/javascript"></script>  	
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>

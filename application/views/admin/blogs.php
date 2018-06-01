@@ -10,8 +10,7 @@
 				<thead>
 					<tr>
 					  <th>#</th>
-					  <th>Topic</th>					  
-					  <th>Type</th>					  				  
+					  <th>Topic</th>					  				  				  
 					  <th>Created</th>
 					  <th>Action</th>
 					</tr>
@@ -24,19 +23,24 @@
 					?>
 					<tr>
 					  <td><?php echo $count;?></td>
-					  <td><?php echo $blog->topic;?></td>
-					  <td><?php echo $blog->type;?></td>						  
+					  <td><?php echo $blog->topic;?></td>					  
 					  <td><?php echo $blog->created;?></td>
 					  <td>	
-						  <a href="#" data-toggle="modal" data-target="#expview" onclick="expertDetails(<?php echo $blog->id;?>);">
+						  <a href="#" data-toggle="modal" data-target="#blogview" onclick="viewBlog(<?php echo $blog->id;?>);">
 								<span class="glyphicon glyphicon-eye-open" title="view details"></span>
 						  </a>
+						   &nbsp;&nbsp; &nbsp;&nbsp;
+						  
+						   <a href="<?php echo base_url();?>ado/Admin/editBlog/<?php echo $blog->id;?>">
+								<span class="glyphicon glyphicon-pencil" title="Edit"></span>
+						  </a>
+						  
 						   &nbsp;&nbsp; &nbsp;&nbsp;
 							<?php 
 							if($blog->status == 1)
 							{
 							?>
-								<a href="<?php echo base_url();?>ado/Admin/changeStatus/<?php echo $blog->id;?>/0/lang_expert/experts" >
+								<a href="<?php echo base_url();?>ado/Admin/changeStatus/<?php echo $blog->id;?>/0/blog_articles/Blogs" >
 									<span class="label label-success" title="change status (delete this)">&nbsp;</span>
 								</a>
 							<?php
@@ -44,7 +48,7 @@
 							else
 							{
 							?>
-								<a href="<?php echo base_url();?>ado/Admin/changeStatus/<?php echo $blog->id;?>/1/lang_expert/experts" >
+								<a href="<?php echo base_url();?>ado/Admin/changeStatus/<?php echo $blog->id;?>/1/blog_articles/Blogs" >
 									<span class="label label-danger" title="change status (undelete this)">&nbsp;</span>
 								</a>
 							<?php
@@ -63,7 +67,7 @@
 </div>	
 </section><!-- /.content -->
 
-<div class="modal fade" id="expview" role="dialog">
+<div class="modal fade" id="blogview" role="dialog">
     <div class="modal-dialog modal-sm">
       <div class="modal-content">
         <div class="modal-header">
@@ -76,3 +80,26 @@
       </div>
     </div>
 </div>
+<script>
+// view blog	
+function viewBlog(blog_id)
+{	
+	
+	$.ajax({
+		type: "POST",
+		url: baseurl+ "ado/Admin/viewBlog",
+		dataType: 'html',
+		data: {blog_id:blog_id},
+		success: function(res)
+		{
+			//console.log(res);
+			//alert(res);	return false;		
+			$("#exp_dt").html(res);								
+		},
+		error: function (request, status, error) 
+		{
+			alert(request.responseText);
+		}
+	});
+}
+</script>
