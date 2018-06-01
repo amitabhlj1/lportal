@@ -99,7 +99,7 @@
               if(!$this->session->userdata('exp_id')){
             ?>
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="index.php"><i class="fa fa-home"></i>Home</a></li>
+              <li><a href="<?php echo base_url(); ?>"><i class="fa fa-home"></i>Home</a></li>
               <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown"><i class="fa fa-th-list"></i>Services</a>
                 <ul class="dropdown-menu">
                   <li class="dropdown"><a href="#">Job Portal</a></li>
@@ -125,8 +125,8 @@
             <?php
               } else { ?>
                 <ul class="nav navbar-nav navbar-right">
-                  <li><a href="<?php echo base_url(); ?>searchjob"><i class="fa fa-search"></i>Search Jobs</a></li>
-                  <li><a href="<?php echo base_url(); ?>searchproject"><i class="fa fa-book"></i>Freelance Projects</a></li>
+                  <li><a href="<?php echo base_url(); ?>SearchJob"><i class="fa fa-search"></i>Search Jobs</a></li>
+                  <li><a href="<?php echo base_url(); ?>SearchProject"><i class="fa fa-book"></i>Freelance Projects</a></li>
                   <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown"><i class="fa fa-pencil-square-o"></i>Blog</a>
                     <ul class="dropdown-menu">
                       <li class="dropdown"><a href="<?php echo base_url();?>Blogs/write"><i class="fa fa-pencil-square-o"></i> Write Blog</a></li>

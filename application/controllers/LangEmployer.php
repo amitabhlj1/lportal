@@ -19,6 +19,9 @@ class LangEmployer extends CI_Controller
 	public function index()
 	{
 		$title['login'] = 1;
+		$title['title_of_page'] = "";
+        $title['description'] = "";
+        $title['keywords'] ="";
         $this->load->view('include/header',$title);
 		$this->load->view('Language_employer');
         $this->load->view('include/footer');
