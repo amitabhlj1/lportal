@@ -159,7 +159,7 @@ class Employer_model extends CI_Model {
 			/*
 			**   old 
 			*/
-			// changed on 19th April (login without activation by admin)
+			// changed on 19th April ( requirments changed -> login without activation by admin)
 			//return '-1';
 			
 			
@@ -174,7 +174,8 @@ class Employer_model extends CI_Model {
 					'last_name' => $aResult[0]['last_name'],
 					'comp_name' => $aResult[0]['company_name'],
 					'image'  => $aResult[0]['image'],
-					'email'  => $aResult[0]['email']
+					'email'  => $aResult[0]['email'],
+					'r_plan'  => $aResult[0]['resume_plan']
 					);
 			$this->session->set_userdata($aSess);			
 			//redirect('ado/School/');

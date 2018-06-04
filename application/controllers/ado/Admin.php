@@ -24,10 +24,10 @@ class Admin extends CI_Controller
 			redirect('ado/Admin/logout','refresh'); 
 		
 		$aOrder = array('criteria' => 'created','order' => 'DESC');
-		$iLimit  = 5;
-		$data['experts']    = $this->My_model->selectRecord('lang_expert','*','',$aOrder,$iLimit);
+		//$iLimit  = 5;
+		$data['experts']    = $this->My_model->selectRecord('lang_expert','*','',$aOrder,'');
 		//$this->My_model->PrintQuery();
-		$data['employers']  = $this->My_model->selectRecord('lang_company','*','',$aOrder,$iLimit);
+		$data['employers']  = $this->My_model->selectRecord('lang_company','*','',$aOrder,'');
 		
 		//echo "<pre />"; print_r($data); 
 		$this->load->view('admin/include/header'); 

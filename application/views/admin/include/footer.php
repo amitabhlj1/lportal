@@ -42,6 +42,8 @@
     <!-- Custom Theme Scripts -->
     <script src="<?php echo base_url();?>assets/build/js/custom.min.js"></script>
     <script src="<?php echo base_url();?>assets/js/common.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/b-1.5.1/datatables.min.js"></script>
+
   	<script>
 		
 		$(document).ready(function (){
@@ -55,6 +57,23 @@
 		
 		$("#job_key").addTags();
 		$("#f_job_key").addTags();
+		
+		// data table
+		$(document).ready(function() {
+            //console.log('awesome');
+            $('#rc_emp').DataTable({
+                language: {
+                    searchPlaceholder: "Quick Search in table"
+                }
+            });
+			
+			$('#rc_exp').DataTable({
+                language: {
+                    searchPlaceholder: "Quick Search in table"
+                }
+            });
+			
+        } );
 	</script>
 	  </body>
 </html>

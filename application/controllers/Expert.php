@@ -9,6 +9,7 @@ class Expert extends CI_Controller
 		$this->load->library('session');
 		$this->load->helper(array('form', 'url'));
 		$this->load->model('My_model');	
+		$this->load->model('Employer_model');	
 		$this->load->model('LanguageExpert_model');		
 	}
     //Retrieving profile data

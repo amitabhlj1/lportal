@@ -6,7 +6,7 @@
 					<?php echo $this->session->flashdata('verify_msg'); ?>	
 		  <header class="panel-heading">Recent Employers</header>							
 		<div class="panel-body table-responsive">
-			<table class="table table-hover">
+			<table class="table table-hover" id='rc_emp'>
 				<thead>
 					<tr>
 					  <th>#</th>
@@ -56,14 +56,9 @@
 							}
 						?>								
 					  </td>
-					  <td>	<!--							
-							<a href="<?php echo base_url();?>ado/Admin/edit/<?php echo $employer->id;?>" title='edit this'>		
-								<button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button>
-							</a> 
-							-->
-					  </td>
 					</tr>
 					<?php
+						$count++;
 					}
 					?>
 				</tbody>
@@ -93,25 +88,23 @@
 					<?php echo $this->session->flashdata('verify_msg'); ?>	
 		  <header class="panel-heading">Recent Experts</header>							
 		<div class="panel-body table-responsive">
-			<table class="table table-hover">
+			<table class="table table-hover" id='rc_exp'>
 				<thead>
 					<tr>
-					  <th>#</th>
 					  <th>Name</th>					  			  
 					  <th>Email</th>				  
 					  <th>Mobile</th>
 					  <th>Social</th>
+					  <th>Action</th>
 					</tr>
 				</thead>
 				<tbody>
 					<?php
-					$count = 1;
 					foreach($experts as $expert)
 					{
 						$isSocial = ($expert->social_login == 1) ? 'yes' : '';
 					?>
 					<tr>
-					  <td><?php echo $count;?></td>
 					  <td><?php echo $expert->first_name .' '. $expert->last_name;?></td>
 					  <td><?php echo $expert->email;?></td>						  
 					  <td><?php echo $expert->mobile;?></td>
@@ -139,13 +132,6 @@
 							<?php
 							}
 						?>								
-					  </td>
-					  <td>	
-						  	<!--							
-							<a href="<?php echo base_url();?>talgo/batch/edit/<?php echo $expert->id;?>" title='edit this'>		
-							<button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button>
-							</a> 
-						  -->		
 					  </td>
 					</tr>
 					<?php
