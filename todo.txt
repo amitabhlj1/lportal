@@ -2,7 +2,7 @@
 - Job Search Query
 - Add Passes - Free Silver Golden and Diamond in Employer
 + Assigning the project to a langexpert
-- Check to add multilingual support in db
++ Check to add multilingual support in db
 - Change UI
 - Notification
 

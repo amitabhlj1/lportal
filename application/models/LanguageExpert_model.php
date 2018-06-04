@@ -175,13 +175,18 @@ class LanguageExpert_model extends CI_Model {
         return $response;
     }
 	
-    public function fetch_blog($id=null){
+    public function fetch_blog($id=null, $type=null){
         $response = array();
         if($id){
             $sql = "SELECT b.*, u.first_name, u.last_name FROM `blog_articles` b INNER JOIN lang_expert u ON b.written_by = u.id WHERE b.status = 1 AND b.id = ".$id;
         } else {
             $sql = "SELECT b.*, u.first_name, u.last_name FROM `blog_articles` b INNER JOIN lang_expert u ON b.written_by = u.id WHERE b.status = 1";   
         }
+        
+        if($type){
+            $sql .=" AND b.type = ".$type;
+        }
+        
         $result = $this->db->query($sql);
         if ($result && $result->num_rows()) {
             foreach ($result->result() as $row) {

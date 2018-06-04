@@ -12,16 +12,27 @@ class Blogs extends CI_Controller
 	}
 	public function index()
 	{
+        //Because I can!!
+        header("Location:".base_url('Blogs/v'));
+	}
+    public function v($type=null){
         $title['title_of_page'] = "Blogs at Langjobs.com";
         $title['description'] = "This page showcases language ability of our Language Experts.";
         $title['keywords'] ="Blogs, articles, Languages, Language Jobs, Language Expert";
-        //$data['blogs'] = $this->My_model->selectRecord('blog_articles', '*', array('status' => 1));
-        $data['blogs'] = $this->LanguageExpert_model->fetch_blog();
+        $data['type'] = '';
+        if($type){
+            $data['blogs'] = $this->LanguageExpert_model->fetch_blog(null, $type);
+            $data['type'] = $type;
+        } else {
+            $data['blogs'] = $this->LanguageExpert_model->fetch_blog();    
+        }
+        
+        $data['btype'] = $this->My_model->selectRecord('blog_types', '*', '', '');
         
         $this->load->view('include/header', $title);
 		$this->load->view('public_blogs', $data);
         $this->load->view('include/footer');
-	}
+    }
     public function write(){
         if( !$this->session->userdata('exp_id') )
 			redirect('LangExpert','refresh');
@@ -191,7 +202,6 @@ class Blogs extends CI_Controller
         $title['description'] = mb_substr( $data['blogs'][0]->article, 0, 200, 'utf-8')." This page showcases language ability of our Language Experts.";
         $title['keywords'] =$data['blogs'][0]->keywords." ";
         $title['keyphrase'] = $data['blogs'][0]->keyphrase." ";
-        //$data['blogs'] = $this->My_model->selectRecord('blog_articles', '*', array('status' => 1));
         $data['blogs'] = $this->LanguageExpert_model->fetch_blog();
         
         $this->load->view('include/header', $title);
