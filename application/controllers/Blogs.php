@@ -202,7 +202,8 @@ class Blogs extends CI_Controller
         $title['description'] = mb_substr( $data['blogs'][0]->article, 0, 200, 'utf-8')." This page showcases language ability of our Language Experts.";
         $title['keywords'] =$data['blogs'][0]->keywords." ";
         $title['keyphrase'] = $data['blogs'][0]->keyphrase." ";
-        $data['blogs'] = $this->LanguageExpert_model->fetch_blog();
+        $data['btype'] = $this->My_model->selectRecord('blog_types', '*', '', '');
+        $data['recent_blogs'] = $this->LanguageExpert_model->fetch_blog();
         
         $this->load->view('include/header', $title);
 		$this->load->view('this_blog', $data);
