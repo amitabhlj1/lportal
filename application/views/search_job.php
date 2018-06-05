@@ -8,6 +8,19 @@
         line-height: 29px;
     }
 </style>
+<script>
+  function initAutocomplete() {
+    // Create the autocomplete object, restricting the search to geographical
+    // location types.
+    autocomplete = new google.maps.places.Autocomplete(
+      /** @type {!HTMLInputElement} */
+      (document.getElementById('autocomplete')), {
+        types: ['geocode']
+      });
+
+  }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCa0L27dpX-xgwglyvc9jtNZ2_sJt_JNq4&libraries=places&callback=initAutocomplete" async defer></script>
 <div class="main">&nbsp;</div><br/><br/>
     <section class="module-small bg-dark">
       <div class="container">
@@ -54,15 +67,18 @@
                                 </select>
                                 </div>
                                 <div class="col-md-2 col-lg-2 col-xs-12 col-sm-6">
-                              <select name="locationCombo" class="form-control select2">
-                                    <option value="" selected="selected">All Locations</option>
-                                    <?php
-                                        foreach($city as $c){ ?>
-                                        <option value="<?php echo $c->id; ?>"><?php echo $c->name; ?></option>
-                                    <?php
-                                        }
-                                    ?>
-                              </select>
+<!--
+                                  <select name="locationCombo" class="form-control select2">
+                                        <option value="" selected="selected">All Locations</option>
+                                        <?php
+                                            foreach($city as $c){ ?>
+                                            <option value="<?php echo $c->id; ?>"><?php echo $c->name; ?></option>
+                                        <?php
+                                            }
+                                        ?>
+                                  </select>
+-->
+                                   <input id="autocomplete" placeholder="Enter your address" type="text" class="form-control" />
                                 </div>
                             <div class="col-md-2 col-lg-2 col-xs-12 col-sm-6">
                               <select name="experience" class="form-control select2">
