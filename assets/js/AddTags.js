@@ -149,6 +149,17 @@ if(typeof($add)=="undefined")var $add={version:{},auto:{disabled:false}};(functi
           return false;
         }
       });
+      $input.on("blur", function(){
+          if($input.val() !=""){
+              self.addTag($input.val());
+              $input.val("");
+              e.preventDefault();
+              setTimeout(function(){
+                $input[0].focus();
+              }, 16);
+              return false;
+          }
+      });
       return $tags;
     };
     this.refresher = function($element, changed){
