@@ -9,13 +9,12 @@
 			<table class="table table-hover" id='rc_emp'>
 				<thead>
 					<tr>
-					  <th>#</th>
 					  <th>Name</th>					  
 					  <th>Company</th>					  
 					  <th>Email</th>				  
 					  <th>Mobile</th>
-					  <th>Social</th>
-					  <th>Action</th>
+					  <th class="nosort">Social</th>
+					  <th class="nosort">Action</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -26,7 +25,6 @@
 						$isSocial = ($employer->social_login == 1) ? 'yes' : '';
 					?>
 					<tr>
-					  <td><?php echo $count;?></td>
 					  <td><?php echo $employer->first_name .' '. $employer->last_name;?></td>
 					  <td><?php echo $employer->company_name;?></td>
 					  <td><?php echo $employer->email;?></td>						  
@@ -58,7 +56,6 @@
 					  </td>
 					</tr>
 					<?php
-						$count++;
 					}
 					?>
 				</tbody>
@@ -94,8 +91,8 @@
 					  <th>Name</th>					  			  
 					  <th>Email</th>				  
 					  <th>Mobile</th>
-					  <th>Social</th>
-					  <th>Action</th>
+					  <th class="nosort">Social</th>
+					  <th class="nosort">Action</th>
 					</tr>
 				</thead>
 				<tbody>

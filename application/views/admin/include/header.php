@@ -227,18 +227,8 @@
 								</a>
 							</li>
 							<li>
-								<a href="<?php echo base_url();?>ado/Admin/Country">
-									<i class="fa fa-gavel"></i><span>Country</span>
-								</a>
-							</li>
-							<li>
 								<a href="<?php echo base_url();?>ado/Admin/Language">
 									<i class="fa fa-gavel"></i><span>Language</span>
-								</a>
-							</li>
-							<li>
-								<a href="<?php echo base_url();?>ado/Section">
-									<i class="fa fa-gavel"></i><span>Sections</span>
 								</a>
 							</li>
 						</ul>
@@ -256,8 +246,8 @@
 				$iJobs = '';	
 				if($this->session->userdata('admin_id'))
 				{
-					$iExperts = $this->My_model->getNumRows('lang_expert','status',1);
-					$iEmployers = $this->My_model->getNumRows('lang_company','status',1);
+					$iExperts = $this->My_model->getNumRows('lang_expert','status','');
+					$iEmployers = $this->My_model->getNumRows('lang_company','status','');
 					$iJobs = $this->My_model->getNumRows('jobs','status',1);
 				}	
 				?>

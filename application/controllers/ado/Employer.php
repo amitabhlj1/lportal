@@ -1,5 +1,4 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-
 class Employer extends CI_Controller
 {
 	public function __construct()
@@ -10,65 +9,50 @@ class Employer extends CI_Controller
 		$this->load->model('My_model');	
 		$this->load->model('Employer_model');		
 	}
-
 	function index()
 	{	
 		if( !$this->session->userdata('emp_id') )
 			redirect('ado/Employer/logout','refresh'); 
-		
 		//echo "<pre />"; print_r($this->session->userdata());
-		
 		// full time / part time jobs
 		$iLimit = 10;
 		$aOrder = array('criteria' => 'created', 'order' => 'desc' );
 		$where = array('company_id' => $this->session->userdata('emp_id'));
 		$data['jobs'] = $this->My_model->selectRecord('jobs','*',$where,$aOrder,$iLimit);
 		//echo "<pre />"; print_r($data); 
-		
 		// project based / part time jobs
 		$aOrder = array('criteria' => 'created', 'order' => 'desc' );
 		$where = array('company_id' => $this->session->userdata('emp_id'));
 		$data['jobs'] = $this->My_model->selectRecord('jobs','*',$where,$aOrder,$iLimit);
-		
 		//die();
 		$this->load->view('admin/include/emp_header'); 
 		$this->load->view('admin/employer/dashboard',$data); 
 	    $this->load->view('admin/include/footer');		 	
 	}
-	
 	function jobs()
 	{	
 		if( !$this->session->userdata('emp_id') )
 			redirect('ado/Employer/logout','refresh'); 
-	
 		$aOrder = array('criteria' => 'created', 'order' => 'desc' );
 		$where = array('company_id' => $this->session->userdata('emp_id'));
-		
 		$data['jobs'] = $this->My_model->selectRecord('jobs','*',$where,$aOrder,'');
-		
 		//echo "<pre />"; print_r($data); die();
 		$this->load->view('admin/include/emp_header'); 
 		$this->load->view('admin/employer/jobs',$data); 
 	    $this->load->view('admin/include/footer');		 	
 	}
-	
 	function addJob()
 	{	
 		if( !$this->session->userdata('emp_id') )
 			redirect('ado/Employer/logout','refresh'); 
-	
 		$where = array('status' => 1);
 		$data['cats'] = $this->My_model->selectRecord('job_category','*',$where,'','');
-		
 		$data['langs'] = $this->My_model->selectRecord('language','*',$where,'','');
-		
 		$data['skills'] = $this->My_model->selectRecord('job_skills','*',$where,'','');
-		
 		$this->load->view('admin/include/emp_header'); 
 		$this->load->view('admin/employer/add_job',$data); 
 	    $this->load->view('admin/include/footer');		 	
 	}
-	
 	/*
 	** save freelance/project based jobs
 	**/
@@ -76,9 +60,7 @@ class Employer extends CI_Controller
 	{	
 		if( !$this->session->userdata('emp_id') )
 			redirect('ado/Employer/logout','refresh'); 
-		
 		//echo "<pre />"; print_r($this->input->post());
-		
 		if(!empty($this->input->post('j_id')))    // edit job
 		{ 
 			$strSkills = implode(',',$this->input->post('skills'));
@@ -134,11 +116,8 @@ class Employer extends CI_Controller
 				'last_date' => $this->input->post('last_date'),
 				'created' => $today
 				);
-			
 			//echo "<pre />"; print_r($data);
-			
 			$iInserId = $this->My_model->insertRecord('jobs',$data);
-			
 			if($iInserId)
 			{
 				$this->session->set_flashdata('verify_msg','<div class="alert alert-block alert-success">
@@ -161,7 +140,6 @@ class Employer extends CI_Controller
 			}
 		}
 	}
-	
 	/*
 	**   save full time part time job
 	*/
@@ -169,7 +147,6 @@ class Employer extends CI_Controller
 	{	
 		if( !$this->session->userdata('emp_id') )
 			redirect('ado/Employer/logout','refresh'); 
-		
 		if(!empty($this->input->post('j_id')))    // edit job
 		{ 
 			$strLangs = implode(',',$this->input->post('languages'));
@@ -219,7 +196,6 @@ class Employer extends CI_Controller
 				);
 			//echo "<pre />"; print_r($data); die(' NNNN');
 			$iInserId = $this->My_model->insertRecord('jobs',$data);
-			
 			if($iInserId)
 			{
 				$this->session->set_flashdata('verify_msg','<div class="alert alert-block alert-success">
@@ -242,42 +218,30 @@ class Employer extends CI_Controller
 			}
 		}
 	}
-	
 	function editJob($job_id=null)
 	{	
 		if( !$this->session->userdata('emp_id') )
 			redirect('ado/Employer/logout','refresh'); 
-		
 		if(empty($job_id))      // to validate employer and job
 			redirect('ado/Employer/logout','refresh');
-		
 		$where = array('status' => 1);
 		$data['cats'] = $this->My_model->selectRecord('job_category','*',$where,'','');
-		
 		$data['langs'] = $this->My_model->selectRecord('language','*',$where,'','');
-		
 		$data['skills'] = $this->My_model->selectRecord('job_skills','*',$where,'','');
-		
 		$where = array('id' => $job_id,'company_id' => $this->session->userdata('emp_id'));
 		$data['jobs'] = $this->My_model->selectRecord('jobs','*',$where,'','');
-		
 		// to match employer and job
 		if(!is_array($data['jobs']))
 			redirect('ado/Employer');
-		
 		$this->load->view('admin/include/emp_header'); 
 		$this->load->view('admin/employer/edit_job',$data); 
 	    $this->load->view('admin/include/footer');	
-			
 	}
-	
 	function viewJob()
 	{	
 		$job_type = $this->input->post('job_type');
 		$strType = $job_type == 3 ? 'freelance/prj based' : 'full / part time';
-		
 		$aJob    = $this->Employer_model->jobDetails($this->input->post('job_id'));
-		
 		//echo "<pre />"; print_r($aJob); die('JKK');
 		?>
 		<tr>
@@ -289,14 +253,13 @@ class Employer extends CI_Controller
 		<?php
 		if(!empty($aJob[0]->skills))
 		{
-			$aSkills  = $this->Employer_model->jobSkills($aJob[0]->skills);	
+			//$aSkills  = $this->Employer_model->jobSkills($aJob[0]->skills);	
 		?>
 		<tr>
-			<td><b>Skills :</b>&nbsp;</td><td><?php echo $aSkills[0]->skills;?></td>
+			<td><b>Skills :</b>&nbsp;</td><td><?php echo $aJob[0]->skills;?></td>
 		</tr>
 		<?php
 		}
-		
 		if($job_type != 3)
 		{
 			$aLangs  = $this->Employer_model->jobLangs($aJob[0]->languages);	
@@ -342,7 +305,6 @@ class Employer extends CI_Controller
 		</tr>
 		<?php	 	
 	}
-	
 	function viewApplicants()
 	{	
 		$job_id = $this->input->post('job_id');
@@ -364,7 +326,6 @@ class Employer extends CI_Controller
 		<tr>
 			<td><?php echo $apl->first_name;?></td>
 			<td><?php echo date('F  j, Y',strtotime($apl->apply_date));?></td>
-			
 			<td>
 				<?php
 				$set_atts = array(
@@ -389,29 +350,24 @@ class Employer extends CI_Controller
 		<?php
 		}
 	}
-	
 	/*
 	**  view expert profile
 	** @param - expert id
 	*/
-	
 	function viewProfile($pid)
 	{	
 		$data['usr'] = $this->My_model->selectRecord('lang_expert', '*', array('status' => 1, 'id' =>$pid));
         $title['title_of_page'] = $data['usr'][0]->last_name." - ".$data['usr'][0]->profile_name." | Langjobs Language Experts | ";
         $title['description'] = "";
         $title['keywords'] = $data['usr'][0]->skills.", langjob expert profile";
-        
         $whr5 = array(
             'exp_id' => $data['usr'][0]->id
         );
         $data['education'] = $this->My_model->selectRecord('lang_expert_ed', '*', $whr5);
         $data['work_history'] = $this->My_model->selectRecord('lang_expert_wh', '*', $whr5);
         $data['work_sample'] = $this->My_model->selectRecord('lang_expert_ws', '*', $whr5);
-		
 		// check employer resume_view_history
 		$iCVCount = $this->My_model->getNumRows('resume_view_history','company_id',$this->session->userdata('emp_id')); 
-			  
 		$iBalance = $this->config->item('rplan_cv')[$this->session->userdata('r_plan')] - $iCVCount;
 		//echo  " Bal = " . $iBalance;
 		if( $iBalance > 0)    // add to resume_view_history
@@ -434,30 +390,21 @@ class Employer extends CI_Controller
 		$this->load->view('expert_profile', $data);
         $this->load->view('include/footer');
 	}
-	
 	function viewAllComments($job_id,$exp_id)
 	{	
-		
 		$data['comments'] = $this->My_model->selectRecord('comments', '*', array('job_id' => $job_id, 'company_id' => $this->session->userdata('emp_id'), 'expert_id' => $exp_id));
-		
 		$data['applicants'] = $this->Employer_model->getJobApplicants($job_id );
 		$data['job_id']  = $job_id;
 		$data['exp_id']  = $exp_id;
-		
 		$this->load->view('admin/include/emp_header'); 
 		$this->load->view('admin/employer/view_comments',$data); 
 	    $this->load->view('admin/include/footer');	
 	}
-	
-	
 	function viewInnerComments()
 	{	
-		
 		$job_id = $this->input->post('job_id');
 		$exp_id = $this->input->post('exp_id');
-		
 		$aComments = $this->My_model->selectRecord('comments', '*', array('job_id' => $job_id, 'company_id' => $this->session->userdata('emp_id'), 'expert_id' => $exp_id));
-		
 		if($aComments)
 		{	
 			foreach($aComments as $c){ 
@@ -478,7 +425,6 @@ class Employer extends CI_Controller
 			}
 		}
 	}
-	
 	// add new comment
 	public function addcomment()
 	{
@@ -493,12 +439,9 @@ class Employer extends CI_Controller
         );
 		// add comment
         $ins = $this->My_model->insertRecord('comments', $data);
-		
 		$job_id = $this->input->post('job_id');
 		$exp_id = $this->input->post('exp_id');
-		
 		$aComments = $this->My_model->selectRecord('comments', '*', array('job_id' => $job_id, 'company_id' => $this->session->userdata('emp_id'), 'expert_id' => $exp_id));
-		
 		$aExpert = $this->My_model->selectRecord('lang_expert', '*', array('id' => $exp_id));
 		if($aComments)
 		{	
@@ -519,24 +462,19 @@ class Employer extends CI_Controller
 				}
 			}
 		}
-		
     }
-	
 	function profile()
 	{	
 		if( !$this->session->userdata('emp_id') )
 			redirect('ado/Employer/logout','refresh'); 
-		
 		//echo "<pre />"; print_r($this->session->userdata());
 		$where = array('id' => $this->session->userdata('emp_id'));
 		$data['profile']    = $this->My_model->selectRecord('lang_company','*',$where,'','');
-		
 		//echo "<pre />"; print_r($data); //die();
 		$this->load->view('admin/include/emp_header'); 
 		$this->load->view('admin/employer/profile',$data); 
 	    $this->load->view('admin/include/footer');		 	
 	}
-	
 	function changeLogo()
 	{	
 		//echo FCPATH ; die();
@@ -549,7 +487,6 @@ class Employer extends CI_Controller
 		{
 			$imagename = $_FILES['photoimg']['name'];
 			$size = $_FILES['photoimg']['size'];
-							
 			if(strlen($imagename))
 			{
 				$ext = strtolower($this->getExtension($imagename));
@@ -559,7 +496,6 @@ class Employer extends CI_Controller
 					{
 						$actual_image_name = time().'.'.$ext ; //.substr(str_replace(" ", "_", $imagename), 5);
 						$uploadedfile = $_FILES['photoimg']['tmp_name'];
-						
 						$widthArray = array(50,100);
 						foreach($widthArray as $newwidth)
 						{
@@ -601,7 +537,6 @@ class Employer extends CI_Controller
 			exit;
 		}	
 	}
-	
 	/*
 	** Company save address
 	*/
@@ -612,7 +547,6 @@ class Employer extends CI_Controller
 		$iStatus = $this->My_model->updateRecord('lang_company',$data,$where);
 		echo $iStatus;		
 	}
-	
 	/*
 	**  save Company description
 	*/
@@ -623,7 +557,6 @@ class Employer extends CI_Controller
 		$iStatus = $this->My_model->updateRecord('lang_company',$data,$where);
 		echo $iStatus;		
 	}
-	
 	/*
 	** change Company name
 	*/
@@ -635,7 +568,6 @@ class Employer extends CI_Controller
 		$iStatus = $this->My_model->updateRecord('lang_company',$data,$where);
 		echo $iStatus;		
 	}
-	
 	/*
 	** Company save Mobile number
 	*/
@@ -646,7 +578,6 @@ class Employer extends CI_Controller
 		$iStatus = $this->My_model->updateRecord('lang_company',$data,$where);
 		echo $iStatus;		
 	}
-	
 	/*
 	** save number of emp
 	*/
@@ -658,13 +589,11 @@ class Employer extends CI_Controller
 		$iStatus = $this->My_model->updateRecord('lang_company',$data,$where);
 		echo $iStatus;		
 	}
-	
 	public function logout()
 	{   			
 		$this->session->sess_destroy();
 		redirect('LangEmployer','refresh');  
 	}
-	
 	/*
 	**  get fole extension
 	*/
@@ -676,11 +605,9 @@ class Employer extends CI_Controller
 		$ext = substr($str,$i+1,$l);
 		return $ext;
 	}
-	
 	/*
 	**  compress imafe
 	*/
-	
 	function compressImage($ext,$uploadedfile,$path,$actual_image_name,$newwidth)
 	{
 		if($ext=="jpg" || $ext=="jpeg" )
@@ -699,7 +626,6 @@ class Employer extends CI_Controller
 		{
 		$src = imagecreatefrombmp($uploadedfile);
 		}
-																		
 		list($width,$height)=getimagesize($uploadedfile);
 		$newheight=($height/$width)*$newwidth;
 		$tmp=imagecreatetruecolor($newwidth,$newheight);
@@ -710,33 +636,24 @@ class Employer extends CI_Controller
 		$img_filename = $newwidth.'_'.$actual_image_name;
 		return $img_filename;
 	}
-
-	
 	/*
 	** resume view/download history
 	*/
-	
 	function resumeHistory()
 	{	
 		if( !$this->session->userdata('emp_id') )
 			redirect('ado/Employer/logout','refresh'); 
-		
 		$data['history'] = $this->Employer_model->getResumeViewHistory();
 		//echo "<pre />"; print_r($data); die();
-		
 		$this->load->view('admin/include/emp_header'); 
 		$this->load->view('admin/employer/resume_history',$data); 
 	    $this->load->view('admin/include/footer');		 	
 	}
-
-    
     function changeplan(){
        if( !$this->session->userdata('emp_id') )
 			redirect('ado/Employer/logout','refresh'); 
-	
 		$this->load->view('admin/include/emp_header'); 
 		$this->load->view('admin/employer/changeplan'); 
 	    $this->load->view('admin/include/footer');	 
     }
-
 }

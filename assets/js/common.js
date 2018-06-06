@@ -49,6 +49,7 @@ function viewJob(job_id,job_type)
 		success: function(res)
 		{
 			//console.log(res);
+			//alert('OPPS'); return false;
 			//alert(res);	//return false;		
 			$("#job_dt").html(res);								
 		},

@@ -6,23 +6,21 @@
 					<?php echo $this->session->flashdata('verify_msg'); ?>	
 		  <header class="panel-heading">Jobs</header>							
 		<div class="panel-body table-responsive">
-			<table class="table table-hover">
+			<table class="table table-hover" id='inner_job'>
 				<thead>
 					<tr>
-					  <th>#</th>
 					  <th>Type</th>
 					  <th>Title</th>				  
 					  <th>Applicants</th>					  
 					  <th>Created</th>
 					  <th>Last Date</th>	
-					  <th>Action</th>
+					  <th class="nosort">Action</th>
 					</tr>
 				</thead>
 				<tbody>
 				<?php		
 				if(is_array($jobs))
 				{
-					$count = 1;
 					foreach($jobs as $job)
 					{
 						$strType = $job->j_type == 3 ? 'freelance/prj based' : 'full / part time';
@@ -30,7 +28,6 @@
 						$bStatus = ($job->status == 0) ? '<span class="label label-danger" title=" deactivated by admin">&nbsp;</span>' : '<span class="label label-success" title="active">&nbsp;</span>';
 					?>
 					<tr>
-					  <td><?php echo $count;?></td>
 					  <td><?php echo $strType ;?></td>
 					  <td><?php echo $job->title;?></td>						  
 					  <td>
@@ -66,7 +63,6 @@
 					  </td>	  
 					</tr>
 					<?php
-					$count++;	
 					}
 				}
 				else

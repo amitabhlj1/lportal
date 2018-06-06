@@ -4,28 +4,26 @@
    <div class="col-md-12">
 		<section class="panel">
 					<?php echo $this->session->flashdata('verify_msg'); ?>	
-		  <header class="panel-heading">Employers</header>							
+		  <header class="panel-heading">Experts</header>							
 		<div class="panel-body table-responsive">
-			<table class="table table-hover">
+			<table class="table table-hover" id='inner_exp'>
 				<thead>
 					<tr>
-					  <th>#</th>
 					  <th>Name</th>					  
 					  <th>Gender</th>					  
 					  <th>Email</th>				  
 					  <th>Mobile</th>
-					  <th>Social</th>
+					  <th class="nosort">Social</th>
+					  <th class="nosort">Action</th>	
 					</tr>
 				</thead>
 				<tbody>
 					<?php
-					$count = 1;
 					foreach($experts as $expert)
 					{
 						$isSocial = ($expert->social_login == 1) ? 'yes' : '';
 					?>
 					<tr>
-					  <td><?php echo $count;?></td>
 					  <td><?php echo $expert->first_name .' '. $expert->last_name;?></td>
 					  <td><?php echo $expert->gender;?></td>
 					  <td><?php echo $expert->email;?></td>						  

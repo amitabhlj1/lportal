@@ -6,15 +6,15 @@
 					<?php echo $this->session->flashdata('verify_msg'); ?>	
 		  <header class="panel-heading">Employers</header>							
 		<div class="panel-body table-responsive">
-			<table class="table table-hover">
+			<table class="table table-hover" id='inner_emp'>
 				<thead>
 					<tr>
-					  <th>#</th>
 					  <th>Name</th>					  
 					  <th>Company</th>					  
 					  <th>Email</th>				  
 					  <th>Mobile</th>
-					  <th>Social</th>
+					  <th class="nosort">Social</th>
+					  <th class="nosort">Action</th>	
 					</tr>
 				</thead>
 				<tbody>
@@ -25,7 +25,6 @@
 						$isSocial = ($employer->social_login == 1) ? 'yes' : '';
 					?>
 					<tr>
-					  <td><?php echo $count;?></td>
 					  <td><?php echo $employer->first_name .' '. $employer->last_name;?></td>
 					  <td><?php echo $employer->company_name;?></td>
 					  <td><?php echo $employer->email;?></td>						  
@@ -54,12 +53,6 @@
 							<?php
 							}
 						?>								
-					  </td>
-					  <td>	<!--							
-							<a href="<?php echo base_url();?>ado/Admin/edit/<?php echo $employer->id;?>" title='edit this'>		
-								<button class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></button>
-							</a> 
-							-->
 					  </td>
 					</tr>
 					<?php

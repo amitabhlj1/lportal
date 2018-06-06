@@ -61,17 +61,41 @@
 		// data table
 		$(document).ready(function() {
             //console.log('awesome');
-            $('#rc_emp').DataTable({
-                language: {
-                    searchPlaceholder: "Quick Search in table"
-                }
-            });
+          
+			var table = $('#rc_emp').DataTable({
+						   'aoColumnDefs': [{
+								'bSortable': false,
+								'aTargets': ['nosort']
+							}]
+						});
 			
-			$('#rc_exp').DataTable({
-                language: {
-                    searchPlaceholder: "Quick Search in table"
-                }
-            });
+			var table = $('#rc_exp').DataTable({
+						   'aoColumnDefs': [{
+								'bSortable': false,
+								'aTargets': ['nosort']
+							}]
+						});
+		
+			var table = $('#inner_exp').DataTable({
+						   'aoColumnDefs': [{
+								'bSortable': false,
+								'aTargets': ['nosort']
+							}]
+						});
+			
+			var table = $('#inner_emp').DataTable({
+						   'aoColumnDefs': [{
+								'bSortable': false,
+								'aTargets': ['nosort']
+							}]
+						});
+			
+			var table = $('#inner_job').DataTable({
+						   'aoColumnDefs': [{
+								'bSortable': false,
+								'aTargets': ['nosort']
+							}]
+						});
 			
         } );
 	</script>
