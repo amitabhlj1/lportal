@@ -7,6 +7,12 @@
         color: inherit !important;
         line-height: 29px;
     }
+    .pac-container:after {
+    /* Disclaimer: not needed to show 'powered by Google' if also a Google Map is shown */
+
+        background-image: none !important;
+        height: 0px;
+    }
 </style>
 <script>
   function initAutocomplete() {
