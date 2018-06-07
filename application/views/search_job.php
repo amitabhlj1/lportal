@@ -116,6 +116,7 @@
                             <table id="job_table1" class="table table-hover">
                                <thead>
                                 <tr>
+                                    <th>#</th>
                                     <th>Job Title</th>
                                     <th>Expr</th>
                                     <th>Location</th>
@@ -128,18 +129,12 @@
                                     <?php
                                         foreach($jobs as $j){ ?>
                                             <tr>
+                                                <td><?php echo $j->id; ?></td>
                                                 <td><?php echo $j->title; ?></td>
                                                 <td><?php echo $this->config->config['job_exp'][$j->total_exp]; ?></td>
-                                                <td><?php  
-                                                    $cty = $this->My_model->selectRecord('cities', '*', array('id' => $j->j_city));
-                                                    $cntry = $this->My_model->selectRecord('country', '*', array('id' => $j->j_country));
-                                                    echo $cty[0]->name.", ".$cntry[0]->c_code;
-                                                ?></td>
-                                                <td><?php 
-                                                    $cmp = $this->My_model->selectRecord('lang_company', '*', array('id' => $j->company_id));
-                                                             echo $cmp[0]->company_name;
-                                                ?></td>
-                                                <td><?php echo $j->last_date; ?></td>
+                                                <td><?php echo $j->address; ?></td>
+                                                <td><?php echo $j->company_name; ?></td>
+                                                <td><?php echo date('d M Y', strtotime($j->created)); ?></td>
                                                 <td><a href="<?php echo base_url() ?>searchjob/jobdesc/<?php echo $j->id; ?>"><button class="btn btn-xs btn-info"><i class="fa fa-eye"></i></button></a></td>
                                             </tr>
                                     <?php

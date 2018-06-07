@@ -148,27 +148,26 @@ class LanguageExpert_model extends CI_Model {
 		$strKeyw = $this->input->post('keywords');
 		$where = 'WHERE jb.j_type=1 AND jb.status=1';
 		if(!empty($iLang))
-			$where .= " OR jb.languages like '%".$iLang."%'";
+			$where .= " AND jb.languages like '%".$iLang."%'";
         
         if(!empty($iSec))
-			$where .= " OR jb.j_category = ".$iSec;
+			$where .= " AND jb.j_category = ".$iSec;
          
 		if(!empty($iLoc))
-			$where .= " OR jb.address like '%".$iLoc."%'";
+			$where .= " AND jb.address like '%".$iLoc."%'";
 		 
 		 if(!empty($iExp))
-			$where .= " OR jb.total_exp = ".$iExp;
+			$where .= " AND jb.total_exp = ".$iExp;
 		 
 		 if(!empty($strKeyw))
 			$where .= " OR MATCH(jb.title, jb.job_keywords,jb.skills,jb.description)
 						AGAINST('$strKeyw' IN NATURAL LANGUAGE MODE) ";
          
-         $order_by = "ORDER BY jb.created DESC";
+         $order_by = "ORDER BY jb.id DESC";
 		 
-		//print_r($this->input->post()); die(); 
          $response = array();
-         $sql = "SELECT jb.id, jb.title, jb.total_exp, jb.address, l.company_name FROM `jobs` jb INNER JOIN lang_company l ON jb.company_id = l.id ".$where." ".$order_by;
-		 
+         $sql = "SELECT jb.id, jb.title, jb.total_exp, jb.address, l.company_name, jb.created FROM `jobs` jb INNER JOIN lang_company l ON jb.company_id = l.id ".$where." ".$order_by;
+		 //echo $sql; die();
         $result = $this->db->query($sql);
         if ($result && $result->num_rows()) {
             foreach ($result->result() as $row) {

@@ -101,7 +101,15 @@
             $('#job_table1').DataTable({
                 language: {
                     searchPlaceholder: "Quick Search in table"
-                }
+                },
+                "columnDefs": [
+                    {
+                        "targets": [ 0 ],
+                        "visible": false,
+                        "searchable": false
+                    }
+                ],
+                "order": [[ 0, "desc" ]]
             });
             $('#jhistory').DataTable({
                 "order": [[ 2, "desc" ]]
