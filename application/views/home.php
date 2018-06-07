@@ -1,12 +1,72 @@
-      <section class="home-section home-parallax home-fade home-full-height bg-dark-60 agency-page-header" id="home" data-background="assets/images/agency/agency_bg.jpg">
-        <div class="titan-caption">
-          <div class="caption-content">
-            <div class="font-alt mb-30 titan-title-size-1">Grow your awesome idea</div>
-            <div class="font-alt mb-40 titan-title-size-3">Make business <span class="rotate">easy | simple | flexible</span>
-            </div><a class="section-scroll btn btn-border-w btn-circle" href="#about">Learn More</a>
-          </div>
-        </div>
-      </section>
+<style>
+    input#index_search_box{
+        background-color: transparent;
+        color: white;
+        border: 1px solid;
+        border-radius: 5px;
+        width: 15%;
+        font-size: 16px;
+        background-image: url('./assets/images/search_icon_white.png');
+        background-repeat: no-repeat;
+        background-position: -5px;
+        background-size: contain;
+        padding: 12px 20px 12px 40px;
+        -webkit-transition: width 0.4s ease-in-out;
+        transition: width 0.4s ease-in-out;
+    } 
+    input#index_search_box:focus{
+        width: 45%;
+    }
+    input#index_search_box::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: #fff;
+        opacity: 1; /* Firefox */
+    }
+
+    input#index_search_box:-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: #fff;
+    }
+
+    input#index_search_box::-ms-input-placeholder { /* Microsoft Edge */
+        color: #fff;
+    }
+    input#index_search_btn{
+        padding: 15px 2px;
+        font-size: 14px;
+        margin-bottom: 5px;
+        border-radius:5px;
+    }
+    input#search_btn{
+        background-image: url('./assets/images/search_icon_white.png');
+        background-repeat: no-repeat;
+        background-position: 44%;
+        background-size: contain; 
+    }
+    .breadcrumb {
+        background-color: transparent !important;
+        font-weight: bold;
+    }
+    .titan-title-size-1, .titan-title-size-2{
+         text-shadow: 0 0 25px #FFF; 
+        font-size: 25px;
+    }
+</style>
+<section class="home-section home-parallax home-fade home-full-height bg-dark-60 agency-page-header" id="home" data-background="<?php echo base_url() ?>assets/images/LJ2.jpg">
+<div class="titan-caption">
+  <div class="caption-content">
+    <div class="font-alt mb-30 titan-title-size-1">Build your career in Language</div>
+    <div class="font-alt mb-40 titan-title-size-2"> We Provide <span class="rotate"> Career Services | Translation Services | Transcription Services | Language Specific Services</span>
+    </div>
+      <form autocomplete="off" action="<?php echo base_url() ?>SearchJob/retrieve_jobs" method="post">
+        <input type="hidden" name="language" value="" />
+        <input type="hidden" name="sector" value="" />
+        <input type="hidden" name="locationCombo" value="" />
+        <input type="hidden" name="experience" value="" />
+        <input id="index_search_box" type="text" name="keywords" placeholder="Search Job...Use comma seperated keywords">
+        <input id="index_search_btn" type="submit" class="btn btn-border-w" value="Search"/>
+      </form>
+  </div>
+</div>
+</section>
       <div class="main">
         <section class="module">
           <div class="container">

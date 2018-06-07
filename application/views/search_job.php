@@ -9,7 +9,6 @@
     }
     .pac-container:after {
     /* Disclaimer: not needed to show 'powered by Google' if also a Google Map is shown */
-
         background-image: none !important;
         height: 0px;
     }
@@ -83,7 +82,7 @@
                                         ?>
                                   </select>
 -->
-                                   <input id="autocomplete" placeholder="Enter your address" type="text" class="form-control" />
+                                   <input id="autocomplete" name="locationCombo" placeholder="Enter your address" type="text" class="form-control" />
                                 </div>
                             <div class="col-md-2 col-lg-2 col-xs-12 col-sm-6">
                               <select name="experience" class="form-control select2">

@@ -142,16 +142,19 @@ class LanguageExpert_model extends CI_Model {
 	 public function searchResult()
 	 {
 		$iLang   = $this->input->post('language');
-		//$iSec    = $this->input->post('sector');
+		$iSec    = $this->input->post('sector');
 		$iLoc    = $this->input->post('locationCombo');
 		$iExp    = $this->input->post('experience');
 		$strKeyw = $this->input->post('keywords');
 		$where = 'WHERE jb.j_type=1 AND jb.status=1';
 		if(!empty($iLang))
-			$where .= " OR jb.language like '%".$iLang."%'";
-		 
-//		if(!empty($iLoc))
-//			$where .= "";
+			$where .= " OR jb.languages like '%".$iLang."%'";
+        
+        if(!empty($iSec))
+			$where .= " OR jb.j_category = ".$iSec;
+         
+		if(!empty($iLoc))
+			$where .= " OR jb.address like '%".$iLoc."%'";
 		 
 		 if(!empty($iExp))
 			$where .= " OR jb.total_exp = ".$iExp;
@@ -159,12 +162,12 @@ class LanguageExpert_model extends CI_Model {
 		 if(!empty($strKeyw))
 			$where .= " OR MATCH(jb.title, jb.job_keywords,jb.skills,jb.description)
 						AGAINST('$strKeyw' IN NATURAL LANGUAGE MODE) ";
+         
+         $order_by = "ORDER BY jb.created DESC";
 		 
 		//print_r($this->input->post()); die(); 
-		 $response = array();
-        $sql = "SELECT jb.*, lc.company_name, c.name FROM `jobs` jb INNER JOIN lang_company lc ON jb.company_id = lc.id INNER JOIN cities c on jb.j_city = c.id $where";
-		 
-		 echo "$sql"; die();
+         $response = array();
+         $sql = "SELECT jb.id, jb.title, jb.total_exp, jb.address, l.company_name FROM `jobs` jb INNER JOIN lang_company l ON jb.company_id = l.id ".$where." ".$order_by;
 		 
         $result = $this->db->query($sql);
         if ($result && $result->num_rows()) {
