@@ -290,6 +290,26 @@ class Admin_model extends CI_Model {
 	}
 	
 	/**
+	** function to get student details
+	** $param - none
+	*/
+	public function jobDetails()
+	{	
+		//$where = array('blg.id' => $this->input->post('blog_id'));
+		
+		//print_r($qWhere); die();
+		$this->db->select ( 'jb.*,emp.status AS sts');
+		$this->db->from ( 'jobs jb' );				
+		$this->db->join ( 'lang_company emp', 'jb.company_id = emp.id' , 'left' );
+		$this->db->order_by ('jb.id','DESC');
+		//$this->db->where($where);
+		
+		$query = $this->db->get ();
+		$aResults = $query->result ();			
+		return $aResults;
+	}
+	
+	/**
 	**  get blog type of a blog
 	** $param - student id
 	*/

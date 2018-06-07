@@ -188,7 +188,10 @@ class Admin extends CI_Controller
 		if( !$this->session->userdata('admin_id') )
 			redirect('ado/Admin/logout','refresh'); 
 		
-		$data['jobs']    = $this->My_model->selectRecord('jobs','*','','','');
+		$aOrder = array('criteria' => 'id','order' => 'DESC');
+		//$data['jobs']    = $this->My_model->selectRecord('jobs','*','',$aOrder,'');
+		
+		$data['jobs']    = $this->admin_model->jobDetails();
 		//echo "<pre />"; print_r($data); die();
 		
 		//echo "<pre />"; print_r($data); 

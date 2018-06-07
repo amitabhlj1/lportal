@@ -63,7 +63,6 @@ class Employer extends CI_Controller
 		//echo "<pre />"; print_r($this->input->post());
 		if(!empty($this->input->post('j_id')))    // edit job
 		{ 
-			$strSkills = implode(',',$this->input->post('skills'));
 			$data = array(
 				'j_category' => $this->input->post('j_category'),
 				'company_id' => $this->session->userdata('emp_id'),
@@ -71,7 +70,7 @@ class Employer extends CI_Controller
 				'to_language' => $this->input->post('to_language'),
 				'title' => $this->input->post('title'),
 				'job_keywords' => $this->input->post('job_keywords'),
-				'skills' => $strSkills,
+				'skills' => $this->input->post('f_skills'),
 				'description' => $this->input->post('description'),
 				'total_exp' => $this->input->post('total_exp'),
 				'unit_name' => $this->input->post('unit_name'),
@@ -97,7 +96,6 @@ class Employer extends CI_Controller
 		else                                     // new job
 		{	
 			//die('new prj based ');
-			$strSkills = implode(',',$this->input->post('f_skills'));
 			$today = date('Y-m-d'); 
 			$data = array(
 				'j_type' => 3,                       // project based / freelance
@@ -107,7 +105,7 @@ class Employer extends CI_Controller
 				'to_language' => $this->input->post('to_language'),
 				'title' => $this->input->post('f_title'),
 				'job_keywords' => $this->input->post('job_keywords'),
-				'skills' => $strSkills,
+				'skills' => $this->input->post('f_skills'),
 				'description' => $this->input->post('f_description'),
 				'total_exp' => $this->input->post('total_exp'),
 				'unit_name' => $this->input->post('unit_name'),
@@ -150,13 +148,12 @@ class Employer extends CI_Controller
 		if(!empty($this->input->post('j_id')))    // edit job
 		{ 
 			$strLangs = implode(',',$this->input->post('languages'));
-			$strSkills = implode(',',$this->input->post('skills'));
 			$data = array(
 				'j_category' => $this->input->post('j_category'),
 				'languages' => $strLangs,
 				'title' => $this->input->post('title'),
 				'job_keywords' => $this->input->post('job_keywords'),
-				'skills' => $strSkills,
+				'skills' => $this->input->post('skills'),
 				'description' => $this->input->post('description'),
 				'total_exp' => $this->input->post('total_exp'),
 				'last_date' => $this->input->post('last_date'),
@@ -180,7 +177,6 @@ class Employer extends CI_Controller
 		{	
 			$today = date('Y-m-d'); 
 			$strLangs = implode(',',$this->input->post('languages'));
-			$strSkills = implode(',',$this->input->post('skills'));
 			$data = array(
 				'j_type' => 1,           // full time 
 				'j_category' => $this->input->post('j_category'),
@@ -188,7 +184,7 @@ class Employer extends CI_Controller
 				'languages' => $strLangs,
 				'title' => $this->input->post('title'),
 				'job_keywords' => $this->input->post('job_keywords'),
-				'skills' => $strSkills,
+				'skills' => $this->input->post('skills'),
 				'description' => $this->input->post('description'),
 				'total_exp' => $this->input->post('total_exp'),
 				'last_date' => $this->input->post('last_date'),

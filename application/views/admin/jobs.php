@@ -43,6 +43,7 @@
 						  </a>
 						   &nbsp;&nbsp; &nbsp;&nbsp;
 						  <?php 
+						 
 							if($job->status == 1)
 							{
 							?>
@@ -53,11 +54,14 @@
 							}
 							else
 							{
+								if( $job->sts == 1 )  // chech employer is approved
+						  		{	
 							?>
 								<a href="<?php echo base_url();?>ado/Admin/changeStatus/<?php echo $job->id;?>/1/jobs/jobs" >
 									<span class="label label-danger" title="change status (undelete this)">&nbsp;</span>
 								</a>
 							<?php
+								}
 							}
 							?>
 					  </td>	  

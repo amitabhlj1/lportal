@@ -77,16 +77,7 @@
 	
 					<div class="form-group">
 					  <label for="description" class="col-lg-2 col-sm-2 control-label">Skills</label><div class="col-lg-10">
-						<select required="true" class="form-control m-b-10 select2" name="skills[]" id="skills" multiple>
-							<option value="">Select</option>
-							<?php
-								foreach($skills as $skill)	
-								{
-										$strSel = '';
-							?>
-								<option value="<?php echo $skill->id; ?>" <?php echo $strSel;?>><?php echo $skill->name; ?></option>
-							<?php } ?>							    
-                          </select>
+						<input type="text" required="true" class="form-control" name="skills" id="skills" placeholder="skills required for this job" value="" maxlength="250">
 						  <p class="help-block"><div id="err_skills" style="color:#F83A18"></div></p>
 					  </div>
 				    </div>					
@@ -200,16 +191,7 @@
 
 						<div class="form-group">
 						  <label for="description" class="col-lg-2 col-sm-2 control-label">Skills</label><div class="col-lg-10">
-							<select required="true" class="form-control m-b-10 select2" name="f_skills[]" id="f_skills" multiple>
-							<option value="">Select</option>
-							<?php
-								foreach($skills as $skill)	
-								{
-										$strSel = '';
-							?>
-								<option value="<?php echo $skill->id; ?>" <?php echo $strSel;?>><?php echo $skill->name; ?></option>
-							<?php } ?>							    
-                          	</select>
+							<input type="text" required="true" class="form-control" name="f_skills" id="f_skills" placeholder="skills required for this job" value="" maxlength="250">
 							  <p class="help-block"><div id="err_f_skills" style="color:#F83A18"></div></p>
 						  </div>
 						</div>					
