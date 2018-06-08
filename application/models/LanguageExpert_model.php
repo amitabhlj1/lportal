@@ -167,8 +167,7 @@ class LanguageExpert_model extends CI_Model {
 		 
          $response = array();
          $sql = "SELECT jb.id, jb.title, jb.total_exp, jb.address, l.company_name, jb.created FROM `jobs` jb INNER JOIN lang_company l ON jb.company_id = l.id ".$where." ".$order_by;
-		 //echo $sql; die();
-        $result = $this->db->query($sql);
+		 $result = $this->db->query($sql);
         if ($result && $result->num_rows()) {
             foreach ($result->result() as $row) {
                 $response[] = $row;

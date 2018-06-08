@@ -67,6 +67,18 @@
         background-position: 44%;
         background-size: contain; 
     }
+    #search{
+        display:block;
+        text-align:center;
+    }
+    .wrapper {
+        border:1px solid transparent;
+        display:inline-block;
+    }
+    .wrapper>button{
+        padding: 8px 11px !important;
+        margin-left: -5px;
+    }
     </style>	  
 	<script src="<?php echo base_url(); ?>assets/js/common.js"></script>
 	<script>
@@ -102,18 +114,19 @@
               <li><a href="<?php echo base_url(); ?>"><i class="fa fa-home"></i>Home</a></li>
               <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown"><i class="fa fa-th-list"></i>Services</a>
                 <ul class="dropdown-menu">
-                  <li class="dropdown"><a href="#">Job Portal</a></li>
-                  <li class="dropdown"><a href="#">Recruitment</a></li>
-                  <li class="dropdown"><a href="#">Translation</a></li>
-                  <li class="dropdown"><a href="#">Interpretation</a></li>
-                  <li class="dropdown"><a href="#">Localization</a></li>
-                  <li class="dropdown"><a href="#">Language Transcription</a></li>
-                  <li class="dropdown"><a href="#">Voice-over</a></li>
-                  <li class="dropdown"><a href="#">Language Training</a></li>
-                  <li class="dropdown"><a href="#">Why chose Langjobs?</a></li>
+                  <li class="dropdown"><a href="<?php echo base_url(); ?>language-jobs.php">Job Portal</a></li>
+                  <li class="dropdown"><a href="<?php echo base_url(); ?>recruitment-services.php">Recruitment</a></li>
+                  <li class="dropdown"><a href="<?php echo base_url(); ?>translation-services.php">Translation</a></li>
+                  <li class="dropdown"><a href="<?php echo base_url(); ?>interpretation-services.php">Interpretation</a></li>
+                  <li class="dropdown"><a href="<?php echo base_url(); ?>localization-services.php">Localization</a></li>
+                  <li class="dropdown"><a href="<?php echo base_url(); ?>internationalization-services.php">Internationalization</a></li>
+                  <li class="dropdown"><a href="<?php echo base_url(); ?>transcription-services.php">Language Transcription</a></li>
+                  <li class="dropdown"><a href="<?php echo base_url(); ?>voiceover-services.php">Voice-over</a></li>
+                  <li class="dropdown"><a href="<?php echo base_url(); ?>language-training.php">Language Training</a></li>
+                  <li class="dropdown"><a href="<?php echo base_url(); ?>toptenreasons.php">Why chose Langjobs?</a></li>
                 </ul>
               </li>
-              <li><a href="<?php echo base_url(); ?>All_experts"><i class="fa fa-users"></i>Experts</a></li>
+              <li><a href="<?php echo base_url(); ?>Language_experts"><i class="fa fa-users"></i>Language Experts</a></li>
               <li><a href="<?php echo base_url(); ?>Blogs"><i class="fa fa-users"></i>Blogs</a></li>
               <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown"><i class="fa fa-th-list"></i>Login</a>
                 <ul class="dropdown-menu">
@@ -122,6 +135,16 @@
                 </ul>
               </li>
             </ul>
+            <form class="navbar-form" id="search" autocomplete="off" action="<?php echo base_url() ?>SearchJob/retrieve_jobs" method="post">
+                <div class="wrapper">
+                    <input type="hidden" name="language" value="" />
+                    <input type="hidden" name="sector" value="" />
+                    <input type="hidden" name="locationCombo" value="" />
+                    <input type="hidden" name="experience" value="" />
+                    <input type="text" name="keywords" class="form-control" placeholder="Search Job"/>
+                    <button class="btn btn-xs btn-danger"><i class="fa fa-search"></i></button>
+                </div>
+            </form>
             <?php
               } else { ?>
                 <ul class="nav navbar-nav navbar-right">
