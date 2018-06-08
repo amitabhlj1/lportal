@@ -9,5 +9,4 @@
 - add contact form
 - add pagination in all experts page
 - Check for Translation api
-- add photos in sections
 
