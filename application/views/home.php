@@ -4,7 +4,7 @@
         color: white;
         border: 1px solid;
         border-radius: 5px;
-        width: 15%;
+        width: 35%;
         font-size: 16px;
         background-image: url('./assets/images/search_icon_white.png');
         background-repeat: no-repeat;
@@ -53,15 +53,15 @@
 <section class="home-section home-parallax home-fade home-full-height bg-dark-60 agency-page-header" id="home" data-background="<?php echo base_url() ?>assets/images/LJ2.jpg">
 <div class="titan-caption">
   <div class="caption-content">
-    <div class="font-alt mb-30 titan-title-size-1">Build your career in Language</div>
-    <div class="font-alt mb-40 titan-title-size-2"> We Provide <br/><span class="rotate"> Career Services | Translation Services | Transcription Services | Language Specific Services</span>
+    <div class="font-alt mb-30 titan-title-size-1" style="display:none;">Build your career in Language</div>
+    <div class="font-alt mb-40 titan-title-size-2" style="display:none;"> We Provide <br/><span class="rotate"> Career Services | Translation Services | Transcription Services | Language Specific Services</span>
     </div>
       <form autocomplete="off" action="<?php echo base_url() ?>SearchJob/retrieve_jobs" method="post">
         <input type="hidden" name="language" value="" />
         <input type="hidden" name="sector" value="" />
         <input type="hidden" name="locationCombo" value="" />
         <input type="hidden" name="experience" value="" />
-        <input id="index_search_box" type="text" name="keywords" placeholder="Search Job...Use comma seperated keywords">
+        <input id="index_search_box" type="text" name="keywords" placeholder="Search Language Jobs">
         <input id="index_search_btn" type="submit" class="btn btn-border-w" value="Search"/>
       </form>
   </div>

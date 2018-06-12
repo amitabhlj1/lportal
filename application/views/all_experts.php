@@ -1,25 +1,56 @@
-<link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet">
-<style>
+<!--<link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet">-->
+<link href="https://fonts.googleapis.com/css?family=Comfortaa|Crete+Round|Montserrat|Raleway|Baloo+Tamma|NTR" rel="stylesheet">
+   <style>
     .well{
-        font-family: 'Josefin Slab', cursive;
-        border: 1px solid;
+        border: 1px solid blue;
         padding: 1%;
-        height: 185px;
+        height: 167px;
         border-radius: 2px;
-        background-color: #f95c39;
-        color: #fff;
+        background-color: #fff;
+        color: #000;
     }
     .ename{
         font-size: 140%;
     }
+   .name{
+        font-family: 'Montserrat', sans-serif;
+        font-weight: bold;
+   }
+    .callout-title{
+        font-size: 30px;
+        font-family: 'Raleway', sans-serif;
+    }
+   .callout-text > p{
+        font-family: 'Baloo Tamma', 'Roboto';
+        font-size: 15px;
+        color: #e4ff00;
+   }
+   .vm{
+       float: right;
+       background: transparent;
+       position: relative;
+       color: #000;
+   }
+   .vm:after{
+       content: "View Details";
+       width: 100px;
+       height: 0;
+       position: absolute;
+       bottom: -1px;
+       right: -12px;
+       color: #fff;
+       font-size: bold;
+       border-bottom: 22px solid #245194;
+       border-left: 22px solid #ffffff;
+   }
 </style>
 <div class="main">&nbsp;</div><br/><br/>
 <section class="module-small bg-dark" data-background="<?php echo base_url(); ?>assets/images/small_sections/blog.jpg">
   <div class="container">
     <div class="row">
-      <div class="col-sm-6 col-md-8 col-lg-6 col-lg-offset-2">
+      <div class="col-sm-6 col-md-8 col-lg-6">
         <div class="callout-text font-alt">
-          <h3 class="callout-title">Langjobs Language Experts</h3>
+          <h3 class="callout-title">LangJobs Language Experts</h3>
           <p>End of your search for language experts</p>
         </div>
       </div>
@@ -35,9 +66,6 @@
         <div class="row">
             <div class="mb-sm-20 wow fadeInUp col-md-12 col-sm-12 col-xs-12 table-responsive">
                 <fieldset>
-                    <legend>
-                        Language Experts at Langjobs
-                    </legend>
                     <div class="row">
                         <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
                         <?php
@@ -73,7 +101,7 @@
                                                 <div class="skill">
                                                     <?php if($e->skills){echo mb_substr($e->skills, 0, 38, 'utf-8');} else {echo "Language Expert";}; ?>
                                                 </div>
-                                               <?php echo "<a href='".base_url()."All_experts/profile/".$e->id."'><button class='btn btn-xs btn-primary form-control'>View More</button></a>"; ?>
+                                               <?php echo "<a href='".base_url()."Language_experts/profile/".$e->id."'><button class='vm btn btn-xs'>View More</button></a>"; ?>
                                         </div>
                                     </div>
                                 </div>
