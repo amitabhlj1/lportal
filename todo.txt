@@ -4,15 +4,13 @@
 + Assigning the project to a langexpert
 + Check to add multilingual support in db
 - Change UI
-- Notification
-- add core and static php files.
++ add core and static php files.
 - add contact form
 - add pagination in all experts page
 - Check for Translation api
-- montserrat
-- raleway font, comfortaa, Crete Round,
-- Change the background color of expert card to white, name be bold, mix the above fonts. border be blue.
++ Change the background color of expert card to white, name be bold, mix the above fonts. border be blue.
 - small sections should be of less height, Font size little bigger
 - language, location, experience.
 - progress bar #e84405  .module-small {     padding: 40px 0; }  delete offset 2 from small-module h3 > 30px  Change Langjobs to LangJobs
-
+- Mailer
+- take the css from all ecpert page to main.css file
