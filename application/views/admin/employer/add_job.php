@@ -1,4 +1,36 @@
 <link href="<?php echo base_url(); ?>assets/css/addTags.css" rel="stylesheet">
+<style>
+    .select2-container .select2-selection {
+      height: 33px; 
+    }
+    .select2-container--default .select2-selection--single .select2-selection__rendered {
+        color: inherit !important;
+        line-height: 29px;
+    }
+    .pac-container:after {
+    /* Disclaimer: not needed to show 'powered by Google' if also a Google Map is shown */
+        background-image: none !important;
+        height: 0px;
+    }
+</style>
+<script>
+  function initAutocomplete() {
+    // Create the autocomplete object, restricting the search to geographical
+    // location types.
+    autocomplete = new google.maps.places.Autocomplete(
+      /** @type {!HTMLInputElement} */
+      (document.getElementById('autocomplete')), {
+        types: ['geocode']
+      });
+	  
+	  autocomplete1 = new google.maps.places.Autocomplete(
+      /** @type {!HTMLInputElement} */
+      (document.getElementById('autocomplete1')), {
+        types: ['geocode']
+      });
+  }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCa0L27dpX-xgwglyvc9jtNZ2_sJt_JNq4&libraries=places&callback=initAutocomplete" async defer></script>
 <section class="content">
 <!-- Main row -->
 <div class="row">
@@ -80,7 +112,14 @@
 						<input type="text" required="true" class="form-control" name="skills" id="skills" placeholder="skills required for this job" value="" maxlength="250">
 						  <p class="help-block"><div id="err_skills" style="color:#F83A18"></div></p>
 					  </div>
-				    </div>					
+				    </div>
+					<div class="form-group">
+					  <label for="description" class="col-lg-2 col-sm-2 control-label">Location / City</label><div class="col-lg-10">
+						<input type="text" required="true" class="form-control" name="address" id="autocomplete" placeholder="job location/address" value="" maxlength="250">
+						  <p class="help-block"><div id="err_loc" style="color:#F83A18"></div></p>
+					  </div>
+				    </div>	
+
 					<div class="form-group">
 						<p class="help-block"><div id="msg_succ" style="margin-left:200px;color:#44e028"></div></p>
 					  <label for="inputEmail1" class="col-lg-2 col-sm-2 control-label">Job Detail</label>
@@ -194,7 +233,13 @@
 							<input type="text" required="true" class="form-control" name="f_skills" id="f_skills" placeholder="skills required for this job" value="" maxlength="250">
 							  <p class="help-block"><div id="err_f_skills" style="color:#F83A18"></div></p>
 						  </div>
-						</div>					
+						</div>
+						<div class="form-group">
+						  <label for="description" class="col-lg-2 col-sm-2 control-label">Location / City</label><div class="col-lg-10">
+							<input type="text" required="true" class="form-control" name="f_address" id="autocomplete1" placeholder="job location/address" value="" maxlength="250">
+							  <p class="help-block"><div id="err_f_loc" style="color:#F83A18"></div></p>
+						  </div>
+						</div>
 						<div class="form-group">
 							<p class="help-block"><div id="msg_succ" style="margin-left:200px;color:#44e028"></div></p>
 						  <label for="inputEmail1" class="col-lg-2 col-sm-2 control-label">Job Detail</label>
