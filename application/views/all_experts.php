@@ -110,6 +110,7 @@
                         ?>
                         </div>
                     </div>
+                    <div style="float:right;"><button class="btn btn-xs btn-warning"><</button> &nbsp; <button class="btn btn-xs btn-primary">></button></div>
                 </fieldset>
             </div>
         </div>

@@ -17,7 +17,7 @@ class Language_experts extends CI_Controller
         $title['description'] = "";
         $title['keywords'] ="";
         //checking where first name & last name is not blank and sorting it by lastest and frequent active language experts
-        $data['experts'] = $this->My_model->selectRecord('lang_expert', '*', array('status' => 1, 'first_name !=' =>'', 'last_name !=' => ''), array('criteria'=>'id', 'order' => 'DESC'), '50');
+        $data['experts'] = $this->My_model->selectRecord('lang_expert', '*', array('status' => 1, 'first_name !=' =>'', 'last_name !=' => ''), array('criteria'=>'id', 'order' => 'DESC'), '40');
         
         $this->load->view('include/header', $title);
 		$this->load->view('all_experts', $data);
