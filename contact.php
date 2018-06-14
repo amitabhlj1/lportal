@@ -66,13 +66,13 @@
                 <div class="col-sm-12 col-md-6 col-lg-6">
                     <fieldset>
                     <legend>Feedback / Contact Form</legend>
-                        <form name = "feedbackform" method="post" action="sendFeedback.php">
-                            <input placeholder="Enter Name" name="contact_name" id="contact_name" class="form-control" required>
-                            <input placeholder="Enter Mobile Number" name="contact_phone" id="contact_phone" class="form-control" required>
-                            <input placeholder="Enter Email" name="contact_email" id="contact_email" class="form-control" required>
-                            <input placeholder="Enter Website" name="contact_url" id="contact_url" class="form-control">
-                            <input placeholder="Enter Subject" name="contact_subject" id="contact_subject" class="form-control">
-                            <textarea placeholder="Enter Message" id="contact_message" name="contact_message" rows="10" cols="45" class="form-control"></textarea>
+                        <form class="form-group" name = "feedbackform" method="post" action="<?php echo $base_url; ?>Home/save_feedback">
+                            <input type="text" maxlength="55" placeholder="Enter Name" name="contact_name" id="contact_name" class="form-control" required><br/>
+                            <input type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="15" placeholder="Enter Mobile Number" name="contact_phone" id="contact_phone" class="form-control" required><br/>
+                            <input type="email" placeholder="Enter Email" name="contact_email" id="contact_email" class="form-control" required><br/>
+                            <input type="text" placeholder="Enter Website" name="contact_url" id="contact_url" class="form-control"><br/>
+                            <input type="text" placeholder="Enter Subject" name="contact_subject" id="contact_subject" class="form-control" required><br/>
+                            <textarea placeholder="Enter Message" id="contact_message" name="contact_message" rows="10" cols="45" class="form-control" required></textarea><br/>
                             <input type="submit" name="submit" id="submit" class="btn btn-primary btn-xs" value="Send" tabindex="6"/>
                         </form>
                     </fieldset>
