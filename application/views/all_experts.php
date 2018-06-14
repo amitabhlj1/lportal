@@ -1,5 +1,4 @@
-<!--<link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet">-->
-<link href="https://fonts.googleapis.com/css?family=Comfortaa|Crete+Round|Montserrat|Raleway|Baloo+Tamma|NTR" rel="stylesheet">
+<!--<link href="https://fonts.googleapis.com/css?family=Comfortaa|Crete+Round|Montserrat|Raleway|Baloo+Tamma|NTR" rel="stylesheet">-->
    <style>
     .well{
         border: 1px solid blue;
@@ -16,6 +15,7 @@
         font-family: 'Montserrat', sans-serif;
         font-weight: bold;
    }
+/*
     .callout-title{
         font-size: 30px;
         font-family: 'Raleway', sans-serif;
@@ -25,6 +25,7 @@
         font-size: 15px;
         color: #e4ff00;
    }
+*/
    .vm{
        float: right;
        background: transparent;
@@ -93,13 +94,13 @@
                                         </div>
                                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                               <div class="profile">
-                                                    <?php if($e->profile_name){echo mb_substr($e->profile_name, 0, 38, 'utf-8');} else { echo "N.A.";} ?>
+                                                    <?php if($e->profile_name){echo strip_tags(mb_substr($e->profile_name, 0, 38, 'utf-8'));} else { echo "N.A.";} ?>
                                                 </div>
                                                 <div class="exp">
-                                                    <?php if($e->total_exp){ echo $this->config->config['job_exp'][$e->total_exp]; } else {echo "N.A.";} ?>
+                                                    <?php if($e->total_exp){ echo strip_tags($this->config->config['job_exp'][$e->total_exp]); } else {echo "N.A.";} ?>
                                                 </div>
                                                 <div class="skill">
-                                                    <?php if($e->skills){echo mb_substr($e->skills, 0, 38, 'utf-8');} else {echo "Language Expert";}; ?>
+                                                    <?php if($e->skills){echo strip_tags(mb_substr($e->skills, 0, 38, 'utf-8'));} else {echo "Language Expert";}; ?>
                                                 </div>
                                                <?php echo "<a href='".base_url()."Language_experts/profile/".$e->id."'><button class='vm btn btn-xs'>View More</button></a>"; ?>
                                         </div>
@@ -110,7 +111,11 @@
                         ?>
                         </div>
                     </div>
-                    <div style="float:right;"><button class="btn btn-xs btn-warning"><</button> &nbsp; <button class="btn btn-xs btn-primary">></button></div>
+                    <div style="float:right;">
+                        <a rel="canonical" style="color:white;" href="<?php echo base_url(); ?>Language_experts/cards/<?php if($page==1){echo "";} else{ echo $page-1;} ?>"><button <?php if($page==1) {echo "disabled";} ?> class="btn btn-xs btn-warning"> < </button></a> 
+                        &nbsp; 
+                        <a rel="canonical" style="color:white;" href="<?php echo base_url(); ?>Language_experts/cards/<?php echo $page+1; ?>" <button class="btn btn-xs btn-primary"> > </button> </a>
+                    </div>
                 </fieldset>
             </div>
         </div>

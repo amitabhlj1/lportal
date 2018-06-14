@@ -53,7 +53,7 @@
 <section class="home-section home-parallax home-fade home-full-height bg-dark-60 agency-page-header" id="home" data-background="<?php echo base_url() ?>assets/images/LJ2.jpg">
 <div class="titan-caption">
   <div class="caption-content">
-    <div class="font-alt mb-30 titan-title-size-1" style="display:none;">Build your career in Language</div>
+    <div class="font-alt mb-30 titan-title-size-1" style="font-size:4em;"> World's No 1. Language Specific Job Portal </div>
     <div class="font-alt mb-40 titan-title-size-2" style="display:none;"> We Provide <br/><span class="rotate"> Career Services | Translation Services | Transcription Services | Language Specific Services</span>
     </div>
       <form autocomplete="off" action="<?php echo base_url() ?>SearchJob/retrieve_jobs" method="post">
@@ -61,7 +61,7 @@
         <input type="hidden" name="sector" value="" />
         <input type="hidden" name="locationCombo" value="" />
         <input type="hidden" name="experience" value="" />
-        <input id="index_search_box" type="text" name="keywords" placeholder="Search Language Jobs">
+        <input id="index_search_box" type="text" name="keywords" placeholder="Search Language Jobs / Freelance Language Projects">
         <input id="index_search_btn" type="submit" class="btn btn-border-w" value="Search"/>
       </form>
   </div>
@@ -71,28 +71,37 @@
         <section class="module">
           <div class="container">
             <div class="row multi-columns-row">
-              <div class="col-md-3 col-sm-6 col-xs-12">
+              <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="features-item">
                   <div class="features-icon"><span class="icon-search"></span></div>
-                  <h3 class="features-title font-alt">Job and Employee Search</h3>We help both, 1. Language Experts to search for job & 2. Employers to find perfect candidate 
+                  <h3 class="features-title font-alt">For language professionals</h3>
+                  <span style="text-align:center;">
+                     <a rel="canonical" href="<?php echo base_url() ?>SearchJob">- Search job/Language projects</a></br>
+                     <a rel="canonical" href="<?php echo base_url() ?>LangExpert">- Register Profile</a></br>
+                     <a rel="canonical" href="<?php echo base_url() ?>Blogs">- Explore other resources</a>
+                  </span>
                 </div>
               </div>
-              <div class="col-md-3 col-sm-6 col-xs-12">
-                <div class="features-item">
-                  <div class="features-icon"><span class="fa fa-language"></span></div>
-                  <h3 class="features-title font-alt">Translation Services</h3>We carefully listen to your requests and help you in receiving best translation work you can ever find.
-                </div>
-              </div>
-              <div class="col-md-3 col-sm-6 col-xs-12">
+              <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="features-item">
                   <div class="features-icon"><span class="icon-briefcase"></span></div>
-                  <h3 class="features-title font-alt">Recruitment Services</h3>We not only help you in finding candidates online but we can help you in recruiting services too.
+                  <h3 class="features-title font-alt">For Language Recruiters</h3>
+                  <span style="text-align:center;">
+                     <a rel="canonical" href="<?php echo base_url() ?>LangEmployer">- Register Company Profile</a></br>
+                     <a rel="canonical" href="<?php echo base_url() ?>LangEmployer">- Post Jobs/Language Projects</a></br>
+                     <a rel="canonical" href="<?php echo base_url() ?>LangEmployer">- Hire Best Linguists </a>
+                  </span>
                 </div>
               </div>
-              <div class="col-md-3 col-sm-6 col-xs-12">
+              <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="features-item">
-                  <div class="features-icon"><span class="fa fa-comments-o"></span></div>
-                  <h3 class="features-title font-alt">Interpretation</h3>Just 4 words, "Our interpretors are best". We make sure that you always get value for money interpretation.
+                  <div class="features-icon"><span class="fa fa-language"></span></div>
+                  <h3 class="features-title font-alt">Free Translation</h3>
+                  <span style="text-align:center;">
+                     <a rel="canonical" href="<?php echo base_url() ?>Translation">- Free machine translations</a></br>
+                     <a rel="canonical" href="<?php echo base_url() ?>Translation">- Compare Translations</a></br>
+                     <a rel="canonical" href="<?php echo base_url() ?>Translation">- Text to Speech </a>
+                  </span>
                 </div>
               </div>
             </div>
@@ -176,14 +185,14 @@
         <section class="module-small bg-dark" data-background="<?php echo base_url(); ?>assets/images/small_sections/contact.png">
           <div class="container">
             <div class="row">
-              <div class="col-sm-6 col-md-8 col-lg-6 col-lg-offset-2">
+              <div class="col-sm-6 col-md-8 col-lg-6">
                 <div class="callout-text font-alt">
                   <h3 class="callout-title">Want to contact us?</h3>
                   <p>We are always open to interesting conversations.</p>
                 </div>
               </div>
-              <div class="col-sm-6 col-md-4 col-lg-2">
-                <div class="callout-btn-box"><a class="btn btn-w btn-round" href="">Drop us a line or two</a></div>
+              <div class="col-sm-6 col-md-4 col-lg-5">
+                <div class="callout-btn-box"><a style="background-color:white;" class="btn btn-w btn-round" href="<?php echo base_url() ?>contact.php">Drop us a line or two</a></div>
               </div>
             </div>
           </div>
@@ -200,7 +209,7 @@
                       <h4 class="panel-title font-alt"><a data-toggle="collapse" data-parent="#accordion" href="#support1">How to search job on langjobs.com</a></h4>
                     </div>
                     <div class="panel-collapse collapse in" id="support1">
-                      <div class="panel-body">You can search job by either using search tool on our home page, or you can go to <a href="">Advance Search Section</a>. 
+                      <div class="panel-body">You can search job by either using search tool on our home page, or you can go to <a href="<?php echo base_url() ?>SearchJob">Advance Search Section</a>. 
                       </div>
                     </div>
                   </div>
@@ -209,7 +218,7 @@
                       <h4 class="panel-title font-alt"><a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#support2">How do I apply on any job?</a></h4>
                     </div>
                     <div class="panel-collapse collapse" id="support2">
-                      <div class="panel-body">We give you the ability to search your favourite job and read the details about it. To apply on them you'll have to Register / Login as a jobseeker first.
+                      <div class="panel-body">We give you the ability to search your favourite job and read the details about it. To apply on them you'll have to <a href="<?php echo base_url() ?>LangExpert">Register / Login</a> as a jobseeker first.
                       </div>
                     </div>
                   </div>
@@ -218,7 +227,7 @@
                       <h4 class="panel-title font-alt"><a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#support3">I want to recruit, how should I go about that?</a></h4>
                     </div>
                     <div class="panel-collapse collapse" id="support3">
-                      <div class="panel-body">Since you want to recruit, you'll have to <a href="login.php">Register</a> with us, as a recruiter, then just post your job description.
+                      <div class="panel-body">Since you want to recruit, you'll have to <a href="<?php echo base_url() ?>LangEmployer">Register</a> with us, as a recruiter, then just post your job description.
                       </div>
                     </div>
                   </div>
@@ -227,7 +236,7 @@
                       <h4 class="panel-title font-alt"><a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#support4">I want to download CV's of some candidates.</a></h4>
                     </div>
                     <div class="panel-collapse collapse" id="support4">
-                      <div class="panel-body">To be able to download the CV's of aspiring Job seekers, you'll have be to authorised as our premium recruiter. To gain the same, just give us a call or <a href="">contact us</a>.
+                      <div class="panel-body">To be able to download the CV's of aspiring Job seekers, you'll have be to authorised as our premium recruiter. To gain the same, just give us a call or <a href="<?php echo base_url() ?>contact.php">contact us</a>.
                       </div>
                     </div>
                   </div>
@@ -235,32 +244,32 @@
               </div>
               <div class="col-sm-6">
                 <h4 class="font-alt mb-30">Our Expertises</h4>
-                <h6 class="font-alt"><span class="icon-tools-2"></span> Language Training
+                <h6 class="font-alt"><span class="icon-tools-2"></span> Language Recruitment
                 </h6>
                 <div class="progress">
                   <div class="progress-bar pb-dark" aria-valuenow="100" role="progressbar" aria-valuemin="0" aria-valuemax="100"><span class="font-alt"></span></div>
                 </div>
-                <h6 class="font-alt"><span class="icon-strategy"></span> Language Transcription
+                <h6 class="font-alt"><span class="icon-strategy"></span> Language Translation
                 </h6>
                 <div class="progress">
-                  <div class="progress-bar pb-dark" aria-valuenow="95" role="progressbar" aria-valuemin="0" aria-valuemax="100"><span class="font-alt"></span></div>
+                  <div class="progress-bar pb-dark" aria-valuenow="100" role="progressbar" aria-valuemin="0" aria-valuemax="100"><span class="font-alt"></span></div>
                 </div>
-                <h6 class="font-alt"><span class="icon-target"></span> Localization
+                <h6 class="font-alt"><span class="icon-target"></span> Language Training
                 </h6>
                 <div class="progress">
-                  <div class="progress-bar pb-dark" aria-valuenow="93" role="progressbar" aria-valuemin="0" aria-valuemax="100"><span class="font-alt"></span></div>
+                  <div class="progress-bar pb-dark" aria-valuenow="100" role="progressbar" aria-valuemin="0" aria-valuemax="100"><span class="font-alt"></span></div>
                 </div>
-                <h6 class="font-alt"><span class="icon-camera"></span> Voice Over
+                <h6 class="font-alt"><span class="icon-camera"></span> Interpretation
                 </h6>
                 <div class="progress">
-                  <div class="progress-bar pb-dark" aria-valuenow="88" role="progressbar" aria-valuemin="0" aria-valuemax="100"><span class="font-alt"></span></div>
+                  <div class="progress-bar pb-dark" aria-valuenow="100" role="progressbar" aria-valuemin="0" aria-valuemax="100"><span class="font-alt"></span></div>
                 </div>
                 <h6 class="font-alt"><span class="icon-pencil"></span> Internationalization
                 </h6>
                 <div class="progress">
-                  <div class="progress-bar pb-dark" aria-valuenow="91" role="progressbar" aria-valuemin="0" aria-valuemax="100"><span class="font-alt"></span></div>
+                  <div class="progress-bar pb-dark" aria-valuenow="100" role="progressbar" aria-valuemin="0" aria-valuemax="100"><span class="font-alt"></span></div>
                 </div>
-                <h6 class="font-alt"><span class="icon-lifesaver"></span> Dedication
+                <h6 class="font-alt"><span class="icon-lifesaver"></span> Voice Over
                 </h6>
                 <div class="progress">
                   <div class="progress-bar pb-dark" aria-valuenow="100" role="progressbar" aria-valuemin="0" aria-valuemax="100"><span class="font-alt"></span></div>

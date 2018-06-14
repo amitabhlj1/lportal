@@ -4,9 +4,9 @@
               <div class="col-sm-3">
                 <div class="widget">
                   <h5 class="widget-title font-alt">About Langjobs</h5>
-                  <p>Language shouldn't become a barrier in finding your dreams</p>
-                  <p>Phone: +91-11-4601-3636</p>Mobile: +91-93114-88060
-                  <p>Email:<a href="#">amitabh@langjobs.com</a></p>
+                    <p>We are Language Yogis, Our mission is to unite the world through language.</p>
+                    <p>Email: <a href="mailto:info@langjobs.com">info@langjobs.com</a></p>
+                    <a href="<?php echo $base_url; ?>contact.php" style="color:#fff;"><button class="btn btn-lg" style="background-color:red;">CONTACT US</button></a>
                 </div>
               </div>
               <div class="col-sm-3">
@@ -24,11 +24,9 @@
                 <div class="widget">
                   <h5 class="widget-title font-alt">Linked Links</h5>
                   <ul class="icon-list">
-                    <li><a href="http://langecole.com/">Langecole</a></li>
-                    <li><a href="https://www.liveecole.com/">Liveecole</a></li>
-                    <li><a href="methodology.php">Methodology</a></li>
-                    <li><a href="languages.php">languages</a></li>
-                    <li><a href="contact.php">contact</a></li>
+                    <li><a href="http://langecole.com/">Langecole</a> - One of a kind Institute, which deals in language teaching and training.</li>
+                    <li><a href="https://www.liveecole.com/">Liveecole</a> - A P2P Language learning web portal.</li>
+                    <li><a href="http://www.langschool.com">Langschool</a> - A Portal to help schools in teaching different languages to their students</li>
                   </ul>
                 </div>
               </div>

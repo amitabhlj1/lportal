@@ -26,10 +26,10 @@
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCa0L27dpX-xgwglyvc9jtNZ2_sJt_JNq4&libraries=places&callback=initAutocomplete" async defer></script>
 <div class="main">&nbsp;</div><br/><br/>
-    <section class="module-small bg-dark">
+    <section class="module-small bg-dark" data-background="<?php echo base_url(); ?>assets/images/small_sections/search.jpg">
       <div class="container">
         <div class="row">
-          <div class="col-sm-6 col-md-8 col-lg-6 col-lg-offset-2">
+          <div class="col-sm-6 col-md-8 col-lg-6">
             <div class="callout-text font-alt">
               <h3 class="callout-title">Search Your Favourite Jobs</h3>
               <p>We have a huge collection of jobs, Just search and apply. It's that easy!</p>

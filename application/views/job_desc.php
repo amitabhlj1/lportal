@@ -3,12 +3,22 @@
         margin: 20px 0px 0px 0px !important;
     }
 </style>
+<?php
+    $jd = $jobs[0];
+?>
 <section class="module" id="services">
     <div class="container">
         <div class="row">
             <div class="col-sm-6 col-sm-offset-3">
-                <h2 class="module-title font-alt">JOB DESCRIPTION</h2>
-                <div class="module-subtitle font-serif">
+                <h2 class="module-title font-alt"><?php 
+                            
+                            if($jd->title){
+                                echo $jd->title;
+                            } else {
+                                echo "NA";
+                            }
+                        ?></h2>
+                <div class="module-subtitle font-serif" style="display:none;">
                     <?php   //random motivation line, reading from a text file and displaying here 
                             $file = base_url("assets/motivation.txt");
                             $lines = explode("\n", file_get_contents($file));
@@ -56,18 +66,6 @@
                 <fieldset>
                 <legend>Job Details <small style="font-size:9px;padding-left:2em;">[Expires On: <?php  ?>]</small></legend>
                 <div class="alt-features-item">
-                    <div class="alt-features-icon"><span class="icon-pencil"></span></div>
-                    <h3 class="alt-features-title font-alt">Job Title</h3>
-                    <b><?php 
-                            $jd = $jobs[0];
-                            if($jd->title){
-                                echo $jd->title;
-                            } else {
-                                echo "NA";
-                            }
-                        ?></b>
-                </div>
-                <div class="alt-features-item">
                     <div class="alt-features-icon"><span class="icon-clipboard"></span></div>
                     <h3 class="alt-features-title font-alt">Job Description</h3>
                     <p style="text-align:justify;"><?php 
@@ -91,7 +89,7 @@
                                 echo "<b>Skills:</b> ".$jd->skills."<br/>";
                             }
                             if($jd->languages){
-                                echo "<b>Languages:</b> ".$jd->languages;
+                                //echo "<b>Languages:</b> ".$jd->languages;
                             }   
                         ?></p>
                 </div>
