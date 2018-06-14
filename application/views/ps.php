@@ -5,7 +5,7 @@
       <div class="col-sm-6 col-md-8 col-lg-6">
         <div class="callout-text font-alt">
           <h3 class="callout-title">LangJobs Professional Solutions</h3>
-          <p></p>
+          <p>All of the solutions provided by us</p>
         </div>
       </div>
       <div class="col-sm-6 col-md-4 col-lg-2">

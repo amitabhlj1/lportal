@@ -37,7 +37,7 @@
        width: 100px;
        height: 0;
        position: absolute;
-       bottom: -1px;
+       bottom: 5px;
        right: -12px;
        color: #fff;
        font-size: bold;
@@ -100,7 +100,7 @@
                                                     <?php if($e->total_exp){ echo strip_tags($this->config->config['job_exp'][$e->total_exp]); } else {echo "N.A.";} ?>
                                                 </div>
                                                 <div class="skill">
-                                                    <?php if($e->skills){echo strip_tags(mb_substr($e->skills, 0, 38, 'utf-8'));} else {echo "Language Expert";}; ?>
+                                                    <?php if($e->skills){echo strip_tags(mb_substr($e->skills, 0, 34, 'utf-8'));} else {echo "Language Expert";}; ?>
                                                 </div>
                                                <?php echo "<a href='".base_url()."Language_experts/profile/".$e->id."'><button class='vm btn btn-xs'>View More</button></a>"; ?>
                                         </div>

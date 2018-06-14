@@ -146,7 +146,7 @@ class LanguageExpert_model extends CI_Model {
 		$iLoc    = $this->input->post('locationCombo');
 		$iExp    = $this->input->post('experience');
 		$strKeyw = $this->input->post('keywords');
-		$where = 'WHERE jb.j_type=1 AND jb.status=1';
+		$where = 'WHERE jb.status=1';
 		if(!empty($iLang))
 			$where .= " AND jb.languages like '%".$iLang."%'";
         
@@ -166,7 +166,7 @@ class LanguageExpert_model extends CI_Model {
          $order_by = "ORDER BY jb.id DESC";
 		 
          $response = array();
-         $sql = "SELECT jb.id, jb.title, jb.total_exp, jb.address, l.company_name, jb.created FROM `jobs` jb INNER JOIN lang_company l ON jb.company_id = l.id ".$where." ".$order_by;
+         $sql = "SELECT jb.*, l.company_name FROM `jobs` jb INNER JOIN lang_company l ON jb.company_id = l.id ".$where." ".$order_by;
 		 $result = $this->db->query($sql);
         if ($result && $result->num_rows()) {
             foreach ($result->result() as $row) {

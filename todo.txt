@@ -10,10 +10,10 @@
 + Check for Translation api
 + Change the background color of expert card to white, name be bold, mix the above fonts. border be blue.
 - small sections should be of less height, Font size little bigger
-- language, location, experience.
-- progress bar #e84405  .module-small {     padding: 20px 0; }  delete offset 2 from small-module h3 > 30px  Change Langjobs to LangJobs
++ language, location, experience. [Can't be done, because of lack of data]
++ progress bar #e84405  .module-small {     padding: 20px 0; }  delete offset 2 from small-module h3 > 30px  Change Langjobs to LangJobs
 - Mailer
 + take the css from all ecpert page to main.css file
-- add insert code in contact.php
++ add insert code in contact.php
 - show languages in job_desc view line 92
 
