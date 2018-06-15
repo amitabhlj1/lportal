@@ -18,4 +18,5 @@
 - show languages in job_desc view line 92, add expiry date
 - contact form in admin
 - design UI
+- Check data in the database of jobs
 

@@ -134,7 +134,7 @@
                         Email: <a href="mailto:info@langjobs.com">info@langjobs.com</a> <br/>
                         Phone: +91-99585-92758, +91-11-46028990</p>
                         
-                        <p>If you are a recruiter / company, <a href="login.php">register</a> and create you profile for free. You may also post your first job for free. <a href="contact.php">Contact us</a> now for more services. Call us now on: +91-9958592758 or +91-11-46028990.</p>
+                        
                     </fieldset>
                 </div>
             </div>

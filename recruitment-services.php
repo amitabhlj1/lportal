@@ -114,7 +114,7 @@
                             <li><a href="recruitment-events.php">Recruitment Events</a></li>
                             <li><a href="campus-recruitment.php">Campus Recruitment</a></li>
                         </ul>
-                        <p>If you are a recruiter / company, <a href="login.php">register</a> and create you profile for free. You may also post your first job for free. <a href="contact.php">Contact us</a> now for more services. Call us now on: +91-9958592758 or +91-11-46028990.</p>
+                        
                     </fieldset>
                 </div>
             </div>

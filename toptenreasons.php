@@ -125,7 +125,7 @@
                         <h5>Pro-activeness</h5>
                         <p>We adopt the method of going beyond what we commit to deliver, drive to improve & deliver the best.</p>
                         
-                        <p>If you are a recruiter / company, <a href="login.php">register</a> and create you profile for free. You may also post your first job for free. <a href="contact.php">Contact us</a> now for more services. Call us now on: +91-9958592758 or +91-11-46028990.</p>
+                        
                     </fieldset>
                 </div>
             </div>

@@ -129,9 +129,9 @@
                 </ul>
               </li>
               <li><a href="<?php echo base_url(); ?>Language_experts"><i class="fa fa-users"></i>Language Experts</a></li>
-			  <li><a href="<?php echo base_url(); ?>Translation"><i class="fa fa-users"></i>Free Translation</a></li>	
-              <li><a href="<?php echo base_url(); ?>Blogs"><i class="fa fa-users"></i>Blogs</a></li>
-              <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown"><i class="fa fa-th-list"></i>Login</a>
+			  <li><a href="<?php echo base_url(); ?>Translation"><i class="fa fa-language"></i>Free Translation</a></li>	
+              <li><a href="<?php echo base_url(); ?>Blogs"><i class="fa fa-book"></i>Blogs</a></li>
+              <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown"><i class="fa fa-sign-in"></i>Login</a>
                 <ul class="dropdown-menu">
                   <li class="dropdown"><a href="<?php echo base_url();?>LangExpert">Language Expert</a></li>
                   <li class="dropdown"><a href="<?php echo base_url();?>LangEmployer">Language Employer</a></li>
@@ -152,7 +152,7 @@
               } else { ?>
                 <ul class="nav navbar-nav navbar-right">
                   <li><a href="<?php echo base_url(); ?>SearchJob"><i class="fa fa-search"></i>Search Jobs</a></li>
-                  <li><a href="<?php echo base_url(); ?>SearchProject"><i class="fa fa-book"></i>Freelance Projects</a></li>
+<!--                  <li><a href="<?php echo base_url(); ?>SearchProject"><i class="fa fa-book"></i>Freelance Projects</a></li>-->
                   <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown"><i class="fa fa-pencil-square-o"></i>Blog</a>
                     <ul class="dropdown-menu">
                       <li class="dropdown"><a href="<?php echo base_url();?>Blogs/write"><i class="fa fa-pencil-square-o"></i> Write Blog</a></li>

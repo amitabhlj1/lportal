@@ -149,62 +149,62 @@
               </div>
             </div>
             <ul class="works-grid works-grid-gut works-grid-3 works-hover-d" id="works-grid">
-              <li class="work-item "><a href="#">
-                  <div class="work-image"><img src="<?php echo base_url(); ?>assets/images/services/portal.png" alt="Portfolio Item"/></div>
+              <li class="work-item "><a href="<?php echo base_url() ?>language-jobs.php">
+                  <div class="work-image portal"><img src="<?php echo base_url(); ?>assets/images/services/portal.png" alt="Job Portal"/></div>
                   <div class="work-caption font-alt">
-                    <h3 class="work-title">Langjobs</h3>
-                    <div class="work-descr">Corporate and Personal Language Training</div>
+                    <h3 class="work-title">LangJobs Job Portal</h3>
+                    <div class="work-descr"></div>
                   </div></a></li>
-              <li class="work-item "><a href="#">
-                  <div class="work-image"><img src="<?php echo base_url(); ?>assets/images/services/interpretation.jpg" alt="Portfolio Item"/></div>
+              <li class="work-item "><a href="<?php echo base_url() ?>interpretation-services.php">
+                  <div class="work-image interpretation"><img src="<?php echo base_url(); ?>assets/images/services/interpretation.jpg" alt="interpretation services"/></div>
                   <div class="work-caption font-alt">
-                    <h3 class="work-title">Corporate Training</h3>
-                    <div class="work-descr">In the midst of Client's Office Training</div>
+                    <h3 class="work-title">Interpretation Services</h3>
+                    <div class="work-descr"></div>
                   </div></a></li>
-              <li class="work-item "><a href="#">
-                  <div class="work-image"><img src="<?php echo base_url(); ?>assets/images/services/recruit.jpg" alt="Portfolio Item"/></div>
+              <li class="work-item "><a href="<?php echo base_url() ?>recruitment-services.php">
+                  <div class="work-image recruitment"><img src="<?php echo base_url(); ?>assets/images/services/recruit.jpg" alt="recruitment-services"/></div>
                   <div class="work-caption font-alt">
-                    <h3 class="work-title">Langjobs</h3>
-                    <div class="work-descr">Corporate and Personal Language Training</div>
+                    <h3 class="work-title">Recruitment Services</h3>
+                    <div class="work-descr"></div>
                   </div></a></li>
-              <li class="work-item "><a href="#">
-                  <div class="work-image"><img src="<?php echo base_url(); ?>assets/images/services/lang_training.jpg" alt="Portfolio Item"/></div>
+              <li class="work-item "><a href="<?php echo base_url() ?>language-training.php">
+                  <div class="work-image training"><img src="<?php echo base_url(); ?>assets/images/services/lang_training.jpg" alt="language-training"/></div>
                   <div class="work-caption font-alt">
-                    <h3 class="work-title">Langjobs</h3>
-                    <div class="work-descr">Corporate and Personal Language Training</div>
+                    <h3 class="work-title">Language Training</h3>
+                    <div class="work-descr"></div>
                   </div></a></li>
-              <li class="work-item "><a href="#">
-                  <div class="work-image"><img src="<?php echo base_url(); ?>assets/images/services/translation.jpg" alt="Portfolio Item"/></div>
+              <li class="work-item "><a href="<?php echo base_url() ?>translation-services.php">
+                  <div class="work-image translation"><img src="<?php echo base_url(); ?>assets/images/services/translation.jpg" alt="translation-services"/></div>
                   <div class="work-caption font-alt">
-                    <h3 class="work-title">Langjobs</h3>
-                    <div class="work-descr">Corporate and Personal Language Training</div>
+                    <h3 class="work-title">Translation Services</h3>
+                    <div class="work-descr"></div>
                   </div></a></li>
-              <li class="work-item "><a href="#">
-                  <div class="work-image"><img src="<?php echo base_url(); ?>assets/images/services/localization.jpg" alt="Portfolio Item"/></div>
+              <li class="work-item "><a href="<?php echo base_url() ?>localization-services.php">
+                  <div class="work-image localization"><img src="<?php echo base_url(); ?>assets/images/services/localization.jpg" alt="localization-service"/></div>
                   <div class="work-caption font-alt">
-                    <h3 class="work-title">Langjobs</h3>
-                    <div class="work-descr">Corporate and Personal Language Training</div>
+                    <h3 class="work-title">Localization Services</h3>
+                    <div class="work-descr"></div>
                   </div></a>
               </li>
-              <li class="work-item "><a href="#">
-                  <div class="work-image"><img src="<?php echo base_url(); ?>assets/images/services/international.jpg" alt="Portfolio Item"/></div>
+              <li class="work-item "><a href="<?php echo base_url() ?>internationalization-services.php">
+                  <div class="work-image internationalization"><img src="<?php echo base_url(); ?>assets/images/services/international.jpg" alt="internationalization services"/></div>
                   <div class="work-caption font-alt">
-                    <h3 class="work-title">Langjobs</h3>
-                    <div class="work-descr">Corporate and Personal Language Training</div>
+                    <h3 class="work-title">Internationalization Services</h3>
+                    <div class="work-descr"></div>
                   </div></a>
               </li>
-              <li class="work-item "><a href="#">
-                  <div class="work-image"><img src="<?php echo base_url(); ?>assets/images/services/voice.jpg" alt="Portfolio Item"/></div>
+              <li class="work-item "><a href="<?php echo base_url() ?>voiceover-services.php">
+                  <div class="work-image voiceover"><img src="<?php echo base_url(); ?>assets/images/services/voice.jpg" alt="voiceover-services"/></div>
                   <div class="work-caption font-alt">
-                    <h3 class="work-title">Langjobs</h3>
-                    <div class="work-descr">Corporate and Personal Language Training</div>
+                    <h3 class="work-title">Voice Over Services</h3>
+                    <div class="work-descr"></div>
                   </div></a>
               </li>
-              <li class="work-item "><a href="#">
-                  <div class="work-image"><img src="<?php echo base_url(); ?>assets/images/services/transcription.jpg" alt="Portfolio Item"/></div>
+              <li class="work-item "><a href="<?php echo base_url() ?>transcription-services.php">
+                  <div class="work-image transcription"><img src="<?php echo base_url(); ?>assets/images/services/transcription.jpg" alt="transcription services"/></div>
                   <div class="work-caption font-alt">
-                    <h3 class="work-title">Langjobs</h3>
-                    <div class="work-descr">Corporate and Personal Language Training</div>
+                    <h3 class="work-title">Transcription Services</h3>
+                    <div class="work-descr"></div>
                   </div></a>
               </li>
             </ul>

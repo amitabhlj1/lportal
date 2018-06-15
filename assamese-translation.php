@@ -143,7 +143,7 @@
                         <p style="margin-left:1.5in">
 			             <a href="translation-services.php">Back to Translation Services</a> | or <a href="contact.php">Contact Us</a> for more information.
                         </p>                        
-                        <p>If you are a recruiter / company, <a href="login.php">register</a> and create you profile for free. You may also post your first job for free. <a href="contact.php">Contact us</a> now for more services. Call us now on: +91-9958592758 or +91-11-46028990.</p>
+                        
                     </fieldset>
                 </div>
             </div>
