@@ -22,4 +22,28 @@ class Home extends CI_Controller
 		$this->load->view('home', $data);
         $this->load->view('include/footer');
 	}
+    
+    public function save_feedback(){
+        
+        $insert_details = array(
+            'name' => $this->input->post('contact_name'),
+            'mobile' => $this->input->post('contact_phone'),
+            'email' => $this->input->post('contact_email'),
+            'website' => $this->input->post('contact_url'),
+            'subject' => $this->input->post('contact_subject'),
+            'message' => $this->input->post('contact_message'),
+        );
+        $ins = $this->My_model->insertRecord('visitor_query', $insert_details);
+        if($ins){
+            echo "<script>
+                    alert('We have recieved your word and we will get back to you as soon as we can!'); 
+                    window.location.href = '".base_url()."';
+                </script>";
+        } else {
+           echo "<script>
+                    alert('Sorry, Something is broken! We're trying to fix it. Please come back later!); 
+                    window.location.href = '".base_url('contact.php')."';
+                </script>"; 
+        }
+    }
 }

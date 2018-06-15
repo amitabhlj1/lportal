@@ -26,13 +26,13 @@
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCa0L27dpX-xgwglyvc9jtNZ2_sJt_JNq4&libraries=places&callback=initAutocomplete" async defer></script>
 <div class="main">&nbsp;</div><br/><br/>
-    <section class="module-small bg-dark">
+    <section class="module-small bg-dark" data-background="<?php echo base_url(); ?>assets/images/small_sections/search.jpg">
       <div class="container">
         <div class="row">
-          <div class="col-sm-6 col-md-8 col-lg-6 col-lg-offset-2">
+          <div class="col-sm-6 col-md-8 col-lg-6">
             <div class="callout-text font-alt">
               <h3 class="callout-title">Search Your Favourite Jobs</h3>
-              <p>We have a huge collection of jobs, Just search and apply. It's that easy!</p>
+              <p>Just search and apply. It's that easy!</p>
             </div>
           </div>
           <div class="col-sm-6 col-md-4 col-lg-2">
@@ -117,11 +117,11 @@
                                <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Job Title</th>
-                                    <th>Expr</th>
-                                    <th>Location</th>
+                                    <th>Job Type</th>
+                                    <th>Title</th>
+                                    <th>Desc</th>
                                     <th>Company</th>
-                                    <th>Date</th>
+                                    <th>Details</th>
                                     <th>Controls</th>
                                 </tr>
                                 </thead>
@@ -130,12 +130,13 @@
                                         foreach($jobs as $j){ ?>
                                             <tr>
                                                 <td><?php echo $j->id; ?></td>
+                                                <td><?php if($j->j_type == 1){echo "Full/Part Time";}else{echo "Freelance/Project";} ?></td>
                                                 <td><?php echo $j->title; ?></td>
-                                                <td><?php echo $this->config->config['job_exp'][$j->total_exp]; ?></td>
-                                                <td><?php echo $j->address; ?></td>
+                                                <td><?php echo $j->description; ?></td>
                                                 <td><?php echo $j->company_name; ?></td>
+                                                <td><?php echo "tyt dyrdyrdy"; ?></td>
                                                 <td><?php echo date('d M Y', strtotime($j->created)); ?></td>
-                                                <td><a href="<?php echo base_url() ?>searchjob/jobdesc/<?php echo $j->id; ?>"><button class="btn btn-xs btn-info"><i class="fa fa-eye"></i></button></a></td>
+                                                <td></td>
                                             </tr>
                                     <?php
                                         }
