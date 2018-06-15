@@ -15,5 +15,7 @@
 - Mailer
 + take the css from all ecpert page to main.css file
 + add insert code in contact.php
-- show languages in job_desc view line 92
+- show languages in job_desc view line 92, add expiry date
+- contact form in admin
+- design UI
 
