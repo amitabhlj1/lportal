@@ -129,6 +129,7 @@
                 </ul>
               </li>
               <li><a href="<?php echo base_url(); ?>Language_experts"><i class="fa fa-users"></i>Language Experts</a></li>
+			  <li><a href="<?php echo base_url(); ?>Translation"><i class="fa fa-users"></i>Free Translation</a></li>	
               <li><a href="<?php echo base_url(); ?>Blogs"><i class="fa fa-users"></i>Blogs</a></li>
               <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown"><i class="fa fa-th-list"></i>Login</a>
                 <ul class="dropdown-menu">
