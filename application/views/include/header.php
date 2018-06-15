@@ -61,6 +61,7 @@
     <link href="<?php echo base_url(); ?>assets/css/style.css" rel="stylesheet">
     <link id="color-scheme" href="<?php echo base_url(); ?>assets/css/colors/default.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.16/b-1.5.1/datatables.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.2/css/responsive.dataTables.min.css"/>
     <style>
     input#search_btn{
         background-image: url(<?php echo base_url(); ?>assets/images/search_icon_white.png);
@@ -113,7 +114,7 @@
             ?>
             <ul class="nav navbar-nav navbar-right">
               <li><a href="<?php echo base_url(); ?>"><i class="fa fa-home"></i>Home</a></li>
-              <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown"><i class="fa fa-th-list"></i>Services</a>
+              <li class="dropdown"><a class="dropdown-toggle" href="<?php echo base_url() ?>ProfessionalSolutions" data-toggle="dropdown"><i class="fa fa-th-list"></i>Services</a>
                 <ul class="dropdown-menu">
                   <li class="dropdown"><a href="<?php echo base_url(); ?>language-jobs.php">Job Portal</a></li>
                   <li class="dropdown"><a href="<?php echo base_url(); ?>recruitment-services.php">Recruitment</a></li>

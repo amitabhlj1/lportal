@@ -12,6 +12,9 @@
         background-image: none !important;
         height: 0px;
     }
+    td{
+        font-size: 12px;
+    }
 </style>
 <script>
   function initAutocomplete() {
@@ -31,7 +34,7 @@
         <div class="row">
           <div class="col-sm-6 col-md-8 col-lg-6">
             <div class="callout-text font-alt">
-              <h3 class="callout-title">Search Your Favourite Jobs</h3>
+              <h3 class="callout-title">Search Jobs Or Projects</h3>
               <p>Just search and apply. It's that easy!</p>
             </div>
           </div>
@@ -121,7 +124,7 @@
                                     <th>Title</th>
                                     <th>Desc</th>
                                     <th>Company</th>
-                                    <th>Details</th>
+                                    <th>Created on</th>
                                     <th>Controls</th>
                                 </tr>
                                 </thead>
@@ -130,13 +133,24 @@
                                         foreach($jobs as $j){ ?>
                                             <tr>
                                                 <td><?php echo $j->id; ?></td>
-                                                <td><?php if($j->j_type == 1){echo "Full/Part Time";}else{echo "Freelance/Project";} ?></td>
-                                                <td><?php echo $j->title; ?></td>
-                                                <td><?php echo $j->description; ?></td>
-                                                <td><?php echo $j->company_name; ?></td>
-                                                <td><?php echo "tyt dyrdyrdy"; ?></td>
-                                                <td><?php echo date('d M Y', strtotime($j->created)); ?></td>
-                                                <td></td>
+                                                <td><?php if($j->j_type == 1){echo "<i class='fa fa-briefcase'></i> Full/Part Time";}else{echo "<i class='fa fa-trophy'></i>Freelance/Project";} ?></td>
+                                                <td><?php echo strip_tags(mb_substr($j->title, 0, 20, 'utf-8')); ?></td>
+                                                <td><?php echo strip_tags(mb_substr($j->description, 0, 45, 'utf-8')); ?></td>
+                                                <td><?php echo "<i class='fa fa-building'></i> ".strip_tags(mb_substr($j->company_name,0,25,'utf-8')); ?></td>
+                                                <td><?php echo "<i class='fa fa-calendar'></i> ".date('d M Y', strtotime($j->created)); ?></td>
+                                                <td>
+                                                <?php 
+                                                    if($j->j_type == 1){ ?>
+<!--                                                    <button class="btn btn-xs btn-success"><i class="fa fa-info"></i></button>-->
+                                                    <a rel="canonical" target="_blank" href="<?php echo base_url() ?>searchjob/jobdesc/<?php echo $j->id; ?>"><button class="btn btn-xs btn-info"><i class="fa fa-eye"></i></button></a>
+                                                <?php
+                                                    } else { ?>
+<!--                                                     <button class="btn btn-xs btn-success"><i class="fa fa-info"></i></button>-->
+                                                     <a rel="canonical" target="_blank" href="<?php echo base_url() ?>searchproject/jobdesc/<?php echo $j->id; ?>"><button class="btn btn-xs btn-info"><i class="fa fa-eye"></i></button></a>  
+                                                <?php
+                                                    } 
+                                                ?>
+                                                </td>
                                             </tr>
                                     <?php
                                         }

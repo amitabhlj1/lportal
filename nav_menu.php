@@ -20,7 +20,7 @@
           <div class="collapse navbar-collapse" id="custom-collapse">
             <ul class="nav navbar-nav navbar-right">
               <li><a href="<?php echo $base_url; ?>"><i class="fa fa-home"></i>Home</a></li>
-              <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown"><i class="fa fa-th-list"></i>Services</a>
+              <li class="dropdown"><a class="dropdown-toggle" href="<?php echo $base_url; ?>ProfessionalSolutions" data-toggle="dropdown"><i class="fa fa-th-list"></i>Services</a>
                 <ul class="dropdown-menu">
                   <li class="dropdown"><a href="<?php echo $base_url; ?>language-jobs.php">Job Portal</a></li>
                   <li class="dropdown"><a href="<?php echo $base_url; ?>recruitment-services.php">Recruitment</a></li>
