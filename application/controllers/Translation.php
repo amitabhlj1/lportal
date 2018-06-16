@@ -33,16 +33,16 @@ class Translation extends CI_Controller
 		$source = $this->input->post('flng');
 		$target = $this->input->post('tlng');
 		$text = $this->input->post('l_text'); 
-    $url = 'https://www.googleapis.com/language/translate/v2?key=' . $apiKey . '&q=' . rawurlencode($text) . '&source='.$source.'&target='.$target;
+		$url = 'https://www.googleapis.com/language/translate/v2?key=' . $apiKey . '&q=' . rawurlencode($text) . '&source='.$source.'&target='.$target;
 
-    $handle = curl_init($url);
-    curl_setopt($handle, CURLOPT_RETURNTRANSFER, true);
-    $response = curl_exec($handle);                 
-    $responseDecoded = json_decode($response, true);
-    curl_close($handle);
+		$handle = curl_init($url);
+		curl_setopt($handle, CURLOPT_RETURNTRANSFER, true);
+		$response = curl_exec($handle);                 
+		$responseDecoded = json_decode($response, true);
+		curl_close($handle);
 
-    //echo 'Source: ' . $text . '<br>';
-    echo $responseDecoded['data']['translations'][0]['translatedText'];
+		//echo 'Source: ' . $text . '<br>';
+		echo $responseDecoded['data']['translations'][0]['translatedText'];
 		
 	}
 	
