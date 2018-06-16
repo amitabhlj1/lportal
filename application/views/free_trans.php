@@ -8,159 +8,6 @@
         font-size: 250%;
         font-weight: bold;
     }
-    .card {
-      color: #d4cd96;
-      font-family: 'Fira Sans', sans-serif;
-      height: 100%;
-      left: 0;
-      position: absolute;
-      top: 0;
-      -webkit-transform-origin: 100% 50%;
-              transform-origin: 100% 50%;
-      -webkit-transform-style: preserve-3d;
-              transform-style: preserve-3d;
-      width: 100%;
-      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-      transition: -webkit-transform 0.6s cubic-bezier(0.49, 0.23, 0.58, 0.49);
-      transition: transform 0.6s cubic-bezier(0.49, 0.23, 0.58, 0.49);
-      transition: transform 0.6s cubic-bezier(0.49, 0.23, 0.58, 0.49), -webkit-transform 0.6s cubic-bezier(0.49, 0.23, 0.58, 0.49);
-    }
-    .card.flipped {
-      -webkit-transform: translateX(-100%) rotateY(-180deg);
-              transform: translateX(-100%) rotateY(-180deg);
-    }
-
-    .card-front,
-    .card-back {
-      -webkit-backface-visibility: hidden;
-              backface-visibility: hidden;
-      background: repeating-linear-gradient(135deg, rgba(0, 0, 0, 0.3), transparent 1px, rgba(0, 0, 0, 0.3) 2px);
-      background-size: 3px 3px;
-      background-color: #302f34;
-      border-radius: 1px;
-      box-shadow: 0px -6px 8px 0px rgba(0, 0, 0, 0.1), 0px 6px 8px 0px rgba(0, 0, 0, 0.1), 6px 0px 8px 0px rgba(0, 0, 0, 0.1), -6px 0px 8px 0px rgba(0, 0, 0, 0.1);
-      cursor: pointer;
-      height: 100%;
-      left: 0;
-      padding: 5%;
-      position: absolute;
-      top: 0;
-      width: 100%;
-    }
-
-    .card-back {
-      -webkit-transform: rotateY(180deg);
-              transform: rotateY(180deg);
-    }
-    .card-back .layer {
-      background: repeating-linear-gradient(135deg, rgba(76, 71, 31, 0.3), transparent 1px, rgba(76, 71, 31, 0.3) 2px);
-      background-size: 3px 3px;
-      background-color: #d4cd96;
-      color: #302f34;
-      height: 100%;
-      position: relative;
-      width: 100%;
-    }
-    .card-back .layer:after {
-      background: linear-gradient(135deg, rgba(0, 0, 0, 0.2), transparent);
-      content: '';
-      display: block;
-      height: 100%;
-      left: 0;
-      position: absolute;
-      top: 0;
-      width: 100%;
-    }
-    .card-back .layer .top,
-    .card-back .layer .bottom {
-      left: 8%;
-      position: absolute;
-      z-index: 1;
-    }
-    .card-back .layer .top {
-      top: 12%;
-    }
-    .card-back .layer .bottom {
-      bottom: 12%;
-    }
-    .card-back .layer h2, .card-back .layer h3, .card-back .layer h4 {
-      font-weight: 400;
-      margin: 2px 0;
-    }
-    .card-back .layer h2 {
-      font-size: 18px;
-      font-weight: 500;
-      text-transform: uppercase;
-    }
-    .card-back .layer h3 {
-      font-size: 16px;
-    }
-    .card-back .layer h4 {
-      font-size: 16px;
-      font-style: italic;
-    }
-
-    .card-front .layer {
-      -webkit-backface-visibility: hidden;
-              backface-visibility: hidden;
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-      justify-content: center;
-      position: relative;
-      width: 100%;
-    }
-    .card-front .layer h1 {
-      font-size: 20px;
-      font-weight: 400;
-      letter-spacing: -2px;
-      margin: 0 auto;
-      padding: 6px 18px 4px;
-      text-align: center;
-    }
-    .card-front .layer .corner {
-      -webkit-backface-visibility: hidden;
-              backface-visibility: hidden;
-      border-right: 2px solid #d4cd96;
-      border-top: 2px solid #d4cd96;
-      height: 12px;
-      position: absolute;
-      width: 12px;
-    }
-    .card-front .layer .corner:nth-of-type(1) {
-      right: 0;
-      top: 0;
-    }
-    .card-front .layer .corner:nth-of-type(2) {
-      left: 0;
-      top: 0;
-      -webkit-transform: rotateZ(-90deg);
-              transform: rotateZ(-90deg);
-    }
-    .card-front .layer .corner:nth-of-type(3) {
-      bottom: 0;
-      left: 0;
-      -webkit-transform: rotateZ(180deg);
-              transform: rotateZ(180deg);
-    }
-    .card-front .layer .corner:nth-of-type(4) {
-      bottom: 0;
-      right: 0;
-      -webkit-transform: rotateZ(90deg);
-              transform: rotateZ(90deg);
-    }
-
-    .card-wrapper {
-      height: 275px;
-      max-width: 420px;
-      -webkit-perspective: 600px;
-              perspective: 600px;
-      position: relative;
-      width: 100%;
-      transition: -webkit-transform 1s;
-      transition: transform 1s;
-      transition: transform 1s, -webkit-transform 1s;
-    }
    .resultbody{
      height: 10em !important;
      overflow-x: hidden;
@@ -437,96 +284,57 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-8">
-                <div class="row">
-                     <div class="col-sm-6">
-                        <div class="panel panel-default">
-                          <div class="panel-heading">Translation By Google Translate</div>
-                          <div id="googleresult" class="panel-body resultbody"></div>
-                        </div>
-        <!--                 <div id='googleresult'></div>-->
-                     </div>
-                     <div class="col-sm-6">
-                         <div class="panel panel-default">
-                              <div class="panel-heading">[Google] Back/Reverse Translation</div>
-                              <div id="googleresult2" class="panel-body resultbody"></div>
-                            </div>
-                     </div>
-                 </div> 
-                 <div class="row">
-                     <div class="col-sm-6">
-                        <div class="panel panel-default">
-                          <div class="panel-heading">Translation By Bing Translate</div>
-                          <div id="bingresult" class="panel-body resultbody"></div>
-                        </div>
-                     </div>
-                     <div class="col-sm-6">
-                         <div class="panel panel-default">
-                              <div class="panel-heading">[Bing] Back/Reverse Translation</div>
-                              <div id="bingresult2" class="panel-body resultbody"></div>
-                            </div>
-                     </div>
-        <!--		     <div id='bingresult'></div>-->
-                 </div> 
-                 <div class="row">
-                     <div class="col-sm-6">
-                        <div class="panel panel-default">
-                          <div class="panel-heading">Translation By Yandex Translate</div>
-                          <div id="yandexresult" class="panel-body resultbody"></div>
-                        </div>
-                     </div>
-                     <div class="col-sm-6">
-                         <div class="panel panel-default">
-                              <div class="panel-heading">[Yandex] Back/Reverse Translation</div>
-                              <div id="yandexresult2" class="panel-body resultbody"></div>
-                            </div>
-                     </div>
-        <!--		     <div id='yandexresult'></div>-->
-                 </div> 
-            </div>
-            <div class="col-sm-4">
-                <div class='card-wrapper'>
-                  <div class='card' data-toggle-class='flipped'>
-                    <div class='card-front'>
-                      <div class='layer'>
-                        <h1>For Large Volume Machine Translation or Professional Manual Translation Solutions</h1>
-                        <span class="small" style="border:1px solid #d4cd96;"><center>Contact Us</center></span>
-                        <center><img src="<?php echo base_url() ?>assets/images/logo.png" width="30%" /></center>
-                        <div class='corner'></div>
-                        <div class='corner'></div>
-                        <div class='corner'></div>
-                        <div class='corner'></div>
-                      </div>
-                    </div>
-                    <div class='card-back'>
-                      <div class='layer'>
-                        <div class='top'>
-                          <h2>LangJobs Translation Services</h2>
-                        </div>
-                        <div class='bottom'>
-                          <h3>
-                            Phone:
-                            <a href='tel:+91 11 4601 3636'>+91-11-4601-3636</a>
-                          </h3>
-                          <h3>
-                            Email:
-                            <a href='mailto:info@langjobs.com'>info@langjobs.com</a>
-                          </h3>
-                          <h3>
-                            Contact Form:
-                            <a href='<?php echo base_url(); ?>contact.php' target='_blank'>Contact us</a>
-                          </h3>
-                          <h3>
-                            Website:
-                            <a href='<?php echo base_url(); ?>' target='_blank'>LangJobs.com</a>
-                          </h3>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+             <div class="col-sm-6">
+                <div class="panel panel-default">
+                  <div class="panel-heading">Translation By Google Translate</div>
+                  <div id="googleresult" class="panel-body resultbody"></div>
                 </div>
-            </div>
-        </div>		
+<!--                 <div id='googleresult'></div>-->
+             </div>
+             <div class="col-sm-6">
+                 <div class="panel panel-default">
+                      <div class="panel-heading">[Google] Back/Reverse Translation</div>
+                      <div id="googleresult2" class="panel-body resultbody"></div>
+                    </div>
+             </div>
+         </div>
+        <div class="row">
+            <div class="col-sm-12"><a href="<?php echo base_url() ?>contact.php"><img src="<?php echo base_url() ?>assets/images/3.png" /></a></div>
+        </div> 
+         <div class="row">
+             <div class="col-sm-6">
+                <div class="panel panel-default">
+                  <div class="panel-heading">Translation By Bing Translate</div>
+                  <div id="bingresult" class="panel-body resultbody"></div>
+                </div>
+             </div>
+             <div class="col-sm-6">
+                 <div class="panel panel-default">
+                      <div class="panel-heading">[Bing] Back/Reverse Translation</div>
+                      <div id="bingresult2" class="panel-body resultbody"></div>
+                    </div>
+             </div>
+         </div>
+         <div class="row">
+            <div class="col-sm-12"><a href="<?php echo base_url() ?>contact.php"><img src="<?php echo base_url() ?>assets/images/2.png" /></a></div>
+        </div> 
+         <div class="row">
+             <div class="col-sm-6">
+                <div class="panel panel-default">
+                  <div class="panel-heading">Translation By Yandex Translate</div>
+                  <div id="yandexresult" class="panel-body resultbody"></div>
+                </div>
+             </div>
+             <div class="col-sm-6">
+                 <div class="panel panel-default">
+                      <div class="panel-heading">[Yandex] Back/Reverse Translation</div>
+                      <div id="yandexresult2" class="panel-body resultbody"></div>
+                    </div>
+             </div>
+         </div>
+         <div class="row">
+            <div class="col-sm-12"><a href="<?php echo base_url() ?>contact.php"><img src="<?php echo base_url() ?>assets/images/1.png" /></a></div>
+        </div> 	
     </div>
 </section>
 <script type="text/javascript">
@@ -569,7 +377,7 @@
 <script type="text/javascript">
 	function countChar(val) {
         var len = val.value.length;
-		var max = 30;
+		var max = 300;
         if (len >= max) {
           val.value = val.value.substring(0, max);
         } 
