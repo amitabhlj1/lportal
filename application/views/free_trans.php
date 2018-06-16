@@ -1,5 +1,4 @@
-<link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
-   <style>
+<style>
     #l_text{
         font-family: 'NTR', monospace;
         font-size: 14px;
@@ -275,7 +274,7 @@
                       <p class="help-block"><div id="err_txt" style="color:#F83A18"></div></p>
                       </div>
                      <div class="col-sm-12">
-                         <button type="button" class="btn btn-danger btn-xs form-control" onclick="getTranslation()"><b>Translate</b></button>
+                         <button type="button" class="btn btn-primary form-control" onclick="getTranslation()" style="font-size:13px; font-family:'Baloo Tamma', 'Roboto';"><b>Translate</b></button>
                      </div>
                     </div>
                   </div>

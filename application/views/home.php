@@ -236,7 +236,7 @@
             <div class="row">
               <div class="col-sm-6 col-md-8 col-lg-6">
                 <div class="callout-text font-alt">
-                  <h3 class="callout-title">Want to contact us?</h3>
+                  <h3 class="callout-title">We would like to hear you</h3>
                   <p>We are always open to interesting conversations.</p>
                 </div>
               </div>
