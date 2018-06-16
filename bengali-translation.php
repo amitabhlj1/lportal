@@ -139,7 +139,7 @@
                         <p>You can get an instant quote, submit your query or request for more information by <a href="contact.php"ss>contacting us</a>. Alternatively you can call us or email as below: <br/><br/>
 
                         Email: <a href="mailto:translation@langjobs.com">translation@langjobs.com</a> <br/>
-                        New Delhi: +91-99585-92758, +91-11-46028990 <br/>
+                        New Delhi: +91-99585-92758, +91-1146013636<br/>
                         Bangalore: +91-96867-33757<br/>Mumbai: +91-98204-50093</p>
                         <p style="margin-left:1.5in">
 			             <a href="translation-services.php">Back to Translation Services</a> | or <a href="contact.php">Contact Us</a> for more information.

@@ -1,12 +1,12 @@
 <style>
     input#index_search_box{
         background-color: transparent;
-        color: white;
+        color: #e4ff00;
         border: 1px solid;
         border-radius: 5px;
         width: 35%;
         font-size: 16px;
-        background-image: url('./assets/images/search_icon_white.png');
+        background-image: url('./assets/images/search_icon_yellow.png');
         background-repeat: no-repeat;
         background-position: -5px;
         background-size: contain;
@@ -18,16 +18,16 @@
         width: 45%;
     }
     input#index_search_box::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-        color: #fff;
+        color: #e4ff00;
         opacity: 1; /* Firefox */
     }
 
     input#index_search_box:-ms-input-placeholder { /* Internet Explorer 10-11 */
-        color: #fff;
+        color: ##e4ff00;
     }
 
     input#index_search_box::-ms-input-placeholder { /* Microsoft Edge */
-        color: #fff;
+        color: ##e4ff00;
     }
     input#index_search_btn{
         padding: 15px 2px;
@@ -76,9 +76,9 @@
                   <div class="features-icon"><span class="icon-search"></span></div>
                   <h3 class="features-title font-alt">For language professionals</h3>
                   <span style="text-align:center;">
-                     <a rel="canonical" href="<?php echo base_url() ?>SearchJob">- Search job/Language projects</a></br>
-                     <a rel="canonical" href="<?php echo base_url() ?>LangExpert">- Register Profile</a></br>
-                     <a rel="canonical" href="<?php echo base_url() ?>Blogs">- Explore other resources</a>
+                     <a rel="canonical" href="<?php echo base_url() ?>SearchJob"><i class='fa fa-hand-o-right'></i> Search job/Language projects</a></br>
+                     <a rel="canonical" href="<?php echo base_url() ?>LangExpert"><i class='fa fa-hand-o-right'></i> Register Profile</a></br>
+                     <a rel="canonical" href="<?php echo base_url() ?>Blogs"><i class='fa fa-hand-o-right'></i> Explore other resources</a>
                   </span>
                 </div>
               </div>
@@ -87,9 +87,9 @@
                   <div class="features-icon"><span class="icon-briefcase"></span></div>
                   <h3 class="features-title font-alt">For Language Recruiters</h3>
                   <span style="text-align:center;">
-                     <a rel="canonical" href="<?php echo base_url() ?>LangEmployer">- Register Company Profile</a></br>
-                     <a rel="canonical" href="<?php echo base_url() ?>LangEmployer">- Post Jobs/Language Projects</a></br>
-                     <a rel="canonical" href="<?php echo base_url() ?>LangEmployer">- Hire Best Linguists </a>
+                     <a rel="canonical" href="<?php echo base_url() ?>LangEmployer"><i class='fa fa-hand-o-right'></i> Register Company Profile</a></br>
+                     <a rel="canonical" href="<?php echo base_url() ?>LangEmployer"><i class='fa fa-hand-o-right'></i> Post Jobs/Language Projects</a></br>
+                     <a rel="canonical" href="<?php echo base_url() ?>LangEmployer"><i class='fa fa-hand-o-right'></i> Hire Best Linguists </a>
                   </span>
                 </div>
               </div>
@@ -98,9 +98,9 @@
                   <div class="features-icon"><span class="fa fa-language"></span></div>
                   <h3 class="features-title font-alt">Free Translation</h3>
                   <span style="text-align:center;">
-                     <a rel="canonical" href="<?php echo base_url() ?>Translation">- Free machine translations</a></br>
-                     <a rel="canonical" href="<?php echo base_url() ?>Translation">- Compare Translations</a></br>
-                     <a rel="canonical" href="<?php echo base_url() ?>Translation">- Text to Speech </a>
+                     <a rel="canonical" href="<?php echo base_url() ?>Translation"><i class='fa fa-hand-o-right'></i> Free machine translations</a></br>
+                     <a rel="canonical" href="<?php echo base_url() ?>Translation"><i class='fa fa-hand-o-right'></i> Compare Translations</a></br>
+                     <a rel="canonical" href="<?php echo base_url() ?>Translation"><i class='fa fa-hand-o-right'></i> Text to Speech </a>
                   </span>
                 </div>
               </div>
@@ -112,11 +112,24 @@
             <div class="col-xs-12 col-md-6 side-image" data-background="<?php echo base_url(); ?>assets/img/about.jpg"></div>
             <div class="col-xs-12 col-md-6 col-md-offset-6 side-image-text">
               <div class="row">
-                <div class="col-sm-12">
-                  <h2 class="module-title font-alt align-left">About Us</h2>
-                  <div class="module-subtitle font-serif align-left">A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.</div>
-                  <p>The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ in their grammar, their pronunciation and their most common words.</p>
-                  <p>The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary.</p>
+                <div class="col-sm-12" style="text-align:justify;">
+                  <h2 class="module-title font-alt align-left" style="margin:-130px 0 35px;">About Us</h2>
+                  <div class="module-subtitle font-serif align-left" style="margin-bottom:0px;">We are Language Yogis ! Our mission is to connect the world through languages.</div>
+                <p style="margin: 0 0 -110px;">
+                    Started in 2007, <a href="<?php echo base_url(); ?>">LangJobs.com</a> is a leading global language community portal to connect linguists, language jobs seekers, freelance language experts, translators, language teachers, professionals with probable employers and project managers. We have <a rel="canonical" href="<?php echo base_url(); ?>Language_experts/cards">100,000+ language professionals</a> connected through this portal. <br/> 
+                    
+                    A Language professional can search jobs or translation projects or interpretation assignments etc and apply after <a href="<?php echo base_url(); ?>LangExpert">registering</a> and making their profile on this portal - and its free. <br>
+                    
+                    An employer, recruiter or language project manager can post unlimited free language jobs or language projects after <a href="<?php echo base_url(); ?>LangEmployer">registering on the portal as Recruiter</a>. They can also view the profiles of limited applied linguist for free. Please <a href="<?php echo base_url() ?>contact.php">contact us</a> if you require any help or want a demo. <br>
+                    
+                    <a href="<?php echo base_url(); ?>">LangJobs.com</a> believes in knowledge sharing and growing together and recently added Language Blogs sections open for global language community to contribute and publish their articles and blogs related to various languages and culture. <br>Our sister concern <a href="http://langecole.com">LangÉcole®</a> is a leading brand in Language Training. <br>
+                    
+                    As AI and cloud technologies is playing roles, together with <a href="http://langecole.com">LangÉcole®</a> we are aiming to encourage and come up with various research areas knowledge sharing through our portals.  <br> 
+                    
+                    We have also added a new section, <a href="<?php echo base_url() ?>Translation">Free Translation</a> on this portal for the larger benefit of language professional and language translators in particular. In this section, we brought together the results of three difference cloud based machine translation tools to compare the translation. This can be very useful for a freelance translator while working on translation projects.<br>
+                    
+                    <a href="<?php echo base_url() ?>Translation">Free Machine Translation Compare tool</a> can be also useful for a short text translation users, who has quick need to get a vague idea about the topic.
+                </p>
                 </div>
               </div>
             </div>
@@ -133,7 +146,7 @@
           </div>
           <div class="container">
             <div class="row">
-              <div class="col-sm-12">
+              <div class="col-sm-12" style="display:none;">
                 <ul class="filter font-alt" id="filters">
                   <li><a class="current wow fadeInUp" href="#" data-filter="*">All</a></li>
                   <li><a class="wow fadeInUp" href="#" data-filter=".portal" data-wow-delay="0.2s">Job Portal</a></li>
@@ -306,10 +319,12 @@
             </div>
           </div>
         </section>
+        <?php if($grubs){ ?>
         <section class="module bg-dark-60 pt-0 pb-0 parallax-bg testimonial" data-background="<?php echo base_url() ?>assets/img/testimonial.jpg">
           <div class="testimonials-slider pt-140 pb-140">
             <ul class="slides">
-             <?php foreach($grubs as $g){ ?>
+             <?php
+            foreach($grubs as $g){ ?>
               <li>
                 <div class="container">
                   <div class="row">
@@ -328,3 +343,4 @@
             </ul>
           </div>
         </section>
+        <?php } ?>

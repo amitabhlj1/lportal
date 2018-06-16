@@ -173,7 +173,7 @@
     <div class="row">
       <div class="col-sm-6 col-md-8 col-lg-6">
         <div class="callout-text font-alt">
-          <h3 class="callout-title">LangJobs Free Translation</h3>
+          <h3 class="callout-title">Free Cloud Based Translation</h3>
           <p>Translate and Compare. Achieve accuracy.</p>
         </div>
       </div>
@@ -489,8 +489,8 @@
                   <div class='card' data-toggle-class='flipped'>
                     <div class='card-front'>
                       <div class='layer'>
-                        <h1>For Professional Translation Services.</h1>
-                        <span class="small" style="border:1px solid #d4cd96;"><center>Click Here</center></span>
+                        <h1>For Large Volume Machine Translation or Professional Manual Translation Solutions</h1>
+                        <span class="small" style="border:1px solid #d4cd96;"><center>Contact Us</center></span>
                         <center><img src="<?php echo base_url() ?>assets/images/logo.png" width="30%" /></center>
                         <div class='corner'></div>
                         <div class='corner'></div>

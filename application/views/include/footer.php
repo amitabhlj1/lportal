@@ -4,7 +4,7 @@
             <div class="col-sm-3">
                 <div class="widget">
                     <h5 class="widget-title font-alt">About Langjobs</h5>
-                    <p>We are Language Yogis, Our mission is to unite the world through language.</p>
+                    <p>We are Language Yogis ! Our mission is to connect the world through languages.</p>
                     <p>Email: <a href="mailto:info@langjobs.com">info@langjobs.com</a></p>
                     <a href="<?php echo base_url(); ?>contact.php" style="color:#fff;"><button class="btn btn-lg" style="background-color:red;">CONTACT US</button></a>
                 </div>
@@ -22,7 +22,7 @@
             </div>
             <div class="col-sm-3">
                 <div class="widget">
-                    <h5 class="widget-title font-alt">Linked Links</h5>
+                    <h5 class="widget-title font-alt">Related Portals</h5>
                     <ul class="icon-list">
                         <li><a href="http://langecole.com/">Langecole</a> - One of a kind Institute, which deals in language teaching and training.</li>
                         <li><a href="https://www.liveecole.com/">Liveecole</a> - A P2P Language learning web portal.</li>

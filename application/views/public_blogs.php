@@ -26,8 +26,8 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-6 col-sm-offset-3">
-        <h2 class="module-title font-alt">Blog Grid</h2>
-        <div class="module-subtitle font-serif">Discover something new</div>
+        <h2 class="module-title font-alt">A Language Community Blog</h2>
+        <div class="module-subtitle font-serif">Lets share and learn - All about Language and Culture</div>
       </div>
     </div>
   </div>

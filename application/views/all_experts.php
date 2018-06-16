@@ -51,8 +51,8 @@
     <div class="row">
       <div class="col-sm-6 col-md-8 col-lg-6">
         <div class="callout-text font-alt">
-          <h3 class="callout-title">LangJobs Language Experts</h3>
-          <p>End of your search for language experts</p>
+          <h3 class="callout-title">Registered Language Experts</h3>
+          <p>End of your search for linguists, translators, interpreters or language professionals.</p>
         </div>
       </div>
       <div class="col-sm-6 col-md-4 col-lg-2">
