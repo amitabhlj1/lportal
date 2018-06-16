@@ -71,7 +71,7 @@
                             <input type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="15" placeholder="Enter Mobile Number" name="contact_phone" id="contact_phone" class="form-control" required><br/>
                             <input type="email" placeholder="Enter Email" name="contact_email" id="contact_email" class="form-control" required><br/>
                             <input type="text" placeholder="Enter Website" name="contact_url" id="contact_url" class="form-control"><br/>
-                            <input type="text" placeholder="Enter Subject" name="contact_subject" id="contact_subject" class="form-control" required><br/>
+                            <input type="text" placeholder="Enter Subject" name="contact_subject" id="contact_subject" class="form-control"><br/>
                             <textarea placeholder="Enter Message" id="contact_message" name="contact_message" rows="10" cols="45" class="form-control" required></textarea><br/>
                             <input type="submit" name="submit" id="submit" class="btn btn-primary btn-xs" value="Send" tabindex="6"/>
                         </form>

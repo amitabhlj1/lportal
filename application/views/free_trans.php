@@ -423,7 +423,7 @@
                     <div class="form-group">
                       <p class="help-block"><div id="msg_succ" style="margin-left:200px;color:#44e028"></div></p>
                       <div class="col-sm-12">
-                        <textarea id="l_text" name="l_text" class="form-control msg-input" placeholder="Please Type your text here..." rows="6" cols="70"></textarea>
+                        <textarea id="l_text" name="l_text" class="form-control msg-input" placeholder="Please Type your text here..." rows="6" cols="70" onkeyup="countChar(this)"></textarea>
                       <p id='rev_char_count'></p>
                       <p class="help-block"><div id="err_txt" style="color:#F83A18"></div></p>
                       </div>
@@ -567,26 +567,18 @@
 </script>
 
 <script type="text/javascript">
-	$('#l_text').on('input propertychange', function() {
-		var max_len = 300;
-		var len = $(this).val().trim().length; 
-		len = max_len -len;
-		$('#rev_char_count').text(len > 0 ? (len + ' character' + (len == 1 ? '' : 's')  + ' remaining.') : '');
-		
-		// restrict to max length
-		$(this).val($(this).val().substring(0, max_len));
-	});
-	
-	$('#b_l_text').on('input propertychange', function() {
-		var max_len = 300;
-		var len = $(this).val().trim().length; 
-		len = max_len -len;
-		$('#b_rev_char_count').text(len > 0 ? (len + ' character' + (len == 1 ? '' : 's')  + ' remaining.') : '');
-		
-		// restrict to max length
-		$(this).val($(this).val().substring(0, max_len));
-	});
-	
+	function countChar(val) {
+        var len = val.value.length;
+		var max = 30;
+        if (len >= max) {
+          val.value = val.value.substring(0, max);
+        } 
+		else
+		{
+		  var charBalance = max - len;
+          $('#rev_char_count').text(charBalance + ' characters remaing.');
+        }
+      }
 </script>
 
 <script>
@@ -630,8 +622,33 @@ function gooleTrans()
 		data: {l_text:l_text,flng:flng,tlng:tlng},
 		success: function(res)
 		{
-			//alert('IN goo '+res);	return false;		
-			$("#googleresult").html(res);								
+			
+			$("#googleresult").html(res);
+			
+			// reverce translation
+			rev_gooleTrans(res,tlng,flng);
+		},
+		error: function (request, status, error) 
+		{
+			alert(request.responseText);
+		}
+	});
+}
+
+function rev_gooleTrans(l_text,tlng,flng)
+{
+	$.ajax({
+		type: "POST",
+		url: baseurl+ "Translation/goTranslation",
+		dataType: 'html',
+		data: {l_text:l_text,flng:tlng,tlng:flng},
+		success: function(res)
+		{
+			//alert('IN goo '+res);	return false;	
+			//alert('IN goo '+res['fir'] + ' == '+ res['sec']);	return false;	
+			
+			$("#googleresult2").html(res);
+			
 		},
 		error: function (request, status, error) 
 		{
@@ -654,7 +671,30 @@ function bingTrans()
 		success: function(res)
 		{
 			//alert('IN BING '+res);	return false;		
-			$("#bingresult").html(res);								
+			$("#bingresult").html(res);	
+			
+			// reverce translation
+			rev_bingTrans(res,tlng,flng);
+		},
+		error: function (request, status, error) 
+		{
+			alert(request.responseText);
+		}
+	});
+}
+
+function rev_bingTrans(l_text,tlng,flng)
+{
+	$.ajax({
+		type: "POST",
+		url: baseurl+ "Translation/bingTranslation",
+		dataType: 'html',
+		data: {l_text:l_text,flng:tlng,tlng:flng},
+		success: function(res)
+		{
+			//alert('IN BING '+res);	return false;		
+			$("#bingresult2").html(res);	
+			
 		},
 		error: function (request, status, error) 
 		{
@@ -663,40 +703,71 @@ function bingTrans()
 	});
 }
 	
-	function yandexTrans()
-	{
-		var textAPI = $("#l_text").val();
-		//var flng   = $("#flng").val();
-		var langAPI   = $("#tlng").val();
-		
-		var url = "https://translate.yandex.net/api/v1.5/tr.json/translate",
-   		// keyAPI = "trnsl.1.1.20130922T110455Z.4a9208e68c61a760.f819c1db302ba637c2bea1befa4db9f784e9fbb8";
+function yandexTrans()
+{
+	var textAPI = $("#l_text").val();
+	var flng   = $("#flng").val();
+	var langAPI   = $("#tlng").val();
+
+	var url = "https://translate.yandex.net/api/v1.5/tr.json/translate",
+	// keyAPI = "trnsl.1.1.20130922T110455Z.4a9208e68c61a760.f819c1db302ba637c2bea1befa4db9f784e9fbb8";
+
+	keyAPI = "trnsl.1.1.20180615T084040Z.8ffdb797de295596.f1ed5333bc5248f3b9fe4fbacb0f598511c11d7a";
+	var xhr = new XMLHttpRequest(),
 	
-		keyAPI = "trnsl.1.1.20180615T084040Z.8ffdb797de295596.f1ed5333bc5248f3b9fe4fbacb0f598511c11d7a";
-		var xhr = new XMLHttpRequest(),
-        //textAPI = document.querySelector('#source').value,
-		
-		//textAPI = 'how are you',
-        //langAPI =  'ru'; //document.querySelector('#lang').value
-        data = "key="+keyAPI+"&text="+textAPI+"&lang="+langAPI;
-		xhr.open("POST",url,true);
-		xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-		xhr.send(data);
-		xhr.onreadystatechange = function() {
-			if (this.readyState==4 && this.status==200) {
-				var res = this.responseText;
-				//document.querySelector('#json').innerHTML = res;
-				var json = JSON.parse(res);
-				if(json.code == 200) {
-					//document.querySelector('#output').innerHTML = json.text[0];
-					//alert('Yandex:  '+json.text[0]);
-					$("#yandexresult").html(json.text[0]);
-				}
-				else {
-					$("#yandexresult").html('yandex doesnot support this language');
-					//document.querySelector('#output').innerHTML = "Error Code: " + json.code;
-				}
+	//langAPI =  'ru'; //document.querySelector('#lang').value
+	data = "key="+keyAPI+"&text="+textAPI+"&lang="+langAPI;
+	xhr.open("POST",url,true);
+	xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	xhr.send(data);
+	xhr.onreadystatechange = function() {
+		if (this.readyState==4 && this.status==200) {
+			var res = this.responseText;
+			//document.querySelector('#json').innerHTML = res;
+			var json = JSON.parse(res);
+			if(json.code == 200) {
+				//document.querySelector('#output').innerHTML = json.text[0];
+				//alert('Yandex:  '+json.text[0]);
+				$("#yandexresult").html(json.text[0]);
+				
+				// reverse translate
+				rev_yandexTrans(textAPI,langAPI,flng);
+			}
+			else {
+				$("#yandexresult").html('yandex doesnot support this language');
+				//document.querySelector('#output').innerHTML = "Error Code: " + json.code;
 			}
 		}
 	}
+}
+	
+function rev_yandexTrans(textAPI,langAPI,flng)
+{
+	var url = "https://translate.yandex.net/api/v1.5/tr.json/translate",
+
+	keyAPI = "trnsl.1.1.20180615T084040Z.8ffdb797de295596.f1ed5333bc5248f3b9fe4fbacb0f598511c11d7a";
+	var xhr = new XMLHttpRequest(),
+
+	data = "key="+keyAPI+"&text="+textAPI+"&lang="+flng;
+	xhr.open("POST",url,true);
+	xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	xhr.send(data);
+	xhr.onreadystatechange = function() {
+		if (this.readyState==4 && this.status==200) {
+			var res = this.responseText;
+			//document.querySelector('#json').innerHTML = res;
+			var json = JSON.parse(res);
+			if(json.code == 200) {
+				//document.querySelector('#output').innerHTML = json.text[0];
+				//alert('Yandex:  '+json.text[0]);
+				$("#yandexresult2").html(json.text[0]);
+				
+			}
+			else {
+				$("#yandexresult2").html('yandex doesnot support this language');
+				//document.querySelector('#output').innerHTML = "Error Code: " + json.code;
+			}
+		}
+	}
+}
 </script>

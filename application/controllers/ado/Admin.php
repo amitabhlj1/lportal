@@ -119,8 +119,8 @@ class Admin extends CI_Controller
 	{	
 		if( !$this->session->userdata('admin_id') )
 			redirect('ado/Admin/logout','refresh'); 
-		
-		$data['experts']    = $this->My_model->selectRecord('lang_expert','*','','','');
+		$limit = 2000;
+		$data['experts']    = $this->My_model->selectRecord('lang_expert','*','','',$limit);
 		//echo "<pre />"; print_r($data); die();
 		
 		$this->load->view('admin/include/header'); 
@@ -328,6 +328,19 @@ class Admin extends CI_Controller
 				$this->load->view('admin/login',$data);
 				$this->load->view('admin/include/footer');			
 		}
+	}
+	
+	function enquiry()
+	{	
+		if( !$this->session->userdata('admin_id') )
+			redirect('ado/Admin/logout','refresh');       
+		
+		$data['enquiries'] = $this->My_model->selectRecord('visitor_query','*','','','');
+		//echo "<pre />"; print_r($data); die();
+		
+		$this->load->view('admin/include/header'); 
+		$this->load->view('admin/enquiry',$data); 
+	    $this->load->view('admin/include/footer');		 	
 	}
 	
 	public function forgotPassword()

@@ -97,6 +97,13 @@
 							}]
 						});
 			
+			var table = $('#all_enq').DataTable({
+						   'aoColumnDefs': [{
+								'bSortable': false,
+								'aTargets': ['nosort']
+							}]
+						});
+			
         } );
 	</script>
 	  </body>
