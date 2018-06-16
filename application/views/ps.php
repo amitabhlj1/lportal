@@ -1,3 +1,11 @@
+<style>
+    a{
+        color: blue;
+    } 
+    h5{
+        color: black;
+    }
+</style>
 <div class="main">&nbsp;</div><br/><br/>
 <section class="module-small bg-dark" data-background="<?php echo base_url(); ?>assets/images/small_sections/blog.jpg">
   <div class="container">

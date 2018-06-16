@@ -46,14 +46,22 @@
         font-weight: bold;
     }
     .titan-title-size-1, .titan-title-size-2{
-         text-shadow: 0 0 25px #FFF; 
+        text-shadow: 0 0 25px #FFF; 
         font-size: 25px;
+    }
+    .main_title{
+        font-size:4em;   
+    }
+    @media screen and (max-width: 480px) {
+        .main_title {
+            font-size: 3em;
+        }
     }
 </style>
 <section class="home-section home-parallax home-fade home-full-height bg-dark-60 agency-page-header" id="home" data-background="<?php echo base_url() ?>assets/images/LJ2.jpg">
 <div class="titan-caption">
   <div class="caption-content">
-    <div class="font-alt mb-30 titan-title-size-1" style="font-size:4em;"> World's No 1. Language Specific Job Portal </div>
+    <div class="font-alt mb-30 titan-title-size-1 main_title"> World's No 1. Language Specific Job Portal </div>
     <div class="font-alt mb-40 titan-title-size-2" style="display:none;"> We Provide <br/><span class="rotate"> Career Services | Translation Services | Transcription Services | Language Specific Services</span>
     </div>
       <form autocomplete="off" action="<?php echo base_url() ?>SearchJob/retrieve_jobs" method="post">

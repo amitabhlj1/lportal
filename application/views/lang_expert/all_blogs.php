@@ -54,14 +54,18 @@
                         </thead>
                         <tbody>
                             <?php
-                                foreach($blogs as $b){ ?>
-                                    <tr>
-                                        <td><b><?php echo $b->topic; ?></b></td>
-                                        <td><?php echo $b->keywords; ?></td>
-                                        <td><?php echo mb_substr($b->article, 0, 150, 'utf-8') ?></td>
-                                        <td><a href="" class="btn btn-xs btn-info"><i class="fa fa-eye"></i></a> &nbsp; <a href="<?php echo base_url() ?>Blogs/edit/<?php echo $b->id; ?>" class="btn btn-xs btn-success"><i class="fa fa-pencil"></i></a></td>
-                                    </tr>   
+                                if($blogs){
+                                    foreach($blogs as $b){ ?>
+                                        <tr>
+                                            <td><b><?php echo $b->topic; ?></b></td>
+                                            <td><?php echo $b->keywords; ?></td>
+                                            <td><?php echo mb_substr($b->article, 0, 150, 'utf-8') ?></td>
+                                            <td><a href="" class="btn btn-xs btn-info"><i class="fa fa-eye"></i></a> &nbsp; <a href="<?php echo base_url() ?>Blogs/edit/<?php echo $b->id; ?>" class="btn btn-xs btn-success"><i class="fa fa-pencil"></i></a></td>
+                                        </tr>   
                             <?php
+                                    }
+                                } else {
+                                    echo "<tr><td colspan='4' style='text-align:center;'>You have not written any blogs yet!</td></tr>";
                                 }
                             ?>
                         </tbody>
