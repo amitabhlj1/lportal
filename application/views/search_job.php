@@ -142,11 +142,11 @@
                                                 <?php 
                                                     if($j->j_type == 1){ ?>
 <!--                                                    <button class="btn btn-xs btn-success"><i class="fa fa-info"></i></button>-->
-                                                    <a rel="canonical" target="_blank" href="<?php echo base_url() ?>searchjob/jobdesc/<?php echo $j->id; ?>"><button class="btn btn-xs btn-info"><i class="fa fa-eye"></i></button></a>
+                                                    <a rel="canonical" target="_blank" href="<?php echo base_url() ?>SearchJob/jobdesc/<?php echo $j->id; ?>"><button class="btn btn-xs btn-info"><i class="fa fa-eye"></i></button></a>
                                                 <?php
                                                     } else { ?>
 <!--                                                     <button class="btn btn-xs btn-success"><i class="fa fa-info"></i></button>-->
-                                                     <a rel="canonical" target="_blank" href="<?php echo base_url() ?>searchproject/jobdesc/<?php echo $j->id; ?>"><button class="btn btn-xs btn-info"><i class="fa fa-eye"></i></button></a>  
+                                                     <a rel="canonical" target="_blank" href="<?php echo base_url() ?>SearchProject/jobdesc/<?php echo $j->id; ?>"><button class="btn btn-xs btn-info"><i class="fa fa-eye"></i></button></a>  
                                                 <?php
                                                     } 
                                                 ?>

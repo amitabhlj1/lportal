@@ -393,12 +393,7 @@
                             <h3 class="features-title font-alt">Desired Profile</h3>
                             <p><?php 
                                     if($jd->skills){
-                                        echo "<b>Skills:</b>";
-                                        foreach(explode(',', $jd->skills) as $s){
-                                            $sk = $this->My_model->selectRecord('job_skills', '*', array('id' => $s));
-                                            echo $sk[0]->name.", ";
-                                        }
-                                        echo "<br/>";
+                                        echo $jd->skills;
                                     }   
                                 ?></p>
                         </div>
