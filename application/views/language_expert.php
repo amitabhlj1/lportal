@@ -130,11 +130,10 @@
 			data: {first_name:first_name,last_name:last_name,email:email,password:password,country:country},
 			success: function(res)
 			{
-				//alert(res);	return false;
 				if(res == '-1')
 					$("#registerResponse").html('This email id is already registerd with us, if this is your email id please login.');
 				else
-					$("#registerResponse").html('Thank you,We have send a verification email to verify your email id.');
+					$("#registerResponse").html('Thank you for registering with us, We will send you a verification mail shortly');
 			},
 			error: function (request, status, error) 
 			{
@@ -179,7 +178,7 @@
 			{
 				//alert(res);	return false;
 				if(res == '-1')
-					$("#loginResponse").html('Your registration pending,Please wait');
+					$("#loginResponse").html('Your account will be verified soon, Please wait');
 				else if(res == '0')
 					$("#loginResponse").html('Please verify your emai id');
 				else if(res == '2')
@@ -214,11 +213,12 @@
 			data: {first_name:user.firstName,last_name:user.lastName,email:user.emailAddress,country:user.location.country.code,image:user.pictureUrl,	social_id_no:user.id,social_name:'l'},
 			success: function(res)
 			{
+//                alert(res);
 				if(res == '-1')
 					$("#loginResponse").html('Something went wrong,Please try again later');
-				else 
+				else
+                    $("#loginResponse").html('Awesome, Logging you in now...');
 					window.location.href = baseurl+'expert';
-                    //$("#loginResponse").html(res);
 			},
 			error: function (request, status, error) 
 			{

@@ -57,8 +57,11 @@ function recoverPassword()
 		success: function(res)
 		{
 			//console.log(res);
-			alert(res);	//return false;		
-			//$("#comm_app").html(res);								
+			//alert(res);	//return false;		
+			//$("#comm_app").html(res);		
+            if(res=='2'){
+                alert('Please Check your mail');
+            }
 		},
 		error: function (request, status, error) 
 		{

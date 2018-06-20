@@ -59,24 +59,7 @@ class LanguageExpert_model extends CI_Model {
 		}
 				
     }
-	/*
-	** user email verify 
-	** @param - user code
-	*/	
-	public function verifyEmail($code)
-    {	 	
-		$where = array('code' => $code);			
-		$data  = array('email_verify' => 1);
-		
-		$this->db->where($where);
-        $this->db->update('lang_expert', $data);
-		$iRes = $this->db->affected_rows();
-		//echo "RRRE =  ".$iRes;  die('kk');
-	    return $iRes;
-    }
-    /*
-    ** Change password of language expert
-    */
+	
 	public function change_password($data)
     {		
 		$where = array('id' => $this->session->userdata('admin_id'));

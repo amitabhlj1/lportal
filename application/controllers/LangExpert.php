@@ -7,7 +7,7 @@ class LangExpert extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->library('session', 'email');
+		$this->load->library('session');
 		$this->load->helper(array('form', 'url'));
 		$this->load->model('My_model');	
 		$this->load->model('LanguageExpert_model');		
@@ -43,6 +43,9 @@ class LangExpert extends CI_Controller
 	*/
 	public function forgotPassword()
 	{
+        $title['title_of_page'] = "";
+        $title['description'] = "";
+        $title['keywords'] ="";
 		$title['login'] = 1;
         $this->load->view('include/header',$title);
 		$this->load->view('expert_forgotpsw');
@@ -161,54 +164,10 @@ class LangExpert extends CI_Controller
 				'created' => $today
 				);
 			$iInserId = $this->My_model->insertRecord('lang_expert',$data);
-//			echo $iInserId;
+			echo $iInserId;
 			// send verification mail
-            $this->load->library('email');
-			$to_email = $this->input->post('email'); 
-			$config['mailtype'] = 'html';
-			$this->email->initialize($config);
-			
-			$subject = 'Langjobs Registration';
-			$message = "Dear ".$this->input->post('first_name').",<br /> <br />
-						Please click on the below activation link to verify your email address.<br /><br />
-						<br />"
-						.base_url().'LangExpert/verifyEmail/' .$code . "<br />							
-						<br /><br /><b>Thanks & Regards</b>, <br /> LangJobs Team";
-			
-			$this->email->from('admin@langjobs.com', 'LangJobs.com');
-			$this->email->to($to_email); 
-					
-			$this->email->subject($subject);
-			$this->email->message($message);	
-			$this->email->send();										
-				
-			echo "1";
-            
 		}
 	}
-    
-    /*
-	**  verify register user
-	**	@param - user code
-	*/
-	public function verifyEmail($code)
-	{		
-		die('JJ');
-		$bVerify = $this->LanguageExpert_model->verifyEmail($code);
-		//echo $bVerify;
-		if($bVerify)  // send to login section
-		{						
-			//header("Location: $strUrl");
-			//$this->session->set_flashdata('mail_msg','<div class="alert alert-success text-center">Email verified,Please login!</div>');
-			redirect('User/login/lg');
-		}
-		else     //
-		{
-			redirect('User/login/lg');
-			//$this->session->set_flashdata('mail_msg','<div class="alert alert-success text-center">Email verified,Please login!</div>');
-		}
-	}
-    
 	/*
 	** register and logging a new language expert using linkedin javascript
 	** @param - none
@@ -259,9 +218,9 @@ class LangExpert extends CI_Controller
             );
             $done = $this->My_model->insertRecord('lang_expert',$insert_data);
         }
-        if($done==1 || $done==0){
+        if($this->db->affected_rows() >=0){
+          //return true; //add your code here
             $retrieveid = $this->My_model->selectRecord('lang_expert', '*', $where);
-            //$exp_id = $retrieveid[0]->id;
             $aSess = array(		
 					'exp_id' => $retrieveid[0]->id,
 					'first_name' => $retrieveid[0]->first_name,
@@ -272,8 +231,9 @@ class LangExpert extends CI_Controller
 					);
 			$this->session->set_userdata($aSess);
             echo '1';
-        } else {
-            echo '-1';
+        }else{
+          //return false; //add your your code here
+             echo '-1';
         }
     }
 	/*
