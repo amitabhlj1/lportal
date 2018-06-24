@@ -460,13 +460,13 @@
            <div class="col-md-12 col-xs-12 col-md-12 col-lg-12">
               <?php
                     if(!$this->session->userdata('exp_id')){
-                        echo "<a href='".base_url("langexpert")."' class='btn btn-primary btn-xs form-control'><b>Please login as a language expert to apply to this Job</b></a>";
+                        echo "<a href='".base_url("Langexpert")."' class='btn btn-primary btn-xs form-control'><b>Please login as a language expert to apply to this Job</b></a>";
                     } else {
                         if(is_array($chk)){
                             echo "<button class='btn btn-warning btn-xs form-control disabled'>You have already applied to this job!</button>";
                         } else {
                             //sending parameters jobid then companyid
-                            echo "<a href='".base_url()."expert/apply_proj/".$jd->id."/".$comp->id."' class='btn btn-primary btn-xs form-control'>Apply to this job</a>";
+                            echo "<a href='".base_url()."Expert/apply_proj/".$jd->id."/".$comp->id."' class='btn btn-primary btn-xs form-control'>Apply to this job</a>";
                         }
                     }
                ?>

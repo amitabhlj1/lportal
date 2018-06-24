@@ -170,7 +170,7 @@
                             echo "<button class='btn btn-warning btn-xs form-control disabled'>You have already applied to this job!</button>";
                         } else {
                             //sending parameters jobid then companyid
-                            echo "<a href='".base_url()."expert/apply_job/".$jd->id."/".$comp->id."' class='btn btn-primary btn-xs form-control'>Apply to this job</a>";
+                            echo "<a href='".base_url()."Expert/apply_job/".$jd->id."/".$comp->id."' class='btn btn-primary btn-xs form-control'>Apply to this job</a>";
                         }
                     }
                ?>
