@@ -178,7 +178,7 @@
 			{
 				//alert(res);	return false;
 				if(res == '-1')
-					$("#loginResponse").html('Your account will be verified soon, Please wait');
+					$("#loginResponse").html('Please Come back later, Admin is currently processing your account');
 				else if(res == '0')
 					$("#loginResponse").html('Please verify your emai id');
 				else if(res == '2')
