@@ -13,16 +13,6 @@ class LangExpert extends CI_Controller
 		$this->load->model('My_model');	
 		$this->load->model('LanguageExpert_model');	
         
-        $config['protocol'] = 'smtp';
-        $config['charset'] = 'utf-8';
-        $config['wordwrap'] = TRUE;
-        $config['smtp_host'] = "tls://email-smtp.us-east-1.amazonaws.com"; // eg. tls://email-smtp.eu-west-1.amazonaws.com
-        $config['smtp_user'] = "AKIAIOJTHBVQVH6TWPKQ";
-        $config['smtp_pass'] = "AkrowXorCgcGBIpkfOR/l96OrhGzZQIVhJwgNUZrN4Ym";
-        $config['smtp_port'] = "465";
-        $config['smtp_timeout'] = "20";
-        $config['crlf'] = "\r\n";
-        $config['mailsender'] = "admin@langjobs.com";
 	}
 	
 	/*
@@ -178,6 +168,16 @@ class LangExpert extends CI_Controller
 			$iInserId = $this->My_model->insertRecord('lang_expert',$data);
 			// send verification mail
             if($iInserId){
+                $config['protocol'] = 'smtp';
+                $config['charset'] = 'utf-8';
+                $config['wordwrap'] = TRUE;
+                $config['smtp_host'] = "tls://email-smtp.us-east-1.amazonaws.com"; // eg. tls://email-smtp.eu-west-1.amazonaws.com
+                $config['smtp_user'] = "AKIAIOJTHBVQVH6TWPKQ";
+                $config['smtp_pass'] = "AkrowXorCgcGBIpkfOR/l96OrhGzZQIVhJwgNUZrN4Ym";
+                $config['smtp_port'] = "465";
+                $config['smtp_timeout'] = "20";
+                $config['crlf'] = "\r\n";
+                $config['mailsender'] = "admin@langjobs.com";
                 $this->email->initialize($config);
                 $this->email->set_mailtype("html");
                 $this->email->set_newline("\r\n");
