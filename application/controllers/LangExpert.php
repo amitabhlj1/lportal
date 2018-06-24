@@ -193,6 +193,7 @@ class LangExpert extends CI_Controller
                 $this->email->from('admin@langjobs.com','LangJobs.com');
                 $this->email->subject($subject);
                 $this->email->message($message);
+                $this->email->send();
                 echo "1";    
             } else {
                 echo "-1";
