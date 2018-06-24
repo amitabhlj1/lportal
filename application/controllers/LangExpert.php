@@ -8,9 +8,21 @@ class LangExpert extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->library('session');
+        $this->load->library('email');
 		$this->load->helper(array('form', 'url'));
 		$this->load->model('My_model');	
-		$this->load->model('LanguageExpert_model');		
+		$this->load->model('LanguageExpert_model');	
+        
+        $config['protocol'] = 'smtp';
+        $config['charset'] = 'utf-8';
+        $config['wordwrap'] = TRUE;
+        $config['smtp_host'] = "tls://email-smtp.us-east-1.amazonaws.com"; // eg. tls://email-smtp.eu-west-1.amazonaws.com
+        $config['smtp_user'] = "AKIAIOJTHBVQVH6TWPKQ";
+        $config['smtp_pass'] = "AkrowXorCgcGBIpkfOR/l96OrhGzZQIVhJwgNUZrN4Ym";
+        $config['smtp_port'] = "465";
+        $config['smtp_timeout'] = "20";
+        $config['crlf'] = "\r\n";
+        $config['mailsender'] = "admin@langjobs.com";
 	}
 	
 	/*
@@ -164,9 +176,51 @@ class LangExpert extends CI_Controller
 				'created' => $today
 				);
 			$iInserId = $this->My_model->insertRecord('lang_expert',$data);
-			echo $iInserId;
 			// send verification mail
+            if($iInserId){
+                $this->email->initialize($config);
+                $this->email->set_mailtype("html");
+                $this->email->set_newline("\r\n");
+
+                $subject = 'LangJobs Account Verification';
+                $message = "Dear ".$this->input->post('first_name').",<br /> <br />
+                            Please click on the below activation link to verify your email address.<br /><br />
+                            <br />"
+                            .base_url().'LangExpert/verifyEmail/' .$code . "<br />							
+                            <br /><br /><b>Thanks & Regards</b>, <br /> Langjobs Team";
+
+                $this->email->to($this->input->post('email'));
+                $this->email->from('admin@langjobs.com','LangJobs.com');
+                $this->email->subject($subject);
+                $this->email->message($message);
+                echo "1";    
+            } else {
+                echo "-1";
+            }
+            
 		}
+	}
+    /*
+	**  verify register user
+	**	@param - user code
+	*/
+	public function verifyEmail($code)
+	{	
+        $where = array('code' => $code);			
+		$data  = array('email_verify' => 1);
+        
+        $this->My_model->updateRecord('lang_expert', $data, $where);
+        if($this->db->affected_rows() >=0){
+           echo "<script>
+                    alert('Awesome! Your account is verified successfully.'); 
+                    window.location.href = '".base_url('LangExpert')."';
+                </script>"; 
+        } else {
+            echo "<script>
+                    alert('Oops! Something went wrong. Try again later / contact us'); 
+                    window.location.href = '".base_url('LangExpert')."';
+                </script>"; 
+        }
 	}
 	/*
 	** register and logging a new language expert using linkedin javascript
