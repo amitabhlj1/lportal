@@ -30,4 +30,6 @@
 + Home Page > For Language Professionals > For Language Recruiters section => "-" ke jagah koi  - Showing Finger direction kind icons use kar sakte ho.
 - pictures of services
 + Top Menu mein Services se list hata dena...
+- Login Page pr countries laane hai
+- Langemployer, forgot pass etc pr mail function likhna hai
 
