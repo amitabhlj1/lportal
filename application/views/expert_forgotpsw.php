@@ -60,7 +60,7 @@ function recoverPassword()
 			//alert(res);	//return false;		
 			//$("#comm_app").html(res);		
             if(res=='2'){
-                alert('Please Check your mail');
+                alert('Recovery mail sent. Please follow the steps in the email to recover your password!');
             }
 		},
 		error: function (request, status, error) 

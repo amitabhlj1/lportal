@@ -24,8 +24,9 @@ class LangExpert extends CI_Controller
         $title['description'] = "";
         $title['keywords'] ="";
 		$title['login'] = 1;
+        $data['country'] = $this->My_model->selectRecord('country', '*', '','');
         $this->load->view('include/header',$title);
-		$this->load->view('language_expert');
+		$this->load->view('language_expert',$data);
         $this->load->view('include/footer');
 	}
 	
@@ -81,7 +82,7 @@ class LangExpert extends CI_Controller
 		else
 			echo '0';    // error user not exist
 		
-		echo "<pre />";print_r($aResult); die();
+		//echo "<pre />";print_r($aResult); die();
 						
 	}
 	

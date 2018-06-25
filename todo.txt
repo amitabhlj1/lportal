@@ -32,4 +32,12 @@
 + Top Menu mein Services se list hata dena...
 - Login Page pr countries laane hai
 - Langemployer, forgot pass etc pr mail function likhna hai
+- add spaces in about us (Home page)
+- Services images
+- Our expertise -> change color to green
+- Jobs result change into cards. 2 cards in a row like quickr -> Show everything from table leaving dates.
+- language expert -> change -> show new experts first
+- Search resumes in Langemployer -> manage the number of resumes according to plan
+- admin panel -> show date of registeration
+- let the expert login. and update profile
 

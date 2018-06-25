@@ -38,7 +38,11 @@
 				<label class="sr-only" for="name">Country</label>
 				<select class="form-control" id="country" name="country">
 					<option value=''>select country</option>
-					<option value='1'>India</option>
+					<?php
+                        foreach($country as $c){
+                            echo "<option value='".$c->id."'>".$c->c_name."</option>";
+                        }
+                    ?>
 				</select>
 				<p class="help-block text-danger"></p>
 		  	</div>
