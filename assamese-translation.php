@@ -22,7 +22,7 @@
 
     <meta name="keyphrase" content="assamese language translations, assamese to english language translations, English to assamese translation, native assamese translation, native assamese translators, native assamese translation service, assamese translation service, assamese legal interpreter, assamese interpretation service, English to assamese interpreter service.">
 
-<meta name="abstract" content="assamese language translators, assamese translation service, assamese legal interpreter, assamese interpretation service, English to assamese interpreter service, translation Vendors, Language Translation Services">
+    <meta name="abstract" content="assamese language translators, assamese translation service, assamese legal interpreter, assamese interpretation service, English to assamese interpreter service, translation Vendors, Language Translation Services">
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <meta name="revisit-after" content="1 days"/>
     <meta name="robots" content="index,follow"/>

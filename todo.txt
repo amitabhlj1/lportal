@@ -30,14 +30,18 @@
 + Home Page > For Language Professionals > For Language Recruiters section => "-" ke jagah koi  - Showing Finger direction kind icons use kar sakte ho.
 - pictures of services
 + Top Menu mein Services se list hata dena...
-- Login Page pr countries laane hai
++ Login Page pr countries laane hai
 - Langemployer, forgot pass etc pr mail function likhna hai
-- add spaces in about us (Home page)
++ add spaces in about us (Home page)
 - Services images
-- Our expertise -> change color to green
++ Our expertise -> change color to green
 - Jobs result change into cards. 2 cards in a row like quickr -> Show everything from table leaving dates.
-- language expert -> change -> show new experts first
++ language expert -> change -> show new experts first
 - Search resumes in Langemployer -> manage the number of resumes according to plan
 - admin panel -> show date of registeration
 - let the expert login. and update profile
+- Handle translate errors
++ career enhancement, career in language, common interview questions
+- write media query for search job page
+- common-interview-questions is not complete
 

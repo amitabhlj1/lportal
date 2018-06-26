@@ -260,7 +260,6 @@
                                                     $sk = $this->My_model->selectRecord('job_skills', '*', array('id' => $s));
                                                     echo $sk[0]->name.", ";
                                                 }
-                                                echo "<br/>";
                                             }   
                                         ?></p>
                                 </div>

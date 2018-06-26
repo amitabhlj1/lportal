@@ -8,12 +8,91 @@
         line-height: 29px;
     }
     .pac-container:after {
-    /* Disclaimer: not needed to show 'powered by Google' if also a Google Map is shown */
         background-image: none !important;
         height: 0px;
     }
-    td{
-        font-size: 12px;
+    .card{
+        margin: 5px;
+        border:1px solid skyblue;
+        border-radius: 5px;
+        /*color: burlywood !important;*/
+        color: rgb(241,50,200);
+    }
+    .card>.row>.col-md-4{
+        text-align: center;
+    }
+    .card-header{
+        font-weight: bold;
+        margin-top: 3px;
+        margin-bottom: 3px;
+    }
+    .job-title{
+        text-align: center;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        color: #0010cf;
+        text-transform: uppercase;
+        font-weight: bold;
+        width: 90%;
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+    .job-lang{
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+    .job-location{
+        border-radius: 2px;
+        color: rgb(75, 75, 75);
+    }
+    .card .fa{
+        color: #000;
+    }
+    .easyPaginateNav{
+        text-align: center;
+    }
+    .easyPaginateNav a {
+        display:inline-block;
+        padding:0.3em 1em;
+        margin:0 0.3em 0.3em 0;
+        border-radius:0.15em;
+        box-sizing: border-box;
+        text-decoration:none;
+        font-family:'Roboto',sans-serif;
+        text-transform:uppercase;
+        font-weight:400;
+        color:#FFFFFF;
+        background-color:#3369ff;
+        box-shadow:inset 0 -0.6em 0 -0.35em rgba(0,0,0,0.17);
+        text-align:center;
+        position:relative;
+    }
+    .easyPaginateNav a.current {
+        font-weight:bold;
+        text-decoration:underline;
+        background-color: skyblue;
+        color: white;
+    }
+    .card .fa-eye{
+        font-size: 16px;
+    }
+    .page{
+        animation:bouncy 5s infinite linear;
+        position:relative;
+    }
+    .page:nth-child(3n+1){
+        animation-delay:0.05s;
+    }
+    @keyframes bouncy {
+        0%{top:0em}
+        40%{top:0em}
+        43%{top:-0.9em}
+        46%{top:0em}
+        48%{top:-0.4em}
+        50%{top:0em}
+        100%{top:0em;}
     }
 </style>
 <script>
@@ -74,17 +153,6 @@
                                 </select>
                                 </div>
                                 <div class="col-md-2 col-lg-2 col-xs-12 col-sm-6">
-<!--
-                                  <select name="locationCombo" class="form-control select2">
-                                        <option value="" selected="selected">All Locations</option>
-                                        <?php
-                                            foreach($city as $c){ ?>
-                                            <option value="<?php echo $c->id; ?>"><?php echo $c->name; ?></option>
-                                        <?php
-                                            }
-                                        ?>
-                                  </select>
--->
                                    <input id="autocomplete" name="locationCombo" placeholder="Enter your address" type="text" class="form-control" />
                                 </div>
                             <div class="col-md-2 col-lg-2 col-xs-12 col-sm-6">
@@ -113,50 +181,74 @@
         <section class="module" style="padding:20px 0px;">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12 table-responsive">
+                    <div id="easyPaginate" class="col-md-12 col-lg-12 col-xs-12 col-sm-12 table-responsive">
                         <?php 
                             if(is_array($jobs)){ ?>
-                            <table id="job_table1" class="table table-hover">
-                               <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Job Type</th>
-                                    <th>Title</th>
-                                    <th>Desc</th>
-                                    <th>Company</th>
-                                    <th>Created on</th>
-                                    <th>Controls</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                    <?php
+                                <?php
                                         foreach($jobs as $j){ ?>
-                                            <tr>
-                                                <td><?php echo $j->id; ?></td>
-                                                <td><?php if($j->j_type == 1){echo "<i class='fa fa-briefcase'></i> Full/Part Time";}else{echo "<i class='fa fa-trophy'></i>Freelance/Project";} ?></td>
-                                                <td><?php echo strip_tags(mb_substr($j->title, 0, 20, 'utf-8')); ?></td>
-                                                <td><?php echo strip_tags(mb_substr($j->description, 0, 45, 'utf-8')); ?></td>
-                                                <td><?php echo "<i class='fa fa-building'></i> ".strip_tags(mb_substr($j->company_name,0,25,'utf-8')); ?></td>
-                                                <td><?php echo "<i class='fa fa-calendar'></i> ".date('d M Y', strtotime($j->created)); ?></td>
-                                                <td>
-                                                <?php 
-                                                    if($j->j_type == 1){ ?>
-<!--                                                    <button class="btn btn-xs btn-success"><i class="fa fa-info"></i></button>-->
-                                                    <a rel="canonical" target="_blank" href="<?php echo base_url() ?>SearchJob/jobdesc/<?php echo $j->id; ?>"><button class="btn btn-xs btn-info"><i class="fa fa-eye"></i></button></a>
-                                                <?php
-                                                    } else { ?>
-<!--                                                     <button class="btn btn-xs btn-success"><i class="fa fa-info"></i></button>-->
-                                                     <a rel="canonical" target="_blank" href="<?php echo base_url() ?>SearchProject/jobdesc/<?php echo $j->id; ?>"><button class="btn btn-xs btn-info"><i class="fa fa-eye"></i></button></a>  
-                                                <?php
-                                                    } 
-                                                ?>
-                                                </td>
-                                            </tr>
-                                    <?php
-                                        }
-                                    ?>
-                                </tbody>
-                            </table>
+                                        <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12 element">
+                                            <div class="card">
+                                                <div class="row card-header">
+                                                    <div class="col-md-4" title="Job Type">
+                                                        <?php if($j->j_type == 1){echo "<i class='fa fa-briefcase'></i> Full/Part Time";}else{echo "<i class='fa fa-trophy'></i>Freelance/Project";} ?>
+                                                    </div>
+                                                    <div class="col-md-4" title="<?php echo strip_tags($j->company_name); ?>">
+                                                        <?php echo "<i class='fa fa-building'></i> ".strip_tags(mb_substr($j->company_name,0,12,'utf-8')).".."; ?>
+                                                    </div>
+                                                    <?php
+                                                        //Handling languages from jobs table
+                                                        $lang=array();
+                                                        //check if job has languages
+                                                        if($j->languages){
+                                                            //explode if it has many languages
+                                                            foreach(explode(',', $j->languages) as $s){
+                                                                $sk = $this->My_model->selectRecord('language', '*', array('id' => $s));
+                                                                //push into new array
+                                                                array_push($lang, $sk[0]->name);
+                                                            }
+                                                        } else {
+                                                            $lang = array('N.A.');
+                                                        }
+                                                    ?>
+                                                    <div class="col-md-4 job-lang" title="Language(s): <?php echo implode(",",$lang); ?>">
+                                                        <?php echo "<i class='fa fa-language'></i> ".implode(",",$lang); ?>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                     <div class="col-md-12 job-title">
+                                                         <h4><?php echo strip_tags($j->title); ?></h4>
+                                                     </div>   
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                       <span class="form-control job-location">
+                                                        <?php 
+                                                            if($j->address){
+                                                                echo "<i class='fa fa-map-marker'></i> ".$j->address;
+                                                            } else {
+                                                                echo "<i class='fa fa-map-marker'></i> N.A.";
+                                                            }
+                                                        ?>
+                                                        </span>
+                                                    </div>
+                                                    <div class="col-md-4">&nbsp;</div>
+                                                    <div class="col-md-4">
+                                                        <?php 
+                                                            if($j->j_type == 1){ ?>
+                                                                <a rel="canonical" title="See Description" target="_blank" href="<?php echo base_url() ?>SearchJob/jobdesc/<?php echo $j->id; ?>"><button class="btn btn-xs form-control"><i class="fa fa-eye"></i></button></a>
+                                                        <?php
+                                                            } else { ?>
+                                                                 <a rel="canonical" title="See Description" target="_blank" href="<?php echo base_url() ?>SearchProject/jobdesc/<?php echo $j->id; ?>"><button class="btn btn-xs form-control"><i class="fa fa-eye"></i></button></a>  
+                                                        <?php
+                                                            } 
+                                                        ?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                <?php 
+                                        } 
+                                ?>
                         <?php         
                             }
                         ?>

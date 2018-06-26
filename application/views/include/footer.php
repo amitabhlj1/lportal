@@ -87,6 +87,7 @@
     <script src="<?php echo base_url(); ?>assets/lib/simple-text-rotator/jquery.simple-text-rotator.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/js/plugins.js"></script>
     <script src="<?php echo base_url(); ?>assets/js/main.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/jquery.easyPaginate.js"></script>
     <script src="<?php echo base_url();?>assets/js/jquery.form.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/b-1.5.1/datatables.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/res/Obj.js"></script>
@@ -94,6 +95,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
     <script>
         $("#tags_1").addTags();
+        $('#easyPaginate').easyPaginate({
+            paginateElement: '.element',
+            elementsPerPage: 20,
+            firstButton:false,
+            lastButton:false
+        });
+        $('.page').click(function(){
+            $("html, body").animate({ scrollTop: '120px' }, 500);
+        });
         $(document).ready(function() {
             //console.log('awesome');
             $('#job_table1').DataTable({
