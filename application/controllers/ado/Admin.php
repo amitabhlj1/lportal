@@ -41,13 +41,40 @@ class Admin extends CI_Controller
 			redirect('ado/Admin/logout','refresh');       
 		
 		$data['blogs'] = $this->My_model->selectRecord('blog_articles','*','','','');
+        $data['article_types'] = $this->My_model->selectRecord('blog_types','*','','','');
 		//echo "<pre />"; print_r($data); die();
 		
 		$this->load->view('admin/include/header'); 
 		$this->load->view('admin/blogs',$data); 
 	    $this->load->view('admin/include/footer');		 	
 	}
-	
+	/*
+        Blog type submit function
+        insert_at means article type(say blog type)
+    */
+    function insert_bt(){
+        $name = array('name' => $this->input->post('a_type1'));
+        $sv = $this->My_model->insertRecord('blog_types', $name);
+        if($sv){
+            redirect("ado/Admin/Blogs?bt=1");
+        } else {
+            redirect("ado/Admin/Blogs?bt=0");
+        }
+    }
+    /*
+        Blog type Update function
+        You understand now, don't ya?
+    */
+    function update_bt(){
+        $where = array('id' => $this->input->post('a_id'));
+        $data = array('name' => $this->input->post('a_type'));
+        $updt = $this->My_model->updateRecord('blog_types',$data,$where);
+        if($updt>0){
+            redirect("ado/Admin/Blogs?but=1");
+        } else {
+            redirect("ado/Admin/Blogs?but=0"); 
+        }
+    }
 	function viewBlog()
 	{	
 		
