@@ -14,6 +14,7 @@
 					  <th>Email</th>				  
 					  <th>Mobile</th>
 					  <th class="nosort">Social</th>
+					  <th>Created</th>
 					  <th class="nosort">Action</th>	
 					</tr>
 				</thead>
@@ -29,6 +30,7 @@
 					  <td><?php echo $expert->email;?></td>						  
 					  <td><?php echo $expert->mobile;?></td>
 					  <td><?php echo $isSocial;?></td>
+					  <td><?php if($expert->created=="0000-00-00"){echo "N.A.";} else {echo $expert->created;} ?></td>
 					  <td>	
 						  <a href="#" data-toggle="modal" data-target="#expview" onclick="expertDetails(<?php echo $expert->id;?>);">
 								<span class="glyphicon glyphicon-eye-open" title="view details"></span>

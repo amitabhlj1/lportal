@@ -14,6 +14,7 @@
 					  <th>Email</th>				  
 					  <th>Mobile</th>
 					  <th class="nosort">Social</th>
+					  <th>Created</th>
 					  <th class="nosort">Action</th>	
 					</tr>
 				</thead>
@@ -30,6 +31,7 @@
 					  <td><?php echo $employer->email;?></td>						  
 					  <td><?php echo $employer->mobile;?></td>
 					  <td><?php echo $isSocial;?></td>
+					  <td><?php if($employer->created=="0000-00-00"){echo "N.A.";} else {echo $employer->created;} ?></td>
 					  <td>	
 						  <a href="#" data-toggle="modal" data-target="#empview" onclick="employerDetails(<?php echo $employer->id;?>);">
 								<span class="glyphicon glyphicon-eye-open" title="view details"></span>
