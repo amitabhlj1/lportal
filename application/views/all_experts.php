@@ -1,5 +1,6 @@
 <!--<link href="https://fonts.googleapis.com/css?family=Comfortaa|Crete+Round|Montserrat|Raleway|Baloo+Tamma|NTR" rel="stylesheet">-->
    <style>
+
     .well{
         border: 1px solid blue;
         padding: 1%;
@@ -15,8 +16,9 @@
         font-family: 'Montserrat', sans-serif;
         font-weight: bold;
    }
-/*
-    .callout-title{
+   
+
+    /*.callout-title{
         font-size: 30px;
         font-family: 'Raleway', sans-serif;
     }
@@ -24,27 +26,104 @@
         font-family: 'Baloo Tamma', 'Roboto';
         font-size: 15px;
         color: #e4ff00;
-   }
-*/
+   }*/
+
    .vm{
        float: right;
        background: transparent;
-       position: relative;
        color: #000;
-   }
+       /*border-bottom:  solid #245194;
+       border-left:  solid #ffffff;*/
+    }
+
    .vm:after{
        content: "View Details";
        width: 100px;
        height: 0;
        position: absolute;
-       bottom: 5px;
-       right: -12px;
+       bottom: 7px;
+       right: 5px;
        color: #fff;
        font-size: bold;
        border-bottom: 22px solid #245194;
        border-left: 22px solid #ffffff;
    }
+
+   .details, .name{
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+   }
+
+   /* *
+      *
+      *
+      TEMPORARY
+      *
+      *
+      *
+      */
+
+      @media screen and (max-width: 450px) {
+          .well{
+              height: 150px;
+          }
+
+          .img1{
+              height: 100px !important;
+          }
+
+          .vm:after{
+              bottom: 4px !important;
+            }
+      }
+
+      @media screen and (max-width: 767px) {
+      
+          .img1{
+              height: 120px;
+          }
+
+          .vm:after{
+              bottom: 10px;
+              right: 10px;
+            }
+
+          .exp{
+              display: none;
+          }
+
+          .skill{
+              display: none;
+          }
+
+
+      }
+
+      @media (min-width: 768px) and (max-width: 991px) {
+
+          .vm:after{
+              bottom: 6px;
+              right: 9px;
+            }
+
+          .exp{
+              display: none;
+          }
+      }
+
+ /* *
+      *
+      *
+      TEMPORARY
+      *
+      *
+      *
+      */
+
+
 </style>
+
 <div class="main">&nbsp;</div><br/><br/>
 <section class="module-small bg-dark" data-background="<?php echo base_url(); ?>assets/images/small_sections/blog.jpg">
   <div class="container">
@@ -90,9 +169,9 @@
                                                     }
                                                 }              
                                             ?>
-                                            <img src="<?php echo $eimg; ?>" class="img-rounded"/>
+                                            <img src="<?php echo $eimg; ?>" class="img1 img-rounded"/>
                                         </div>
-                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <div class="details col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                               <div class="profile">
                                                     <?php if($e->profile_name){echo strip_tags(mb_substr($e->profile_name, 0, 38, 'utf-8'));} else { echo "N.A.";} ?>
                                                 </div>
@@ -102,9 +181,13 @@
                                                 <div class="skill">
                                                     <?php if($e->skills){echo strip_tags(mb_substr($e->skills, 0, 34, 'utf-8'));} else {echo "Language Expert";}; ?>
                                                 </div>
-                                               <?php echo "<a href='".base_url()."Language_experts/profile/".$e->id."'><button class='vm btn btn-xs'>View More</button></a>"; ?>
+                                                <?php echo "<a href='".base_url()."Language_experts/profile/".$e->id."'><button class='vm btn btn-xs'>&nbsp;</button></a>"; ?>
                                         </div>
                                     </div>
+                                    <!-- <div class="row">
+                                      <div class="col-md-8">&nbsp;</div>
+                                      <div class="col-md-4"></div>
+                                    </div> -->
                                 </div>
                         <?php
                             }
