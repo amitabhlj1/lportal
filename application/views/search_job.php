@@ -94,6 +94,40 @@
         50%{top:0em}
         100%{top:0em;}
     }
+
+    .overflow-control{
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
+   /* *
+      *
+      *
+      TEMPORARY
+      *
+      *
+      *
+      */
+
+      @media screen and (max-width: 991px) {
+          
+          .card>.row>.col-md-4{
+                text-align: left;
+            }
+      }
+
+
+ /* *
+      *
+      *
+      TEMPORARY
+      *
+      *
+      *
+      */
+
+
 </style>
 <script>
   function initAutocomplete() {
@@ -192,8 +226,8 @@
                                                     <div class="col-md-4" title="Job Type">
                                                         <?php if($j->j_type == 1){echo "<i class='fa fa-briefcase'></i> Full/Part Time";}else{echo "<i class='fa fa-trophy'></i>Freelance/Project";} ?>
                                                     </div>
-                                                    <div class="col-md-4" title="<?php echo strip_tags($j->company_name); ?>">
-                                                        <?php echo "<i class='fa fa-building'></i> ".strip_tags(mb_substr($j->company_name,0,12,'utf-8')).".."; ?>
+                                                    <div class="col-md-4 overflow-control" title="<?php echo strip_tags($j->company_name); ?>">
+                                                        <?php echo "<i class='fa fa-building'></i> ".strip_tags($j->company_name); ?>
                                                     </div>
                                                     <?php
                                                         //Handling languages from jobs table
@@ -220,7 +254,7 @@
                                                      </div>   
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-4 col-lg-4 col-sm-6 col-xs-6 overflow-control">
                                                        <span class="form-control job-location">
                                                         <?php 
                                                             if($j->address){
@@ -231,8 +265,8 @@
                                                         ?>
                                                         </span>
                                                     </div>
-                                                    <div class="col-md-4">&nbsp;</div>
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-4 col-lg-4"></div>
+                                                    <div class="col-md-4 col-lg-4 col-sm-6 col-xs-6">
                                                         <?php 
                                                             if($j->j_type == 1){ ?>
                                                                 <a rel="canonical" title="See Description" target="_blank" href="<?php echo base_url() ?>SearchJob/jobdesc/<?php echo $j->id; ?>"><button class="btn btn-xs form-control"><i class="fa fa-eye"></i></button></a>
