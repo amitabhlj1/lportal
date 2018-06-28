@@ -171,7 +171,7 @@
             </div>
             <ul class="works-grid works-grid-gut works-grid-3 works-hover-d" id="works-grid">
               <li class="work-item "><a href="<?php echo base_url() ?>language-jobs.php">
-                  <div class="work-image portal"><img src="<?php echo base_url(); ?>assets/images/services/portal.png" alt="Job Portal"/></div>
+                  <div class="work-image portal"><img src="<?php echo base_url(); ?>assets/images/services/portal.jpg" alt="Job Portal"/></div>
                   <div class="work-caption font-alt">
                     <h3 class="work-title">LangJobs Job Portal</h3>
                     <div class="work-descr"></div>

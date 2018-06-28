@@ -36,7 +36,7 @@
                             <?php echo substr('We are one the most respected Language Service Provider in India and at our Translation Agency division we provide quality translation and localization service at very affordable price.', 0, 120).".."; ?></a><hr/>
                         </div>
                         <div class="col-md-4 col-sm-6"><a href='<?php echo base_url() ?>language-jobs.php'>
-                            <span style="margin-bottom: 23px;"><img style="" src="<?php echo base_url() ?>assets/images/services/portal.png" alt="Job portal service"></span>
+                            <span style="margin-bottom: 23px;"><img style="" src="<?php echo base_url() ?>assets/images/services/portal.jpg" alt="Job portal service"></span>
                             <h5 class=" align-left font-alt uppercase" style="margin-bottom: 6px;">JOB PORTAL
                             </h5>
                             <?php echo substr('www.LangJobs.com, is India\'s 1st Language Jobs Portal and no 1 in niche job portal specializes in languages.', 0, 120).".."; ?></a><hr/>

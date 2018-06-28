@@ -9,7 +9,8 @@ html {
 
 body {
   background: #fff;
-  font: 400 13px/1.8 "Open Sans", sans-serif;
+/*    open sans before*/
+  font: 400 13px/1.8 "Raleway", sans-serif;
   color: #666;
   -webkit-font-smoothing: antialiased;
 }

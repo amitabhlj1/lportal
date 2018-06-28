@@ -45,20 +45,11 @@
                             Phone: +91-96867-33757</p>
                     </div>
                     <div class="alt-features-item" style="padding-bottom:20px;">
-                        <div class="alt-features-icon"><span class="icon-globe"></span></div>
-                        <h3 class="alt-features-title font-alt">MUMBAI</h3>
-                        <p class="text-align:justify;">langjobs.com, #709, 7th Floor, Eco Star,
-                        Vishweshwar Nagar, Off Aarey Road,
-                        Goregaon (East), Mumbai - 400063 
-                        Ph: +91-99585-92758, 022-6530-5300</p>
-                    </div>
-                    <div class="alt-features-item" style="padding-bottom:20px;">
                         <div class="alt-features-icon"><span class="icon-global"></span></div>
                         <h3 class="alt-features-title font-alt">Emails</h3>
                         <ul>
-                            <li>For enquiries related to Recruitment and Corporate Training Services: <b>info@langjobs.com</b></li>
-                            <li>For Translation, Localization & Interpretation Services: <b>amitabh@langjobs.com</b></li>
-                            <li>Candidates/Translators looking for opening/assignments with us can send CV to: <b>cv@langjobs.com</b></li>
+                            <li>For enquiries related to Recruitment and Corporate Training Services, Translation, Localization & Interpretation Services, mail us at: <b><a href='mailto:info@langjobs.com'>info@langjobs.com</a></b></li>
+                            <li>Candidates/Translators looking for opening/assignments with us can send CV to: <b><a href='mailto:cv@langjobs.com'>cv@langjobs.com</a></b></li>
                         </ul>
                     </div>                    
                     </fieldset>
