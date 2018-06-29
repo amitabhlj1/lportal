@@ -170,6 +170,11 @@
 									<i class="fa fa-gavel"></i><span>Resume ViewHistory</span>
 								</a>
 							</li>
+							<li>
+								<a href="<?php echo base_url();?>ado/Employer/searchExperts">
+									<i class="fa fa-search"></i><span>Search Language Experts</span>
+								</a>
+							</li>
 						</ul>
 					</section>
                         <!-- /.sidebar -->

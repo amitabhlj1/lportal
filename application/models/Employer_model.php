@@ -237,6 +237,28 @@ class Employer_model extends CI_Model {
 			return 2;		// error sending mail	
 		}       
     }
-	
+    
+    public function return_experts(){
+        $lang = $this->input->post('language');
+        $exp = $this->input->post('experience');
+        $loc = $this->input->post('location');
+        $keywords = $this->input->post('kwords');
+        
+        $where = 'WHERE first_name != "" AND status = 1';
+        if(!empty($lang))
+            $where .= " AND expert_in like '%".$lang."%'";
+        if(!empty($exp))
+            $where .= " AND total_exp=".$exp;
+        if(!empty($loc))
+            $where .= " AND '".$loc."' LIKE CONCAT('%',address,'%')";
+        if(!empty($keywords))
+            $where .= " AND MATCH(skills, about_me) AGAINST ('$keywords' IN NATURAL LANGUAGE MODE)";
+        
+        $order_by = "ORDER BY id DESC";
+        
+        //Think About pagination with this combination
+        //We could save the post data in controller then continue using pagination.
+        //Or just show first 100 and add pagination using easy paginate. 
+    }
 }
 ?>

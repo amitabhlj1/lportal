@@ -16,17 +16,6 @@
         font-family: 'Montserrat', sans-serif;
         font-weight: bold;
    }
-   
-
-    /*.callout-title{
-        font-size: 30px;
-        font-family: 'Raleway', sans-serif;
-    }
-   .callout-text > p{
-        font-family: 'Baloo Tamma', 'Roboto';
-        font-size: 15px;
-        color: #e4ff00;
-   }*/
 
    .vm{
        float: right;
@@ -55,63 +44,45 @@
         overflow: hidden;
    }
 
-   /* *
-      *
-      *
-      TEMPORARY
-      *
-      *
-      *
-      */
-
-      @media screen and (max-width: 450px) {
-          .well{
-              height: 150px;
-          }
-
-          .img1{
-              height: 100px !important;
-          }
-
-          .vm:after{
-              bottom: 4px !important;
-            }
+   @media (min-width: 992px) and (max-width: 1199px){
+       .well{
+         height: 150px;   
+       }
+   }
+  @media screen and (max-width: 450px) {
+      .well{
+          height: 150px;
       }
 
-      @media screen and (max-width: 767px) {
-      
-          .img1{
-              height: 120px;
-          }
-
-          .vm:after{
-              bottom: 10px;
-              right: 10px;
-            }
-
-          .exp{
-              display: none;
-          }
-
-          .skill{
-              display: none;
-          }
-
-
+      .img1{
+          height: 54px !important;
       }
 
-      @media (min-width: 768px) and (max-width: 991px) {
+      .vm:after{
+          bottom: 4px !important;
+        }
+  }
 
-          .vm:after{
-              bottom: 6px;
-              right: 9px;
-            }
+  @media screen and (max-width: 767px) {
 
-          .exp{
-              display: none;
-          }
+      .img1{
+          height: 74px;
       }
 
+      .vm:after{
+          bottom: 10px;
+          right: 13px;
+        }
+  }
+
+  @media (min-width: 768px) and (max-width: 991px) {
+
+      .vm:after{
+          bottom: 29px;
+          right: 9px;
+        }
+  }
+    
  /* *
       *
       *

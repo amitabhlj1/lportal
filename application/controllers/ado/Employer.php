@@ -656,4 +656,19 @@ class Employer extends CI_Controller
 		$this->load->view('admin/employer/changeplan'); 
 	    $this->load->view('admin/include/footer');	 
     }
+    
+    function searchExperts(){
+        if( !$this->session->userdata('emp_id') )
+			redirect('ado/Employer/logout','refresh'); 
+        
+        $data['languages'] = $this->My_model->selectRecord('language', '*', '','');
+        
+		$this->load->view('admin/include/emp_header'); 
+		$this->load->view('admin/employer/searchex', $data); 
+	    $this->load->view('admin/include/footer');
+    }
+    function findExperts(){
+        $data['experts'] = $this->Employer_model->return_experts();
+        
+    }
 }
