@@ -146,7 +146,7 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
 <?php
 if($this->session->userdata('emp_id'))
 {
-	if( $balance > 0 )
+	if( isset($balance) && $balance > 0 )
 	{	
 ?>
 <div id="sticky" class="container">
@@ -301,7 +301,7 @@ if($this->session->userdata('emp_id'))
 	{
 	?>
 	<div class="row">
-        <div class="col-md-11 table-responsive">
+        <div class="col-md-11 table-responsive" style="text-align:center;">
 			<h4> To View complete profile please Change/Upgrade your <a href="#">Plan</a></h4>
 		</div>
 	</div>	

@@ -239,12 +239,13 @@ class Employer_model extends CI_Model {
     }
     
     public function return_experts(){
+        $response = array();
         $lang = $this->input->post('language');
         $exp = $this->input->post('experience');
         $loc = $this->input->post('location');
         $keywords = $this->input->post('kwords');
         
-        $where = 'WHERE first_name != "" AND status = 1';
+        $where = ' WHERE first_name != "" AND status = 1';
         if(!empty($lang))
             $where .= " AND expert_in like '%".$lang."%'";
         if(!empty($exp))
@@ -254,11 +255,18 @@ class Employer_model extends CI_Model {
         if(!empty($keywords))
             $where .= " AND MATCH(skills, about_me) AGAINST ('$keywords' IN NATURAL LANGUAGE MODE)";
         
-        $order_by = "ORDER BY id DESC";
+        $order_by = " ORDER BY id DESC";
+        $limit = " LIMIT 200";
         
-        //Think About pagination with this combination
-        //We could save the post data in controller then continue using pagination.
-        //Or just show first 100 and add pagination using easy paginate. 
+        $sql = "SELECT id, first_name, last_name, profile_name, skills, image, total_exp, social_login FROM lang_expert".$where.$order_by.$limit;
+        
+        $result = $this->db->query($sql);
+        if ($result && $result->num_rows()) {
+            foreach ($result->result() as $row) {
+                $response[] = $row;
+            }
+        }
+        return $response;
     }
 }
 ?>

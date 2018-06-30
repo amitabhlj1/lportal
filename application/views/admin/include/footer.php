@@ -43,9 +43,18 @@
     <script src="<?php echo base_url();?>assets/build/js/custom.min.js"></script>
     <script src="<?php echo base_url();?>assets/js/common.js"></script>
 	<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/b-1.5.1/datatables.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/jquery.easyPaginate.js"></script>
 
   	<script>
-		
+		$('#easyPaginate').easyPaginate({
+            paginateElement: '.well',
+            elementsPerPage: 20,
+            firstButton:false,
+            lastButton:false
+        });
+        $('.page').click(function(){
+            $("html, body").animate({ scrollTop: '120px' }, 500);
+        });
 		$(document).ready(function (){
 			$('.select2').select2({
 					width:"100%",

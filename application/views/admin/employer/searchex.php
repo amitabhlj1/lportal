@@ -17,12 +17,12 @@
 		<section class="panel">
 		  <header class="panel-heading">Search language Experts</header>							
 		<div class="panel-body">
-           <form class="form-horizontal" action="" method="post" autocomplete="off">
+           <form class="form-horizontal" action="<?php echo base_url() ?>ado/Employer/findExperts" method="post" autocomplete="off">
                <div class="form-group">
                 <label class="control-label col-sm-2" for="language">Language:</label>
                 <div class="col-sm-10">
                   <select class="form-control" name="language">
-                      <option>Sort by Language</option>
+                      <option value="">Sort by Language</option>
                       <?php 
                         foreach($languages as $l){
                             echo "<option value='".$l->id."'>".$l->name."</option>";
@@ -35,7 +35,7 @@
                 <label class="control-label col-sm-2" for="experience">Total Experience:</label>
                 <div class="col-sm-10"> 
                   <select class="form-control" name="experience">
-                      <option>Sort By Experience</option>
+                      <option value="">Sort By Experience</option>
                       <?php
                             foreach( $this->config->item('job_exp') as $key => $exp)	
                             {

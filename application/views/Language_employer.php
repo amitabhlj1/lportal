@@ -77,7 +77,7 @@
 			 </a>  
 		  </div>
 			
-			<div class="text-center">
+			<div class="text-center" style="display:none;">
 				<br />
 				<script type="in/Login"></script>
 			</div>
