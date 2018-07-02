@@ -184,18 +184,16 @@
 
                 <!-- Main content -->
 				<?php
-				$iJobs = $this->My_model->getNumRows('jobs','company_id',$this->session->userdata('emp_id'));
-				//$iStudents = $this->My_model->getNumRows('student','school_id',$this->session->userdata('school_id'));
+				    $iJobs = $this->My_model->getNumRows('jobs','company_id',$this->session->userdata('emp_id'));
 				?>
 				<section class="content">
-                    <div class="row" style="margin-bottom:5px;">
-				                                     
-						<div class="col-md-2">
+                    <div class="row" style="margin-bottom:5px;">                                 
+						<div class="col-md-3">
                             <div class="sm-st clearfix">
                                 <span class="sm-st-icon st-red"><i class="fa fa-check-square-o"></i></span>
-                                <div class="sm-st-info">
+                                <div class="sm-st-info"><span><?php echo $iJobs;?></span>
 									<a href="<?php echo base_url();?>ado/Employer/jobs/">
-										<span><?php echo $iJobs;?></span>Jobs
+										Jobs
 									</a>
                                 </div>
                             </div>

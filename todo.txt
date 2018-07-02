@@ -1,16 +1,16 @@
-- show languages in job_desc view line 92, add expiry date
-- Check data in the database of jobs
-- Language Experts mein...top mein ek Search Menu lagana padega...where someone can search the language experts with key words.
++ show languages in job_desc view line 92, add expiry date
++ Check data in the database of jobs
++ Language Experts mein...top mein ek Search Menu lagana padega...where someone can search the language experts with key words.
 - Langemployer, forgot pass etc pr mail function likhna hai
-- Services images
-- Search resumes in Langemployer -> manage the number of resumes according to plan
-- admin panel -> show date of registeration
++ Search resumes in Langemployer -> manage the number of resumes according to plan
 - let the expert login. and update profile
 - Handle translate errors
-- write media query for search job page
++ write media query for search job page
 - add onlinemedia.php page
 - add sitemap
 - Change into Project description page, show name instead of "Project description, also add expiry date and created on
 - TO add New line in all the php files,
 - compress images so that page load should be faster
+- Admin me Change plan for employer
+- ability to copy a job and change something
 

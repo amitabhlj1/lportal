@@ -25,13 +25,11 @@
 	<!--
 	<script src="<?php echo base_url();?>assets/admin/js/datetime/bootstrap-datetimepicker.min.js"></script>
 	-->
-    <!-- jQuery Sparklines -->
-    <script src="<?php echo base_url();?>assets/vendors/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
     
     <!-- DateJS -->
     <script src="<?php echo base_url();?>assets/vendors/DateJS/build/date.js"></script>
-
-	<!-- Select2 js -->
+    <script src="<?php echo base_url();?>assets/admin/js/Director/app.js" type="text/javascript"></script>
+    <!-- Select2 js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 	 <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/res/Obj.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/AddTags.js"></script>
@@ -40,7 +38,6 @@
     <script src="<?php echo base_url();?>assets/vendors/bootstrap-daterangepicker/daterangepicker.js"></script> -->
     		
     <!-- Custom Theme Scripts -->
-    <script src="<?php echo base_url();?>assets/build/js/custom.min.js"></script>
     <script src="<?php echo base_url();?>assets/js/common.js"></script>
 	<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/b-1.5.1/datatables.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/js/jquery.easyPaginate.js"></script>

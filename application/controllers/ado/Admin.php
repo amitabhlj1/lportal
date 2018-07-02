@@ -142,14 +142,23 @@ class Admin extends CI_Controller
 		}
     }
 	
-	function experts()
+	function experts($page_num=null)
 	{	
 		if( !$this->session->userdata('admin_id') )
 			redirect('ado/Admin/logout','refresh'); 
-		$limit = 2000;
-		$data['experts']    = $this->My_model->selectRecord('lang_expert','*','','',$limit);
-		//echo "<pre />"; print_r($data); die();
-		
+		$results_per_page = 1000;
+        $number_of_results = $this->db->where(array('id'))->from("lang_expert")->count_all_results();
+        $number_of_pages = ceil($number_of_results/$results_per_page);
+        if($page_num){
+            $page = $page_num;
+        } else {
+            $page = 1;
+        }
+        $data['page'] = $page;
+        $data['total_pages'] = $number_of_pages;
+        $this_page_first_result = ($page-1)*$results_per_page;
+        $data['experts'] = $this->My_model->selectRecord('lang_expert', '*', '', array('criteria'=>'id', 'order' => 'DESC'), array($this_page_first_result, $results_per_page));
+        
 		$this->load->view('admin/include/header'); 
 		$this->load->view('admin/experts',$data); 
 	    $this->load->view('admin/include/footer');		 	

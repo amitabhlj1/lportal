@@ -61,6 +61,19 @@
 					?>
 				</tbody>
 			  </table>
+			  <div style="float:right;">
+                <?php 
+                    if($page==1){ ?>
+                        <a rel="canonical" style="color:white;" href="<?php echo base_url(); ?>ado/Admin/experts/<?php echo $page+1; ?>"> <button class="btn btn-xs btn-primary"> Next 1000 Experts </button> </a>
+                    <?php
+                    } else { ?>
+                        <a rel="canonical" style="color:white;" href="<?php echo base_url(); ?>ado/Admin/experts/<?php echo $page-1; ?>"><button class="btn btn-xs btn-warning"> Last 1000 Experts </button></a> 
+                        &nbsp; 
+                        <a rel="canonical" style="color:white;" href="<?php echo base_url(); ?>ado/Admin/experts/<?php echo $page+1; ?>" <button class="btn btn-xs btn-primary"> Next 1000 Experts </button> </a>
+                    <?php
+                    }
+                ?>
+            </div>
 		  </div>
 	    </section>
 	</div><!--end col-6 -->

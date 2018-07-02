@@ -243,52 +243,55 @@
 				<?php
 				$iExperts = '';
 				$iEmployers = '';
-				$iJobs = '';	
+				$iJobs = '';
+                $iEnq = '';
 				if($this->session->userdata('admin_id'))
 				{
-					$iExperts = $this->My_model->getNumRows('lang_expert','status','');
+					$iExperts = $this->db->where(array('id'))->from("lang_expert")->count_all_results();
 					$iEmployers = $this->My_model->getNumRows('lang_company','status','');
 					$iJobs = $this->My_model->getNumRows('jobs','status',1);
+                    $iEnq = $this->db->where(array('id'))->from("visitor_query")->count_all_results();
 				}	
 				?>
                 <div class="row" style="margin-bottom:5px;">
 				                                     
-					<div class="col-md-2">
+					<div class="col-md-3">
 						<div class="sm-st clearfix">
-							<span class="sm-st-icon st-red"><i class="fa fa-check-square-o"></i></span>
-							<div class="sm-st-info">&nbsp;<b><?php echo $iExperts;?></b>
-								<a href="<?php echo base_url();?>ado/Admin/experts/">
-									<span>&nbsp;</span>Language Experts
-								</a>
+							<span class="sm-st-icon st-red"><i class="fa fa-users"></i></span>
+							<div class="sm-st-info">
+							<span><?php echo $iExperts;?></span>
+							<a title="Language Experts" href="<?php echo base_url();?>ado/Admin/experts/">
+                                Experts
+                            </a>
 							</div>
 						</div>
 					</div>
-					<div class="col-md-2">
+					<div class="col-md-3">
                         <div class="sm-st clearfix">
-                            <span class="sm-st-icon st-blue"><i class="fa fa-user"></i></span>
-                        <div class="sm-st-info">&nbsp; <b><?php echo $iEmployers;?></b>
-							<a href="<?php echo base_url();?>ado/Admin/employers">
-								<span>&nbsp;</span>Employers 
-							</a>
-                        </div>
+                            <span class="sm-st-icon st-blue"><i class="fa fa-briefcase"></i></span>
+                            <div class="sm-st-info"><span><?php echo $iEmployers;?></span>
+                                <a href="<?php echo base_url();?>ado/Admin/employers">
+                                    Employers 
+                                </a>
+                            </div>
 						</div>
                     </div>
-					<div class="col-md-2">
+					<div class="col-md-3">
                         <div class="sm-st clearfix">
-                            <span class="sm-st-icon st-blue"><i class="fa fa-user"></i></span>
-                        <div class="sm-st-info">&nbsp; <b><?php echo $iJobs;?></b>
+                            <span class="sm-st-icon st-blue"><i class="fa fa-list-ol"></i></span>
+                        <div class="sm-st-info"><span><?php echo $iJobs;?></span>
 							<a href="<?php echo base_url();?>ado/Admin/jobs">
-								<span>&nbsp;</span>Jobs 
+								Jobs 
 							</a>
                         </div>
 						</div>
                     </div>
-					<div class="col-md-2">
+					<div class="col-md-3">
                         <div class="sm-st clearfix">
-                            <span class="sm-st-icon st-blue"><i class="fa fa-user"></i></span>
-                        <div class="sm-st-info">
+                            <span class="sm-st-icon st-blue"><i class="fa fa-comments"></i></span>
+                        <div class="sm-st-info"><span><?php echo $iEnq; ?></span>
 							<a href="<?php echo base_url();?>ado/Admin/enquiry">
-								<span>&nbsp;</span>Enquiry
+								Enquiries
 							</a>
                         </div>
 						</div>
