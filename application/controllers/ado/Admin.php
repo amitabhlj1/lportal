@@ -24,7 +24,7 @@ class Admin extends CI_Controller
 			redirect('ado/Admin/logout','refresh'); 
 		
 		$aOrder = array('criteria' => 'created','order' => 'DESC');
-		$iLimit  = 20;
+		$iLimit  = 100;
 		$data['experts']    = $this->My_model->selectRecord('lang_expert','*','',$aOrder,$iLimit);
 		//$this->My_model->PrintQuery();
 		$data['employers']  = $this->My_model->selectRecord('lang_company','*','',$aOrder,$iLimit);
