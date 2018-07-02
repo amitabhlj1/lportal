@@ -53,6 +53,29 @@ class Language_experts extends CI_Controller
         $data['work_history'] = $this->My_model->selectRecord('lang_expert_wh', '*', $whr5);
         $data['work_sample'] = $this->My_model->selectRecord('lang_expert_ws', '*', $whr5);
         
+        if($this->session->userdata('emp_id')){
+            // check employer resume_view_history
+            $iCVCount = $this->My_model->getNumRows('resume_view_history','company_id',$this->session->userdata('emp_id')); 
+            $iBalance = $this->config->item('rplan_cv')[$this->session->userdata('r_plan')] - $iCVCount;
+            //echo  " Bal = " . $iBalance;
+            if( $iBalance > 0)    // add to resume_view_history
+            {
+                // check if this expert already added
+                $where = array('company_id' => $this->session->userdata('emp_id'),'expert_id' => $pid);
+                $aRes  = $this->My_model->selectRecord('resume_view_history', '*', $where);
+                //$this->My_model->printQuery();
+                if(!$aRes)           // add
+                {
+                    $adata = array(
+                        'company_id' => $this->session->userdata('emp_id'),
+                        'expert_id' => $pid
+                        );
+                    $iInsert = $this->My_model->insertRecord('resume_view_history', $adata);
+                }
+            }
+            $data['balance'] = $iBalance;
+        }
+        
         $this->load->view('include/header', $title);
 		$this->load->view('expert_profile', $data);
         $this->load->view('include/footer');

@@ -64,7 +64,7 @@
             </div>
             <div class="col-sm-12 col-md-6 col-lg-6">
                 <fieldset>
-                <legend>Job Details <small style="font-size:9px;padding-left:2em;">[Expires On: <?php  ?>]</small></legend>
+                <legend>Job Details <small style="font-size:9px;padding-left:2em;">[Expires On: <?php echo date("M jS, Y", strtotime($jd->last_date)); ?>]</small></legend>
                 <div class="alt-features-item">
                     <div class="alt-features-icon"><span class="icon-clipboard"></span></div>
                     <h3 class="alt-features-title font-alt">Job Description</h3>
@@ -178,3 +178,18 @@
         </div>
     </div>
 </section>
+<!-- AddToAny BEGIN -->
+<div id="shr2" class="a2a_kit a2a_kit_size_32  a2a_floating_style a2a_vertical_style" data-a2a-scroll-show="200" style="left:0px; top:150px;">
+    <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+    <a class="a2a_button_facebook"></a>
+    <a class="a2a_button_twitter"></a>
+    <a class="a2a_button_linkedin"></a>
+    <a class="a2a_button_google_plus"></a>
+    <a class="a2a_button_whatsapp"></a>
+    <a class="a2a_button_copy_link"></a>
+</div>
+<script>
+    var a2a_config = a2a_config || {};
+    a2a_config.linkurl = "<?php echo base_url() ?>SearchJob/jobdesc/<?php echo $jd->id; ?>";
+</script>
+<script async src="https://static.addtoany.com/menu/page.js"></script>

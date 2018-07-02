@@ -63,7 +63,7 @@
                             <input type="email" placeholder="Enter Email" name="contact_email" id="contact_email" class="form-control" required><br/>
                             <input type="text" placeholder="Enter Website" name="contact_url" id="contact_url" class="form-control"><br/>
                             <input type="text" placeholder="Enter Subject" name="contact_subject" id="contact_subject" class="form-control"><br/>
-                            <textarea placeholder="Enter Message" id="contact_message" name="contact_message" rows="10" cols="45" class="form-control" required></textarea><br/>
+                            <textarea placeholder="Enter Message" id="contact_message" name="contact_message" rows="10" cols="45" class="form-control" maxlength="200" required></textarea><br/>
                             <input type="submit" name="submit" id="submit" class="btn btn-primary btn-xs" value="Send" tabindex="6"/>
                         </form>
                     </fieldset>

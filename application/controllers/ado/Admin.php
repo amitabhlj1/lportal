@@ -362,7 +362,7 @@ class Admin extends CI_Controller
 		if( !$this->session->userdata('admin_id') )
 			redirect('ado/Admin/logout','refresh');       
 		
-		$data['enquiries'] = $this->My_model->selectRecord('visitor_query','*','','','');
+		$data['enquiries'] = $this->My_model->selectRecord('visitor_query','*','','','50');
 		//echo "<pre />"; print_r($data); die();
 		
 		$this->load->view('admin/include/header'); 
@@ -370,6 +370,19 @@ class Admin extends CI_Controller
 	    $this->load->view('admin/include/footer');		 	
 	}
 	
+    function deleteEnquiry($id){
+        $where = array('id' => $id);
+        $delenq = $this->My_model->deleteRecordPerm('visitor_query', $where);
+        if($delenq){
+            echo "<script>
+                    alert('Enquiry Deleted!! '); 
+                    window.location.href = '".base_url('ado/Admin/enquiry')."';
+                </script>";
+        } else {
+            echo "<script>alert('Something went wrong, Please try again later!');window.location.href = '".base_url('ado/Admin/enquiry')."';</script>";
+        }
+    }
+    
 	public function forgotPassword()
 	{				
 		$this->load->view('admin/include/header');	

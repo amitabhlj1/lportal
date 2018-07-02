@@ -117,20 +117,24 @@
         background-color: #000000;
     }
 </style>
+<?php
+    $jd = $jobs[0];
+    $comp = $company_details[0];
+?>
 <section class="module" id="services">
     <div class="container">
         <div class="row">
             <div class="col-sm-6 col-sm-offset-3">
-                <h2 class="module-title font-alt">PROJECT DESCRIPTION</h2>
-                <div class="module-subtitle font-serif">
-                    <?php   //random motivation line, reading from a text file and displaying here 
-                            $file = base_url("assets/motivation.txt");
-                            $lines = explode("\n", file_get_contents($file));
-                            echo $line = $lines[mt_rand(0, count($lines) - 1)];
-                            $jd = $jobs[0];
-                            $comp = $company_details[0];
+                <h2 class="module-title font-alt">
+                   <?php 
+                        if($jd->title){
+                            echo $jd->title;
+                        } else {
+                            echo "NA";
+                        }
                     ?>
-                </div>
+                </h2>
+                <div class="module-subtitle font-serif" style="display:none;"></div>
             </div>
         </div>
         <?php 
@@ -222,18 +226,7 @@
                             </div>
                             <div class="col-sm-12 col-md-6 col-lg-6">
                                 <fieldset>
-                                <legend>Job Details <small style="font-size:9px;padding-left:2em;">[Expires On: <?php  ?>]</small></legend>
-                                <div class="alt-features-item">
-                                    <div class="alt-features-icon"><span class="icon-pencil"></span></div>
-                                    <h3 class="alt-features-title font-alt">Job Title</h3>
-                                    <b><?php 
-                                            if($jd->title){
-                                                echo $jd->title;
-                                            } else {
-                                                echo "NA";
-                                            }
-                                        ?></b>
-                                </div>
+                                <legend>Job Details <small style="font-size:9px;padding-left:2em;">[Expires On: <?php echo date("M jS, Y", strtotime($jd->last_date)); ?>]</small></legend>
                                 <div class="alt-features-item">
                                     <div class="alt-features-icon"><span class="icon-clipboard"></span></div>
                                     <h3 class="alt-features-title font-alt">Job Description</h3>
@@ -359,18 +352,7 @@
                     </div>
                     <div class="col-sm-12 col-md-6 col-lg-6">
                         <fieldset>
-                        <legend>Job Details <small style="font-size:9px;padding-left:2em;">[Expires On: <?php  ?>]</small></legend>
-                        <div class="alt-features-item">
-                            <div class="alt-features-icon"><span class="icon-pencil"></span></div>
-                            <h3 class="alt-features-title font-alt">Job Title</h3>
-                            <b><?php 
-                                    if($jd->title){
-                                        echo $jd->title;
-                                    } else {
-                                        echo "NA";
-                                    }
-                                ?></b>
-                        </div>
+                        <legend>Job Details <small style="font-size:9px;padding-left:2em;">[Expires On: <?php echo date("M jS, Y", strtotime($jd->last_date)); ?>]</small></legend>
                         <div class="alt-features-item">
                             <div class="alt-features-icon"><span class="icon-clipboard"></span></div>
                             <h3 class="alt-features-title font-alt">Job Description</h3>
@@ -451,7 +433,22 @@
                             ?></p>
                         </div>
                     </div>
-                </div>        
+                </div>  
+                <!-- AddToAny BEGIN -->
+                <div id="shr2" class="a2a_kit a2a_kit_size_32  a2a_floating_style a2a_vertical_style" data-a2a-scroll-show="200" style="left:0px; top:150px;">
+                    <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+                    <a class="a2a_button_facebook"></a>
+                    <a class="a2a_button_twitter"></a>
+                    <a class="a2a_button_linkedin"></a>
+                    <a class="a2a_button_google_plus"></a>
+                    <a class="a2a_button_whatsapp"></a>
+                    <a class="a2a_button_copy_link"></a>
+                </div>
+                <script>
+                    var a2a_config = a2a_config || {};
+                    a2a_config.linkurl = "<?php echo base_url() ?>SearchProject/jobdesc/<?php echo $jd->id; ?>";
+                </script>
+                <script async src="https://static.addtoany.com/menu/page.js"></script>      
         <?php    
             }
         ?>

@@ -133,7 +133,7 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
 				</li>
                 <li><span class="glyphicon glyphicon-briefcase"></span> <?php  echo $this->config->config['job_exp'][$usr[0]->total_exp]; ?> </li>
                 <li><span class="glyphicon glyphicon-map-marker"></span> <?php if(!empty($country[0]->c_name)){ echo $country[0]->c_name;} else {echo "N.A.";} ?> </li>
-                <li><span class="glyphicon glyphicon-home"></span> <?php //if(!empty($city || $state)){ echo $city[0]->name.", ".$state[0]->name;} else {echo "N.A.";} ?></li>
+                <li style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden;"><span class="glyphicon glyphicon-home"></span> <?php if(!empty($usr[0]->address)){ echo $usr[0]->address;} else {echo "N.A.";} ?></li>
             </ul>
         </div>
         <!--col-md-8 col-sm-8 col-xs-12 close-->
@@ -302,12 +302,34 @@ if($this->session->userdata('emp_id'))
 	?>
 	<div class="row">
         <div class="col-md-11 table-responsive" style="text-align:center;">
-			<h4> To View complete profile please Change/Upgrade your <a href="#">Plan</a></h4>
+			<h4> To View complete profile please Change/Upgrade your <a href="<?php echo base_url() ?>ado/Employer/changeplan">Plan</a></h4>
 		</div>
 	</div>	
 	<?php	
 	}
+} else { ?>
+    <div class="row">
+        <div class="col-md-11 table-responsive" style="text-align:center;">
+			<h4> Please login to view complete profile and download Language Expert's resume </h4>
+		</div>
+	</div>
+<?php
 }
 ?>	
 <!--container close-->
 </section>
+<!-- AddToAny BEGIN -->
+<div id="shr2" class="a2a_kit a2a_kit_size_32  a2a_floating_style a2a_vertical_style" data-a2a-scroll-show="100" style="left:0px; top:150px;">
+    <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+    <a class="a2a_button_facebook"></a>
+    <a class="a2a_button_twitter"></a>
+    <a class="a2a_button_linkedin"></a>
+    <a class="a2a_button_google_plus"></a>
+    <a class="a2a_button_whatsapp"></a>
+    <a class="a2a_button_copy_link"></a>
+</div>
+<script>
+    var a2a_config = a2a_config || {};
+    a2a_config.linkurl = "<?php echo base_url() ?>Language_experts/profile/<?php echo $usr[0]->id; ?>";
+</script>
+<script async src="https://static.addtoany.com/menu/page.js"></script>
