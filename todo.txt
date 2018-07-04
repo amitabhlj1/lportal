@@ -8,9 +8,10 @@
 + write media query for search job page
 - add onlinemedia.php page
 - add sitemap
-- Change into Project description page, show name instead of "Project description, also add expiry date and created on
 - TO add New line in all the php files,
 - compress images so that page load should be faster
 - Admin me Change plan for employer
-- ability to copy a job and change something
+- ability to copy a job and change something - In Employer
+- Front pages link should be changed into 2nd font from sub section and color into blue.
+- Our services section on front page, should have more bigger font and color should be yellow.
 

@@ -83,7 +83,7 @@
                 <div class="features-item">
                   <div class="features-icon"><span class="icon-search"></span></div>
                   <h3 class="features-title font-alt">For language professionals</h3>
-                  <span style="text-align:center;">
+                  <span class='front_links'>
                      <a rel="canonical" href="<?php echo base_url() ?>SearchJob"><i class='fa fa-hand-o-right'></i> Search job/Language projects</a></br>
                      <a rel="canonical" href="<?php echo base_url() ?>LangExpert"><i class='fa fa-hand-o-right'></i> Register Profile</a></br>
                      <a rel="canonical" href="<?php echo base_url() ?>Blogs"><i class='fa fa-hand-o-right'></i> Explore other resources</a>
@@ -94,7 +94,7 @@
                 <div class="features-item">
                   <div class="features-icon"><span class="icon-briefcase"></span></div>
                   <h3 class="features-title font-alt">For Language Recruiters</h3>
-                  <span style="text-align:center;">
+                  <span class='front_links'>
                      <a rel="canonical" href="<?php echo base_url() ?>LangEmployer"><i class='fa fa-hand-o-right'></i> Register Company Profile</a></br>
                      <a rel="canonical" href="<?php echo base_url() ?>LangEmployer"><i class='fa fa-hand-o-right'></i> Post Jobs/Language Projects</a></br>
                      <a rel="canonical" href="<?php echo base_url() ?>LangEmployer"><i class='fa fa-hand-o-right'></i> Hire Best Linguists </a>
@@ -105,7 +105,7 @@
                 <div class="features-item">
                   <div class="features-icon"><span class="fa fa-language"></span></div>
                   <h3 class="features-title font-alt">Free Translation</h3>
-                  <span style="text-align:center;">
+                  <span class='front_links'>
                      <a rel="canonical" href="<?php echo base_url() ?>Translation"><i class='fa fa-hand-o-right'></i> Free machine translations</a></br>
                      <a rel="canonical" href="<?php echo base_url() ?>Translation"><i class='fa fa-hand-o-right'></i> Compare Translations</a></br>
                      <a rel="canonical" href="<?php echo base_url() ?>Translation"><i class='fa fa-hand-o-right'></i> Text to Speech </a>

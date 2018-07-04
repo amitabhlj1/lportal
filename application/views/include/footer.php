@@ -59,7 +59,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
-                <p class="copyright font-alt">&copy; 2018&nbsp;<a href="index.html">langjobs.com</a>, All Rights Reserved</p>
+                <p class="copyright font-alt">&copy; 2018&nbsp;<a href="<?php echo base_url(); ?>">langjobs.com</a>, All Rights Reserved</p>
             </div>
             <div class="col-sm-6">
                 <div class="footer-social-links"><a href="https://www.facebook.com/langjobs.india"><i class="fa fa-facebook"></i></a><a href="https://twitter.com/langjobs"><i class="fa fa-twitter"></i></a><a href="https://www.linkedin.com/groups/706847/profile"><i class="fa fa-linkedin-square"></i></a><a href="skype:amitabh216?call"><i class="fa fa-skype"></i></a>
