@@ -8,12 +8,10 @@
 			  <span class="pull-right"><a href="<?php echo base_url();?>ado/Employer/addJob">Add New</a></span>
 		  </header>							
 		<div class="panel-body table-responsive">
-			<table class="table table-hover">
+			<table id="my_jobs" class="table table-hover">
 				<thead>
 					<tr>
 					  <th>#</th>
-					  <th>Type</th>
-					  <th>Category</th>
 					  <th>Title</th>				  
 					  <th>Applicants</th>					  
 					  <th>Created</th>
@@ -29,12 +27,10 @@
 					$count = 1;
 					foreach($jobs as $job)
 					{
-						$bStatus = ($job->status == 0) ? 'deactivated by admin' : '';
+						$bStatus = ($job->status == 0) ? 'Awaiting Approval' : 'Approved';
 					?>
 					<tr>
 					  <td><?php echo $count;?></td>
-					  <td><?php echo $job->j_type ;?></td>
-					  <td><?php echo $job->j_category;?></td>
 					  <td><?php echo $job->title;?></td>						  
 					  <td>
 						  <a href="<?php echo base_url();?>Employer/viewApplicants/<?php echo $job->id;?>"><?php echo $job->j_applicants;?>
@@ -54,12 +50,13 @@
 					  </td> 		
 					</tr>
 					<?php
+                        $count++;
 					}
 				}
 				else
 				{
 				?>
-					<tr><td>No jobs Found</td></tr>	
+					<tr><td>You have not posted any jobs yet!</td></tr>	
 				<?php	
 				}
 				?>

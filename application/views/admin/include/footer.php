@@ -69,18 +69,12 @@
             //console.log('awesome');
           
 			var table = $('#rc_emp').DataTable({
-						   'aoColumnDefs': [{
-								'bSortable': false,
-								'aTargets': ['nosort']
-							}]
-						});
+			     "order": [[ 5, "desc" ]]			   
+            });
 			
 			var table = $('#rc_exp').DataTable({
-						   'aoColumnDefs': [{
-								'bSortable': false,
-								'aTargets': ['nosort']
-							}]
-						});
+			     "order": [[ 4, "desc" ]]			   
+            });
 		
 			var table = $('#inner_exp').DataTable({
 						   'aoColumnDefs': [{
@@ -90,20 +84,20 @@
 						});
 			
 			var table = $('#inner_emp').DataTable({
-						   'aoColumnDefs': [{
-								'bSortable': false,
-								'aTargets': ['nosort']
-							}]
-						});
+				"order": [[ 5, "desc" ]]
+            });
 			
 			var table = $('#inner_job').DataTable({
+                "order": [[ 5, "desc" ]]
+            });
+			
+			var table = $('#all_enq').DataTable({
 						   'aoColumnDefs': [{
 								'bSortable': false,
 								'aTargets': ['nosort']
 							}]
 						});
-			
-			var table = $('#all_enq').DataTable({
+            var table = $('#my_jobs').DataTable({
 						   'aoColumnDefs': [{
 								'bSortable': false,
 								'aTargets': ['nosort']

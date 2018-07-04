@@ -9,6 +9,7 @@
 			<table class="table table-hover" id='inner_job'>
 				<thead>
 					<tr>
+                      <th>Posted By</th>
 					  <th>Type</th>
 					  <th>Title</th>				  
 					  <th>Applicants</th>					  
@@ -23,11 +24,12 @@
 				{
 					foreach($jobs as $job)
 					{
-						$strType = $job->j_type == 3 ? 'freelance/prj based' : 'full / part time';
+						$strType = $job->j_type == 3 ? '<i class="fa fa-trophy" title="Project/Freelancing"></i>' : '<i class="fa fa-briefcase" title="Full/Part Time"></i>';
 						//$tt = <span class="label label-danger" title="change status (undelete this)">&nbsp;</span>
 						$bStatus = ($job->status == 0) ? '<span class="label label-danger" title=" deactivated by admin">&nbsp;</span>' : '<span class="label label-success" title="active">&nbsp;</span>';
 					?>
 					<tr>
+                      <td><?php echo $job->company_name; ?></td>
 					  <td><?php echo $strType ;?></td>
 					  <td><?php echo $job->title;?></td>						  
 					  <td>
@@ -61,7 +63,9 @@
 									<span class="label label-danger" title="change status (undelete this)">&nbsp;</span>
 								</a>
 							<?php
-								}
+								} else {
+                                    echo "<i class='fa fa-ban' title='This Employer has not been approved yet'></i>";
+                                }
 							}
 							?>
 					  </td>	  

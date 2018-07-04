@@ -55,7 +55,8 @@ function viewJob(job_id,job_type)
 		},
 		error: function (request, status, error) 
 		{
-			alert(request.responseText);
+			alert("Something went wrong");
+            console.log(request.responseText);
 		}
 	});
 }

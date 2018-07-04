@@ -60,76 +60,33 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </a>
-				<a style="margin-top:15px;margin-left:30px;"> <?php echo $this->session->userdata('comp_name'); ?> </a>
-                <div class="navbar-right">
-					
-                    <ul class="nav navbar-nav">
-                        <!-- Messages: style can be found in dropdown.less-->
-						<!--	
-						<li class="dropdown messages-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-envelope"></i>
-                                <span class="label label-success">3</span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li class="header">You have 3 messages</li>
-                                <li>                                    
-                                    <ul class="menu">
-                                        <li>
-                                            <a href="#">
-                                                <div class="pull-left">
-                                                    <img src="<?php //echo base_url();?>assets/admin/img/26115.jpg" class="img-circle" alt="User Image"/>
-                                                </div>
-                                                <h4>
-                                                    Support Team
-                                                </h4>
-                                                <p>Why not buy a new awesome theme?</p>
-                                                <small class="pull-right"><i class="fa fa-clock-o"></i> 5 mins</small>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <div class="pull-left">
-                                                    <img src="<?php //echo base_url();?>assets/admin/img/26115.jpg" class="img-circle" alt="user image"/>
-                                                </div>
-                                                <h4>
-                                                    Director Design Team
-                                                </h4>
-                                                <p>Why not buy a new awesome theme?</p>
-                                                <small class="pull-right"><i class="fa fa-clock-o"></i> 2 hours</small>
-                                            </a>
-                                        </li>                                                                                
-                                    </ul>
-                                </li>
-                                <li class="footer"><a href="#">See All Messages</a></li>
-                            </ul>
-                        </li>   -->                     
-                        <!-- User Account: style can be found in dropdown.less -->
+				<div class="navbar-right">
+				  <ul class="nav navbar-nav">
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-user"></i>
+                                <i class="fa fa-briefcase"></i>
                                 <span>
 									<?php 
 										if($this->session->userdata('emp_id'))
-											echo $this->session->userdata('first_name');
+											echo $this->session->userdata('comp_name');
 									?>
 									<i class="caret"></i>
 								</span>
                             </a>
                             <ul class="dropdown-menu dropdown-custom dropdown-menu-right">
-                                <li class="dropdown-header text-center">Account</li>
+                                <li class="dropdown-header text-center">Manage Account</li>
                                 <li class="divider"></li>
                                 <li>
 									<a href="<?php echo base_url();?>ado/Employer/profile">
-										<i class="fa fa-user fa-fw pull-right"></i>Profile
+										<i class="fa fa-cog fa-fw pull-right"></i>Profile
 									</a>										
 									<a href="<?php echo base_url();?>ado/Employer/changePassword">
-										<i class="fa fa-cog fa-fw pull-right"></i>Change Password
+										<i class="fa fa-key fa-fw pull-right"></i>Change Password
 									</a>
 								</li>
 								<li class="divider"></li>
 								<li>
-									<a href="<?php echo base_url()?>ado/Employer/logout"><i class="fa fa-ban fa-fw pull-right"></i> Logout</a>
+									<a href="<?php echo base_url()?>ado/Employer/logout"><i class="fa fa-sign-out fa-fw pull-right"></i> Logout</a>
 								</li>
                             </ul>
                         </li>
@@ -146,12 +103,12 @@
                         <!-- Sidebar user panel -->
 						<div class="user-panel">
 							<div class="pull-left image">
-								<img src="<?php echo base_url();?>assets/admin/img/26115.jpg" class="img-circle" alt="User Image" />
+								<img src="<?php if($this->session->userdata('image')){ echo base_url()."assets/uploads/employer/".$this->session->userdata('image'); } else { echo base_url()."assets/generic_company.jpg"; } ?>" class="img-circle" alt="company Image" width='45' height='45'/> 
 							</div>
 							<div class="pull-left info">
-								<p><?php 
+								<p style="margin-top: 10%;"><?php 
 									if($this->session->userdata('emp_id'))
-										echo $this->session->userdata('first_name');
+										echo $this->session->userdata('comp_name');
 									else
 										echo "Hello";
 								?></p>
@@ -162,12 +119,12 @@
 						<ul class="sidebar-menu">
 							<li>
 								<a href="<?php echo base_url();?>ado/Employer/">
-									<i class="fa fa-gavel"></i><span>Dashboard</span>
+									<i class="fa fa-dashboard"></i><span>Dashboard</span>
 								</a>
 							</li>
 							<li>
 								<a href="<?php echo base_url();?>ado/Employer/resumeHistory">
-									<i class="fa fa-gavel"></i><span>Resume ViewHistory</span>
+									<i class="fa fa-file-text"></i><span>Resume View History</span>
 								</a>
 							</li>
 							<li>
@@ -185,15 +142,35 @@
                 <!-- Main content -->
 				<?php
 				    $iJobs = $this->My_model->getNumRows('jobs','company_id',$this->session->userdata('emp_id'));
+                    $iCVCount = $this->My_model->getNumRows('resume_view_history','company_id',$this->session->userdata('emp_id'));
+                    $iBalance = $this->config->item('rplan_cv')[$this->session->userdata('r_plan')] - $iCVCount;
 				?>
 				<section class="content">
                     <div class="row" style="margin-bottom:5px;">                                 
-						<div class="col-md-3">
+						<div class="col-md-3" title="Total jobs posted by you">
                             <div class="sm-st clearfix">
                                 <span class="sm-st-icon st-red"><i class="fa fa-check-square-o"></i></span>
                                 <div class="sm-st-info"><span><?php echo $iJobs;?></span>
 									<a href="<?php echo base_url();?>ado/Employer/jobs/">
-										Jobs
+										Total Jobs
+									</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3" title="Change Your Plan">
+                            <div class="sm-st clearfix">
+                                <span class="sm-st-icon st-red"><i class="fa fa-money"></i></span>
+                                <div class="sm-st-info"><span><?php echo $this->config->item('rplans')[$this->session->userdata('r_plan')];?></span>
+                                    <a href='<?php echo base_url(); ?>ado/Employer/changeplan'>Current Plan</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3" title="No. of resumes left to view acc to your plan">
+                            <div class="sm-st clearfix">
+                                <span class="sm-st-icon st-red"><i class="fa  fa-file-text-o"></i></span>
+                                <div class="sm-st-info"><span><?php echo $iBalance;?></span>
+									<a href="<?php echo base_url();?>ado/Employer/resumeHistory">
+										Resumes Left
 									</a>
                                 </div>
                             </div>

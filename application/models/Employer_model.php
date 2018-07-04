@@ -142,7 +142,7 @@ class Employer_model extends CI_Model {
 					'first_name' => $aResult[0]['first_name'],
 					'last_name' => $aResult[0]['last_name'],
 					'comp_name' => $aResult[0]['company_name'],
-					'image'  => $aResult[0]['image'],
+					'image'  => $aResult[0]['thumb_logo'],
 					'email'  => $aResult[0]['email'],
 					'r_plan'  => $aResult[0]['resume_plan']
 					);
@@ -173,7 +173,7 @@ class Employer_model extends CI_Model {
 					'first_name' => $aResult[0]['first_name'],
 					'last_name' => $aResult[0]['last_name'],
 					'comp_name' => $aResult[0]['company_name'],
-					'image'  => $aResult[0]['image'],
+					'image'  => $aResult[0]['thumb_logo'],
 					'email'  => $aResult[0]['email'],
 					'r_plan'  => $aResult[0]['resume_plan']
 					);
