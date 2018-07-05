@@ -164,25 +164,12 @@ class LangExpert extends CI_Controller
 				'password' => md5($this->input->post('password')),
 				'country' => $this->input->post('country'),
 				'code'  => $code,
-				'created' => $today
+				'created' => $today,
+                'status' => '1'
 				);
 			$iInserId = $this->My_model->insertRecord('lang_expert',$data);
 			// send verification mail
             if($iInserId){
-                $config['protocol'] = 'smtp';
-                $config['charset'] = 'utf-8';
-                $config['wordwrap'] = TRUE;
-                $config['smtp_host'] = "tls://email-smtp.us-east-1.amazonaws.com"; // eg. tls://email-smtp.eu-west-1.amazonaws.com
-                $config['smtp_user'] = "AKIAIOJTHBVQVH6TWPKQ";
-                $config['smtp_pass'] = "AkrowXorCgcGBIpkfOR/l96OrhGzZQIVhJwgNUZrN4Ym";
-                $config['smtp_port'] = "465";
-                $config['smtp_timeout'] = "20";
-                $config['crlf'] = "\r\n";
-                $config['mailsender'] = "admin@langjobs.com";
-                $this->email->initialize($config);
-                $this->email->set_mailtype("html");
-                $this->email->set_newline("\r\n");
-
                 $subject = 'LangJobs Account Verification';
                 $message = "Dear ".$this->input->post('first_name').",<br /> <br />
                             Please click on the below activation link to verify your email address.<br /><br />
@@ -190,12 +177,8 @@ class LangExpert extends CI_Controller
                             .base_url().'LangExpert/verifyEmail/' .$code . "<br />							
                             <br /><br /><b>Thanks & Regards</b>, <br /> Langjobs Team";
 
-                $this->email->to($this->input->post('email'));
-                $this->email->from('admin@langjobs.com','LangJobs.com');
-                $this->email->subject($subject);
-                $this->email->message($message);
-                $this->email->send();
-                echo "1";    
+                $send_to = $this->input->post('email');
+                echo $val = $this->My_model->send_mail($send_to, $subject, $message);
             } else {
                 echo "-1";
             }
