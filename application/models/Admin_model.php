@@ -298,7 +298,7 @@ class Admin_model extends CI_Model {
 		//$where = array('blg.id' => $this->input->post('blog_id'));
 		
 		//print_r($qWhere); die();
-		$this->db->select ( 'jb.*,emp.status AS sts, emp.id, emp.company_name');
+		$this->db->select ( 'jb.*,emp.status AS sts, emp.id as empid, emp.company_name');
 		$this->db->from ( 'jobs jb' );				
 		$this->db->join ( 'lang_company emp', 'jb.company_id = emp.id' , 'left' );
 		$this->db->order_by ('jb.id','DESC');
