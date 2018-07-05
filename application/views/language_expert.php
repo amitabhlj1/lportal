@@ -72,7 +72,7 @@
 		  </div>
 		  <div class="text-center">
 			<button class="btn btn-block btn-round btn-d" id="cfsubmit" type="button" onclick="loginExpert();">Login</button>   &nbsp;&nbsp;&nbsp;  
-			<a href="<?php echo base_url()?>/langExpert/forgotPassword">  
+			<a href="<?php echo base_url()?>langExpert/forgotPassword">  
 			<button class="btn btn-block btn-round btn-d" type="button">Forgot Password</button> 
 			 </a>  
 		  </div>

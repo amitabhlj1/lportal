@@ -72,11 +72,7 @@ class LanguageExpert_model extends CI_Model {
 	
 	public function forgotPassword($stremail,$strcode)
     {
-		$this->load->library('email');
-		$to_email = $stremail;
-		
-		$config['mailtype'] = 'html';
-		$this->email->initialize($config);
+		$send_to = $stremail;
 		
 		$subject = 'LangJobs Password change';
 		$message = 'Dear User,<br /> <br />You recently requested password change. To reset your password, follow the link below: .<br /><br />
@@ -93,23 +89,14 @@ class LanguageExpert_model extends CI_Model {
 					<br />
 					youtube.com/channel/UCXUSUrc39Ri7EprBuvcqQNQ
 					';
-			
-		$this->email->from('info@langjob.com', 'LangJobs');
-		$this->email->to($to_email); 
-						
-		$this->email->subject($subject);
-		$this->email->message($message);	
-		//$this->email->send();
 										
-		if($this->email->send())
+		if($this->My_model->send_mail($send_to, $subject, $message))
 		{	
 			return 1;
 		}
 		else
 		{
 			return 2;
-			//echo $this->email->print_debugger();
-			//die();
 		}       
     }
 	

@@ -256,6 +256,19 @@ class LangExpert extends CI_Controller
                 'status' => 1
             );
             $done = $this->My_model->insertRecord('lang_expert',$insert_data);
+            if($done){
+                $subject = 'Welcome to LangJobs';
+                $message = "Dear ".$this->input->post('first_name').",<br />
+                            Hurray! we are very pleased to see you join us. Best of luck
+                            <br />
+                            <b>Pro Tip:</b> Complete your profile to get 2x views and offers
+                            <br /><br />
+                            <br /><br />							
+                            <br /><br /><b>Thanks & Regards</b>, <br /> Langjobs Team";
+
+                $send_to = $this->input->post('email');
+                $this->My_model->send_mail($send_to, $subject, $message);
+            }
         }
         if($this->db->affected_rows() >=0){
           //return true; //add your code here
