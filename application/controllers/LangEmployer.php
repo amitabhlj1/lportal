@@ -145,12 +145,13 @@ class LangEmployer extends CI_Controller
 							
 	}
     
-    public function recoveryPassword(){
+    public function recoveryPassword($code){
         $title['title_of_page'] = "";
         $title['description'] = "";
         $title['keywords'] ="";
+        $data['code'] = $code;
         $this->load->view('include/header',$title);
-		$this->load->view('em_ch_pass');
+		$this->load->view('em_ch_pass', $data);
         $this->load->view('include/footer');
     }
 	public function changePass(){
