@@ -77,11 +77,8 @@
             });
 		
 			var table = $('#inner_exp').DataTable({
-						   'aoColumnDefs': [{
-								'bSortable': false,
-								'aTargets': ['nosort']
-							}]
-						});
+				"order": [[ 5, "desc" ]]
+            });
 			
 			var table = $('#inner_emp').DataTable({
 				"order": [[ 5, "desc" ]]
