@@ -108,7 +108,7 @@ class LangExpert extends CI_Controller
         if(strlen($pwd)>6){
             if(strcmp($pwd, $cnf_pwd) == 0){
                 $where = array('code' => $code);			
-                $data  = array('password' => $pwd);
+                $data  = array('password' => md5($pwd));
 
                 $this->My_model->updateRecord('lang_expert', $data, $where);
                 if($this->db->affected_rows() >=0){

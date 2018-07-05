@@ -15,11 +15,11 @@
 		  <div class="form-group">
 		    <input value="<?php echo $code; ?>" type="hidden" name="code"/>
 			<label class="sr-only" for="name">New password</label>
-			<input class="form-control" type="text" id="" name="pwd" placeholder="Your new password. eg: !A^gJ0b$" required="required"/>
+			<input class="form-control" type="password" id="" name="pwd" placeholder="Your new password. eg: !A^gJ0b$" required="required"/>
 		  </div>
 		  <div class="form-group">
 			<label class="sr-only" for="name">Confirm password</label>
-			<input class="form-control" type="text" id="" name="cnf_pwd" placeholder="Confirm your Password" required="required"/>
+			<input class="form-control" type="password" id="" name="cnf_pwd" placeholder="Confirm your Password" required="required"/>
 		  </div>
 		  <div class="text-center">
 			<button class="btn btn-block btn-round btn-d" id="rpsd" type="submit">Change Password</button>  
