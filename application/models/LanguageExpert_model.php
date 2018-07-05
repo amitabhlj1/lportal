@@ -77,7 +77,7 @@ class LanguageExpert_model extends CI_Model {
 		$subject = 'LangJobs Password change';
 		$message = 'Dear User,<br /> <br />You recently requested password change. To reset your password, follow the link below: .<br /><br />
 					'.base_url().'LangExpert/recoveryPassword/' . $strcode . '<br /><br /><br />
-					<br /><br /><b>Thanks & Regards</b>, <br /> Langecole Team
+					<br /><br /><b>Thanks & Regards</b>, <br /> LangJobs Team
 					<br />
 					(T) 011 - 46013636
 					<br />

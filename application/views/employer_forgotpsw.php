@@ -56,13 +56,14 @@ function recoverPassword()
 		data: {email:email},
 		success: function(res)
 		{
-			//console.log(res);
-			alert(res);	//return false;		
-			//$("#comm_app").html(res);								
+			if(res=='2'){
+                alert('Recovery mail sent. Please follow the steps in the email to recover your password!');
+            }
 		},
 		error: function (request, status, error) 
 		{
-			alert(request.responseText);
+			 alert("Something went wrong, Try again later!");
+			//alert(request.responseText);
 		}
 	});
 }

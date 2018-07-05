@@ -206,29 +206,16 @@ class Employer_model extends CI_Model {
         $result = $this->db->update('admin_user', $data);
         return ($result) ? TRUE : FALSE;
     }
-	
-	
+		
 	public function forgotPassword($stremail,$strcode)
     {
-		$this->load->library('email');
-		$to_email = $stremail;
-		
-		$config['mailtype'] = 'html';
-		$this->email->initialize($config);
-		
-		$subject = 'langjobs Password change';
+		$send_to = $stremail;
+		$subject = 'LangJobs Password change';
 		$message = 'Dear User,<br /> <br />You recently requested password change. To reset your password, follow the link below: .<br /><br />
 					'.base_url().'LangEmployer/recoveryPassword/' . $strcode . '<br /><br /><br />
-					<br /><br /><b>Thanks & Regards</b>, <br /> Langecole Team';
-			
-		$this->email->from('admin@langjobs.com', 'langjobs');
-		$this->email->to($to_email); 
-						
-		$this->email->subject($subject);
-		$this->email->message($message);	
-		//$this->email->send();
+					<br /><br /><b>Thanks & Regards</b>, <br /> LangJobs Team';
 										
-		if($this->email->send())
+		if($this->My_model->send_mail($send_to, $subject, $message))
 		{	
 			return 1;    // email send
 		}

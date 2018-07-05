@@ -65,7 +65,8 @@ function recoverPassword()
 		},
 		error: function (request, status, error) 
 		{
-			alert(request.responseText);
+            alert("Something went wrong, Try again later!");
+			//alert(request.responseText);
 		}
 	});
 }

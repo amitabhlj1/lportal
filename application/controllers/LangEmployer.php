@@ -65,18 +65,52 @@ class LangEmployer extends CI_Controller
 				'created' => $today
 				);
 			$iInserId = $this->My_model->insertRecord('lang_company',$data);
-			echo $iInserId;
-			// send verification mail
+			if($iInserId){
+                $subject = 'LangJobs Employer\'s Account Verification';
+                $message = "Dear ".$this->input->post('first_name').",<br /> <br />
+                            Please click on the below activation link to verify your email address.<br /><br />
+                            <br />"
+                            .base_url().'LangEmployer/verifyEmail/' .$code . "<br />							
+                            <br /><br /><b>Thanks & Regards</b>, <br /> Langjobs Team";
+
+                $send_to = $this->input->post('email');
+                echo $val = $this->My_model->send_mail($send_to, $subject, $message);
+            } else {
+                echo "-1";
+            }
 		}
 	}
-	
+	/*
+	**  verify register user
+	**	@param - user code
+	*/
+	public function verifyEmail($code)
+	{	
+        $where = array('code' => $code);			
+		$data  = array('email_verify' => 1);
+        
+        $this->My_model->updateRecord('lang_company', $data, $where);
+        if($this->db->affected_rows() >=0){
+           echo "<script>
+                    alert('Awesome! Your account is verified successfully.'); 
+                    window.location.href = '".base_url('LangEmployer')."';
+                </script>"; 
+        } else {
+            echo "<script>
+                    alert('Oops! Something went wrong. Try again later / contact us'); 
+                    window.location.href = '".base_url('LangEmployer')."';
+                </script>"; 
+        }
+	}
 	/*
 	** forgot password
 	** @param - none
 	*/
 	public function forgotPassword()
 	{
-		$title['login'] = 1;
+		$title['title_of_page'] = "";
+        $title['description'] = "";
+        $title['keywords'] ="";
         $this->load->view('include/header',$title);
 		$this->load->view('employer_forgotpsw');
         $this->load->view('include/footer');
@@ -110,5 +144,48 @@ class LangEmployer extends CI_Controller
 			echo '0';    // error user not exist
 							
 	}
-	
+    
+    public function recoveryPassword(){
+        $title['title_of_page'] = "";
+        $title['description'] = "";
+        $title['keywords'] ="";
+        $this->load->view('include/header',$title);
+		$this->load->view('em_ch_pass');
+        $this->load->view('include/footer');
+    }
+	public function changePass(){
+        $code = $this->input->post('code');
+        $pwd = filter_var($this->input->post('pwd'), FILTER_SANITIZE_STRING);
+        $cnf_pwd = filter_var($this->input->post('cnf_pwd'), FILTER_SANITIZE_STRING);
+        
+        if(strlen($pwd)>6){
+            if(strcmp($pwd, $cnf_pwd) == 0){
+                $where = array('code' => $code);			
+                $data  = array('password' => md5($pwd));
+
+                $this->My_model->updateRecord('lang_company', $data, $where);
+                if($this->db->affected_rows() >=0){
+                   echo "<script>
+                            alert('Awesome! Your password changed successfully, Login Now!'); 
+                            window.location.href = '".base_url('LangEmployer')."';
+                        </script>"; 
+                } else {
+                    echo "<script>
+                            alert('Oops! Something went wrong. Try again later / contact us'); 
+                            window.location.href = '".base_url('LangEmployer')."';
+                        </script>"; 
+                }
+            } else {
+                echo "<script>
+                    alert('Passwords does not match, try again!'); 
+                    window.location.href = '".base_url()."LangEmployer/recoveryPassword/".$code."';
+                </script>";   
+            }
+        } else {
+             echo "<script>
+                    alert('Passwords should atleast be 6 characters long, Try again!'); 
+                    window.location.href = '".base_url()."LangEmployer/recoveryPassword/".$code."';
+                </script>";
+        }
+    }
 }
