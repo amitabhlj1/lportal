@@ -92,12 +92,49 @@ class LangExpert extends CI_Controller
 	*/
 	public function recoveryPassword($code)
 	{   
+        $title['title_of_page'] = "Password recovery of Langjob's Expert Profile";
+        $title['description'] = "You can change your password here";
+        $title['keywords'] ="Password, Change";
 		$data['code'] = $code;
-		$this->load->view('include/header'); 	
-		$this->load->view('new_password',$data);
+		$this->load->view('include/header', $title); 	
+		$this->load->view('newpassword',$data);
 		$this->load->view('include/footer');				
 	}
-	
+	public function changePass(){
+        $code = $this->input->post('code');
+        $pwd = filter_var($this->input->post('pwd'), FILTER_SANITIZE_STRING);
+        $cnf_pwd = filter_var($this->input->post('cnf_pwd'), FILTER_SANITIZE_STRING);
+        
+        if(strlen($pwd)>6){
+            if(strcmp($pwd, $cnf_pwd) == 0){
+                $where = array('code' => $code);			
+                $data  = array('password' => $pwd);
+
+                $this->My_model->updateRecord('lang_expert', $data, $where);
+                if($this->db->affected_rows() >=0){
+                   echo "<script>
+                            alert('Awesome! Your password changed successfully, Login Now!'); 
+                            window.location.href = '".base_url('LangExpert')."';
+                        </script>"; 
+                } else {
+                    echo "<script>
+                            alert('Oops! Something went wrong. Try again later / contact us'); 
+                            window.location.href = '".base_url('LangExpert')."';
+                        </script>"; 
+                }
+            } else {
+                echo "<script>
+                    alert('Passwords does not match, try again!'); 
+                    window.location.href = '".base_url()."LangExpert/recoveryPassword/".$code."';
+                </script>";   
+            }
+        } else {
+             echo "<script>
+                    alert('Passwords should atleast be 6 characters long, Try again!'); 
+                    window.location.href = '".base_url()."LangExpert/recoveryPassword/".$code."';
+                </script>";
+        }
+    }
 	// save change password
 	public function validateResetPassword()
 	{   
