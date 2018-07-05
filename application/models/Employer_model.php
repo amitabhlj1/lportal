@@ -100,10 +100,10 @@ class Employer_model extends CI_Model {
 		$this->db->select ('apl.* , exp.first_name,exp.last_name'); 
 		$this->db->from ( 'resume_view_history  apl' );
 		$this->db->join ( 'lang_expert exp','exp.id = apl.expert_id' , 'left' );		
-		
+		$this->db->where ('apl.company_id = '.$this->session->userdata('emp_id'));
 		$query = $this->db->get ();
 		$aResults  = $query->result ();
-		//echo "<pre />"; print_r($aResults); die('PLLL');
+//		echo "<pre />"; print_r($aResults); die('PLLL');
 		return $aResults;
 	}
 	
