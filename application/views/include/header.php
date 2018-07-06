@@ -4,6 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="<?php echo base_url() ?>assets/site_logo.png">
     <!--  
     Document Title
     =============================================
@@ -28,13 +29,13 @@
     <meta content="index, follow" name="msnbot" />
     <meta content="index, follow" name="googlebot" />
     <meta content="english" name="language" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">     <link rel="icon" type="image/png" href="assets/site_logo.png">
     <!--  
     Favicons
     =============================================
     -->
     <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="assets/images/favicons/ms-icon-144x144.png">
+    <meta name="msapplication-TileImage" content="<?php echo base_url() ?>assets/favicon.ico">
     <meta name="theme-color" content="#ffffff">
     <!--  
     Stylesheets
