@@ -47,20 +47,19 @@
 					  <td><?php echo date('F  j, Y',strtotime($job->last_date));?></td>
 					  <td><?php echo $bStatus;?></td>
 					  <td>
-						  <a href="#" data-toggle="modal" data-target="#jobview" onclick="viewJob(<?php echo $job->id;?>, <?php echo $job->j_type?>);">
+						  <a class="btn btn-xs btn-info" href="#" data-toggle="modal" data-target="#jobview" onclick="viewJob(<?php echo $job->id;?>, <?php echo $job->j_type?>);">
 							<span class="glyphicon glyphicon-eye-open" title="view this job"></span>
 						  </a>
 						  &nbsp;&nbsp; &nbsp;&nbsp;
 						  <?php 
-						  if($job->j_applicants == 0) 
-						  {
-						  ?>	  
-						  <a href="<?php echo base_url();?>ado/Employer/editJob/<?php echo $job->id;?>">
-							<span class="glyphicon glyphicon-pencil" title="edit this"></span>
-						  </a>
-						  <?php
-						  }
+                              if($job->j_applicants == 0) { ?>	  
+                                  <a class="btn btn-xs btn-warning" href="<?php echo base_url();?>ado/Employer/editJob/<?php echo $job->id;?>">
+                                    <span class="glyphicon glyphicon-pencil" title="edit this"></span>
+                                  </a>
+						  <?php 
+                            }
 						  ?>
+						  <a class="btn btn-xs btn-success" title="Post same Job as this" href="<?php echo base_url() ?>ado/Employer/copyJob/<?php echo $job->id; ?>"><i class="fa fa-paste"></i></a>
 					  </td>	  
 					</tr>
 					<?php

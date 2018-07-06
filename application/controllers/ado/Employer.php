@@ -676,4 +676,16 @@ class Employer extends CI_Controller
 		$this->load->view('admin/employer/foundex', $data); 
 	    $this->load->view('admin/include/footer');
     }
+    function copyJob($jobid){
+        if( !$this->session->userdata('emp_id') )
+			redirect('ado/Employer/logout','refresh'); 
+		$where = array('status' => 1);
+		$data['cats'] = $this->My_model->selectRecord('job_category','*',$where,'','');
+		$data['langs'] = $this->My_model->selectRecord('language','*',$where,'','');
+		$data['skills'] = $this->My_model->selectRecord('job_skills','*',$where,'','');
+        $data['job_details'] = $this->My_model->selectRecord('jobs', '*', array('id' => $jobid), '', '');
+		$this->load->view('admin/include/emp_header'); 
+		$this->load->view('admin/employer/copy_job',$data); 
+	    $this->load->view('admin/include/footer');
+    }
 }
