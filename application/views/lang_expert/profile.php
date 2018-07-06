@@ -463,9 +463,14 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
                                             <?php
                                                 foreach( $this->config->item('job_exp') as $key => $exp)	
                                                 {
+                                                    if($key < 6){
                                             ?>
-                                                <option value="<?php echo $key; ?>" <?php if($key == $usr[0]->total_exp){echo "selected";}?> ><?php echo $exp;?></option>
-                                            <?php } ?>
+                                                    <option value="<?php echo $key; ?>" <?php if($key == $usr[0]->total_exp){echo "selected";}?> ><?php echo $exp;?></option>
+                                            <?php 
+                                                    } else {
+                                                        break;
+                                                    }
+                                                }?>
                                         </select>
                                     </div>
                                 </div>

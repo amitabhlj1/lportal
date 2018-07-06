@@ -404,4 +404,49 @@ class Admin extends CI_Controller
 		$this->session->sess_destroy();
 		redirect('ado/Admin','refresh');  
 	}
+    
+    public function changeplan(){
+        $id = $this->input->post('id');
+        $result = $this->My_model->selectRecord('lang_company', 'resume_plan', array('id' => $id), '', '');
+        $cname = "Employer";
+        if($result[0]->company_name !=''){
+            $cname = $result[0]->company_name;   
+        }
+        $current_resume_plan = $this->config->item('rplans')[$result[0]->resume_plan];
+        echo "<center><h3>$cname's current plan is: <span style='color:red;'>\"$current_resume_plan\"</span></h3></center>";
+        ?>
+            <form class="form-horizontal" method="post">
+                <div class="form-group">
+                    <div class="col-sm-1">&nbsp;</div>
+                    <div class="col-sm-8">
+                      <select name="resume_plan" id="rplan" class="form-control">
+                          <option value="">Change Plan</option>
+                          <?php foreach($this->config->item('rplans') as $key => $exp){ 
+                                if($key != $result[0]->resume_plan){
+                          ?>
+                                <option value="<?php echo $key; ?>"><?php echo $exp; ?></option>
+                          <?php 
+                                }
+                          } ?>
+                      </select>
+                    </div>
+                    <div class="col-sm-2">
+                        <button class="btn btn-xs btn-primary form-control" type="button" onclick="emp_plan_change(<?php echo $id; ?>);">Change it</button>
+                    </div>
+                  </div>
+                  <div class="form-group" id="err_select"></div>
+            </form>
+        <?php
+    }
+    public function emp_plan_change(){
+        $id = $this->input->post('id');
+        $resume_plan = $this->input->post('resume_plan');
+        //echo $id."-".$resume_plan;
+        $this->My_model->updateRecord('lang_company', array('resume_plan' => $resume_plan), array('id' => $id));
+        if($this->db->affected_rows() > 0){
+            echo "1";
+        } else {
+            echo "-1";
+        }
+    }
 }

@@ -39,9 +39,13 @@
                       <?php
                             foreach( $this->config->item('job_exp') as $key => $exp)	
                             {
+                                if($key<6){
                         ?>
                             <option value="<?php echo $key; ?>"><?php echo $exp;?></option>
-                        <?php } ?>	
+                        <?php   } else {
+                                    break;
+                                }
+                            }?>	
                   </select>
                 </div>
               </div>
