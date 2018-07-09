@@ -4,17 +4,15 @@
 <div class="row">
    <div class="col-md-12">
 		<section class="panel">
-					<?php echo $this->session->flashdata('verify_msg'); ?>	
-		  <header class="panel-heading">Resume View History</header>
-		</section>
-	     
+		  <header class="panel-heading">Resume View History</header>	     
 		<div class="panel-body table-responsive">
-			<table class="table table-hover">
+			<table id="res_his" class="table table-hover">
 				<thead>
 					<tr>
 					  <th>#</th>
 					  <th>Name</th>	  
-					  <th>View/Download</th>
+					  <th>View date</th>
+					  <th>Action</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -28,7 +26,8 @@
 					<tr>
 					  <td><?php echo $count;?></td>
 					  <td><?php echo $hist->first_name . '&nbsp;&nbsp;' .$hist->last_name;?></td>
-					  <td><?php echo date('F  j, Y',strtotime($hist->first_view_date)); ?> </td>
+					  <td><?php echo date('m-d-Y',strtotime($hist->first_view_date)); ?> </td>
+					  <td><?php echo "<a target='_blank' class='btn btn-xs btn-info' href='".base_url()."ado/Employer/viewProfile/".$hist->expert_id."'><i class='fa fa-eye'></i></a>" ?> </td>
 					</tr>
 					<?php
 					$count++;	

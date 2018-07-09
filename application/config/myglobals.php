@@ -13,7 +13,7 @@ $config['rplans'] = array('0' => 'Free','1' => 'Silver','2' => 'Gold','3' => 'Di
 
 // Resumes to view/download
 // 0 -> free -> 10, 1 -> silver -> 25, 2 -> gold -> 50, 3 -> diamond -> 100  
-$config['rplan_cv'] = array('0' => '10','1' => '25','2' => '50','3' => '100');
+$config['rplan_cv'] = array('0' => '100','1' => '250','2' => '500','3' => '1000');
 
 // Plan pricing in $ dollar  
 $config['rplan_price'] = array('0' => '','1' => '50','2' => '100','3' => '150');

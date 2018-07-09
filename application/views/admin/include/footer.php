@@ -87,6 +87,10 @@
 			var table = $('#inner_job').DataTable({
                 "order": [[ 5, "desc" ]]
             });
+            
+			var table = $('#res_his').DataTable({
+                "order": [[ 2, "desc" ]]
+            });
 			
 			var table = $('#all_enq').DataTable({
 						   'aoColumnDefs': [{

@@ -358,7 +358,7 @@ class Employer extends CI_Controller
 	{	
 		$data['usr'] = $this->My_model->selectRecord('lang_expert', '*', array('status' => 1, 'id' =>$pid));
         $title['title_of_page'] = $data['usr'][0]->last_name." - ".$data['usr'][0]->profile_name." | Langjobs Language Experts | ";
-        $title['description'] = "";
+        $title['description'] = $data['usr'][0]->about_me." ";
         $title['keywords'] = $data['usr'][0]->skills.", langjob expert profile";
         $whr5 = array(
             'exp_id' => $data['usr'][0]->id
@@ -376,14 +376,18 @@ class Employer extends CI_Controller
 			$where = array('company_id' => $this->session->userdata('emp_id'),'expert_id' => $pid);
 			$aRes  = $this->My_model->selectRecord('resume_view_history', '*', $where);
 			//$this->My_model->printQuery();
-			if(!$aRes)           // add
+			if(is_array($aRes) && sizeof($aRes) > 0)           // add
 			{
-				$adata = array(
+				echo "<h4 class='rlabel' style='float:right; font-size: 8px;'><i class='fa fa-check-circle'></i> You have already seen this profile </h4>";
+                echo "<h4 class='rlabel' style='float:right; font-size: 8px;'><i class='fa fa-dollar'></i> Current Resume Balance: $iBalance</h4>";
+			} else {
+                echo "<h4 class='rlabel' style='float:right; font-size: 8px;'><i class='fa fa-dollar'></i> Current Resume Balance: ".($iBalance-1)."</h4>";
+                $adata = array(
 					'company_id' => $this->session->userdata('emp_id'),
 					'expert_id' => $pid
 					);
 				$iInsert = $this->My_model->insertRecord('resume_view_history', $adata);
-			}
+            }
 		}
 		$data['balance'] = $iBalance;
 		$this->load->view('include/header', $title);

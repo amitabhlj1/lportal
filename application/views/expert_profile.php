@@ -1,6 +1,6 @@
 <style>  
 body { background:#ffffff;}
-.module{padding: 80px 0; !important}
+.module{padding: 25px 0; !important}
 .page-header {background:#ccc;margin:0;}
 .profile-head { width:100%;background-color: rgb(40, 47, 70);float: left;padding: 15px 5px;}
 .profile-head img { height:220px; width:220px; margin:0 auto; border-radius:50%;}
@@ -280,6 +280,39 @@ if($this->session->userdata('emp_id'))
                                 }
                             } else{
                                 echo "<div class='text-center'>Work history not found! Language Expert has not updated this section yet</div>";
+                            }
+                        ?>
+                    </div>
+                    <div class="col-md-6 table-responsive">
+                        <h4 class="rlabel" style="width:100%;border-right:4px solid gold;"><i class="fa fa-file"></i> Resume </h4>
+                        <?php 
+                            if(!empty($usr[0]->resume)){
+                                $ext = explode('.', $usr[0]->resume)[1];
+                                $ico="";
+                                switch($ext) {
+                                    case "pdf": 
+                                        $ico = "<i class='fa fa-file-pdf-o'></i>"; break;
+                                    case "doc":
+                                    case "docx":
+                                        $ico = "<i class='fa fa-doc'></i>"; break;
+                                    case "jpg":
+                                    case "gif":
+                                    case "jpeg":
+                                        $ico = "<i class='fa fa-file-image-o'></i>";break;
+                                    case "mp4":
+                                    case "mkv":
+                                    case "3gp":
+                                    case "avi":
+                                    case "webm":
+                                        $ico = "<i class='fa fa-file-video-o'></i>"; break;
+                                    case "txt":
+                                        $ico = "<i class='fa fa-file-text-o'></i>"; break;
+                                    default:
+                                        $ico = "<i class='fa fa-file-o'></i>"; break;
+                                }
+                                echo "Download: <a class='btn btn-primary btn-xs' href='".base_url()."assets/uploads/expert_resumes/".$usr[0]->resume."' download>".$ico." ".$usr[0]->resume."</a>";
+                            } else {
+                                echo "<div class='text-center'>Resume not found! Language Expert has not uploaded his Resume yet</div>";
                             }
                         ?>
                     </div>
