@@ -19,13 +19,20 @@ class SearchJob extends CI_Controller
         $data['lang'] = $this->My_model->selectRecord('language', '*', $common_where);
         $data['sectors'] = $this->My_model->selectRecord('job_category', '*', $common_where);
         $data['city'] = $this->My_model->selectRecord('cities', '*', '');
+        //These value are supposed to be blank, do not enter anything..
         $data['jobs']="";
+        $data['input_by_user']['language'] = "";
+        $data['input_by_user']['sector'] = "";
+        $data['input_by_user']['keywords'] = "";
+        $data['input_by_user']['locationCombo'] = "";
+        
         $this->load->view('include/header', $title);
 		$this->load->view('search_job', $data);
         $this->load->view('include/footer');
 	}
     public function retrieve_jobs(){
         $data['jobs'] = $this->LanguageExpert_model->searchResult();
+        $data['input_by_user'] = $this->input->post();
 		$title['title_of_page'] = "Found Results";
         $title['description'] = "Results after your search query";
         $title['keywords'] ="Found Jobs and Projects at LangJobs.com";

@@ -135,26 +135,27 @@ class LanguageExpert_model extends CI_Model {
 		$strKeyw = $this->input->post('keywords');
 		$where = 'WHERE jb.status=1';
 		if(!empty($iLang))
-			$where .= " AND jb.languages like '%".$iLang."%'";
+			$where .= " AND FIND_IN_SET(".$iLang.",jb.languages) OR jb.from_language = '".$iLang."' OR jb.to_language = '".$iLang."'";
         
         if(!empty($iSec))
 			$where .= " AND jb.j_category = ".$iSec;
          
 		if(!empty($iLoc))
-			$where .= " AND jb.address like '%".$iLoc."%'";
+			$where .= " AND '".$iLoc."' LIKE CONCAT('%',jb.address,'%')";
 		 
 		 if(!empty($iExp))
 			$where .= " AND jb.total_exp = ".$iExp;
 		 
 		 if(!empty($strKeyw))
-			$where .= " OR MATCH(jb.title, jb.job_keywords,jb.skills,jb.description)
+			$where .= " AND MATCH(jb.title, jb.job_keywords,jb.skills,jb.description)
 						AGAINST('$strKeyw' IN NATURAL LANGUAGE MODE) ";
          
          $order_by = "ORDER BY jb.id DESC";
 		 
          $response = array();
          $sql = "SELECT jb.*, l.company_name FROM `jobs` jb INNER JOIN lang_company l ON jb.company_id = l.id ".$where." ".$order_by;
-		 $result = $this->db->query($sql);
+         $result = $this->db->query($sql);
+         //$this->My_model->printQuery(); die();
         if ($result && $result->num_rows()) {
             foreach ($result->result() as $row) {
                 $response[] = $row;

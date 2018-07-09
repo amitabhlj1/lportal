@@ -238,14 +238,9 @@
                                         }   
                                     ?></p>
                                 </div>
-                                </fieldset>
-                            </div>
-                        </div>
-                        <div class="row multi-columns-row">
-                            <div class="col-md-2 col-sm-6 col-xs-12">
-                                <div class="features-item">
-                                    <div class="features-icon"><span class="icon-target"></span></div>
-                                    <h3 class="features-title font-alt">Desired Profile</h3>
+                                <div class="alt-features-item">
+                                    <div class="alt-features-icon"><span class="icon-target"></span></div>
+                                    <h3 class="alt-features-title font-alt">Desired Profile</h3>
                                     <p><?php 
                                             if($jd->skills){
                                                 echo "<b>Skills:</b>";
@@ -256,6 +251,12 @@
                                             }   
                                         ?></p>
                                 </div>
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="row multi-columns-row">
+                            <div class="col-md-1 col-sm-6 col-xs-12">
+                                &nbsp;
                             </div>
                             <div class="col-md-2 col-sm-6 col-xs-12">
                                 <div class="features-item">
@@ -364,20 +365,21 @@
                                 }   
                             ?></p>
                         </div>
-                        </fieldset>
-                    </div>
-                </div>
-                <div class="row multi-columns-row">
-                    <div class="col-md-2 col-sm-6 col-xs-12">
-                        <div class="features-item">
-                            <div class="features-icon"><span class="icon-target"></span></div>
-                            <h3 class="features-title font-alt">Desired Profile</h3>
+                        <div class="alt-features-item">
+                            <div class="alt-features-icon"><span class="icon-target"></span></div>
+                            <h3 class="alt-features-title font-alt">Desired Profile</h3>
                             <p><?php 
                                     if($jd->skills){
                                         echo $jd->skills;
                                     }   
                                 ?></p>
                         </div>
+                        </fieldset>
+                    </div>
+                </div>
+                <div class="row multi-columns-row">
+                    <div class="col-md-1 col-sm-6 col-xs-12">
+                        &nbsp;
                     </div>
                     <div class="col-md-2 col-sm-6 col-xs-12">
                         <div class="features-item">

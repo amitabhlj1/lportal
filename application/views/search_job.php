@@ -169,7 +169,7 @@
                                     <option value="">All Langs</option>
                                     <?php
                                         foreach($lang as $l){ ?>
-                                        <option value="<?php echo $l->id; ?>"><?php echo $l->name; ?></option>
+                                        <option value="<?php echo $l->id; ?>" <?php if($input_by_user['language'] !="" && $input_by_user['language'] == $l->id){echo "selected"; }  ?> ><?php echo $l->name; ?></option>
                                     <?php
                                         }
                                     ?>
@@ -180,14 +180,14 @@
                                     <option value="">All Sectors</option>
                                     <?php
                                         foreach($sectors as $s){ ?>
-                                        <option value="<?php echo $s->id; ?>"><?php echo $s->cat_name; ?></option>
+                                        <option value="<?php echo $s->id; ?>" <?php if($input_by_user['sector'] !="" && $input_by_user['sector'] == $s->id){echo "selected"; }  ?> ><?php echo $s->cat_name; ?></option>
                                     <?php
                                         }
                                     ?>
                                 </select>
                                 </div>
                                 <div class="col-md-2 col-lg-2 col-xs-12 col-sm-6">
-                                   <input id="autocomplete" name="locationCombo" placeholder="Enter your address" type="text" class="form-control" />
+                                   <input id="autocomplete" name="locationCombo" placeholder="Enter your address" type="text" class="form-control" value="<?php if($input_by_user['locationCombo'] !=""){ echo $input_by_user['locationCombo']; } ?>"/>
                                 </div>
                             <div class="col-md-2 col-lg-2 col-xs-12 col-sm-6">
                               <select name="experience" class="form-control select2">
@@ -196,12 +196,12 @@
                                     foreach( $this->config->item('job_exp') as $key => $exp)	
                                     {
                                 ?>
-                                    <option value="<?php echo $key; ?>"><?php echo $exp;?></option>
+                                    <option value="<?php echo $key; ?>" <?php if($input_by_user['experience'] !="" && $input_by_user['experience'] == $key){echo "selected"; }  ?> ><?php echo $exp;?></option>
                                 <?php } ?>		
                               </select>
                             </div>
                             <div class="col-md-3 col-lg-3 col-xs-12 col-sm-12"> 
-                              <input type='text' id="tags_1" name="keywords" value="" placeholder="Comma seperated keywords">
+                              <input type='text' id="tags_1" name="keywords" value="<?php if($input_by_user['keywords'] !="") {echo $input_by_user['keywords']; } ?>" placeholder="Comma seperated keywords">
                             </div>
                             <div class="col-md-1 col-lg-1 col-xs-12 col-sm-12">
                               <input id="search_btn" type="submit" name="empsearchbutton" class="btn btn-block btn-round btn-d" value="" title="Click to Search">
@@ -224,7 +224,7 @@
                                             <div class="card">
                                                 <div class="row card-header">
                                                     <div class="col-md-4" title="Job Type">
-                                                        <?php if($j->j_type == 1){echo "<i class='fa fa-briefcase'></i> Full/Part Time";}else{echo "<i class='fa fa-trophy'></i>Freelance/Project";} ?>
+                                                        <?php if($j->j_type == 1){echo "<i class='fa fa-briefcase'></i> Full/Part Time";}else{echo "<i class='fa fa-trophy'></i> Freelance/Project";} ?>
                                                     </div>
                                                     <div class="col-md-4 overflow-control" title="<?php echo strip_tags($j->company_name); ?>">
                                                         <?php echo "<i class='fa fa-building'></i> ".strip_tags($j->company_name); ?>
