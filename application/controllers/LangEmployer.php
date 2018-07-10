@@ -22,8 +22,9 @@ class LangEmployer extends CI_Controller
 		$title['title_of_page'] = "";
         $title['description'] = "";
         $title['keywords'] ="";
+        $data['country'] = $this->My_model->selectRecord('country', '*', '','');
         $this->load->view('include/header',$title);
-		$this->load->view('Language_employer');
+		$this->load->view('Language_employer', $data);
         $this->load->view('include/footer');
 	}
 	
@@ -58,6 +59,7 @@ class LangEmployer extends CI_Controller
 				'first_name' => $this->input->post('first_name'),
 				'last_name' => $this->input->post('last_name'),
 				'email' => $this->input->post('email'),
+                'mobile' => $this->input->post('mobile'),
 				'password' => md5($this->input->post('password')),
 				'country' => $this->input->post('country'),
 				'company_name' => $this->input->post('company_name'),

@@ -200,6 +200,7 @@ class LangExpert extends CI_Controller
 				'email' => $this->input->post('email'),
 				'password' => md5($this->input->post('password')),
 				'country' => $this->input->post('country'),
+                'mobile' => $this->input->post('mobile'),
 				'code'  => $code,
 				'created' => $today,
                 'status' => '1'

@@ -29,6 +29,11 @@
 				<input class="form-control" type="email" id="email" name="email" placeholder="Your Email*" required="required" maxlength="40" data-validation-required-message="Please enter your email address."/>
 				<p class="help-blk text-danger" id="err_email"></p>
 		  	</div>
+		  	<div class="form-group">
+				<label class="sr-only" for="mobile">Contact / Mobile Number</label>
+				<input class="form-control" type="text" id="mobile" name="mobile" placeholder="Your contact/mobile number: +country-code-xxxxxxx" required="required" maxlength="40" data-validation-required-message="Please enter your contact/mobile number."/>
+				<p class="help-blk text-danger" id="err_mobile"></p>
+		  	</div>
 			<div class="form-group">
 				<label class="sr-only" for="email">Password</label>
 				<input class="form-control" type="password" id="password" name="password" placeholder="your password (minimum 6 characters) *" required="required" maxlength="25" data-validation-required-message="Please enter your email address."/>
@@ -97,6 +102,7 @@
 		$('#err_lname').html('');
 		$('#err_email').html('');
 		$('#err_psw').html('');
+        $('#err_mobile').html('');
 		
 		
 		//alert('KJJ');
@@ -105,6 +111,7 @@
 		var email      = $('#email').val();
 		var password   = $('#password').val();
 		var country    = $('#country').val();
+        var mobile     = $('#mobile').val();
 		if(first_name == '')
 		{
 			$('#err_fname').html('Please enter first name');
@@ -126,12 +133,19 @@
 			$('#password').css('border','solid 1px #FF0000');
 			return false;
 		}
+        
+		if(mobile == '' || mobile.length < 8)
+		{
+			$('#err_mobile').html('Please enter your contact/mobile number');
+			$('#mobile').css('border','solid 1px #FF0000');
+			return false;
+		}
 		
 		$.ajax({
 			type: "POST",
 			url: baseurl+ "LangExpert/registerExpert",
 			dataType: 'html',
-			data: {first_name:first_name,last_name:last_name,email:email,password:password,country:country},
+			data: {first_name:first_name,last_name:last_name,email:email,password:password,country:country, mobile:mobile},
 			success: function(res)
 			{
 				if(res == '-1')

@@ -30,6 +30,11 @@
 				<input class="form-control" type="email" id="email" name="email" placeholder="Your Email*" required="required" maxlength="40" data-validation-required-message="Please enter your email address."/>
 				<p class="help-blk text-danger" id="err_email"></p>
 		  	</div>
+		  	<div class="form-group">
+				<label class="sr-only" for="mobile">mobile</label>
+				<input class="form-control" type="text" id="mobile" name="mobile" placeholder="Your contact: +country-code-xxxxx..." required="required" maxlength="40" data-validation-required-message="Please enter your contact/mobile number."/>
+				<p class="help-blk text-danger" id="err_mobile"></p>
+		  	</div>
 			<div class="form-group">
 				<label class="sr-only" for="email">Password</label>
 				<input class="form-control" type="password" id="password" name="password" placeholder="your password (minimum 6 characters) *" required="required" maxlength="25" data-validation-required-message="Please enter your email address."/>
@@ -44,7 +49,11 @@
 				<label class="sr-only" for="name">Country</label>
 				<select class="form-control" id="country" name="country">
 					<option value=''>select country</option>
-					<option value='1'>India</option>
+					<?php
+                        foreach($country as $c){
+                            echo "<option value='".$c->id."'>".$c->c_name."</option>";
+                        }
+                    ?>
 				</select>
 				<p class="help-block text-danger"></p>
 		  	</div>
@@ -94,11 +103,13 @@
 		$('#first_name').removeClass('error_red').addClass('error_green');
 		$('#email').removeClass('error_red').addClass('error_green');
 		$('#password').removeClass('error_red').addClass('error_green');
+        $('#mobile').removeClass('error_red').addClass('error_green');
 		
 		$('#err_fname').html('');	
 		$('#err_lname').html('');
 		$('#err_email').html('');
 		$('#err_psw').html('');
+		$('#err_mobile').html('');
 		
 		
 		//alert('KJJ');
@@ -108,6 +119,7 @@
 		var password   = $('#password').val();
 		var company_name = $('#company_name').val();
 		var country    = $('#country').val();
+        var mobile     = $('#mobile').val();
 		if(first_name == '')
 		{
 			$('#err_fname').html('Please enter first name');
@@ -129,12 +141,19 @@
 			$('#password').removeClass('error_green').addClass('error_red');
 			return false;
 		}
+        
+		if(mobile == '' || mobile.length < 8)
+		{
+			$('#err_mobile').html('Please enter contact/mobile number');
+			$('#mobile').removeClass('error_green').addClass('error_red');
+			return false;
+		}
 		
 		$.ajax({
 			type: "POST",
 			url: baseurl+ "LangEmployer/registerEmployer",
 			dataType: 'html',
-			data: {first_name:first_name,last_name:last_name,email:email,password:password,company_name:company_name,country:country},
+			data: {first_name:first_name,last_name:last_name,email:email,password:password,company_name:company_name,country:country, mobile:mobile},
 			success: function(res)
 			{
 				//alert(res);	return false;
