@@ -213,7 +213,7 @@ class LangExpert extends CI_Controller
                             Please click on the below activation link to verify your email address.<br /><br />
                             <br />"
                             .base_url().'LangExpert/verifyEmail/' .$code . "<br />							
-                            <br /><br /><b>Thanks & Regards</b>, <br /> Langjobs Team";
+                            <br /><br /><b>Thanks & Regards</b>, <br /> LangJobs Team";
 
                 $send_to = $this->input->post('email');
                 echo $val = $this->My_model->send_mail($send_to, $subject, $message);

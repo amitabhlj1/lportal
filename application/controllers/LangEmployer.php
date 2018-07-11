@@ -93,6 +93,28 @@ class LangEmployer extends CI_Controller
         
         $this->My_model->updateRecord('lang_company', $data, $where);
         if($this->db->affected_rows() >=0){
+           $val = $this->My_model->selectRecord('lang_company', '*', $where);
+           $send_to = $val[0]->email;
+           $subject = "Welcome to Langjobs.com | Account Verified";
+           $message = "Dear ".$val[0]->first_name.", <br/>
+           <p style='text-align:justify;'> <b>Congratulations! You account has been verified successfully.</b><br/> We urge you to complete your profile as soon as you can. A fully completed profile helps us to verify your account and your jobs better. </p>
+           <p style='text-align:justify;'>Since You're new to the LangJobs portal, You have been automatically assigned to \"Free\" Plan in which you get to see 100 Language Expert's Profiles. Everytime you see a profile/resume, \"Resume View Count\" will be deducted one by one.<br/>
+           You can request us to update your plan by contacting us at: +91-1146013636 or filling up the <a href='".base_url()."contact.php'>contact form</a>.</p>
+           <p style='text-align:justify'>However, there is no limit on posting a job/Project.</p>
+           <p style='text-align:justify;'>You can do following when you login at our portal next time:
+                <ul>
+                    <li style='text-align:justify;'><a href='".base_url()."ado/Employer/jobs'>Add New Job/Project</a>: You can start posting your jobs or freelancing projects.</li>
+                    <li style='text-align:justify;'><a href='".base_url()."ado/Employer/profile'>Complete Your Profile</a>: You can complete your profile by visiting to this page. Jobs posted by you are verified quickly if your profile is updated</li>
+                    <li style='text-align:justify;'><a href='".base_url()."ado/Employer/searchExperts'>Search Job Seekers</a>: Search your future employee using our advance search.</li>
+                    <li style='text-align:justify;'><a href='".base_url()."ado/Employer/resumeHistory'>Previously Viewed Profiles</a>: Go here, In case you want to checkout the profiles which you recently visited.</li>
+                </ul>
+           </p>
+           <p style='text-align:justify;'>
+                Thanks and Regards,<br/>
+                LangJobs Team.
+           </p>
+           ";
+           $val = $this->My_model->send_mail($send_to, $subject, $message);
            echo "<script>
                     alert('Awesome! Your account is verified successfully.'); 
                     window.location.href = '".base_url('LangEmployer')."';

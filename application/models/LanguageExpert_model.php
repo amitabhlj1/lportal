@@ -63,7 +63,6 @@ class LanguageExpert_model extends CI_Model {
 	public function change_password($data)
     {		
 		$where = array('id' => $this->session->userdata('admin_id'));
-		//print_r($where); die(); 	
 		$this->db->where($where);
         $result = $this->db->update('admin_user', $data);
         return ($result) ? TRUE : FALSE;
@@ -84,8 +83,6 @@ class LanguageExpert_model extends CI_Model {
 					(M) 9599938829, &nbsp; 9311488060
 					<br />
 					E-4,Defence colony,&nbsp;&nbsp; New Delhi -110024
-					<br /><br />
-					facebook.com/langecole.del
 					<br />
 					youtube.com/channel/UCXUSUrc39Ri7EprBuvcqQNQ
 					';
