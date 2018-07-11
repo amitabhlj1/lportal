@@ -234,6 +234,27 @@ class LangExpert extends CI_Controller
         
         $this->My_model->updateRecord('lang_expert', $data, $where);
         if($this->db->affected_rows() >=0){
+           $val = $this->My_model->selectRecord('lang_expert', '*', $where);
+           $send_to = $val[0]->email;
+           $subject = "Welcome to Langjobs.com | Account Verified";
+           $message = "Dear ".$val[0]->first_name.", <br/>
+           <p style='text-align:justify;'> <b>Congratulations!, You account has been verified successfully.</b> Now that you have become a language expert, We urge you to complete your profile as soon as you can. A fully completed profile is more attractive to the employers. </p>
+           <p style='text-align:justify;'>You can do following when you login with us:
+                <ul>
+                    <li style='text-align:justify;'><a href='".base_url()."SearchJob'>Search Job/Freelance Projects</a>: Using Advance search, You can get to select your own specified jobs and projects.</li>
+                    <li style='text-align:justify;'><a href='".base_url()."Blogs/write'>Write Blogs</a>: This will help you in showing your expertise in certain languages</li>
+                    <li style='text-align:justify;'><a href='".base_url()."expert'>Add Work History</a>: Adding a work history will justify your \"Experience\". It tells employers exactly what kind of developed skills and accomplishments a job seeker has made within a particular industry.</li>
+                    <li style='text-align:justify;'><a href='".base_url()."expert'>Add Education</a>: Your education history can reveal that a job seeker has what it takes to focus on a particular subject or industry and develop within it.</li>
+                    <li style='text-align:justify;'><a href='".base_url()."expert'>Upload Samples</a>: You might have done some work on which you feel proud, showing a glimpse of that will certainly impress your Employer. </li>
+                    <li style='text-align:justify;'><a href='".base_url()."expert'>Upload Resume</a>: Last, but not the least. A well designed and well written resume will certainly mark a star on your profile. </li>
+                </ul>
+           </p>
+           <p style='text-align:justify;'>
+                Thanks and Regards,<br/>
+                LangJobs Team.
+           </p>
+           ";
+           $val = $this->My_model->send_mail($send_to, $subject, $message);
            echo "<script>
                     alert('Awesome! Your account is verified successfully.'); 
                     window.location.href = '".base_url('LangExpert')."';

@@ -61,7 +61,7 @@
 <section class="home-section home-parallax home-fade home-full-height bg-dark-60 agency-page-header" id="home" data-background="<?php echo base_url() ?>assets/images/LJ2.jpg">
 <div class="titan-caption">
   <div class="caption-content">
-    <div class="font-alt mb-30 titan-title-size-1 main_title"> World's No 1. Language Specific Job Portal </div>
+    <div class="font-alt mb-30 titan-title-size-1 main_title"> World's No 1. Language Specific Jobs Portal </div>
     <div class="font-alt mb-40 titan-title-size-2" style="display:none;"> We Provide <br/><span class="rotate"> Career Services | Translation Services | Transcription Services | Language Specific Services</span>
     </div>
       <form autocomplete="off" action="<?php echo base_url() ?>SearchJob/retrieve_jobs" method="post">
