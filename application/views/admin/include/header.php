@@ -247,10 +247,10 @@
                 $iEnq = '';
 				if($this->session->userdata('admin_id'))
 				{
-					$iExperts = $this->db->where(array('id'))->from("lang_expert")->count_all_results();
-					$iEmployers = $this->My_model->getNumRows('lang_company','status','');
-					$iJobs = $this->My_model->getNumRows('jobs','status',1);
-                    $iEnq = $this->db->where(array('id'))->from("visitor_query")->count_all_results();
+					$iExperts = $this->db->from("lang_expert")->count_all_results();
+					$iEmployers = $this->db->from("lang_company")->count_all_results();
+					$iJobs = $this->db->from("jobs")->count_all_results();
+                    $iEnq = $this->db->from("visitor_query")->count_all_results();
 				}	
 				?>
                 <div class="row" style="margin-bottom:5px;">

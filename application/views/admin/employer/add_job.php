@@ -432,7 +432,7 @@ function saveJobs()
 	var j_category = $("#j_category").val();
 	var title      = $("#title").val();
 	var skills     = $("#skills").val();
-	var description = tinyMCE.activeEditor.getContent();;
+	var description = tinyMCE.activeEditor.getContent();
 	var total_exp = $("#total_exp").val();
 	
 	if(j_type == '')

@@ -449,4 +449,22 @@ class Admin extends CI_Controller
             echo "-1";
         }
     }
+    public function send_mail_emp(){
+        $email_list = json_decode($this->input->post('emails'));
+        $subject = $this->input->post('subject');
+        $message = $this->input->post('message');
+        $val='';
+        $response = array();
+        $response['gone'] = 0;
+        $response['fail'] = 0;
+        foreach($email_list as $e){
+            $val = $this->My_model->send_mail($e, $subject, $message);
+            if($val){
+              $response['gone'] = $response['gone']+1;  
+            } else {
+                $response['fail'] = $response['fail']+1;
+            }
+        }
+        echo json_encode($response);
+    }
 }
