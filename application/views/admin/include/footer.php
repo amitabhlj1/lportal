@@ -156,8 +156,10 @@
                             },
                             success: function(data) {
                                 console.log(data);
+                                $('#main_div').html('');
                                 $('#main_div').addClass('loader');
                                 $('#show_err').html('<i class="glyphicon glyphicon-ok-sign"></i> '+data.gone+' Mail(s) Sent');
+                                 window.setTimeout(function(){location.reload()},3000)
                             },
                             error: function (request, status, error) {
                                 $('#show_err').css('color','#FF0000');
