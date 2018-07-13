@@ -156,8 +156,8 @@
                             },
                             success: function(data) {
                                 console.log(data);
-                                $('#show_err').addClass('');
-                                $('#show_err').html('<i class="glyphicon glyphicon-remove-sign"></i> '+data.gone+'Mail Sent');
+                                $('#main_div').addClass('loader');
+                                $('#show_err').html('<i class="glyphicon glyphicon-ok-sign"></i> '+data.gone+' Mail(s) Sent');
                             },
                             error: function (request, status, error) {
                                 $('#show_err').css('color','#FF0000');

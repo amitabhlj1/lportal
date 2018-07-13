@@ -104,7 +104,7 @@
                 <div class="col-md-3"><label>Subject</label></div>
                 <div class="col-md-9"><input type="text" name="mail_subject" id="mail_subject" class="form-control" /></div>
                 <hr>
-                <div class="col-md-12">
+                <div class="col-md-12" id="main_div">
                     <textarea id="mail_message" class="form-control" cols="8"></textarea>
                 </div>
             </div>	
