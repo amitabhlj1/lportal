@@ -76,11 +76,98 @@
 			     "order": [[ 4, "desc" ]]			   
             });
 		
-			var table = $('#inner_exp').DataTable({
+			var texp = $('#inner_exp').DataTable({
 				"order": [[ 5, "desc" ]]
             });
-			
-			var t_emp = $('#inner_emp').DataTable({
+			$('#inner_exp tbody').on( 'click', 'tr', function () {
+                $(this).toggleClass('selected');
+            });
+			$('#send_mail_exp').click( function () {
+                //retrieves count of rows
+                var total_rows = texp.rows('.selected').data().length;
+                $('#nrows').html('<b>'+total_rows+'</b>'); 
+            });
+            $('#send_now_ex').click(function(){
+                
+                $('#show_err').html('');
+                var subject = $('#mail_subject').val();
+                if(subject == ""){
+                    $('#show_err').css('border','solid 1px #FF0000');
+                    $('#show_err').css('color','#FF0000');
+                    $('#show_err').html('Can\'t send an email without a subject');
+                    return false;
+                }
+                var message = tinyMCE.activeEditor.getContent();
+                var radioValue = $("input[name='mailingto']:checked").val();
+                var email_list = [];
+                if(radioValue == null){
+                    $('#show_err').css('border','solid 1px #FF0000');
+                    $('#show_err').css('color','#FF0000');
+                    $('#show_err').html('Select either \" First 1000 Experts\" or \"Selected Emails\"');
+                    return false;
+                } else {
+                    $('#show_err').css('border','none');
+                    $('#show_err').css('color','#000');
+                    if(radioValue == '1'){
+                        
+                        var data = texp.rows('.selected').data();
+                        //retrieving all the selected mails into email_list array
+                        $.each( data, function( key, value ) {
+                            if(data[key][2] != ""){
+                                email_list.push(data[key][2]);
+                            }
+                        });
+                        
+                    } else {
+                        
+                        var data = texp.rows().data();
+                        //retrieving all the selected mails into email_list array
+                        $.each( data, function( key, value ) {
+                          if(data[key][2] != ""){
+                                email_list.push(data[key][2]);
+                          }
+                        });
+                        
+                    }
+                    
+                    if(message == ""){
+                        $('#show_err').css('border','solid 1px #FF0000');
+                        $('#show_err').css('color','#FF0000');
+                        $('#show_err').html('Can\'t send an empty email');
+                        return false;
+                    } else {
+                        $('#show_err').css('border','none');
+                        $('#show_err').css('color','#000');
+                        
+                        $.ajax({
+                            type: "POST",
+                            url: baseurl+"ado/Admin/send_mail_emp",
+                            data:{ emails : JSON.stringify(email_list), subject: subject, message: message },
+                            dataType: "json",
+                            beforeSend: function() {
+                                $('#main_div').html('');
+                                $('#main_div').addClass('loader');
+                            },
+                            success: function(data) {
+                                console.log(data);
+                                $('#main_div').addClass('');
+                                $('#show_err').html('<i class="glyphicon glyphicon-ok-sign"></i> '+data.gone+' Mail(s) Sent');
+                                 window.setTimeout(function(){location.reload()},3000);
+                            },
+                            error: function (request, status, error) {
+                                $('#show_err').css('color','#FF0000');
+                                $('#show_err').html('<i class="glyphicon glyphicon-remove-sign"></i> Something went wrong!');
+                                console.log(request.responseText);
+                            }
+                        });
+                    }
+                    
+                }
+                
+                
+            });
+            /****************Employer's*************/
+            var t_emp = $('#inner_emp').DataTable({
                 "order": [[ 5, "desc" ]]
             });
    
@@ -157,6 +244,7 @@
                             },
                             success: function(data) {
                                 console.log(data);
+                                $('#main_div').addClass('');
                                 $('#show_err').html('<i class="glyphicon glyphicon-ok-sign"></i> '+data.gone+' Mail(s) Sent');
                                  window.setTimeout(function(){location.reload()},3000);
                             },

@@ -37,7 +37,7 @@
 						  <a href="#" data-toggle="modal" data-target="#empview" onclick="employerDetails(<?php echo $employer->id;?>);">
 								<span class="glyphicon glyphicon-eye-open" title="view details"></span>
 						  </a>
-						   &nbsp;&nbsp; &nbsp;&nbsp;
+						   &nbsp;&nbsp;
 							<?php 
 							if($employer->status == 1)
 							{
@@ -55,7 +55,8 @@
 								</a>
 							<?php
 							}
-						?>								
+						?>
+						<a class="btn btn-xs btn-success" data-toggle="modal" data-target="#empplan" title="Change Plan For this Employee" onclick="seeplan(<?php echo $employer->id;?>)"><i class="fa fa-money"></i></a>								
 					  </td>
 					</tr>
 					<?php
@@ -78,6 +79,19 @@
         </div>
         <div class="modal-body">
 			<table id="emp_dt" class="table table-hover"></table>			
+        </div>
+      </div>
+    </div>
+</div>
+<div class="modal fade" id="empplan" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Employer's Active Plan</h4>
+        </div>
+        <div class="modal-body" id="plan_body">
+						
         </div>
       </div>
     </div>
@@ -117,6 +131,55 @@
       </div>
     </div>
 </div>
+<script>
+    function seeplan(x){
+        //alert(x);
+        $.ajax({
+            type: "POST",
+            url: baseurl+ "ado/Admin/changeplan",
+            dataType: 'html',
+            data: {id: x},
+            success: function(res)
+            {
+                $('#plan_body').html(res);
+                console.log(res);
+            },
+            error: function (request, status, error) 
+            {
+                alert(request.responseText);
+            }
+        });
+    }
+function emp_plan_change(x){
+        $("#err_select").html('');
+        var plan = $("#rplan").val();
+        if(plan == ''){
+            $("#err_select").html('Select the plan first!!');
+        } else{
+            $.ajax({
+                type: "POST",
+                url: baseurl+ "ado/Admin/emp_plan_change",
+                dataType: 'html',
+                data: {id: x, resume_plan: plan},
+                success: function(res)
+                {
+                    if(res == 1) {
+                        $('#err_select').css('color', 'blue');
+                        $('#err_select').html('Awesome, Plan Changed for this employee');
+                    } else {
+                        $('#err_select').css('color', 'red');
+                        $('#err_select').html('something went wrong, try again later');
+                    }
+                },
+                error: function (request, status, error) 
+                {
+                    alert('Something went wrong!');
+                    console.log(request.responseText);
+                }
+            });   
+        }
+    }
+</script>
 <script>
   tinyMCE.init({
 		// General options
