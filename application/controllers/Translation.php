@@ -14,9 +14,9 @@ class Translation extends CI_Controller
     
 	public function index()
 	{
-        $title['title_of_page'] = "";
-        $title['description'] = "";
-        $title['keywords'] ="";
+        $title['title_of_page'] = "Free Machine Translation at LangJobs.com";
+        $title['description'] = "LangJobs.com is providing a way for Language professionals to see the translations from Google, Bing and Yandex Machine Translated text and Compare them on the run. You can order a professional Translation services by contacting us";
+        $title['keywords'] ="Machine Translation, Translate and Compare, Free Translation, Professional Translation Services at LangJobs.com";
         
 		$where = array('status' => 1);
 		$data['langs'] = $this->My_model->selectRecord('language','*',$where,'','');

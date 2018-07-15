@@ -20,7 +20,7 @@ class LangExpert extends CI_Controller
 	*/
 	public function index()
 	{
-		$title['title_of_page'] = "Login | Sign Up :: Language Experts | Langjobs.com";
+		$title['title_of_page'] = "Login | Sign Up :: Language Experts | LangJobs.com";
         $title['description'] = "Login page for language experts of Langjobs.com | Signup / Login to find your favourite language jobs, freelancing projects";
         $title['keywords'] ="Signup, Register, Apply Jobs, Search Jobs / Projects, Language Jobs, Language Projects, Language expert login, Language Experts, LangJobs.com";
 		$title['login'] = 1;
@@ -92,7 +92,7 @@ class LangExpert extends CI_Controller
 	*/
 	public function recoveryPassword($code)
 	{   
-        $title['title_of_page'] = "Password recovery of Langjob's Expert Profile";
+        $title['title_of_page'] = "Password recovery of LangJob's Expert Profile";
         $title['description'] = "You can change your password here";
         $title['keywords'] ="Password, Change";
 		$data['code'] = $code;

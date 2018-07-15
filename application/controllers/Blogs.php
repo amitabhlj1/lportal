@@ -16,7 +16,7 @@ class Blogs extends CI_Controller
         header("Location:".base_url('Blogs/v'));
 	}
     public function v($type=null){
-        $title['title_of_page'] = "Blogs at Langjobs.com";
+        $title['title_of_page'] = "Blogs and Articles at LangJobs.com";
         $title['description'] = "This page showcases language ability of our Language Experts.";
         $title['keywords'] ="Blogs, articles, Languages, Language Jobs, Language Expert";
         $data['type'] = '';

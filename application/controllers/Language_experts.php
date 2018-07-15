@@ -18,9 +18,9 @@ class Language_experts extends CI_Controller
 	}
     public function cards($page_num=null){
         //For pagination
-        $title['title_of_page'] = "";
-        $title['description'] = "";
-        $title['keywords'] ="";
+        $title['title_of_page'] = "Language Experts at LangJobs.com";
+        $title['description'] = "You can find yourself a right language expert here. Click on the card to view full profile";
+        $title['keywords'] ="Language Experts, 12M+ Experts, LangJobs.com, Search Experts, Professional Language Experts";
         //Because 4 cards are shown in per row.
         $results_per_page = 40;
         $number_of_results = $this->db->where(array('status' => 1, 'first_name !=' =>''))->from("lang_expert")->count_all_results();

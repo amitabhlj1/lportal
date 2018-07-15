@@ -19,7 +19,7 @@ class LangEmployer extends CI_Controller
 	public function index()
 	{
 		$title['login'] = 1;
-		$title['title_of_page'] = "Login | Sign Up :: Language Employers | Langjobs.com";
+		$title['title_of_page'] = "Login | Sign Up :: Language Employers | LangJobs.com";
         $title['description'] = "Login / Sign Up page for Employers of Langjobs.com | Signup / Login to post your Language Jobs and Projects. Hire Awesome Professionals";
         $title['keywords'] ="Signup, Register, Post Jobs, Post Freelance Projects, Language Jobs, Language Projects, Language Employer Login, Language Employer, LangJobs.com";
         $data['country'] = $this->My_model->selectRecord('country', '*', '','');
@@ -132,7 +132,7 @@ class LangEmployer extends CI_Controller
 	*/
 	public function forgotPassword()
 	{
-		$title['title_of_page'] = "Forgot Password :: Language Expert | LangJobs.com";
+		$title['title_of_page'] = "Forgot Password :: Language Employer | LangJobs.com";
         $title['description'] = "Forgot Password page for Employers at Langjobs.com | Get Access to your account at LangJobs.com";
         $title['keywords'] ="Forgot email / Password, Password retrieval, Language Jobs, Language Projects, Language Employer's Login Help, Language Experts, LangJobs.com";
         $this->load->view('include/header',$title);
