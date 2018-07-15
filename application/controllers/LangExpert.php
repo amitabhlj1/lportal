@@ -20,9 +20,9 @@ class LangExpert extends CI_Controller
 	*/
 	public function index()
 	{
-		$title['title_of_page'] = "";
-        $title['description'] = "";
-        $title['keywords'] ="";
+		$title['title_of_page'] = "Login | Sign Up :: Language Experts | Langjobs.com";
+        $title['description'] = "Login page for language experts of Langjobs.com | Signup / Login to find your favourite language jobs, freelancing projects";
+        $title['keywords'] ="Signup, Register, Apply Jobs, Search Jobs / Projects, Language Jobs, Language Projects, Language expert login, Language Experts, LangJobs.com";
 		$title['login'] = 1;
         $data['country'] = $this->My_model->selectRecord('country', '*', '','');
         $this->load->view('include/header',$title);
@@ -46,9 +46,9 @@ class LangExpert extends CI_Controller
 	*/
 	public function forgotPassword()
 	{
-        $title['title_of_page'] = "";
-        $title['description'] = "";
-        $title['keywords'] ="";
+        $title['title_of_page'] = "Forgot Password :: Language Expert | LangJobs.com";
+        $title['description'] = "Forgot Password Page for language experts of Langjobs.com | Get Access to your account at LangJobs.com";
+        $title['keywords'] ="Forgot email / Password, Password retrieval, Language Jobs, Language Projects, Language expert login, Language Experts, LangJobs.com";
 		$title['login'] = 1;
         $this->load->view('include/header',$title);
 		$this->load->view('expert_forgotpsw');

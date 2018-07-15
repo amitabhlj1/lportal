@@ -14,9 +14,9 @@ class Home extends CI_Controller
     
 	public function index()
 	{
-        $title['title_of_page'] = "";
-        $title['description'] = "";
-        $title['keywords'] ="";
+        $title['title_of_page'] = "LangJobs.com | Serves for Language | World's No 1. Language Specific Jobs Portal ";
+        $title['description'] = "Search and Apply on Language Specific Jobs and Projects | Hire a Language Professional for your company or for a freelancing Projects";
+        $title['keywords'] ="Language Jobs, Language Projects, LangJobs.com, Hire a language expert, Post Language Jobs, Hire Professional Freelancing Language Experts ";
         $data['grubs'] = $this->My_model->selectRecord('grum_table', '*', '','');
         $this->load->view('include/header', $title);
 		$this->load->view('home', $data);
