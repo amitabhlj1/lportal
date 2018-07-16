@@ -31,9 +31,9 @@ class SearchProject extends CI_Controller
         $cwhere = array('id' => $data['jobs'][0]->company_id);
         $data['company_details'] = $this->My_model->selectRecord('lang_company', '*', $cwhere);
         
-        $title['title_of_page'] = $data['jobs'][0]->title." | Language Jobs at LangJobs.com";
-        $title['description'] = $data['jobs'][0]->description;
-        $title['keywords'] =$data['jobs'][0]->job_keywords.", Language Projects/ Jobs at LangJobs.com";
+        $title['title_of_page'] = htmlspecialchars($data['jobs'][0]->title)." | Language Projects at LangJobs.com";
+        $title['description'] = htmlspecialchars($data['jobs'][0]->description);
+        $title['keywords'] =htmlspecialchars($data['jobs'][0]->job_keywords).", Language Projects/ Jobs at LangJobs.com";
         $this->load->view('include/header', $title);
 		$this->load->view('proj_desc', $data);
         $this->load->view('include/footer');

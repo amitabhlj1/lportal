@@ -161,7 +161,7 @@
            <div class="col-md-12 col-xs-12 col-md-12 col-lg-12">
               <?php
                     if(!$this->session->userdata('exp_id')){
-                        echo "<a href='".base_url("LangExpert")."' class='btn btn-primary btn-xs form-control'><b>Please login as a language expert to apply to this Job</b></a>";
+                        echo "<a href='".base_url("LangExpert")."' class='btn btn-primary form-control' style='font-size:14px;'><b>APPLY</b></a>";
                     } else {
                         //checking if already applied 
                         $chk = $this->My_model->selectRecord('job_apply', '*', array('job_id' => $jd->id, 'expert_id' => $this->session->userdata('exp_id')));
@@ -169,7 +169,7 @@
                             echo "<button class='btn btn-warning btn-xs form-control disabled'>You have already applied to this job!</button>";
                         } else {
                             //sending parameters jobid then companyid
-                            echo "<a href='".base_url()."Expert/apply_job/".$jd->id."/".$comp->id."' class='btn btn-primary btn-xs form-control'>Apply to this job</a>";
+                            echo "<a href='".base_url()."Expert/apply_job/".$jd->id."/".$comp->id."' class='btn btn-primary form-control' style='font-size:14px;'><b>APPLY</b></a>";
                         }
                     }
                ?>
