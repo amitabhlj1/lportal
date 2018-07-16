@@ -395,7 +395,7 @@ class Expert extends CI_Controller
             $uploadOk = 0;
         }
         // Check file size
-        if ($_FILES["document"]["size"] > 100000) {
+        if ($_FILES["document"]["size"] > 1000000) {
             echo "<script>
                     alert('file too big. remember limit is 1000kb'); 
                     window.location.href = '".base_url('expert')."';
