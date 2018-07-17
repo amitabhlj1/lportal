@@ -17,6 +17,9 @@
             echo '<meta name="keyphrase" content="'.$keyphrase.'"/> ';    
         }
     ?>
+    <meta property="og:title" content="<?php echo $title_of_page; ?>"/>
+    <meta property="og:description" content="<?php echo $description; ?>"/>
+    <meta property="og:image" content="<?php echo base_url() ?>assets/img/lj3.jpg"/>
     <meta name="revisit-after" content="2 days"/>
     <meta name="robots" content="index,follow"/>
     <meta name="copyright" content="LangJobs:2007-20"/>
@@ -53,8 +56,6 @@
     <link href="<?php echo base_url(); ?>assets/lib/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/lib/et-line-font/et-line-font.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/lib/flexslider/flexslider.css" rel="stylesheet">
-    <link href="<?php echo base_url(); ?>assets/lib/owl.carousel/dist/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="<?php echo base_url(); ?>assets/lib/owl.carousel/dist/assets/owl.theme.default.min.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/lib/magnific-popup/dist/magnific-popup.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/lib/simple-text-rotator/simpletextrotator.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
