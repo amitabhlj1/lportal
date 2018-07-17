@@ -119,15 +119,15 @@
                             <li><a href="patent-translation.php">Patent Translation</a></li>
                             <li>Providing trial interpreters</li>
                         </ul>
-                        
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         <p>LangJobs provides professional translation service to Law firms. We offer legal translation services in all major languages. At our legal translation service division we understand the importance of accurate legal documentation and provide timely translation services with superior quality. Our translators doing legal translations  are expert in legal terminology and also have an understanding of the common law and civil legal systems. Our native translators working on your legal translations understand the local culture and have knowledge of their country's legal system.</p>
                         <p>We adopt a Translation methodology to translate all the documents which makes us enable to provide a process driven and quality service : -</p>
                         <h5 style="color:red;"><a href="methodology.php">Translation Methodology</a></h5>
                         <h5 style="color:red;"><a href="languages.php">Languages</a></h5>
                         
                         <p style="color:red;">You can get an instant quote, submit your query or request for more information by contacting us. Alternatively you can call us or email as below: </p>
-                        <p style="color:red;">Email: translation@langjobs.com<br/>Phone: +91-99585-92758, +91-11-46028990
-                        <br/> Bangalore - Call: +91-96867-33757 <br/> Mumbai - Call: +91-98204-50093
+                        <p style="color:red;">Email: <a href="mailto:info@langjobs.com">info@langjobs.com</a><br/>Phone: +91-99585-92758, +91-11-46013636
+                        <br/> Bangalore - Call: +91-96867-33757
                         </p>
                         <p style="margin-left:.5in">
                              <a href="translation-services.php">Back to Translation Services</a></p>

@@ -113,6 +113,7 @@
                         <h2>Hindi Language:</h2>
                         
                         <p>With approximately one billion speakers, Hindi is one of the most widely spoken language in the world. Hindi is an Indo-Aryan language, spoken in India, Fiji, Pakistan, Mauritius, Nepal, Suriname, Trinidad and Tobago, Guyana.  Hindi is spoken mainly in northern states of Delhi, Haryana, Uttarakhand, Uttar Pradesh, Madhya Pradesh, Chattisgarh, Himachal Pradesh, Jharkhand and Bihar, but it is understood alongside regional languages like Punjabi or Marathi throughout north and central India. Hindi is written in Devanagari script.  Like many other modern Indian languages, Hindi has been evolved from Sanskrit, by way of the Middle Indo-Aryan Prakrit languages and Apabhramsha of the Middle Ages. Though there is no consensus for a specific time, Hindi originated as local dialects such as Braj, Awadhi and finally Khari Boli after the turn of tenth century.</p>
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         <h5>Hindi Language Translation:</h5> 
                         <p>Today, India is considered as one of the biggest consumer markets, Hindi Translation has very important role to play to reach out the target market in India. Also, in the age of globalization, fuelled by falling trade barriers and exploding communications technology, Hindi Translation requirements is a necessity for all international businesses want to reach consumers in India or if you are an Indian company hoping to break into the English speaking market.</p>
                         <p>LangJobs.com is here to partner your translation, globalization & internationalization needs. Our professional native Hindi translators provide clear and well, loyal to the original style of your documentations. LangJobs.com has in-depth understanding of the subject matter and solid mastering of the Hindi language including its spelling, grammar, and cultural appropriateness. </p>        
@@ -131,6 +132,7 @@
                             <li><a href="marketing-translation.php">Hindi Marketing Document Translation Services</a></li>
                             <li><a href="literature-translation.php">Hindi Literature,  E-Learning, Tourism and Other Documents Translation </a></li>
                         </ul>
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         <h5>Process Driven Method:</h5>
                         <p>We adopt a Translation methodology to translate all the documents which makes us enable to provide a process driven and quality service: <a href="methodology.php">Translation Methodology</a></p>
                         <h5>Range of Hindi Language Translation Pairs:</h5>
@@ -138,9 +140,9 @@
                         <h5>Order your translation online now: </h5>
                         <p>You can get an instant quote, submit your query or request for more information by <a href="contact.php"ss>contacting us</a>. Alternatively you can call us or email as below: <br/><br/>
 
-                        Email: <a href="mailto:translation@langjobs.com">translation@langjobs.com</a> <br/>
+                        Email: <a href="mailto:info@langjobs.com">info@langjobs.com</a> <br/>
                         New Delhi: +91-99585-92758, +91-11-46013636<br/>
-                        Bangalore: +91-96867-33757<br/>Mumbai: +91-98204-50093</p>
+                        Bangalore: +91-96867-33757</p>
                         <p style="margin-left:1.5in">
 			             <a href="translation-services.php">Back to Translation Services</a> | or <a href="contact.php">Contact Us</a> for more information.
                         </p>                        

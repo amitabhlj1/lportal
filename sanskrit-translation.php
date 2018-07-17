@@ -116,6 +116,7 @@
                         <p>Vedic Sanskrit, the pre-Classical form of the language and the liturgical language of the Vedic religion, is one of the earliest attested members of the Indo-European language family. The oldest known text in Sanskrit, the Rigveda, a collection of over a thousand Hindu hymns, composed during the 2nd century BC.</p>
                         <p>Today Sanskrit is used mainly in Hindu religious rituals as a ceremonial language for hymns and mantras. Efforts are also being made to revive Sanskrit as an everyday spoken language in the village of Mattur near Shimoga in Karnataka. A modern form of Sanskrit is one of the 17 official home languages in India.</p>
                         <p>Sanskrit has been written mostly with the Devanagari alphabet. However it has also been written with a number of other alphabets in the recent time, including the Brahmi, Kharosthi, Sharda, Siddham, Bengali and Latin alphabets.</p>
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         <h5>Sanskrit Language Translation:</h5> 
                         <p>An accurate Sanskrit translation can make the difference between success and failure in a business project. At LangJobs.com we specialize in Sanskrit translation. All our Sanskrit translators are native speakers, professionals with several years of experience in translation. They have the competence to translate a wide array of documents. Our experienced Sanskrit translators are capable of handling complex multilingual projects with Sanskrit translation.</p>      
                         <p>LangJobs.com is a premier Sanskrit interpretation services company with commitment to quality, on-time performance and high class customer service. With an international value driven service provider reputation, we serve a full range of Sanskrit interpretation services to clients. We offer a choice of face-to-face or telephone interpreting services to help you communicate with anyone in Sanskrit language. With experience of Government, local authorities, emergency services, business and commercial projects, we have a broad range of expertise to ensure communications are clearly understood.</p>                         
@@ -132,6 +133,7 @@
                             <li><a href="marketing-translation.php">Sanskrit Marketing Document Translation Services</a></li>
                             <li><a href="literature-translation.php">Sanskrit Literature,  E-Learning, Tourism and Other Documents Translation </a></li>
                         </ul>
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         <h5>Process Driven Method:</h5>
                         <p>We adopt a Translation methodology to translate all the documents which makes us enable to provide a process driven and quality service: <a href="methodology.php">Translation Methodology</a></p>
                         <h5>Range of Sanskrit Language Translation Pairs:</h5>
@@ -139,9 +141,9 @@
                         <h5>Order your translation online now: </h5>
                         <p>You can get an instant quote, submit your query or request for more information by <a href="contact.php"ss>contacting us</a>. Alternatively you can call us or email as below: <br/><br/>
 
-                        Email: <a href="mailto:translation@langjobs.com">translation@langjobs.com</a> <br/>
+                        Email: <a href="mailto:info@langjobs.com">info@langjobs.com</a> <br/>
                         New Delhi: +91-99585-92758, +91-11-46013636<br/>
-                        Bangalore: +91-96867-33757<br/>Mumbai: +91-98204-50093</p>
+                        Bangalore: +91-96867-33757</p>
                         <p style="margin-left:1.5in">
 			             <a href="translation-services.php">Back to Translation Services</a> | or <a href="contact.php">Contact Us</a> for more information.
                         </p>                        

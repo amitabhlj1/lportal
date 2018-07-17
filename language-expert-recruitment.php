@@ -110,6 +110,7 @@
                             <li>Case III: <i>A BPO company has got a new client with a process where they need to hire different language experts for three different regions to support - APAC, AMERICAS & EUROPE. They have only 1 month timelines to fill the 50 positions with language expertise skills. Post to the hiring migration needs to start and the resources need to be sent for training on pilot batch migration.</i></li>
                             <li>Case IV: <i>A company having it's Software and captive BPO divisions where they require language experts on large scale. They need best candidates and they need freshers from a particular university. They want to pick the best fresh minds from the new passed out batch.</i></li>
                         </ul>
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         <p style="margin-left:.5in">
                              <a href="recruitment-services.php">Back to Recruitment & Placement Services</a></p>
                         </p>

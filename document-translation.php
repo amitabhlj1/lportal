@@ -105,7 +105,7 @@
                         <h2>Document Translation Services by Document Translation Agency - LangJobs.com</h2>
                         <h5>Fast and accurate translation in over 150 languages</h5>
                         <p>Because your company's reputation and financial safety is at stake, selecting a reputable and professional service for document translation is critical. As the global market becomes more competitive, LangJobs Translations Service understands the importance of communicating your message clearly and accurately. With a dedicated team of highly skilled translators, LangJobs can convert your documents into over 150 languages.</p>
-                        
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         <h5>Quality Translation by native speaking translators</h5>
                         <p>We take pride to have largest pool of Native and Indian translators with it's own portal having more than 5000 language experts registered on it. Our professional, accurate and timely services have ensured that we make a good relationship with our clients and we are retained by them for their language and communications needs.</p>
                         <p>Our highly skilled professional translators are qualified, bilingual native speakers. They are selected based on their experience and special areas of expertise. Our thorough selection process ensures we deliver a service that meets with your expectations. This enables us to provide you with the highest possible linguistic quality in a current cultural context. Every completed LangJobs translation is double checked for quality by a proofreader and editor before we deliver the finished document to you.</p>
@@ -123,11 +123,11 @@
                             <li>Proven multilingual project handling skills to translate several languages at the same time.</li>
                             <li>Ability to translate from any source format to any target format of PC and Macintosh Systems. Formats include all MS Office applications (MS Word, Excel, PowerPoint ), PDF, Adobe Applications, JPEG, TIFF, Pagemaker, Illustrator, In Design, Framemaker Photoshop, Corel Draw, Quark Express, etc.</li>
                         </ul>
-                        
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         <h5 style="color:red;">Order your translation online now: </h5>
                         <p style="color:red;">You can get an instant quote, submit your query or request for more information by contacting us. Alternatively you can call us or email as below: </p>
-                        <p style="color:red;">Email: translation@langjobs.com<br/>Phone: +91-99585-92758, +91-11-46028990
-                        <br/> Bangalore - Call: +91-96867-33757 <br/> Mumbai - Call: +91-98204-50093
+                        <p style="color:red;">Email: <a href="mailto:info@langjobs.com">info@langjobs.com</a><br/>Phone: +91-99585-92758, +91-11-46013636
+                        <br/> Bangalore - Call: +91-96867-33757
                         </p>
                         <p style="margin-left:.5in">
                              <a href="translation-services.php">Back to Translation Services</a></p>

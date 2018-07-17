@@ -114,6 +114,7 @@
                         <p>Assamese language is the easternmost Indo-Aryan language, spoken mainly in the state of Assam in North-East India. Assamese language is one of the national official languages of India and official language of Assam. Assamese language is used as a written and spoken language for conversation in various areas in India and abroad. It is spoken by about twenty million people in Assam, an eastern state of India.</p>
                         <p>The Assamese language grew out of Sanskrit, the ancient language of the Indian subcontinent. However, its vocabulary, phonology and grammar have been substantially influenced by the original inhabitants of Assam. Assamese and the cognate languages, Maithili, Bengali and Oriya, developed from Magadhi Prakrit. Assamese uses the Assamese script, a variant of the Eastern Nagari script, which traces its descent from the Gupta script</p>
                         <p>The Assamese language is also spoken in parts of Arunachal Pradesh and other northeast Indian states. Small pockets of Assamese speakers can be found in Bhutan & Bangladesh.</p>
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         <h5>Assamese Language Translation:</h5>
                         <p>If you are looking for a professional Assamese translation of documents, instructions, letters, websites, software etc - LangJobs is a right place for you. LangJobs is one of the best translation agencies offering comprehensive and accurate translation and localization services. You can set up the timelines for your Assamese translation and be sure to receive the completed, accurate results within those deadlines.</p>
                         <p>Whether you need a business, legal, technical, personal or scientific text to be translated, our Assamese translators can provide you all. They are capable of conveying the precise meaning of your documents and expressing your text in a language that is consistent with local culture, traditions and tastes. Only a native speaking Assamese translator will be able to offer you the most accurate Assamese translation. At LangJobs, professional translators whose native language is Assamese perform our Assamese translation. They have in-depth understanding of the subject matter and solid mastering of the Assamese language including its spelling, grammar, and cultural appropriateness.</p>
@@ -136,10 +137,12 @@
                         <h5>Range of Assamese Language Translation Pairs:</h5>
                         <p>We specialize in providing document translation services for a wide array of languages pair. You may find a list of languages we translate into: <a href="languages.php">Languages</a> </p>
                         <h5>Order your translation online now: </h5>
-                        <p>You can get an instant quote, submit your query or request for more information by <a href="contact.php"ss>contacting us</a>. Alternatively you can call us or email as below: <br/><br/>
+                        <p>You can get an instant quote, submit your query or request for more information by <a href="contact.php"ss>contacting us</a>. Alternatively you can call us or email as below: <br/>
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
+                        <br/>
 
-                        Email: <a href="mailto:translation@langjobs.com">translation@langjobs.com</a> <br/>
-                        New Delhi: +91-99585-92758, +91-11-46028990</p>
+                        Email: <a href="mailto:info@langjobs.com">info@langjobs.com</a> <br/>
+                        New Delhi: +91-99585-92758, +91-11-46013636</p>
                         <p style="margin-left:1.5in">
 			             <a href="translation-services.php">Back to Translation Services</a> | or <a href="contact.php">Contact Us</a> for more information.
                         </p>                        

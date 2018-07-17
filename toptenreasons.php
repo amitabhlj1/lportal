@@ -103,7 +103,7 @@
                     <fieldset>
                         <legend>Why Choose LangJobs</legend>
                         <h2>Top 10 Reasons to Choose LangJobs?</h2>
-                        
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         <h5>Reliability</h5>
                         <p>We have been retained by many Fortune 500, leading Software MNCs, BPOs, KPOs, Manufacturing companies. We have always delivered on time. No other vendor makes this claim.</p>
                         <h5>Integrity</h5>
@@ -124,7 +124,7 @@
                         <p>Very professional and performance management culture, based on real-time tracking of metrics, agency tracker, and project management keeps us ahead of any other service provider in market.</p>
                         <h5>Pro-activeness</h5>
                         <p>We adopt the method of going beyond what we commit to deliver, drive to improve & deliver the best.</p>
-                        
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         
                     </fieldset>
                 </div>

@@ -104,6 +104,7 @@
                         <legend>Multilingual Recruitment & Placement Services</legend>
                         <h2>Multilingual Recruitment & Placement Services:</h2>
                         <p>Our expert recruiters are at your service to recruit resources with foreign language skills accross all levels, both native and Indian. Some of the highlights of our services are:</p>
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         <ul>
                             <li>Recruitment Methodology:
                                 <ol>
@@ -114,12 +115,13 @@
                             </li>
                         </ul>
                         <p>Pictorial View</p>
-                        <p style="text-align:center;"><img src="assets/images/recruitment-methodology.JPG" alt="multilingual recruitment pictorial view"/></p>
+                        <p style="text-align:center;"><img src="<?php echo $base_url; ?>assets/images/recruitment-methodology.JPG" alt="multilingual recruitment pictorial view"/></p>
                         <ul>
                             <li>Entry Level to Management Level</li>
                             <li>Full Time Resources - Indian & Natives</li>
                             <li>Specialized in Recruitment for BPOs, KPOs, IT Companies, Manufacturing and Financial/Accounting Services Companies.</li>
                         </ul>
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         <p style="margin-left:.5in">
                              <a href="recruitment-services.php">Back to Recruitment & Placement Services</a></p>
                         </p>

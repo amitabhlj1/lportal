@@ -104,7 +104,7 @@
                         <legend>Translation & Localization Services</legend>
                         <h2>Financial and Commercial Document Translation and Interpretation Services in 150+ Languages by Indian Translation Company - LangJobs.com</h2>
                         <p>Today, the global marketplace is reshaping the financial world and making even small businesses competitors on the world stage. The demand for businesses to market in multiple countries has created an international and unprecedented demand for financial and commercial documents translation services.</p>
-                        
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         <p>Financial documents or commercial documents are very important because they form the permanent record of your business and give you the data you need to make sales, pay taxes, and succeed in your endeavors. Specially, when it becomes necessary to translate your important financial documents into other languages, you need to be sure that all of your information is transmitted carefully and accurately. If there is even the smallest of mistakes, you could be out serious time or serious money. So, it is crucial that you entrust your important documents to a proven translation service.</p>
                         
                         <p>Bad financial translation can be bad for your finances. With so much at stake, translators and interpreters have to understand the business behind the translation. When time is money, accuracy is no substitute for speed. You need translation by financial experts who translate well, edited by editors who edit better, and the technology for rapid dissemination of your translations.</p>
@@ -143,11 +143,12 @@
                             <li>Translations of Projections</li>
                             <li>Translations of Presentations</li>
                         </ul>
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         <p>Based out in India, we can provide you the best quality at an affordable price which made many global organization to outsource their translation service requirement to us.</p>
                         <h5 style="color:red;">Order your translation online now: </h5>
                         <p style="color:red;">You can get an instant quote, submit your query or request for more information by contacting us. Alternatively you can call us or email as below: </p>
-                        <p style="color:red;">Email: translation@langjobs.com<br/>Phone: +91-99585-92758, +91-11-46028990
-                        <br/> Bangalore - Call: +91-96867-33757 <br/> Mumbai - Call: +91-98204-50093
+                        <p style="color:red;">Email: <a href="mailto:info@langjobs.com">info@langjobs.com</a><br/>Phone: +91-99585-92758, +91-11-46013636
+                        <br/> Bangalore - Call: +91-96867-33757
                         </p>
                         <p style="margin-left:.5in">
                              <a href="translation-services.php">Back to Translation Services</a></p>

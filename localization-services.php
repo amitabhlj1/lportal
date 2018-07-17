@@ -104,7 +104,7 @@
                         <legend>Translation & Localization Services</legend>
                         <h2>Localization Services:</h2>
                         <p>In computing, Internationalization and Localization (also spelled internationalisation and localisation) are means of adapting computer software to different languages and regional differences. Internationalization is the process of designing a software application so that it can be adapted to various languages and regions without engineering changes.  Localization is the process of adapting software for a specific region or language by adding locale-specific components and translating text.  At LangJobs.com, we define Localization as a process of content transformation through methodological research where we localize the content keeping the cultural difference in mind.</p>
-                        
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         <p>With any localization project, we cautiously analyze each phase of the project by considering all planned project milestones, gathering all contextual information, using CAT and other tools (SDLX & Trados) effectively to deliver quality language solutions.</p>
                         
                         <h5>Our services portfolio for localization:</h5>
@@ -134,7 +134,7 @@
 
                             GUI Localization includes user interface of any mobile, application software or tool. GUI Localization refers to the translation of the graphical user interface (GUI) components of the software, such as dialog boxes, menus, error and status messages, tool bars, buttons and strings displayed on a user's screen. An ideal localization process usually starts with the software GUI translation followed by localization of software parts like UA (User Assistance).
                         </p>
-                        
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         <p>
                             <b>User Assistance (UA) Localization:</b><br/>
                             User Assistance localization  includes help files, user manual and other documents. Online help and user documentation translation should only begin after all software GUI strings have been fully translated and reviewed. This is because online help and user manuals often contain large amount of references to the software user interface elements. This process will ensure all GUI strings are translated consistently for all product components. Localization of help files is the biggest part of any software localization. Our translators are experts in various components used to build a help system such as hidden text, formatting tags, foot notes, and sorted items to ensure proper functionality of the help file.
@@ -148,8 +148,8 @@
                         <p>
                             <b>Order your Localization online now: </b> <br/>
                             You can get an instant quote, submit your query or request for more information by <a href="contact.php">contacting us</a>. Alternatively you can call us or email as below: <br/>
-                            Email: <a href="mailto:translation@langjobs.com">translation@langjobs.com</a><br/>
-                            Phone: +91-99585-92758, +91-11-46028990
+                            Email: <a href="mailto:info@langjobs.com">info@langjobs.com</a><br/>
+                            Phone: +91-99585-92758, +91-11-46013636
                         </p>
                         
                         

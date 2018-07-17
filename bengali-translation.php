@@ -113,11 +113,11 @@
                         <h2>Bengali Language:</h2>
                         
                         <p>Bengali or Bangla or Bengoli is native language of  the region of eastern South Asia known as Bengal, which comprises present day Bangladesh and the Indian state of West Bengal and in Assam, mostly in the districts of Cachar, Karimganj, Hailakandi, Dhubri, Goalpara and Naogaon. With nearly 230 million total speakers, Bengali is one of the most spoken languages.  Bengali is the national and official language of Bangladesh and one of the 23 official languages recognized by the Republic of India.  Of the modern Indo-European languages in South Asia, Bengali maintains a largely Sanskrit vocabulary base.</p>
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         <h5>Bengali Language Translation:</h5> 
                         <p>If you are seeking Bengali translation services you are at the right place. LangJobs.com is beyond compare in its dedication to delivering quality translations.  All our Bengali translators are native speakers and top-notch linguists ready to offer you any type of translation services. Our quick response and prompt delivery of translation service made us as preferred translation vendor for our clients.</p>
                         <p>LangJobs.com is a leading provider of professional Bengali interpretation services for premier technology companies, professional and trade associations, government agencies, trade groups and institutions. When you require a face-to-face meeting between you and your Bengali speaking client, we can provide superb credentials in interpretation service. If you want your communication to have the same impact or maintain the same level of accuracy as the original, you need a perfect interpretation partner. And we have the right expertise and experience to provide high quality Bengali interpretation services.</p>        
                         <p>Our Bengali interpreters can meet every client requirement, from large outdoor meetings to customized conference room. They work in both the recognized classes of interpretation services: Simultaneous and Consecutive. Their true commitment to the quality, flexible approach and prompt delivery of interpretation are just few reasons why our clients choose us every time.</p>      
-                        
                         <h5>Our Native Bengali Translators:</h5>
                         <p>Our Native Bengali translators are professional linguists who have studied and achieved qualifications in translating from other languages into Bengali, for a wide range of documents in various industries:</p>
                         <ul>
@@ -133,14 +133,15 @@
                         </ul>
                         <h5>Process Driven Method:</h5>
                         <p>We adopt a Translation methodology to translate all the documents which makes us enable to provide a process driven and quality service: <a href="methodology.php">Translation Methodology</a></p>
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         <h5>Range of Bengali Language Translation Pairs:</h5>
                         <p>We specialize in providing document translation services for a wide array of languages pair. You may find a list of languages we translate into: <a href="languages.php">Languages</a> </p>
                         <h5>Order your translation online now: </h5>
                         <p>You can get an instant quote, submit your query or request for more information by <a href="contact.php"ss>contacting us</a>. Alternatively you can call us or email as below: <br/><br/>
 
-                        Email: <a href="mailto:translation@langjobs.com">translation@langjobs.com</a> <br/>
+                        Email: <a href="mailto:info@langjobs.com">info@langjobs.com</a> <br/>
                         New Delhi: +91-99585-92758, +91-1146013636<br/>
-                        Bangalore: +91-96867-33757<br/>Mumbai: +91-98204-50093</p>
+                        Bangalore: +91-96867-33757</p>
                         <p style="margin-left:1.5in">
 			             <a href="translation-services.php">Back to Translation Services</a> | or <a href="contact.php">Contact Us</a> for more information.
                         </p>                        

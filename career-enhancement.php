@@ -115,7 +115,7 @@
                                 <li>Classical studies (the analysis of literary texts that form part of the cannon)</li>
                             </ul>
                         </p>
-                        
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         <h5>Importance and Depth of Learning a Foreign language</h5>
                         <p>The advantage of learning a foreign language is threefold:</p>
                         <ol>
@@ -137,6 +137,7 @@
                             <li>Government and International</li>
                             <li>Services</li>
                         </ol>
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         <hr>
                         <ol>
                             <li>Technical and Engineering Positions <br/>
@@ -220,6 +221,7 @@
                                 Library Science: The librarian may use language specialists to know what a foreign language book is all about.
                             </li>
                         </ol>
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         <h5>Conclusion:</h5>
                         <p>Learning a new language is like setting out for a new discovery which is more like an adventure. You will hardly be aware of what lies in store for you at the finishing point. But yes, there is much more to learning a language than learning its phonology, morphology, syntax and semantics, and definitely, its literature. Learning a language also means learning its socio-cultural background and also studying and accepting the culture of the other. It also means knowing or learning ones own culture from a new perspective.</p>
                         <h5>BIBLIOGRAPHY</h5>

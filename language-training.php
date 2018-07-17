@@ -109,6 +109,7 @@
                             <li>We offer training for various foreign languages like - French, German, Spanish, Portuguese, Italian, Japanese, Chinese, Korean etc.</li>
                             <li>Our language experts teach the business communication, corporate jargon's as well as various presentation techniques to the professionals.</li>
                         </ul>
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         <h5>Cross Cultural Training</h5>
                         <ul>
                             <li>Our Experienced trainers have designed and delivered the Cross Cultural Trainings.</li>
@@ -120,6 +121,7 @@
                             <li>We take the group of people to a destination and organize a camp for Language Training.</li>
                             <li>Most suitable for Foreigners on Indian Visit, Theme Tourists, Students on Study Tour, Summer Camps, Vacation Camp, Bonus Tours etc.</li>
                         </ul>
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         <h5>Special Intensive Course</h5>
                         <ul>
                             <li> Visitors going to foreign tour for the business trip</li>
@@ -132,7 +134,7 @@
                         <p>You can get an instant quote, submit your query or request for more information by <a href="contact.php">contacting us</a>. Alternatively you can call us or email as below: <br/><br/>
 
                         Email: <a href="mailto:info@langjobs.com">info@langjobs.com</a> <br/>
-                        Phone: +91-99585-92758, +91-11-46028990</p>
+                        Phone: +91-99585-92758, +91-11-46013636</p>
                         
                         
                     </fieldset>

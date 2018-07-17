@@ -105,6 +105,7 @@
                         <h2>Language Transcription Services:</h2>
                         <p>Transcription is the conversion into written, typewritten or printed form, of a spoken language source, such as the proceedings of a court hearing. Audio (even video) recordings are mandatory in conferences, seminars and which are to be converted into written forms or transcribed. However, movies and films are also transcribed for various end uses.</p>
                         <p>Transcription allows further processing of the text like translation of the transcribed text into a different language or sub-titling in the same or different language or even narration in a different language,  scanning books and making digital versions. A transcriptionist is a person who performs transcription.</p>
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         <h5>We have provided Transcription in various fields like:</h5>
                         <p>We have provided expert language transcription services to a large number of multi-national companies, translation service providers, transcription agencies and production houses among others. Our foreign language transcription professionals can provide in all leading Asian & European language transcription services for the following:</p>
                         <ul>
@@ -151,6 +152,7 @@
                             <li>Transcription for all digital formats</li>
                             <li>Download and transcribe digital files from secure FTP websites and client servers</li>
                         </ul> 
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         <h5>Range of Language Internationalization & localization Pairs:</h5>
                         <p>We specialize in providing internationalization & localization services for a wide array of languages pair. You may find a list of languages we localize into: <a href="languages.php">Languages</a></p>
                                         
@@ -159,7 +161,7 @@
                         <p>You can get an instant quote, submit your query or request for more information by <a href="contact.php">contacting us</a>. Alternatively you can call us or email as below: <br/><br/>
 
                         Email: <a href="mailto:info@langjobs.com">info@langjobs.com</a> <br/>
-                        Phone: +91-99585-92758, +91-11-46028990</p>
+                        Phone: +91-99585-92758, +91-11-46013636</p>
                         
                         
                     </fieldset>

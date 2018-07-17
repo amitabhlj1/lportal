@@ -112,7 +112,7 @@
                         <legend>Translation & Localization Services</legend>
                         <h2>Chinese Language:</h2>
                         <p>Chinese is the official language of China and is spoken by more people than any other language in the world. The number of Chinese speaking population exceeds 1.2 billion worldwide. Chinese is one of the languages of the United Nations. Chinese is also spoken in many other countries including Brunei, Cambodia, Canada, China, Guam, Hawaii, Hong Kong, Laos, Macao, Malaysia, Mauritius, Singapore, Taiwan, Thailand, USA and Vietnam.</p>
-
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         <p>Chinese, like the other languages of the Sino-Tibetan family and is a tonal language. Chinese is written with thousands of distinctive characters called ideographs which have no relation to the sound of a word. In a large dictionary there are 40-50,000 characters. While a Chinese child learns about 2,000 characters by the time he is ten, it takes two or three times as many to be able to read a newspaper or novel. One kind of Chinese type-writer has 5,400 characters. The number of strokes required to draw a Chinese character can be as high as 33.</p>
 
                         <p>The majority of Chinese characters, however, consist of two elements �a signific, which indicates the meaning of a word, and a phonetic, which indicates the sound. The significs, or radicals, number 214 in Chinese, and indicate the class of objects to which the word belongs. For example, all words relating to wood, such as "tree" and "table," contain the "wood" radical. The phonetic consists of the character for a word whose meaning is totally unrelated to the word in question, but whose pronunciation happens to be the same. Thus the character for "ocean" consists of the signific "water" plus the phonetic "sheep," the word for "sheep" being pronounced the same as the word for "ocean."</p>
@@ -128,7 +128,7 @@
                         <p>Whether you need a business, legal, manufacturing, technical, personal or scientific text to be translated, our Chinese translators can provide you all. They are capable of conveying the precise meaning of your documents and expressing your text in a language that is consistent with local culture, traditions and tastes. Our highly qualified Chinese translator will be able to offer you the most accurate Chinese translation. At LangJobs, professional translators whose native language is Chinese or highly qualified Chinese language translators perform our Chinese translation. They have in-depth understanding of the subject matter and solid mastering of the Chinese language including its spelling, grammar, and cultural appropriateness.</p>
 
                         <p>In today's Globalized business arena, opportunities for international business present the need to communicate in many different languages. We provide you with quality Chinese interpretation services.  Whatever the nature and scope of your interpretation needs, we will custom design Chinese interpretation solutions to fit your objectives, environment and budget. Our linguists take professional care in understanding the subject matter and work closely with our clients to conduct a smooth delivery. </p>   
-                        
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         <h5>Our Native Chinese Translators:</h5>
                         <p>Our Native Chinese translators are professional linguists who have studied and achieved qualifications in translating from other languages into Chinese, for a wide range of documents in various industries:</p>
                         <ul>
@@ -149,9 +149,9 @@
                         <h5>Order your translation online now: </h5>
                         <p>You can get an instant quote, submit your query or request for more information by <a href="contact.php"ss>contacting us</a>. Alternatively you can call us or email as below: <br/><br/>
 
-                        Email: <a href="mailto:translation@langjobs.com">translation@langjobs.com</a> <br/>
+                        Email: <a href="mailto:info@langjobs.com">info@langjobs.com</a> <br/>
                         New Delhi: +91-99585-92758, +91-11-46013636<br/>
-                        Bangalore: +91-96867-33757<br/>Mumbai: +91-98204-50093</p>
+                        Bangalore: +91-96867-33757</p>
                         <p style="margin-left:1.5in">
 			             <a href="translation-services.php">Back to Translation Services</a> | or <a href="contact.php">Contact Us</a> for more information.
                         </p>                        

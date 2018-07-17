@@ -113,6 +113,7 @@
                         <h2>Punjabi Language:</h2>
                         
                         <p>Punjabi language is basically the language of Indian state Punjab and one of the national official languages of India. Punjabi language is used as written and spoken or for conversation in various areas in India and abroad. The script used for Punjabi Language is Gurmukhi based on Devanagri. This Eastern Punjab dialect developed into a literary language around the beginning of the 17th century whereas Hindki still remains a group of dialects. During medieval times, Punjab repeatedly bore the brunt of Afghan invaders and internal battles, and these warring times were not exactly feasible for any sort of literary or cultural expansion. Punjabi literature as such came into existence only from the end of the 16th century when Punjabi was already in its Middle Period. Gurmukhi script, created from the Nagari script, is claimed by Sikhs as the only proper script for Punjabi. Punjabi was evolving and Guru Nanak, the founder of the Sikh religion, gave a new lease of life to the language although it was still not in its pure form. The fifth Guru, Arjun Dev compiled the Sikh scripture, the Adi Grantha or Grantha Sahib, but this again was not strictly in Punjabi.</p>
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         <h5>Punjabi Language Translation:</h5> 
                         <p>You can fully rely on LangJobs.com whenever you need to obtain an accurate Punjabi translation of any text or document. Whether it is a letter, website, contract, marketing literature or any other type of material, LangJobs.com will be able to provide professional Punjabi translation in the required format and within your deadlines. We guarantee that you will be satisfied with the results, as you will receive the most professional language translation services available.</p>
                         <p>LangJobs.com understands your translations need to be fast and accurate. Our professional native-speaking Punjabi translators will translate your English into perfect Punjabi or Punjabi into Perfect English. In addition, our expert translators are professionals who are both sensitive to the Punjabi culture and specialists in your subject matter and industry.</p>        
@@ -131,6 +132,7 @@
                             <li><a href="marketing-translation.php">Punjabi Marketing Document Translation Services</a></li>
                             <li><a href="literature-translation.php">Punjabi Literature,  E-Learning, Tourism and Other Documents Translation </a></li>
                         </ul>
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         <h5>Process Driven Method:</h5>
                         <p>We adopt a Translation methodology to translate all the documents which makes us enable to provide a process driven and quality service: <a href="methodology.php">Translation Methodology</a></p>
                         <h5>Range of Punjabi Language Translation Pairs:</h5>
@@ -138,9 +140,9 @@
                         <h5>Order your translation online now: </h5>
                         <p>You can get an instant quote, submit your query or request for more information by <a href="contact.php"ss>contacting us</a>. Alternatively you can call us or email as below: <br/><br/>
 
-                        Email: <a href="mailto:translation@langjobs.com">translation@langjobs.com</a> <br/>
+                        Email: <a href="mailto:info@langjobs.com">info@langjobs.com</a> <br/>
                         New Delhi: +91-99585-92758, +91-11-46013636<br/>
-                        Bangalore: +91-96867-33757<br/>Mumbai: +91-98204-50093</p>
+                        Bangalore: +91-96867-33757</p>
                         <p style="margin-left:1.5in">
 			             <a href="translation-services.php">Back to Translation Services</a> | or <a href="contact.php">Contact Us</a> for more information.
                         </p>                        

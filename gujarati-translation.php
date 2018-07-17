@@ -113,6 +113,7 @@
                         <h2>Gujarati Language:</h2>
                         
                         <p>Gujrati or Gujarati is a native language to the Indian state of Gujarat, and is its chief language, as well as of the adjacent union territories of Daman and Diu and Dadra and Nagar Haveli.   Generally Gujrati Language known as Old Gujarati, some scholars prefer the name of Old Western Rajasthani, based on the argument that Gujarati and Rajasthani were not yet distinct at the time. Also factoring into this preference was the belief that modern Rajasthani sporadically expressed a neuter gender, based on the incorrect conclusion that the [ũ] that came to be pronounced in some areas for masculine [o] after a nasal consonant was analogous to Gujarati's neuter.  Its is spoken in India, Pakistan, South Africa, Uganda, Tanzania, Kenya, U.S., UK, Australia, New Zealand, Fiji, Canada, Zambia, Zimbabwe. </p>
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         <h5>Gujarati Language Translation:</h5> 
                         <p>An accurate Gujarati translation can make the difference between success and failure in a business project.  At LangJobs.com we specialize in Gujarati translation. All our Gujarati translators are native speakers, professionals with several years of experience in translation. They have the competence to translate a wide array of documents. Our experienced Gujarati translators are capable of handling complex multilingual projects with Gujarati translation.</p>
                         <p>LangJobs.com is a premier Gujarati interpretation services company with commitment to quality, on-time performance and high class customer service. With an international value driven service provider reputation, we serve a full range of Gujarati interpretation services to clients. We offer a choice of face-to-face or telephone interpreting services to help you communicate with anyone in Gujarati language. With experience of Government, local authorities, emergency services, business and commercial projects, we have a broad range of expertise to ensure communications are clearly understood.</p>        
@@ -131,6 +132,7 @@
                             <li><a href="marketing-translation.php">Gujarati Marketing Document Translation Services</a></li>
                             <li><a href="literature-translation.php">Gujarati Literature,  E-Learning, Tourism and Other Documents Translation </a></li>
                         </ul>
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         <h5>Process Driven Method:</h5>
                         <p>We adopt a Translation methodology to translate all the documents which makes us enable to provide a process driven and quality service: <a href="methodology.php">Translation Methodology</a></p>
                         <h5>Range of Gujarati Language Translation Pairs:</h5>
@@ -138,9 +140,9 @@
                         <h5>Order your translation online now: </h5>
                         <p>You can get an instant quote, submit your query or request for more information by <a href="contact.php"ss>contacting us</a>. Alternatively you can call us or email as below: <br/><br/>
 
-                        Email: <a href="mailto:translation@langjobs.com">translation@langjobs.com</a> <br/>
+                        Email: <a href="mailto:info@langjobs.com">info@langjobs.com</a> <br/>
                         New Delhi: +91-99585-92758, +91-11-46013636<br/>
-                        Bangalore: +91-96867-33757<br/>Mumbai: +91-98204-50093</p>
+                        Bangalore: +91-96867-33757</p>
                         <p style="margin-left:1.5in">
 			             <a href="translation-services.php">Back to Translation Services</a> | or <a href="contact.php">Contact Us</a> for more information.
                         </p>                        

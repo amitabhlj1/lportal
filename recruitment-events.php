@@ -109,6 +109,7 @@
                             <li>Recruit in more number at a time</li>
                             <li>High recruiting success rates</li>
                         </ul>
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         <p style="margin-left:.5in">
                              <a href="recruitment-services.php">Back to Recruitment & Placement Services</a></p>
                         </p>

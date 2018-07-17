@@ -118,6 +118,7 @@
                             <li>Operations Round Interview - Personal Interview / Telephonic Interview</li>
                             <li>HR Interview to negotiate salary - Personal Interview / Telephonic Interview</li>
                         </ol>
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         <p>
                             In all the above rounds there are few common questions start the minute the interview commence, and to show that you are an exceptional candidate, you need to be prepared to answer not only the typical questions, but also the unexpected. You can expect questions regarding your qualifications, your academic preparation, career interests, experience, and ones that assess your personality. <br/><br/>
 
@@ -217,6 +218,7 @@
                             <li class="red">What has disappointed you about a job?
                                 <p class="black">Don't get trivial or negative. Safe areas are few but can include: Not enough of a challenge. You were laid off in a reduction Company did not win a contract, which would have given you more responsibility.</p>
                             </li>
+                            <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                             <li class="red">Tell me about your ability to work under pressure.
                                 <p class="black">You may say that you thrive under certain types of pressure. Give an example that relates to the type of position applied for.</p>
                             </li>
@@ -265,6 +267,7 @@
                             <li class="red">What position do you prefer on a team working on a project?
                                 <p class="black">Be honest. If you are comfortable in different roles, point that out.</p>
                             </li>
+                            <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                             <li class="red">Describe your work ethic.
                                 <p class="black">Emphasize benefits to the organization. Things like, determination to get the job done and work hard but enjoy your work are good.</p>
                             </li>

@@ -115,6 +115,7 @@
                         <p>Kannada is one of the major Dravidian languages of India.  Native speakers of Kannada language are called Kannadigas.  Kannada Language is mostly spoken in Kanrataka.  It is one of the official languages of India and the official and administrative language of the state of Karnataka.  The Kannada language is written using the Kannada script. The other native languages of Karnataka, Tulu, Kodava Takk, Beary bashe and Konkani are also written using the Kannada script.  It has sprung from a common origin (Dravida) and the modern version has had liberal inputs from Sanskrit.</p>
                         <p>Kannada has three chief dialects - classical, medieval and modern. Ancient Kannada (Hale Kannada) shows an extraordinary amount of polish and refinement. It has several works written by Jaina scholars and appears to have been in use for literary purposes from at least the 10th to the middle of the 13th century.</p>
                         <p>Medieval Kannada began to appear as contained in the poetry of Saiva and Lingayat authors. From about the 16th century, medieval Kannada gradually got its present day modern character.</p>
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         <h5>Kannada Language Translation:</h5> 
                         <p>LangJobs.com's Kannada translations services are among the best translation services with an experienced native team of translators. We can handle Kannada translation for website localization, legal document translation, financial translations and much more. We use our marketing experience to ensure that your key message is accurately translated and not lost in the process. When you use our services you can be confident that you are doing business with highly qualified translation professionals who will always meet your deadlines.</p>        
                         <p>All our Kannada translators are native speakers, professionals with several years of experience in translation. They have the competence to translate a wide array of documents. Our experienced Kannada translators are capable of handling complex multilingual projects with Kannada translation.</p>      
@@ -133,6 +134,7 @@
                             <li><a href="marketing-translation.php">Kannada Marketing Document Translation Services</a></li>
                             <li><a href="literature-translation.php">Kannada Literature,  E-Learning, Tourism and Other Documents Translation </a></li>
                         </ul>
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         <h5>Process Driven Method:</h5>
                         <p>We adopt a Translation methodology to translate all the documents which makes us enable to provide a process driven and quality service: <a href="methodology.php">Translation Methodology</a></p>
                         <h5>Range of Kannada Language Translation Pairs:</h5>
@@ -140,9 +142,9 @@
                         <h5>Order your translation online now: </h5>
                         <p>You can get an instant quote, submit your query or request for more information by <a href="contact.php"ss>contacting us</a>. Alternatively you can call us or email as below: <br/><br/>
 
-                        Email: <a href="mailto:translation@langjobs.com">translation@langjobs.com</a> <br/>
+                        Email: <a href="mailto:info@langjobs.com">info@langjobs.com</a> <br/>
                         New Delhi: +91-99585-92758, +91-11-46013636<br/>
-                        Bangalore: +91-96867-33757<br/>Mumbai: +91-98204-50093</p>
+                        Bangalore: +91-96867-33757</p>
                         <p style="margin-left:1.5in">
 			             <a href="translation-services.php">Back to Translation Services</a> | or <a href="contact.php">Contact Us</a> for more information.
                         </p>                        

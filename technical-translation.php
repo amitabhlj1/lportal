@@ -104,7 +104,7 @@
                         <legend>Translation & Localization Services</legend>
                         <h2>Technical Document Translation Services / Scientific Document Translation Services</h2>
                         <p>Technical translation is specialized to a particular field, subject, profession or business and should be put into a category all its own. Technical documents can be anything from manuals to patents. Subjects include fields such as automotive, hydraulics, optics, engineering (civil, marine, mechanical, electrical, kaizen), avionics, medical (equipment, hardware), science and physics, to name just a few. Because of its specialized nature, technical translations need to be performed by translators specialized in the specific field.</p>
-                        
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         <p>When translating technical documents it's essential that all the terminology is translated correctly. Technical translations require the skills of a professional who is specialized in the subject of the document. At  LangJobs many of technical translators are former engineers, lawyers and scientists. But technical knowledge itself is not enough. Outstanding language and writing skills are needed to enable the translator to convey technical content in one language into another in a clear and precise manner.</p>
                         
                         <p>At LangJobs our technical translators combine their field expertise with exceptional translation skills to serve all your technical translation needs. The some of the areas we have translated in are :-</p>
@@ -130,13 +130,14 @@
                             <li>Presentations Translations</li>
                             <li>Multi-media outputs of all types Translations</li>
                         </ul>
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         <p>We adopt a Translation methodology to translate all the documents which makes us enable to provide a process driven and quality service : -</p>
                         <h5 style="color:red;"><a href="methodology.php">Translation Methodology</a></h5>
                         <h5 style="color:red;"><a href="languages.php">Languages</a></h5>
                         
                         <p style="color:red;">You can get an instant quote, submit your query or request for more information by contacting us. Alternatively you can call us or email as below: </p>
-                        <p style="color:red;">Email: translation@langjobs.com<br/>Phone: +91-99585-92758, +91-11-46028990
-                        <br/> Bangalore - Call: +91-96867-33757 <br/> Mumbai - Call: +91-98204-50093
+                        <p style="color:red;">Email: <a href="mailto:info@langjobs.com">info@langjobs.com</a><br/>Phone: +91-99585-92758, +91-11-46013636
+                        <br/> Bangalore - Call: +91-96867-33757
                         </p>
                         <p style="margin-left:.5in">
                              <a href="translation-services.php">Back to Translation Services</a></p>

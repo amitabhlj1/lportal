@@ -104,19 +104,21 @@
                         <legend>Translation & Localization Services</legend>
                         <h2>Patent Translation Services:</h2>
                         <p>Patent strategies protect companies' intellectual property rights and pave the way for new business opportunities. LangJobs.com's high quality patent translation service supports your global business.</p>
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         <p>Patent translation basically requires understanding of a wide range of technological fields, and on top of that, quick but correct translation. Our patent translation staff with abundant experience in a wide range of fields including telecommunications, information processing, semiconductors, machines, chemistry, medical science, biology, and business models will back up your patent strategies including international patent applications.</p>
                         <p>Today, to secure and exercise the intellectual property rights are considered lifelines for manufacturers and research and development companies. In the age of globalization, the importance of obtaining international patents, concluding license agreements, and responding to infringement activities has increased and is becoming necessary competitive tool for business.</p>
                         <p>Our specialized Patent Translation Services are availed by many national and International clients in various languages. We have been engaged in the translation of different types of patent descriptions, documents required in intermediate procedures, and materials related to proceedings. With our rich experience, we are only specialized patent translation company in India.</p>
                         <p>We not only have maintained reliable quality control and confidentiality systems, but also are familiar with applications for international patents and procedures for concluding contracts between companies. Many companies in India, USA, Japan, UK, France and overseas have placed their utmost confidence in us for their patent translation needs.</p>
                         <p>All our patent translators translate only into their mother tongue, and have extensive background not just in technical translation but specifically in the field of patent translation.</p>
                         <p>Whether or not translations are logically and technically correct often determines the results of patent examinations. Fully aware of the heavy responsibility of patent translation, we maintain stable translation quality and aiming to further improve added value.</p>
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         <p>We adopt a Translation methodology to translate all the documents which makes us enable to provide a process driven and quality service : -</p>
                         <h5 style="color:red;"><a href="methodology.php">Translation Methodology</a></h5>
                         <h5 style="color:red;"><a href="languages.php">Languages</a></h5>
                         
                         <p style="color:red;">You can get an instant quote, submit your query or request for more information by contacting us. Alternatively you can call us or email as below: </p>
-                        <p style="color:red;">Email: translation@langjobs.com<br/>Phone: +91-99585-92758, +91-11-46028990
-                        <br/> Bangalore - Call: +91-96867-33757 <br/> Mumbai - Call: +91-98204-50093
+                        <p style="color:red;">Email: <a href="mailto:info@langjobs.com">info@langjobs.com</a><br/>Phone: +91-99585-92758, +91-11-46013636
+                        <br/> Bangalore - Call: +91-96867-33757
                         </p>
                         <p style="margin-left:.5in">
                              <a href="translation-services.php">Back to Translation Services</a></p>

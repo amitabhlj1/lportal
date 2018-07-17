@@ -114,7 +114,7 @@
                         <p>The national and official language of Vietnam is Vietnamese. More than 86% of Vietnam's population Speak Vietnamese in Vietnam and of about three million overseas Vietnamese. It is also spoken as a second language by many ethnic minorities of Vietnam. It is part of the Austroasiatic language family, of which it has the most speakers.</p>
                         <p>Much of Vietnamese vocabulary has been borrowed from Chinese, most notably Cantonese, especially words that denote abstract ideas , and it was formerly written using the Chinese writing system, albeit in a modified format and was given vernacular pronunciation.</p>
                         <p>As a byproduct of French colonial rule, the language displays some influence from French, and the Vietnamese writing system in use today is an adapted version of the Latin alphabet, with additional diacritics for tones and certain letters.</p>
-                        
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         <h5>Vietnamese Language Translation:</h5>       
                         <p>An accurate Vietnamese translation can make the difference between success and failure in a business project.  If you are looking for a professional Vietnamese Language translation of documents, instructions, letters, websites, software etc - LangJobsis a right place for you. LangJobsis one of the best translation agencies offering comprehensive and accurate translation and localization services. All our Vietnamese translators are native speakers or professionals with several years of experience in translation. They have the competence to translate a wide array of documents.</p>
                         <p>Whether you need a business, legal, manufacturing, technical, personal or scientific text to be translated, our Vietnamese translators can provide you all. They are capable of conveying the precise meaning of your documents and expressing your text in a language that is consistent with local culture, traditions and tastes. Our highly qualified Vietnamese translator will be able to offer you the most accurate Vietnamese translation. At LangJobs, professional translators who are native Vietnamese or highly qualified Vietnamese language translators perform our Vietnamese translation.</p>
@@ -133,6 +133,7 @@
                             <li><a href="marketing-translation.php">Vietnamese Marketing Document Translation Services</a></li>
                             <li><a href="literature-translation.php">Vietnamese Literature,  E-Learning, Tourism and Other Documents Translation </a></li>
                         </ul>
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         <h5>Process Driven Method:</h5>
                         <p>We adopt a Translation methodology to translate all the documents which makes us enable to provide a process driven and quality service: <a href="methodology.php">Translation Methodology</a></p>
                         <h5>Range of Vietnamese Language Translation Pairs:</h5>
@@ -140,9 +141,9 @@
                         <h5>Order your translation online now: </h5>
                         <p>You can get an instant quote, submit your query or request for more information by <a href="contact.php"ss>contacting us</a>. Alternatively you can call us or email as below: <br/><br/>
 
-                        Email: <a href="mailto:translation@langjobs.com">translation@langjobs.com</a> <br/>
+                        Email: <a href="mailto:info@langjobs.com">info@langjobs.com</a> <br/>
                         New Delhi: +91-99585-92758, +91-11-46013636<br/>
-                        Bangalore: +91-96867-33757<br/>Mumbai: +91-98204-50093</p>
+                        Bangalore: +91-96867-33757</p>
                         <p style="margin-left:1.5in">
 			             <a href="translation-services.php">Back to Translation Services</a> | or <a href="contact.php">Contact Us</a> for more information.
                         </p>                        

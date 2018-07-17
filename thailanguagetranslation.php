@@ -113,7 +113,7 @@
                         <p>Thai Language is the national and official language of Thailand and the native language of the Thai people, Thailand's dominant ethnic group. This language is a member of the Tai group of the Tai-Kadai language family.</p>
                         <p>Historical linguists have been unable to definitively link the Tai-Kadai languages to any other language family. Some words in Thai are borrowed from Pali, Sanskrit and Old Khmer. It is a tonal and analytic language. Thai also has a complex orthography and relational markers. Thai is mutually intelligible with Lao.</p>
                         <p>Over 20 million people speak Thai in different parts of Thailand, Northern Malaysia, Cambodia, Southern Myanmar, Laos.</p>
-                        
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         <h5>Thai Language Translation:</h5>       
                         <p>An accurate Thai translation can make the difference between success and failure in a business project.  If you are looking for a professional Thai Language translation of documents, instructions, letters, websites, software etc - LangJobsis a right place for you. LangJobsis one of the best translation agencies offering comprehensive and accurate translation and localization services. All our Thai translators are native speakers or professionals with several years of experience in translation. They have the competence to translate a wide array of documents.</p>
                         <p>Whether you need a business, legal, manufacturing, technical, personal or scientific text to be translated, our Thai translators can provide you all. They are capable of conveying the precise meaning of your documents and expressing your text in a language that is consistent with local culture, traditions and tastes. Our highly qualified Thai translator will be able to offer you the most accurate Thai translation. At LangJobs, professional translators who are native Thai or highly qualified Thai language translators perform our Thai translation.</p>
@@ -132,6 +132,7 @@
                             <li><a href="marketing-translation.php">Thai Marketing Document Translation Services</a></li>
                             <li><a href="literature-translation.php">Thai Literature,  E-Learning, Tourism and Other Documents Translation </a></li>
                         </ul>
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         <h5>Process Driven Method:</h5>
                         <p>We adopt a Translation methodology to translate all the documents which makes us enable to provide a process driven and quality service: <a href="methodology.php">Translation Methodology</a></p>
                         <h5>Range of Thai Language Translation Pairs:</h5>
@@ -139,9 +140,9 @@
                         <h5>Order your translation online now: </h5>
                         <p>You can get an instant quote, submit your query or request for more information by <a href="contact.php"ss>contacting us</a>. Alternatively you can call us or email as below: <br/><br/>
 
-                        Email: <a href="mailto:translation@langjobs.com">translation@langjobs.com</a> <br/>
+                        Email: <a href="mailto:info@langjobs.com">info@langjobs.com</a> <br/>
                         New Delhi: +91-99585-92758, +91-11-46013636<br/>
-                        Bangalore: +91-96867-33757<br/>Mumbai: +91-98204-50093</p>
+                        Bangalore: +91-96867-33757</p>
                         <p style="margin-left:1.5in">
 			             <a href="translation-services.php">Back to Translation Services</a> | or <a href="contact.php">Contact Us</a> for more information.
                         </p>                        

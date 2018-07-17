@@ -8,7 +8,8 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">     <link rel="icon" type="image/png" href="assets/site_logo.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1">     
+    <link rel="icon" type="image/png" href="assets/site_logo.png">
     <!--  
     Document Title
     =============================================
@@ -108,7 +109,7 @@
                         <p>At LangJobs, we provide interpretation service at the ease of the clients. Interpreters can travel to the location required in case of out - station assignments or we can arrange for professional interpreters residing in the city / country where the interpretation services are required.</p>
                         <p>We take pride to have largest pool of Native and Indian Interpreters in India. Our professional interpreters have served many multinational clients from manufacturing industry, software industry, electronics industry, lean, aircraft industry to name a few.</p>
                         <p>We provide qualified and experienced interpreters for all kinds of assignments - e.g. Large conferences, business collaborations, meetings, conference calls etc.</p>
-                        
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         <ul>
                             <li>Simultaneous Interpretation:  <i>A mode of interpreting where the interpreter speaks simultaneously with the speaker with minimal pauses. Typically used for seminars, lectures etc.</i> </li>
                             <li>Consecutive Interpretation:  <i>Relaying a message from one language into another in a sequential manner. Typically used for meetings, medical appointments, negotiations, informal conversations, etc.</i> </li>
@@ -122,9 +123,9 @@
                             <li>Indian Languages:<ul><li>Hindi | Bengali | Assamese | Tamil | Telugu | Kannada | Malayalam | Oriya | Bhojpuri | Maithili</li></ul></li>
                         </ul>
                         
-                        <p style="color:red;">You can get an instant quote, submit your query or request for more information by contacting us. Alternatively you can call us or email as below: </p>
-                        <p style="color:red;">Email: translation@langjobs.com | <a href="mailto:amitabh@langjobs.com">amitabh@langjobs.com</a><br/>Phone: +91-99585-92758, +91-11-46028990
-                        <br/> Bangalore - Call: +91-96867-33757 <br/> Mumbai - Call: +91-98204-50093
+                        <p class="advert">You can get an instant quote, submit your query or request for more information by contacting us. Alternatively you can call us or email as below: </p>
+                        <p style="color:red;">Email: <a href="mailto:info@langjobs.com">info@langjobs.com</a><br/>Phone: +91-99585-92758, +91-11-46013636
+                        <br/> Bangalore - Call: +91-96867-33757
                         </p>
                         
                         

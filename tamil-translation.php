@@ -114,6 +114,7 @@
                         
                         <p>Tamil is the first legally recognized Classical Language of India, as formally announced by the then President of India, Dr. Abdul Kalam, in a joint sitting of both houses of Parliament in 2004. Tamil is a Dravidian language spoken predominantly by Tamil people of the Indian subcontinent. It has official language status in India, Sri Lanka and Singapore. Tamil is also spoken by significant minorities in Malaysia, Mauritius, Vietnam, Reunion as well as emigrant communities around the world. It is the administrative language of the Indian state of Tamil Nadu.</p>
                         <p>Tamil literature existed for over two thousand years. The earliest epigraphic records found date from around the third century BCE.  The earliest period of Tamil literature, Sangam literature, is dated from the 3rd century BC to 6th century AD.</p>
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         <p>Tamil is written using a script called the Vaṭṭeḻuttu. The Tamil script consists of 12 vowels, 18 consonants and one special character, the Aytam. The vowels and consonants combine to form 216 compound characters, giving a total of 247 characters.</p>
                         <h5>Tamil Language Translation:</h5> 
                         <p>You can fully rely on LangJobs.com whenever you need to obtain an accurate Tamil translation of any text or document. Whether it is a letter, website, contract, marketing literature or any other type of material, LangJobs.com will be able to provide professional Tamil translation in the required format and within your deadlines. We guarantee that you will be satisfied with the results, as you will receive the most professional language translation services available.</p>      
@@ -133,6 +134,7 @@
                             <li><a href="marketing-translation.php">Tamil Marketing Document Translation Services</a></li>
                             <li><a href="literature-translation.php">Tamil Literature,  E-Learning, Tourism and Other Documents Translation </a></li>
                         </ul>
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         <h5>Process Driven Method:</h5>
                         <p>We adopt a Translation methodology to translate all the documents which makes us enable to provide a process driven and quality service: <a href="methodology.php">Translation Methodology</a></p>
                         <h5>Range of Tamil Language Translation Pairs:</h5>
@@ -140,9 +142,9 @@
                         <h5>Order your translation online now: </h5>
                         <p>You can get an instant quote, submit your query or request for more information by <a href="contact.php"ss>contacting us</a>. Alternatively you can call us or email as below: <br/><br/>
 
-                        Email: <a href="mailto:translation@langjobs.com">translation@langjobs.com</a> <br/>
+                        Email: <a href="mailto:info@langjobs.com">info@langjobs.com</a> <br/>
                         New Delhi: +91-99585-92758, +91-11-46013636<br/>
-                        Bangalore: +91-96867-33757<br/>Mumbai: +91-98204-50093</p>
+                        Bangalore: +91-96867-33757</p>
                         <p style="margin-left:1.5in">
 			             <a href="translation-services.php">Back to Translation Services</a> | or <a href="contact.php">Contact Us</a> for more information.
                         </p>                        

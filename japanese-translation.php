@@ -114,7 +114,7 @@
                         <p>Japanese is the official language of Japan. Japanese language is spoken by over 126 million people worldwide. Japanese is also spoken in more than 26 other countries including American Samoa, Argentina, Australia, Belize, Brazil, Canada, Dominican Republic, Germany, Guam, Mexico, Micronesia, Mongolia, New Zealand, Northern Mariana Islands, Palau, Panama, Paraguay, Peru and Philippines.</p>
                         <p>Japanese is not directly related to any other language (family). And it is not tonal like other Asian Language. Japanese uses 4 distinct systems of writing: kanji, hiragana, katakana and romanji. Hiragana is syllabic and the most original writing system in Japan.</p>
                         <p>Japanese Vocabulary can vary according to gender of the speaking person: women use other vocabulary than men. There is no distinction between singular and plural. Gender, too, is not indicated grammatically. There are no relative pronouns; Verbs are usually placed at the end of a sentence.  and no difference between Singular and plural.</p>
-                        
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         <h5>Japanese Language Translation:</h5> 
                         <p>If you are looking for a professional Japanese translation of documents, instructions, letters, websites, software etc - LangJobs is a right place for you. LangJobs is one of the best translation agencies offering comprehensive and accurate translation and localization services. You can set up the timelines for your Japanese translation and be sure to receive the completed, accurate results within those deadlines.</p>    
                         <p>Whether you need a business, legal, technical, personal or scientific text to be translated, our Japanese translators can provide you all. They are capable of conveying the precise meaning of your documents and expressing your text in a language that is consistent with local culture, traditions and tastes. Only a native speaking Japanese translator will be able to offer you the most accurate Japanese translation. At LangJobs, professional translators whose native language is Japanese or JLPT Level 1/2 qualified Japanese language translators perform our Japanese translation. They have in-depth understanding of the subject matter and solid mastering of the Japanese language including its spelling, grammar, and cultural appropriateness.</p>    
@@ -133,6 +133,7 @@
                             <li><a href="marketing-translation.php">Japanese Marketing Document Translation Services</a></li>
                             <li><a href="literature-translation.php">Japanese Literature,  E-Learning, Tourism and Other Documents Translation </a></li>
                         </ul>
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         <h5>Process Driven Method:</h5>
                         <p>We adopt a Translation methodology to translate all the documents which makes us enable to provide a process driven and quality service: <a href="methodology.php">Translation Methodology</a></p>
                         <h5>Range of Japanese Language Translation Pairs:</h5>
@@ -140,9 +141,9 @@
                         <h5>Order your translation online now: </h5>
                         <p>You can get an instant quote, submit your query or request for more information by <a href="contact.php"ss>contacting us</a>. Alternatively you can call us or email as below: <br/><br/>
 
-                        Email: <a href="mailto:translation@langjobs.com">translation@langjobs.com</a> <br/>
+                        Email: <a href="mailto:info@langjobs.com">info@langjobs.com</a> <br/>
                         New Delhi: +91-99585-92758, +91-11-46013636<br/>
-                        Bangalore: +91-96867-33757<br/>Mumbai: +91-98204-50093</p>
+                        Bangalore: +91-96867-33757</p>
                         <p style="margin-left:1.5in">
 			             <a href="translation-services.php">Back to Translation Services</a> | or <a href="contact.php">Contact Us</a> for more information.
                         </p>                        

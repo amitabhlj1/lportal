@@ -113,7 +113,7 @@
                         <p>Taiwanese language is also known as Taiwanese Hokkien.</p>
                         <p>About 70% of people speak this language in Taiwan. is the Hokkien dialect of Min Nan. The largest ethnic group in Taiwan, for which Hokkien is considered a native language, is known as Hoklo or Holo.</p>
                         <p>Taiwanese Hokkien is generally similar to Amoy. Minor differences only occur in terms of vocabulary. Like Amoy, Taiwanese Hokkien is based on a mixture of Zhangzhou and Quanzhou speech. Due to the mass popularity of Hokkien entertainment media from Taiwan, Taiwanese Hokkien has grown to become the more influential Hokkien dialect of Min Nan, especially after 1980s. Along with Amoy, the Taiwanese prestige dialect is regarded as 'Standard Hokkien'.</p>
-                        
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         <h5>Taiwanese Language Translation:</h5>       
                         <p>An accurate Taiwanese translation can make the difference between success and failure in a business project.  If you are looking for a professional Taiwanese Language translation of documents, instructions, letters, websites, software etc - LangJobsis a right place for you. LangJobsis one of the best translation agencies offering comprehensive and accurate translation and localization services. All our Taiwanese translators are native speakers or professionals with several years of experience in translation. They have the competence to translate a wide array of documents.</p>
                         <p>Whether you need a business, legal, manufacturing, technical, personal or scientific text to be translated, our Taiwanese translators can provide you all. They are capable of conveying the precise meaning of your documents and expressing your text in a language that is consistent with local culture, traditions and tastes. Our highly qualified Taiwanese translator will be able to offer you the most accurate Taiwanese translation. At LangJobs, professional translators who are native Taiwanese or highly qualified Taiwanese language translators perform our Taiwanese translation.</p>
@@ -132,6 +132,7 @@
                             <li><a href="marketing-translation.php">Taiwanese Marketing Document Translation Services</a></li>
                             <li><a href="literature-translation.php">Taiwanese Literature,  E-Learning, Tourism and Other Documents Translation </a></li>
                         </ul>
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         <h5>Process Driven Method:</h5>
                         <p>We adopt a Translation methodology to translate all the documents which makes us enable to provide a process driven and quality service: <a href="methodology.php">Translation Methodology</a></p>
                         <h5>Range of Taiwanese Language Translation Pairs:</h5>
@@ -139,9 +140,9 @@
                         <h5>Order your translation online now: </h5>
                         <p>You can get an instant quote, submit your query or request for more information by <a href="contact.php"ss>contacting us</a>. Alternatively you can call us or email as below: <br/><br/>
 
-                        Email: <a href="mailto:translation@langjobs.com">translation@langjobs.com</a> <br/>
+                        Email: <a href="mailto:info@langjobs.com">info@langjobs.com</a> <br/>
                         New Delhi: +91-99585-92758, +91-11-46013636<br/>
-                        Bangalore: +91-96867-33757<br/>Mumbai: +91-98204-50093</p>
+                        Bangalore: +91-96867-33757</p>
                         <p style="margin-left:1.5in">
 			             <a href="translation-services.php">Back to Translation Services</a> | or <a href="contact.php">Contact Us</a> for more information.
                         </p>                        

@@ -106,6 +106,7 @@
                         <p style="color:red;">"Choose a job you love, and you will never have to work a day in your life." - Confucius</p>
                         <p>And we chose to provide solutions to all the bottle-necks in recruiting multilingual resources. At LangJobs we provide world class Recruitment and Placement services for Employers / Recruiters.</p>
                         <p>We have pioneered the Multiligual recruitment services and proudly claim to have the largest database of bilingual resources in India. Our job portal is pioneer in itself and only job portal in India provides multiligual job opportunity which helps our database grow everyday. This is why within a short span of time many Fortune 500 companies have made us recruitment partner to fulfill their multilingual recruitment needs.</p>
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         <p>Have a look on some case studies to understand bilingual resources requirment and a range of recruitment solutions to fulfill your multiligual recruitment needs:</p>
                         <ul>
                             <li><a href="language-expert-recruitment.php">Case Studies - Language Experts Recruitment</a></li>

@@ -112,7 +112,7 @@
                         <legend>Translation & Localization Services</legend>
                         <h2>Telugu Language:</h2>
                         <p>Telugu is the official language of the state of Andhra Pradesh in southeastern India where it is spoken by close to 60 million people. Telegu is a richly developed language and the biggest linguistic unit in India. It is closely related to the Kannada alphabet. The main languages spoken in Andhra Pradesh are Telugu, Urdu, Hindi, Banjara, and English followed by Tamil, Kannada, Marathi and Oriya. Telugu is the principal and official language of the State.  It was also referred to as `Tenugu' in the past. `Andhra' is the name given to it since the medieval times. Some argued that `Telugu' was a corruption of `Trilinga' (Sanskrit meaning three `lingas'). A general description of the land of the Telugus was made in the medieval times as `the land marked by three lingas of the three famous shrines of Draksharamam (East Godavari district), Kaleswaram (Karimnagar district) and Srisailam (Kurnool district).</p>
-                        
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         <h5>Tamil Language Translation:</h5> 
                         <p>LangJobs.com provides professional, high quality translations from and to Telugu. Our Telugu translation services will help you maximize your global strategy. LangJobs.com will be able to provide professional Telugu translation in the required format and within your deadlines.</p>
                         <p>LangJobs.com understands your translations need to be fast and accurate. Our professional native-speaking Telugu translators will translate your English into perfect Telugu or Telugu into Perfect English. In addition, our expert translators are professionals who are both sensitive to the Telugu culture and specialists in your subject matter and industry.</p>
@@ -131,6 +131,7 @@
                             <li><a href="marketing-translation.php">Telugu Marketing Document Translation Services</a></li>
                             <li><a href="literature-translation.php">Telugu Literature,  E-Learning, Tourism and Other Documents Translation </a></li>
                         </ul>
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         <h5>Process Driven Method:</h5>
                         <p>We adopt a Translation methodology to translate all the documents which makes us enable to provide a process driven and quality service: <a href="methodology.php">Translation Methodology</a></p>
                         <h5>Range of Telugu Language Translation Pairs:</h5>
@@ -138,9 +139,9 @@
                         <h5>Order your translation online now: </h5>
                         <p>You can get an instant quote, submit your query or request for more information by <a href="contact.php"ss>contacting us</a>. Alternatively you can call us or email as below: <br/><br/>
 
-                        Email: <a href="mailto:translation@langjobs.com">translation@langjobs.com</a> <br/>
+                        Email: <a href="mailto:info@langjobs.com">info@langjobs.com</a> <br/>
                         New Delhi: +91-99585-92758, +91-11-46013636<br/>
-                        Bangalore: +91-96867-33757<br/>Mumbai: +91-98204-50093</p>
+                        Bangalore: +91-96867-33757</p>
                         <p style="margin-left:1.5in">
 			             <a href="translation-services.php">Back to Translation Services</a> | or <a href="contact.php">Contact Us</a> for more information.
                         </p>                        

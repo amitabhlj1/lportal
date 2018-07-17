@@ -104,7 +104,7 @@
                         <legend>Translation & Localization Services</legend>
                         <h2>Medical Document Translation / Pharmaceutical Document Translation</h2>
                         <p>When it comes to Medical translation, you are dealing with life & death. A piece of wrong information here or there, can take things to serious levels. There's no room for error when it comes to the lives of patients, and no time for delay when every second counts. Every medical translation must be 100% accurate because even the smallest mistake can have devastating consequences. Medical and Pharmaceutical translation is a highly specialized discipline and should only ever be carried out by suitably qualified translators. </p>
-                        
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         <p>LangJobs takes the responsibility to cache highly experienced medical translators holding variable experience in respective areas of medical sciences. The refined and flawless medical translation services offered by us are consummated by seasoned medical translators and every medical translator is assigned the duty to take care of client's requirements.</p>
                         
                         <p>Here are some of the medical documents we have translated:</p>
@@ -136,11 +136,12 @@
                         </ul>
                         <p>We adopt a Translation methodology to translate all the documents which makes us enable to provide a process driven and quality service : -</p>
                         <h5 style="color:red;"><a href="methodology.php">Translation Methodology</a></h5>
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         <h5 style="color:red;"><a href="languages.php">Languages</a></h5>
                         
                         <p style="color:red;">You can get an instant quote, submit your query or request for more information by contacting us. Alternatively you can call us or email as below: </p>
-                        <p style="color:red;">Email: translation@langjobs.com<br/>Phone: +91-99585-92758, +91-11-46028990
-                        <br/> Bangalore - Call: +91-96867-33757 <br/> Mumbai - Call: +91-98204-50093
+                        <p style="color:red;">Email: <a href="mailto:info@langjobs.com">info@langjobs.com</a><br/>Phone: +91-99585-92758, +91-11-46013636
+                        <br/> Bangalore - Call: +91-96867-33757
                         </p>
                         <p style="margin-left:.5in">
                              <a href="translation-services.php">Back to Translation Services</a></p>

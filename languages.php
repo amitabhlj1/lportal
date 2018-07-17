@@ -105,6 +105,7 @@
                         <h2>Languages</h2>
                                  
                         <p>We provide services in all European, Asian, African and American Languages.</p>
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         <p>Here is a list of languages we have worked on:</p>
                         
                         <ul>
@@ -127,7 +128,7 @@
                             <ul><li>Afrikaans | Amharic | Creole | Lingala | Swahali | Somali | Twi | Zulu</li>
                             </ul></li>
                         </ul>
-                         
+                         <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         <p style="margin-left:1.5in">
 			             <a href="translation-services.php">Back to Translation Services</a> | or <a href="contact.php">Contact Us</a> for more information.
                         </p>                        

@@ -104,6 +104,7 @@
                         <legend>Online Job Portal Services</legend>
                         <h2>Online Job Portal Services:</h2>
                         <p>www.LangJobs.com, is India's 1st Language Jobs Portal and no 1 in niche job portal specializes in languages.  It has been also chosen as India's most innovative portal by Winning Edge Magazine. With ever growing Alexa.com ranking and Google PageRank it shows great success. Its database of language experts is continuously growing and it has been accepted as the most popular job portal among the language jobs seekers.</p>
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         <h4>Unique Features:</h4>
                         <ul>
                             <li>India's 1st Language Jobs Portal.</li>
@@ -125,7 +126,7 @@
                             <li>Participate in Poll</li>
                             <li>Many more services. Currently all the above services are free.</li>
                         </ul>
-                        <p>If you are a language expert, <a href="login.php">register now</a> to avail all the above services for free.</p>
+                        <p>If you are a language expert, <a href="<?php echo $base_url; ?>LangExpert">register now</a> to avail all the above services for free.</p>
                         <h4>Services For Recruiters: </h4>
                         <ul>
                             <li>Register & Create your Profile</li>
@@ -135,7 +136,7 @@
                             <li>Babble Out Loud</li>
                             <li>And many more customized Services.</li>
                         </ul>
-                        
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                     </fieldset>
                 </div>
             </div>

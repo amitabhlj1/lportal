@@ -104,6 +104,7 @@
                         <legend>Translation & Localization Services</legend>
                         <h2>Internationalization Services:</h2>
                         <p>In computing, Internationalization and Localization (also spelled internationalisation and localisation) are means of adapting computer software to different languages and regional differences. Internationalization is the process of designing a software application so that it can be adapted to various languages and regions without engineering changes. Localization is the process of adapting software for a specific region or language by adding locale-specific components and translating text</p>
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         <p>Today, the world is flat in the age of globalization. To bring your software or web based products to an international market is a two-step process: Software Internationalization and then Localization. Software Internationalization prepares your original source code for the localization process. Software localization transforms the English (source language) software into one or more target languages, giving the product the look and feel of having been created in the target country.</p>
                         <p>Many companies develop their products with only English speaking customers in mind. But, when these products are planned for distribution to other language speaking foreign markets, the process of localization often reveals limitations in the product design. Internationalization is the process of engineering a product so that it can be localized for export to any country.</p>
                         <p>Internationalization is quite simple to understand. For example, some languages use more characters and take up more space than others (eg. Japanese, Hindi). A properly internationalized source file will leave room for text expansion.</p>
@@ -115,13 +116,14 @@
                             <li>Are all the localizable strings isolated from variables and other code for easy extraction?</li>
                             <li>Do automated lists take into account any sorting order differences in the target locale?</li>
                         </ul>
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         <p>To be sure a perfect way to avoid internationalization issues is to involve LangJobs.com team of experts in the product design stage so that localization requirements can be taken into consideration during development. Waiting until later not only increases complexity, but may also compromise timelines and have an adverse effect on your budget.</p>  
                         
                         <h5>Range of Language Internationalization & localization Pairs:</h5>
                         <p>We specialize in providing internationalization & localization services for a wide array of languages pair. You may find a list of languages we localize into: <a href="languages.php">Languages</a></p>                      
                         <p style="color:red;">You can get an instant quote, submit your query or request for more information by <a href="contact.php">contacting us</a>. Alternatively you can call us or email as below: </p>
-                        <p style="color:red;">Email: translation@langjobs.com | <a href="mailto:amitabh@langjobs.com">amitabh@langjobs.com</a><br/>Phone: +91-99585-92758, +91-11-46028990
-                        <br/> Bangalore - Call: +91-96867-33757 <br/> Mumbai - Call: +91-98204-50093
+                        <p style="color:red;">Email: <a href="mailto:info@langjobs.com">info@langjobs.com</a><br/>Phone: +91-99585-92758, +91-11-46013636
+                        <br/> Bangalore - Call: +91-96867-33757
                         </p>
                         
                         

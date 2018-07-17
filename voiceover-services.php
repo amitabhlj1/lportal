@@ -104,6 +104,7 @@
                         <legend>Voice-Over Services</legend>
                         <h2>Voice-Over Services:</h2>
                         <p>Voice over services have a broad spectrum, as they are the inevitable part of state-of-the-art technologies including radio , television, telephony, computers, e-learning solutions, animations, aviations, railways, corporate presentations, computer-based-training online training, documentaries, movies, advertisements etc.</p>
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         <p>Voice over is a process of recording audio via professional voice artists, speakers or natives of respective world languages. Voice-over typically requires script of the audio, which then gets recorded in the desired language. Recording of the script is done in a professional studio. This may range from a single artist to multiple artists in the same language. Multiple artists are best utilized for plays, dramas, historical commentaries.</p>
                         <p>Voice over is a process of recording audio via professional voice artists, speakers or natives of respective world languages. Voice-over typically requires script of the audio, which then gets recorded in the desired language. Recording of the script is done in a professional studio. This may range from a single artist to multiple artists in the same language. Multiple artists are best utilized for plays, dramas, historical commentaries.</p>
                         <p>With our rich database of multilingual, mother voice artists, commentators, and narrators, we have provided voice-over services to top eLearning companies, advertising agencies, video production companies, radio and television stations.</p>
@@ -125,6 +126,7 @@
                             <li>Medical, Technical and Financial Narrations</li>
                             <li>Voice commands for products and appliances</li>
                         </ul> 
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         <h5>Voice-over Delivery Medium:</h5>
                         <p>We can deliver the audio files in AIF, WAV, or MP3 formats via FTP (internet) or through CDs. CDs can be shipped FedEx Overnight.</p>
                         <h5>Range of Language of Voice-over:</h5>   
@@ -134,7 +136,7 @@
                         <p>You can get an instant quote, submit your query or request for more information by <a href="contact.php">contacting us</a>. Alternatively you can call us or email as below: <br/><br/>
 
                         Email: <a href="mailto:info@langjobs.com">info@langjobs.com</a> <br/>
-                        Phone: +91-99585-92758, +91-11-46028990</p>
+                        Phone: +91-99585-92758, +91-11-46013636</p>
                         
                         
                     </fieldset>

@@ -117,6 +117,7 @@
                             <li><a href="marketing-translation.php">Marketing Document Translation Services</a></li>
                             <li><a href="literature-translation.php">Literature,  E-Learning, Tourism and Other Documents Translation </a></li>
                         </ul>
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         <p>At our Language Translation Agency, we have expertise in translations and localization services in about more than 150 languages. You are at the right place for Quality services at Economical Prices ! We at LangJobs.com like to partner your translation needs and provide one-stop solution to it.</p>
                         <p>We take pride to have largest pool of Native and Indian translators with it's own portal having more than 5000 language experts registered on it. Our professional, accurate and timely services have ensured that we make a good relationship with our clients and we are retained by them for their language and communications needs.</p>
                         <p>Based out of three metro cities of India- New Delhi, Mumbai and Bangalore, we enjoy the best connectivity and communication with entire world. With quality human capital and process driven methodology we are always on or before time.</p>
@@ -127,8 +128,9 @@
                         <h5 style="color:red;"><a href="languages.php">Languages</a></h5>
                         
                         <p style="color:red;">You can get an instant quote, submit your query or request for more information by contacting us. Alternatively you can call us or email as below: </p>
-                        <p style="color:red;">Email: translation@langjobs.com | <a href="mailto:amitabh@langjobs.com">amitabh@langjobs.com</a><br/>Phone: +91-99585-92758, +91-11-46028990
-                        <br/> Bangalore - Call: +91-96867-33757 <br/> Mumbai - Call: +91-98204-50093
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
+                        <p style="color:red;">Email: <a href="mailto:info@langjobs.com">info@langjobs.com</a><br/>Phone: +91-99585-92758, +91-11-46013636
+                        <br/> Bangalore - Call: +91-96867-33757
                         </p>
                         
                         

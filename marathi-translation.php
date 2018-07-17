@@ -113,6 +113,7 @@
                         <h2>Marathi Language:</h2>
                         <p>Marathi is considered as the language of the Deccan. Marathi is the one of the 14 official languages of India. It is spoken in Maharashtra and the central part of India. It is also used in neighboring states of Madhya Pradesh, Andhra Pradesh, Karnataka and Gujarat. Internationally, Marathi is spoken in Mauritius, USA, UAE, South Africa, Germany, UK, Australia and New Zealand.</p>
                         <p>Marathi is the language spoken by the native people of Maharashtra. Marathi belongs to the group of Indo-Aryan languages which are a part of the larger of group of Indo-European languages, all of which can be traced back to a common root. Among the Indo-Aryan languages, Marathi is the southern-most language. All of the Indo-Aryan languages originated from Sanskrit. Three Prakrit languages, simpler in structure, emerged from Sanskrit. These were Saurseni, Magadhi and Maharashtri. Marathi is said to be a descendent of Maharashtri which was the Prakrit spoken by people residing in the region of Maharashtra.</p>
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         <h5>Marathi Language Translation:</h5> 
                         <p>You can fully rely on LangJobs.com whenever you need to obtain an accurate Marathi translation of any text or document. Whether it is a letter, website, contract, marketing literature or any other type of material, LangJobs.com will be able to provide professional Marathi translation in the required format and within your deadlines. We guarantee that you will be satisfied with the results, as you will receive the most professional language translation services available.</p>     
                         <p>LangJobs.com understands your translations need to be fast and accurate. Our professional native-speaking Marathi translators will translate your English into perfect Marathi or Marathi into Perfect English. In addition, our expert translators are professionals who are both sensitive to the Marathi culture and specialists in your subject matter and industry.</p>     
@@ -131,6 +132,7 @@
                             <li><a href="marketing-translation.php">Marathi Marketing Document Translation Services</a></li>
                             <li><a href="literature-translation.php">Marathi Literature,  E-Learning, Tourism and Other Documents Translation </a></li>
                         </ul>
+                        <h4 class="advert">To book any of our Professional Services, Please call us on <a href="tel:+91-93114-88060">+91-93114-88060</a> or <a href="mailto:info@langjobs.com">Email us</a>. Our team will be happy to answer any query you may have.</h4>
                         <h5>Process Driven Method:</h5>
                         <p>We adopt a Translation methodology to translate all the documents which makes us enable to provide a process driven and quality service: <a href="methodology.php">Translation Methodology</a></p>
                         <h5>Range of Marathi Language Translation Pairs:</h5>
@@ -138,9 +140,9 @@
                         <h5>Order your translation online now: </h5>
                         <p>You can get an instant quote, submit your query or request for more information by <a href="contact.php"ss>contacting us</a>. Alternatively you can call us or email as below: <br/><br/>
 
-                        Email: <a href="mailto:translation@langjobs.com">translation@langjobs.com</a> <br/>
+                        Email: <a href="mailto:info@langjobs.com">info@langjobs.com</a> <br/>
                         New Delhi: +91-99585-92758, +91-11-46013636<br/>
-                        Bangalore: +91-96867-33757<br/>Mumbai: +91-98204-50093</p>
+                        Bangalore: +91-96867-33757</p>
                         <p style="margin-left:1.5in">
 			             <a href="translation-services.php">Back to Translation Services</a> | or <a href="contact.php">Contact Us</a> for more information.
                         </p>                        
