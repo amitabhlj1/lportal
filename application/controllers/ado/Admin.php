@@ -467,4 +467,18 @@ class Admin extends CI_Controller
         }
         echo json_encode($response);
     }
+    public function reply_enquiry(){
+        $send_to = $this->input->post('email');
+        $subject = $this->input->post('subject');
+        $message = $this->input->post('message');
+        $response = array();
+        $response['gone'] = 0;
+        $response['fail'] = 0;
+        $val = $this->My_model->send_mail($send_to, $subject, $message);
+        if($val){
+          $response['gone'] = $response['gone']+1;  
+        } else {
+            $response['fail'] = $response['fail']+1;
+        }
+    }
 }
