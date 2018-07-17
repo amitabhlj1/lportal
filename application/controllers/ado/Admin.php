@@ -370,9 +370,8 @@ class Admin extends CI_Controller
 	{	
 		if( !$this->session->userdata('admin_id') )
 			redirect('ado/Admin/logout','refresh');       
-		
-		$data['enquiries'] = $this->My_model->selectRecord('visitor_query','*','','','50');
-		//echo "<pre />"; print_r($data); die();
+		$aOrder = array('criteria' => 'id','order' => 'DESC');
+		$data['enquiries'] = $this->My_model->selectRecord('visitor_query','*','',$aOrder,'');
 		
 		$this->load->view('admin/include/header'); 
 		$this->load->view('admin/enquiry',$data); 
@@ -480,5 +479,6 @@ class Admin extends CI_Controller
         } else {
             $response['fail'] = $response['fail']+1;
         }
+        echo json_encode($response);
     }
 }

@@ -51,10 +51,9 @@
 								<td><?php echo $enq->email;?></td>
 								<td><?php echo $enq->website;?></td>
 								<td><?php echo $enq->subject;?></td>
-								<td><a class="btn btn-xs btn-info mbtn" value="<?php echo $enq->id ?>"><i class="fa fa-eye"></i></a> <a class="btn btn-danger btn-xs delbtn" value="<?php echo $enq->id ?>"><i class="fa fa-trash-o"></i></a> <a href="#" value='<?php echo json_encode($enq); ?>' data-toggle="modal" data-target="#myModal" class="btn btn-primary btn-xs reply_mail"><i class="fa fa-envelope"></i></a>
+								<td><a class="btn btn-xs btn-info mbtn" data-toggle="popover" title="<?php echo "Posted on: ".$enq->posted; ?>" data-content="<?php echo htmlspecialchars($enq->message);?>" data-placement="left"><i class="fa fa-eye"></i></a> <a class="btn btn-danger btn-xs delbtn" value="<?php echo $enq->id ?>"><i class="fa fa-trash-o"></i></a> <a href="#" value='<?php echo json_encode($enq); ?>' data-toggle="modal" data-target="#myModal" class="btn btn-primary btn-xs reply_mail"><i class="fa fa-envelope"></i></a>
 								</td>
-							</tr>
-							<tr id="<?php echo $enq->id ?>" class="details"><td colspan='7' style="text-align:justify;"><?php echo $enq->message;?></td></tr>	
+							</tr>	
 							<?php
 							$count++;	
 							}
@@ -97,10 +96,13 @@
 </div>
 
 <script>
+    $(document).ready(function(){
+        $('[data-toggle="popover"]').popover(); 
+    });
     $(document).ready(function() {
-        $('.mbtn').click(function() {
-            $('#'+$(this).attr("value")).toggle("slow", "swing");
-        });
+//        $('.mbtn').click(function() {
+//            $('#'+$(this).attr("value")).toggle("slow", "swing");
+//        });
         $('.delbtn').click(function() {
             if(confirm('Are you sure? This enquiry will be deleted permanently.')){
                window.location.href = baseurl+"ado/Admin/deleteEnquiry/"+$(this).attr("value");
