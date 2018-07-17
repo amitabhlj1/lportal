@@ -18,7 +18,7 @@
         }
     ?>
     <meta property="og:title" content="<?php echo $title_of_page; ?>"/>
-    <meta property="og:description" content="<?php echo $description; ?>"/>
+    <meta property="og:description" content="LangJobs.com:World's no. 1 Language Jobs Portal"/>
     <meta property="og:image" content="<?php echo base_url() ?>assets/img/lj3.jpg"/>
     <meta name="revisit-after" content="2 days"/>
     <meta name="robots" content="index,follow"/>
