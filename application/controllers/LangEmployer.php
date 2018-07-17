@@ -19,7 +19,7 @@ class LangEmployer extends CI_Controller
 	public function index()
 	{
 		$title['login'] = 1;
-		$title['title_of_page'] = "Login | Sign Up :: Language Employers | LangJobs.com";
+		$title['title_of_page'] = "Login | Sign Up:Language Employers | LangJobs.com";
         $title['description'] = "Login / Sign Up page for Employers of Langjobs.com | Signup / Login to post your Language Jobs and Projects. Hire Awesome Professionals";
         $title['keywords'] ="Signup, Register, Post Jobs, Post Freelance Projects, Language Jobs, Language Projects, Language Employer Login, Language Employer, LangJobs.com";
         $data['country'] = $this->My_model->selectRecord('country', '*', '','');

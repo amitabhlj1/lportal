@@ -12,7 +12,7 @@ class SearchJob extends CI_Controller
 	}
 	public function index()
 	{
-        $title['title_of_page'] = "Search For Language Projects And Jobs at LangJobs.com";
+        $title['title_of_page'] = "Search Language Projects And Jobs at LangJobs.com";
         $title['description'] = "We have collected a large list of jobs and projects for language experts, find your favourite job and just go for it.";
         $title['keywords'] ="Language jobs, Language Projects, Langjobs.com, search and apply, Language profession";
         $common_where = array('status' => '1');
@@ -33,8 +33,8 @@ class SearchJob extends CI_Controller
     public function retrieve_jobs(){
         $data['jobs'] = $this->LanguageExpert_model->searchResult();
         $data['input_by_user'] = $this->input->post();
-		$title['title_of_page'] = "Found Results";
-        $title['description'] = "Results after your search query";
+		$title['title_of_page'] = "Found Results | LangJobs.com's Job & Projects";
+        $title['description'] = "Results Found after your Specifications";
         $title['keywords'] ="Found Jobs and Projects at LangJobs.com";
         $common_where = array('status' => '1');
         $data['lang'] = $this->My_model->selectRecord('language', '*', $common_where);

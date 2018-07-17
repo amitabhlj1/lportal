@@ -15,9 +15,9 @@ class Applied_jobs extends CI_Controller
         if( !$this->session->userdata('exp_id') )
 			redirect('LangExpert','refresh');
         
-        $title['title_of_page'] = "";
-        $title['description'] = "";
-        $title['keywords'] ="";
+        $title['title_of_page'] = "Jobs Applied By You";
+        $title['description'] = "This page will list all the jobs and project which were applied on by the Language expert";
+        $title['keywords'] ="Jobs, List of applied job, language expert, Job History";
         //$data['total_jobs'] = $this->My_model->selectRecord('job_apply', '*', array('expert_id' => $this->session->userdata('exp_id')));
         $data['total_jobs'] = $this->LanguageExpert_model->retrieve_jobs();
         //var_dump($data['total_jobs']); die();

@@ -18,9 +18,9 @@ class Expert extends CI_Controller
         if(!$this->session->userdata('exp_id') )
 			redirect('LangExpert','refresh');
 		
-        $title['title_of_page'] = "";
-        $title['description'] = "";
-        $title['keywords'] ="";
+        $title['title_of_page'] = "Language Expert Profile";
+        $title['description'] = "Your LangJob\'s Resume";
+        $title['keywords'] ="Profile, LangJob\'s Resume,";
         $where = array('id' => $this->session->userdata('exp_id'));
         $data['usr'] = $this->My_model->selectRecord('lang_expert', '*', $where);
         

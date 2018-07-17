@@ -42,9 +42,9 @@ class Language_experts extends CI_Controller
     }
     public function profile($pid){
         $data['usr'] = $this->My_model->selectRecord('lang_expert', '*', array('status' => 1, 'id' =>$pid));
-        $title['title_of_page'] = $data['usr'][0]->last_name." - ".$data['usr'][0]->profile_name." | Langjobs Language Experts | ";
-        $title['description'] = "";
-        $title['keywords'] = $data['usr'][0]->skills.", langjob expert profile";
+        $title['title_of_page'] = htmlspecialchars($data['usr'][0]->last_name.": LangJobs Language Expert");
+        $title['description'] = htmlspecialchars($data['usr'][0]->about_me." | Language Expert's Profile At LangJobs.com");
+        $title['keywords'] = htmlspecialchars($data['usr'][0]->skills.", LangJobs.com Language Expert Profile");
         
         $whr5 = array(
             'exp_id' => $data['usr'][0]->id
