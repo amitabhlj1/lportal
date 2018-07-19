@@ -481,4 +481,9 @@ class Admin extends CI_Controller
         }
         echo json_encode($response);
     }
+    public function adv_mail(){
+        $this->load->view('admin/include/header');	
+		$this->load->view('admin/adv_exp_mail');
+		$this->load->view('admin/include/footer');
+    }
 }

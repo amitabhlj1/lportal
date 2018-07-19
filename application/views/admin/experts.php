@@ -5,7 +5,7 @@
    <div class="col-md-12">
 		<section class="panel">
         <?php echo $this->session->flashdata('verify_msg'); ?>	
-		  <header class="panel-heading">Experts <span class="small pull-right">**(Click on the rows to select experts)**&nbsp;<button id="send_mail_exp" class="btn btn-xs btn-success" data-toggle="modal" data-target="#mailer"><i class="glyphicon glyphicon-envelope"></i> Send Mail</button></span></header>							
+		  <header class="panel-heading">Experts <span class="small pull-right">**(Click on the rows to select experts)**&nbsp;<button id="send_mail_exp" class="btn btn-xs btn-success" data-toggle="modal" data-target="#mailer"><i class="glyphicon glyphicon-envelope"></i> Send Mail</button>&nbsp;<a class="btn btn-xs btn-primary" href="<?php echo base_url(); ?>ado/Admin/adv_mail">Advance Mail</a></span></header>							
 		<div class="panel-body table-responsive">
 			<table class="table table-hover" id='inner_exp'>
 				<thead>
