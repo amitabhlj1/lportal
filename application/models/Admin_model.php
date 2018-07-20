@@ -451,7 +451,7 @@ class Admin_model extends CI_Model {
         $order = " ORDER BY `id`  DESC";
         $lim = " LIMIT 100";
         if(!empty($loc)){
-            $where .= " AND '".$loc."' LIKE CONCAT('%',address,'%')";
+            $where .= " AND ('".$loc."' LIKE CONCAT('%',address,'%') OR address LIKE '%".$loc."%')";
         }
             
         if(!empty($langs)){
