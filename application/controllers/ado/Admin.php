@@ -482,8 +482,13 @@ class Admin extends CI_Controller
         echo json_encode($response);
     }
     public function adv_mail(){
+        $data['languages'] = $this->My_model->selectRecord('language','*','');
         $this->load->view('admin/include/header');	
-		$this->load->view('admin/adv_exp_mail');
+		$this->load->view('admin/adv_exp_mail', $data);
 		$this->load->view('admin/include/footer');
+    }
+    public function adv_mail_experts(){
+        $result = $this->admin_model->adv_exp_mail();
+        echo json_encode($result);
     }
 }

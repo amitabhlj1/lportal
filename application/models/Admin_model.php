@@ -441,5 +441,47 @@ class Admin_model extends CI_Model {
             Return 'A+';
         }		
 	}
+    
+    public function adv_exp_mail(){
+        $loc = $this->input->post('loc');
+        $limit = $this->input->post('limit');
+        $langs = json_decode($this->input->post('langs'));
+        
+        $where = " WHERE email !=''";
+        $order = " ORDER BY `id`  DESC";
+        $lim = " LIMIT 100";
+        if(!empty($loc)){
+            $where .= " AND '".$loc."' LIKE CONCAT('%',address,'%')";
+        }
+            
+        if(!empty($langs)){
+            $where .=" AND ( ";
+            $count = 0;
+            foreach ($langs as $l){
+              if($count == 0){
+                $where .= " FIND_IN_SET('".$l."', expert_in) !=0";    
+              } else{
+                  $where .= " OR FIND_IN_SET('".$l."', expert_in) !=0";
+              } 
+                $count++;
+            }
+              $where .=" )";
+        }
+        
+        if(!empty($limit)){
+            $lim = " LIMIT ".$limit;
+        } 
+        
+        $sql = "SELECT id, first_name, last_name, email FROM `lang_expert` ".$where.$order.$lim;
+        $result = $this->db->query($sql);
+        if ($result && $result->num_rows()) {
+            foreach ($result->result() as $row) {
+                $response[] = $row;
+            }
+        } else {
+            $response[] =""; 
+        }
+        return $response;
+    }
 }
 ?>
