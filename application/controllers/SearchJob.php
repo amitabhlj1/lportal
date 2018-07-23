@@ -25,6 +25,7 @@ class SearchJob extends CI_Controller
         $data['input_by_user']['sector'] = "";
         $data['input_by_user']['keywords'] = "";
         $data['input_by_user']['locationCombo'] = "";
+        $data['input_by_user']['experience'] = "";
         
         $this->load->view('include/header', $title);
 		$this->load->view('search_job', $data);

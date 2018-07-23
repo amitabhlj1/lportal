@@ -131,8 +131,12 @@ class LanguageExpert_model extends CI_Model {
 		$iExp    = $this->input->post('experience');
 		$strKeyw = $this->input->post('keywords');
 		$where = 'WHERE jb.status=1';
+         
+        if(!empty($strKeyw))
+			$where .= " AND MATCH(jb.title, jb.job_keywords,jb.skills,jb.description)
+						AGAINST('$strKeyw')";
 		if(!empty($iLang))
-			$where .= " AND FIND_IN_SET(".$iLang.",jb.languages) OR jb.from_language = '".$iLang."' OR jb.to_language = '".$iLang."'";
+			$where .= " AND (FIND_IN_SET(".$iLang.",jb.languages) OR jb.from_language = '".$iLang."' OR jb.to_language = '".$iLang."')";
         
         if(!empty($iSec))
 			$where .= " AND jb.j_category = ".$iSec;
@@ -140,14 +144,10 @@ class LanguageExpert_model extends CI_Model {
 		if(!empty($iLoc))
 			$where .= " AND '".$iLoc."' LIKE CONCAT('%',jb.address,'%')";
 		 
-		 if(!empty($iExp))
-			$where .= " AND jb.total_exp = ".$iExp;
-		 
-		 if(!empty($strKeyw))
-			$where .= " AND MATCH(jb.title, jb.job_keywords,jb.skills,jb.description)
-						AGAINST('$strKeyw' IN NATURAL LANGUAGE MODE) ";
+		 if($iExp!="")
+			$where .= " AND jb.total_exp = '".$iExp."'";
          
-         $order_by = "ORDER BY jb.id DESC";
+         $order_by = " ORDER BY jb.id DESC";
 		 
          $response = array();
          $sql = "SELECT jb.*, l.company_name FROM `jobs` jb INNER JOIN lang_company l ON jb.company_id = l.id ".$where." ".$order_by;
