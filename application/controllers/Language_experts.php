@@ -35,7 +35,7 @@ class Language_experts extends CI_Controller
         $this_page_first_result = ($page-1)*$results_per_page;
         //checking where first name & last name is not blank and sorting it by lastest and frequent active language experts
         $data['experts'] = $this->My_model->selectRecord('lang_expert', '*', array('status' => 1, 'first_name !=' =>''), array('criteria'=>'id', 'order' => 'DESC'), array($this_page_first_result, $results_per_page));
-        
+        $data['languages'] = $this->My_model->selectRecord('language','*','','');
         $this->load->view('include/header', $title);
 		$this->load->view('all_experts', $data);
         $this->load->view('include/footer');

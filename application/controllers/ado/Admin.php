@@ -440,8 +440,8 @@ class Admin extends CI_Controller
     public function emp_plan_change(){
         $id = $this->input->post('id');
         $resume_plan = $this->input->post('resume_plan');
-        //echo $id."-".$resume_plan;
-        $this->My_model->updateRecord('lang_company', array('resume_plan' => $resume_plan), array('id' => $id));
+        $plan_change_date = date('Y-m-d');
+        $this->My_model->updateRecord('lang_company', array('resume_plan' => $resume_plan, 'plan_starts' => $plan_change_date), array('id' => $id));
         if($this->db->affected_rows() > 0){
             echo "1";
         } else {

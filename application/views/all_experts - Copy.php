@@ -120,7 +120,6 @@
                     <div class="row">
                         <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
                         <?php
-                            $lang_known = "";
                             foreach($experts as $e){ ?>
                                 <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12 well">
                                     <div class="row">
@@ -144,32 +143,14 @@
                                             <img src="<?php echo $eimg; ?>" class="img1 img-rounded"/>
                                         </div>
                                         <div class="details col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                            <?php 
-                                                if($e->expert_in){
-                                                    $break_lang = explode(',',$e->expert_in);
-                                                    foreach($break_lang as $b){
-                                                        $lang_known .= $languages[$b-1]->name.",";
-                                                    }   
-                                                }
-                                            ?>
                                               <div class="profile">
-                                                    Languages: <?php echo $lang_known; ?>
+                                                    <?php if($e->profile_name){echo strip_tags(mb_substr($e->profile_name, 0, 38, 'utf-8'));} else { echo "N.A.";} ?>
                                                 </div>
                                                 <div class="exp">
-                                                    Experience: <?php
-                                                        if($e->total_exp){ 
-                                                            echo strip_tags($this->config->config['job_exp'][$e->total_exp]); 
-                                                        } else {
-                                                            echo "Any";
-                                                        }
-                                                    ?>
+                                                    <?php if($e->total_exp){ echo strip_tags($this->config->config['job_exp'][$e->total_exp]); } else {echo "N.A.";} ?>
                                                 </div>
                                                 <div class="skill">
-                                                    Location: <?php 
-                                                        if($e->address){ 
-                                                            echo $e->address; 
-                                                        }
-                                                    ?>
+                                                    <?php if($e->skills){echo strip_tags(mb_substr($e->skills, 0, 34, 'utf-8'));} else {echo "Language Expert";}; ?>
                                                 </div>
                                                 <?php echo "<a href='".base_url()."Language_experts/profile/".$e->id."'><button class='vm btn btn-xs'>&nbsp;</button></a>"; ?>
                                         </div>
@@ -180,7 +161,6 @@
                                     </div> -->
                                 </div>
                         <?php
-                                                    $lang_known = "";
                             }
                         ?>
                         </div>

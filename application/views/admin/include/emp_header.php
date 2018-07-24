@@ -142,7 +142,11 @@
                 <!-- Main content -->
 				<?php
 				    $iJobs = $this->My_model->getNumRows('jobs','company_id',$this->session->userdata('emp_id'));
-                    $iCVCount = $this->My_model->getNumRows('resume_view_history','company_id',$this->session->userdata('emp_id'));
+                    //$iCVCount = $this->My_model->getNumRows('resume_view_history','company_id',$this->session->userdata('emp_id'));
+                    $plan_start = $this->session->userdata('plan_start');
+                    $cid = $this->session->userdata('emp_id');
+                    $iCVCount = $this->db->from("resume_view_history")->where('DATE(first_view_date) > "'.$plan_start.'" AND company_id = "'.$cid.'" ')->count_all_results();
+                    //$this->My_model->printQuery();
                     $iBalance = $this->config->item('rplan_cv')[$this->session->userdata('r_plan')] - $iCVCount;
 				?>
 				<section class="content">
@@ -173,6 +177,25 @@
 										Resumes Left
 									</a>
                                 </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3" title="Your Employer Profile's Status">
+                            <div class="sm-st clearfix">
+                               <?php 
+                                    if($this->session->userdata('acc_status') == 0){ ?>
+                                    <span class="sm-st-icon st-red"><i class="fa fa-refresh fa-spin"></i></span>
+                                    <div class="sm-st-info"><span>Status</span>
+                                            Awaiting Approval
+                                    </div>
+                               <?php
+                                    } else if($this->session->userdata('acc_status') == 1) { ?>
+                                    <span class="sm-st-icon st-red"><i class="fa fa-check-square"></i></span>
+                                    <div class="sm-st-info"><span>Status</span>
+                                            Approved
+                                    </div>
+                               <?php
+                                    }
+                                ?>
                             </div>
                         </div>	         
 					</div>

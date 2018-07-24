@@ -37,7 +37,7 @@
 						  <a href="#" data-toggle="modal" data-target="#empview" onclick="employerDetails(<?php echo $employer->id;?>);">
 								<span class="glyphicon glyphicon-eye-open" title="view details"></span>
 						  </a>
-						   &nbsp;&nbsp;
+						   &nbsp;
 							<?php 
 							if($employer->status == 1)
 							{

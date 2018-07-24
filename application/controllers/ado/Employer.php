@@ -675,6 +675,7 @@ class Employer extends CI_Controller
         if( !$this->session->userdata('emp_id') )
 			redirect('ado/Employer/logout','refresh');
         $data['experts'] = $this->Employer_model->return_experts();
+        $data['languages'] = $this->My_model->selectRecord('language','*','','');
         //$this->My_model->printQuery(); die();
         $this->load->view('admin/include/emp_header'); 
 		$this->load->view('admin/employer/foundex', $data); 

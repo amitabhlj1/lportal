@@ -148,6 +148,7 @@ if($this->session->userdata('emp_id'))
 {
 	if( isset($balance) && $balance > 0 )
 	{	
+        if($this->session->userdata('acc_status') == "1"){
 ?>
 <div id="sticky" class="container">
     <!-- Tab panes -->
@@ -329,6 +330,15 @@ if($this->session->userdata('emp_id'))
     <!--tab-content close-->
 </div>
 <?php
+        } else { ?>
+            <div class="row">
+                <div class="col-md-11 table-responsive" style="text-align:center;">
+                    <h4> You account is awaiting approval, Please wait or <a rel="canonical" href="<?php echo base_url(); ?>contact.php">contact us</a></h4>
+                </div>
+            </div>
+            <br/><br/><br/><br/><br/><br/><br/><br/>
+<?php
+        }
 	}
 	else
 	{

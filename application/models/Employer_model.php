@@ -144,7 +144,9 @@ class Employer_model extends CI_Model {
 					'comp_name' => $aResult[0]['company_name'],
 					'image'  => $aResult[0]['thumb_logo'],
 					'email'  => $aResult[0]['email'],
-					'r_plan'  => $aResult[0]['resume_plan']
+					'r_plan'  => $aResult[0]['resume_plan'],
+                    'plan_start' => $aResult[0]['plan_starts'],
+                    'acc_status' => $aResult[0]['status']
 					);
 			$this->session->set_userdata($aSess);			
 			//redirect('ado/School/');
@@ -175,7 +177,9 @@ class Employer_model extends CI_Model {
 					'comp_name' => $aResult[0]['company_name'],
 					'image'  => $aResult[0]['thumb_logo'],
 					'email'  => $aResult[0]['email'],
-					'r_plan'  => $aResult[0]['resume_plan']
+					'r_plan'  => $aResult[0]['resume_plan'],
+                    'plan_start' => $aResult[0]['plan_starts'],
+                    'acc_status' => $aResult[0]['status']
 					);
 			$this->session->set_userdata($aSess);			
 			//redirect('ado/School/');
@@ -233,20 +237,21 @@ class Employer_model extends CI_Model {
         $keywords = $this->input->post('kwords');
         
         $where = ' WHERE first_name != "" AND status = 1';
-        if(!empty($lang))
-            $where .= " AND expert_in like '%".$lang."%'";
-        if(!empty($exp))
-            $where .= " AND total_exp=".$exp;
-        if(!empty($loc))
-            $where .= " AND '".$loc."' LIKE CONCAT('%',address,'%')";
         if(!empty($keywords))
             $where .= " AND MATCH(skills, about_me) AGAINST ('$keywords' IN NATURAL LANGUAGE MODE)";
+        
+        if(!empty($lang))
+            $where .= " AND FIND_IN_SET(".$lang.",expert_in)";
+        if($exp !="")
+            $where .= " AND total_exp='".$exp."'";
+        if(!empty($loc))
+            $where .= " AND '".$loc."' LIKE CONCAT('%',address,'%')";
         
         $order_by = " ORDER BY id DESC";
         $limit = " LIMIT 200";
         
-        $sql = "SELECT id, first_name, last_name, profile_name, skills, image, total_exp, social_login FROM lang_expert".$where.$order_by.$limit;
-        
+        $sql = "SELECT id, first_name, last_name, profile_name, expert_in, skills, image, total_exp, social_login, address FROM lang_expert".$where.$order_by.$limit;
+        //echo $sql; die();
         $result = $this->db->query($sql);
         if ($result && $result->num_rows()) {
             foreach ($result->result() as $row) {

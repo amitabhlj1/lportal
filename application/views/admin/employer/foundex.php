@@ -138,15 +138,34 @@
                                         <img src="<?php echo $eimg; ?>" class="img1 img-rounded"/>
                                     </div>
                                     <div class="details col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                          <div class="profile">
-                                                <?php if($e->profile_name){echo strip_tags(mb_substr($e->profile_name, 0, 38, 'utf-8'));} else { echo "N.A.";} ?>
-                                            </div>
-                                            <div class="exp">
-                                                <?php echo strip_tags($this->config->config['job_exp'][$e->total_exp]); ?>
-                                            </div>
-                                            <div class="skill">
-                                                <?php if($e->skills){echo strip_tags(mb_substr($e->skills, 0, 34, 'utf-8'));} else {echo "Language Expert";}; ?>
-                                            </div>
+                                          <?php 
+                                                $lang_known = "";
+                                                if($e->expert_in){
+                                                    $break_lang = explode(',',$e->expert_in);
+                                                    foreach($break_lang as $b){
+                                                        $lang_known .= $languages[$b-1]->name.",";
+                                                    }   
+                                                }
+                                            ?>
+                                              <div class="profile">
+                                                    Languages: <?php echo $lang_known; ?>
+                                                </div>
+                                                <div class="exp">
+                                                    Experience: <?php
+                                                        if($e->total_exp){ 
+                                                            echo strip_tags($this->config->config['job_exp'][$e->total_exp]); 
+                                                        } else {
+                                                            echo "Any";
+                                                        }
+                                                    ?>
+                                                </div>
+                                                <div class="skill">
+                                                    Location: <?php 
+                                                        if($e->address){ 
+                                                            echo $e->address; 
+                                                        }
+                                                    ?>
+                                                </div>
                                             <?php echo "<a target='_blank' href='".base_url()."ado/Employer/viewProfile/".$e->id."'><button class='vm btn btn-xs'>&nbsp;</button></a>"; ?>
                                     </div>
                                 </div>
