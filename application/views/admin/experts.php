@@ -11,7 +11,7 @@
 				<thead>
 					<tr>
 					  <th>Name</th>					  
-					  <th>Gender</th>					  
+					  <th>Languages</th>					  
 					  <th>Email</th>				  
 					  <th>Mobile</th>
 					  <th class="nosort">Social</th>
@@ -27,7 +27,17 @@
 					?>
 					<tr>
 					  <td><?php echo $expert->first_name .' '. $expert->last_name;?></td>
-					  <td><?php echo $expert->gender;?></td>
+					  <td class="wrap_it_up"><?php 
+                                $lang_known ="";
+                                if($expert->expert_in){
+                                    $break_lang = explode(',',$expert->expert_in);
+                                    foreach($break_lang as $b){
+                                        $lang_known .= $languages[$b-1]->name.", ";
+                                    }   
+                                }
+                                echo $lang_known;
+                            ?>
+                      </td>
 					  <td><?php echo $expert->email;?></td>						  
 					  <td><?php echo $expert->mobile;?></td>
 					  <td><?php echo $isSocial;?></td>

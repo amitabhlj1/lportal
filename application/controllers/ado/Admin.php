@@ -158,7 +158,7 @@ class Admin extends CI_Controller
         $data['total_pages'] = $number_of_pages;
         $this_page_first_result = ($page-1)*$results_per_page;
         $data['experts'] = $this->My_model->selectRecord('lang_expert', '*', '', array('criteria'=>'id', 'order' => 'DESC'), array($this_page_first_result, $results_per_page));
-        
+        $data['languages'] = $this->My_model->selectRecord('language', '*', '', '');
 		$this->load->view('admin/include/header'); 
 		$this->load->view('admin/experts',$data); 
 	    $this->load->view('admin/include/footer');		 	
