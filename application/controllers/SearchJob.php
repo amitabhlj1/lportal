@@ -60,4 +60,41 @@ class SearchJob extends CI_Controller
 		$this->load->view('job_desc', $data);
         $this->load->view('include/footer');
     }
+    public function indeed(){
+        $all_jobs = $this->LanguageExpert_model->searchResult();
+        $xmlstr = "<?xml version='1.0' encoding='UTF-8' ?><source><publisher>LangJobs.com</publisher><publisherurl>http://www.langjobs.com</publisherurl><lastBuildDate>".gmdate(DATE_RFC822)."</lastBuildDate></source>";
+        $source = new SimpleXMLElementExtended($xmlstr);
+        foreach($all_jobs as $j){
+            $country = explode(',',$j->address);
+            $exp = "0 Years";
+            if($j->total_exp){
+                $exp = $this->config->config['job_exp'][$j->total_exp];
+            }
+            $job = $source->addChild('job');
+            $job->addChildWithCDATA('title', $j->title);
+            $job->addChildWithCDATA('date', $j->created);
+            $job->addChildWithCDATA('referencenumber', $j->id);
+            $job->addChildWithCDATA('url', base_url()."SearchJob/jobdesc/".$j->id);
+            $job->addChildWithCDATA('company', $j->company_name);
+            $job->addChildWithCDATA('country', end($country));
+            $job->addChildWithCDATA('description', strip_tags($j->description));
+            $job->addChildWithCDATA('experience', $exp);
+        }        
+        Header('Content-type: text/xml');
+        print($source->asXML());
+    }
+}
+
+Class SimpleXMLElementExtended extends SimpleXMLElement {
+/* 
+ *     Adds a child with $value inside CDATA 
+ */ 
+	public function addChildWithCDATA($name, $value = NULL) { 
+		$new_child = $this->addChild($name); 
+		if ($new_child !== NULL) { 
+		$node = dom_import_simplexml($new_child);
+		$no=$node->ownerDocument; $node->appendChild($no->createCDATASection($value)); 
+	} 
+	return $new_child; 
+	} 	
 }
