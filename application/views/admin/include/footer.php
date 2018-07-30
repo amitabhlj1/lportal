@@ -41,7 +41,7 @@
     <script src="<?php echo base_url();?>assets/js/common.js"></script>
 	<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/b-1.5.1/datatables.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/js/jquery.easyPaginate.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   	<script>
 		$('#easyPaginate').easyPaginate({
             paginateElement: '.well',
@@ -67,7 +67,8 @@
 		// data table
 		$(document).ready(function() {
             //console.log('awesome');
-          
+            $('[type="date"]').attr('placeholder', 'Select Date');
+            $('[type="date"]').flatpickr();
 			var table = $('#rc_emp').DataTable({
 			     "order": [[ 5, "desc" ]]			   
             });
