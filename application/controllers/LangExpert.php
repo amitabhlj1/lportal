@@ -208,6 +208,7 @@ class LangExpert extends CI_Controller
 			$iInserId = $this->My_model->insertRecord('lang_expert',$data);
 			// send verification mail
             if($iInserId){
+                $this->session->set_tempdata('email', $this->input->post('email'), 900);
                 $subject = 'LangJobs Account Verification';
                 $message = "Dear ".$this->input->post('first_name').",<br /> <br />
                             Please click on the below activation link to verify your email address.<br /><br />
@@ -217,6 +218,7 @@ class LangExpert extends CI_Controller
 
                 $send_to = $this->input->post('email');
                 echo $val = $this->My_model->send_mail($send_to, $subject, $message);
+                //echo "1";
             } else {
                 echo "-1";
             }
@@ -316,6 +318,7 @@ class LangExpert extends CI_Controller
             );
             $done = $this->My_model->insertRecord('lang_expert',$insert_data);
             if($done){
+                $this->session->set_tempdata('email', $this->input->post('email'), 900);
                 $subject = 'Welcome to LangJobs';
                 $message = "Dear ".$this->input->post('first_name').",<br />
                             Hurray! we are very pleased to see you join us. Best of luck
@@ -356,5 +359,39 @@ class LangExpert extends CI_Controller
 		$iNums  = $this->My_model->getNumRows('lang_expert','email',$this->input->post('email'));
 		return $iNums; 	
 	}
-
+    //Resgisteration step 2.
+    public function extraDetails(){
+        $email = $this->session->tempdata('email');
+        $data['email'] = $email;
+        $title['title_of_page'] = "Sign Up [Step - 2] :: Language Experts | LangJobs.com";
+        $title['description'] = "Signup page for language experts of Langjobs.com | Signup / Login to find your favourite language jobs, freelancing projects";
+        $title['keywords'] ="Signup, Register, Apply Jobs, Search Jobs / Projects, Language Jobs, Language Projects, Language expert login, Language Experts, LangJobs.com";
+        $data['country'] = $this->My_model->selectRecord('country', '*', '','');
+        $data['user_data'] = $this->My_model->selectRecord('lang_expert', '*', array('email'=>$email),'');
+        $data['languages'] = $this->My_model->selectRecord('language', '*', '');
+        $this->load->view('include/header',$title);
+		$this->load->view('language_expert_s2',$data);
+        $this->load->view('include/footer');
+    }
+    public function savedetails(){
+        //print_r($this->input->post());
+        $where = array('email' => $this->input->post('email'));
+        $update_data = array(
+                'state' => $this->input->post('state'),
+                'city'  => $this->input->post('city'),
+                'address' => $this->input->post('address'),
+                'profile_name' => $this->input->post('current_position'),
+                'expert_in' => implode(',', $this->input->post('languages')),
+                'total_exp' => $this->input->post('total_exp')
+        );
+        $updt = $this->My_model->updateRecord('lang_expert', $update_data, $where);
+        if($updt == '1' || $updt == '0'){
+            echo "<script>
+                    alert('Registeration Completed!'); 
+                    window.location.href = '".base_url()."';
+                </script>";
+        } else {
+            echo $updt; die();
+        }
+    }
 }

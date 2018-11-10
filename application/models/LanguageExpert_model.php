@@ -125,11 +125,18 @@ class LanguageExpert_model extends CI_Model {
 	
 	 public function searchResult()
 	 {
+        //Removing bad chars from string
+        $remove[] = "'";
+        $remove[] = '"';
+        $remove[] = ';';
+        $remove[] = "-"; // just as another example
+
 		$iLang   = $this->input->post('language');
 		$iSec    = $this->input->post('sector');
 		$iLoc    = $this->input->post('locationCombo');
 		$iExp    = $this->input->post('experience');
-		$strKeyw = $this->input->post('keywords');
+        //handled string like a boss....
+		$strKeyw = str_replace($remove, "",$this->input->post('keywords', TRUE));
 		$where = 'WHERE jb.status=1';
          
         if(!empty($strKeyw))

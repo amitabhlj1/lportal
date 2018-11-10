@@ -36,12 +36,15 @@ class Language_experts extends CI_Controller
         //checking where first name & last name is not blank and sorting it by lastest and frequent active language experts
         $data['experts'] = $this->My_model->selectRecord('lang_expert', '*', array('status' => 1, 'first_name !=' =>''), array('criteria'=>'id', 'order' => 'DESC'), array($this_page_first_result, $results_per_page));
         $data['languages'] = $this->My_model->selectRecord('language','*','','');
+        $data['countries'] = $this->My_model->selectRecord('country', array('id', 'c_name'), '', '');
+        //print_r($data['countries']); die();
         $this->load->view('include/header', $title);
 		$this->load->view('all_experts', $data);
         $this->load->view('include/footer');
     }
     public function profile($pid){
         $data['usr'] = $this->My_model->selectRecord('lang_expert', '*', array('status' => 1, 'id' =>$pid));
+        $data['country'] = $this->My_model->selectRecord('country', array('id', 'c_name'), array('id' => $data['usr'][0]->country));
         $title['title_of_page'] = htmlspecialchars($data['usr'][0]->last_name.": LangJobs Language Expert");
         $title['description'] = htmlspecialchars($data['usr'][0]->about_me." | Language Expert's Profile At LangJobs.com");
         $title['keywords'] = htmlspecialchars($data['usr'][0]->skills.", LangJobs.com Language Expert Profile");

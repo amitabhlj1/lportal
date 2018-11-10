@@ -12,7 +12,7 @@
 	  <div class="col-sm-8">
 		<form id="registerForm" role="form" method="post" action="">
 			<div class="form-group">
-				<label class="" for="name">Register</label>
+				<label class="" for="name">Register (Step 1)</label>
 		  	</div>
 		  	<div class="form-group">
 				<label class="sr-only" for="name">First Name</label>
@@ -35,7 +35,7 @@
 				<p class="help-blk text-danger" id="err_mobile"></p>
 		  	</div>
 			<div class="form-group">
-				<label class="sr-only" for="email">Password</label>
+				<label class="sr-only" for="password">Password</label>
 				<input class="form-control" type="password" id="password" name="password" placeholder="your password (minimum 6 characters) *" required="required" maxlength="25" data-validation-required-message="Please enter your email address."/>
 				<p class="help-blk text-danger" id="err_psw"></p>
 		  	</div>
@@ -49,10 +49,11 @@
                         }
                     ?>
 				</select>
-				<p class="help-block text-danger"></p>
+				<p class="help-block text-danger" id="err_country"></p>
 		  	</div>
 		  	<div class="text-center">
 				<button class="btn btn-block btn-round btn-d" id="regbtn" type="button" onclick="registerExpert();">Register</button>
+				<p>You'll be redirected to step-2 of registeration, Please wait for a moment after clicking on "Register" Button</p>
 			</div>
 			
 			
@@ -76,7 +77,7 @@
 			<p class="help-blk text-danger" id="err_lpsw"></p>
 		  </div>
 		  <div class="text-center">
-			<button class="btn btn-block btn-round btn-d" id="cfsubmit" type="button" onclick="loginExpert();">Login</button>   &nbsp;&nbsp;&nbsp;  
+			<button class="btn btn-block btn-round btn-d" id="cfsubmit" type="button" onclick="loginExpert();">Login</button>   &nbsp;&nbsp;&nbsp; 
 			<a href="<?php echo base_url()?>langExpert/forgotPassword">  
 			<button class="btn btn-block btn-round btn-d" type="button">Forgot Password</button> 
 			 </a>  
@@ -95,6 +96,7 @@
 	function registerExpert()
 	{
 		$('#first_name').css('border','1px solid #EAEAEA');
+		$('#last_name').css('border','1px solid #EAEAEA');
 		$('#email').css('border','1px solid #EAEAEA');
 		$('#password').css('border','1px solid #EAEAEA');
 		
@@ -103,6 +105,7 @@
 		$('#err_email').html('');
 		$('#err_psw').html('');
         $('#err_mobile').html('');
+        $('#err_country').html('');
 		
 		
 		//alert('KJJ');
@@ -118,7 +121,12 @@
 			$('#first_name').css('border','solid 1px #FF0000');
 			return false;
 		}
-		
+		if(last_name == '')
+		{
+			$('#err_lname').html('Please enter last name');
+			$('#last_name').css('border','solid 1px #FF0000');
+			return false;
+		}
 		// email validation
 		if( !isEmail(email))
 		{
@@ -127,6 +135,13 @@
 			return false;
 		}
 		
+        if(mobile == '' || mobile.length < 8 || isNaN(mobile))
+		{
+			$('#err_mobile').html('Please enter correct contact/mobile number');
+			$('#mobile').css('border','solid 1px #FF0000');
+			return false;
+		}
+        
 		if(password == '' || password.length < 6)
 		{
 			$('#err_psw').html('Please enter password');
@@ -134,10 +149,10 @@
 			return false;
 		}
         
-		if(mobile == '' || mobile.length < 8)
+        if(country == '')
 		{
-			$('#err_mobile').html('Please enter your contact/mobile number');
-			$('#mobile').css('border','solid 1px #FF0000');
+			$('#err_country').html('Please select Country');
+			$('#country').css('border','solid 1px #FF0000');
 			return false;
 		}
 		
@@ -151,7 +166,8 @@
 				if(res == '-1')
 					$("#registerResponse").html('This email id is already registerd with us, if this is your email id please login.');
 				else
-					$("#registerResponse").html('Thank you for registering with us, We will send you a verification mail shortly');
+//					$("#registerResponse").html('Thank you for registering with us, We will send you a verification mail shortly');
+                    window.location.href = baseurl+'LangExpert/extraDetails';
 			},
 			error: function (request, status, error) 
 			{
@@ -202,7 +218,8 @@
 				else if(res == '2')
 					$("#loginResponse").html('Wrong email id or password');
 				else 
-					window.location.href = baseurl+'expert';	
+					window.location.href = baseurl+'expert';
+                    
 			},
 			error: function (request, status, error) 
 			{
@@ -236,7 +253,8 @@
 					$("#loginResponse").html('Something went wrong,Please try again later');
 				else
                     $("#loginResponse").html('Awesome, Logging you in now...');
-					window.location.href = baseurl+'expert';
+					//window.location.href = baseurl+'expert';
+                    window.location.href = baseurl+'LangExpert/extraDetails';
 			},
 			error: function (request, status, error) 
 			{

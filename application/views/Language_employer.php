@@ -55,7 +55,7 @@
                         }
                     ?>
 				</select>
-				<p class="help-block text-danger"></p>
+				<p class="help-block text-danger" id="err_country"></p>
 		  	</div>
 		  	<div class="text-center">
 				<button class="btn btn-block btn-round btn-d" id="regbtn" type="button" onclick="registerEmployer();">Register</button>
@@ -101,6 +101,7 @@
 	function registerEmployer()
 	{
 		$('#first_name').removeClass('error_red').addClass('error_green');
+		$('#last_name').removeClass('error_red').addClass('error_green');
 		$('#email').removeClass('error_red').addClass('error_green');
 		$('#password').removeClass('error_red').addClass('error_green');
         $('#mobile').removeClass('error_red').addClass('error_green');
@@ -135,6 +136,13 @@
 			return false;
 		}
 		
+        if(mobile == '' || mobile.length < 8 || isNaN(mobile))
+		{
+			$('#err_mobile').html('Please enter contact/mobile number');
+			$('#mobile').removeClass('error_green').addClass('error_red');
+			return false;
+		}
+        
 		if(password == '' || password.length < 6)
 		{
 			$('#err_psw').html('Please enter password');
@@ -142,13 +150,13 @@
 			return false;
 		}
         
-		if(mobile == '' || mobile.length < 8)
+		if(country == '')
 		{
-			$('#err_mobile').html('Please enter contact/mobile number');
-			$('#mobile').removeClass('error_green').addClass('error_red');
+			$('#err_country').html('Please select your country');
+			$('#country').removeClass('error_green').addClass('error_red');
 			return false;
 		}
-		
+        
 		$.ajax({
 			type: "POST",
 			url: baseurl+ "LangEmployer/registerEmployer",

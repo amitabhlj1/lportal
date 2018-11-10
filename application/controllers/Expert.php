@@ -80,7 +80,8 @@ class Expert extends CI_Controller
         $s = $this->input->post('state');
         $where = array('s_id' => $s);
         $cities = $this->My_model->selectRecord('cities', '*', $where);
-        echo "<select class='form-control' name='city'>";
+        echo "<select class='form-control' name='city' id='this_city'>";
+        echo "<option value=''>Select City</option>";
         foreach($cities as $ct){
             echo "<option value='$ct->id'>$ct->name</option>";
         }

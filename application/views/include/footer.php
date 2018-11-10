@@ -128,6 +128,24 @@
                 border: "none",
                 allowClear: true,
             });
+            $('#languages').select2({
+                placeholder:"Select Language(s) Here",
+                width:"100%",
+                border: "none",
+                allowClear: true,
+                sorter: function(data) {
+                    return data.sort(function (a, b) {
+                        if (a.text > b.text) {
+                            return 1;
+                        }
+                        if (a.text < b.text) {
+                            return -1;
+                        }
+                        return 0;
+                    });
+                }
+            });
+            
             $('.select2-selection').css('border-radius','0px');
             $('.select2-container').children().css('border-radius','0px');
         } );

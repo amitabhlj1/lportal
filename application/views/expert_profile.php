@@ -1,6 +1,6 @@
 <style>  
 body { background:#ffffff;}
-.module{padding: 25px 0; !important}
+.module{padding: 6% 0; !important}
 .page-header {background:#ccc;margin:0;}
 .profile-head { width:100%;background-color: rgb(40, 47, 70);float: left;padding: 15px 5px;}
 .profile-head img { height:220px; width:220px; margin:0 auto; border-radius:50%;}
@@ -71,6 +71,17 @@ table{ width: 80% !important;}
 table>tbody>tr>td{text-align: left;margin-left: 2%; border-top: none !important;}
 table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
     .social_links{padding: 5px; font-size: 12px;}
+
+@media all and (max-width:1024px){
+    .module{
+        padding: 13% 0%;
+    }
+}
+@media all and (max-width:800px){
+    .module{
+        padding: 12% 0%;
+    }
+}
 @media all and (max-width:430px){
 .profile-head ul li {font-size: 12px !important;}
 .nav-menu li { width:50%;}
@@ -95,16 +106,23 @@ table>thead>tr>th{font-size: 150%; border-bottom: 1px dotted; }
     <div class="profile-head">
         <div class="col-md- col-sm-4 col-xs-12" id="preview">
             <?php
-                if(!$usr[0]->social_login == 1){
-                    $empPath = 'assets/uploads/experts/';
-            ?>
-             <img src="<?php if(!empty($usr[0]->image)){echo base_url().$empPath.$usr[0]->image;} else {echo base_url()."assets/1.png";} ?>" class="img-responsive" />
-            <?php
-                } else { ?>
-                <img src="<?php if(!empty($usr[0]->image)){echo $usr[0]->image;} else {echo base_url()."assets/1.png";} ?>" class="img-responsive" />
-            <?php     
+                if($usr[0]->social_login == 1){
+                    $eimg_path = $usr[0]->image;
+                } else {
+                    if(!$usr[0]->image){
+                        $eimg_path = base_url()."assets/1.png"; 
+                    } else {
+                        $eimg_path = base_url()."assets/uploads/experts/".$usr[0]->image;
+                    }
+                }
+                //check if image is available on this path or not.
+                if(@file_get_contents($eimg_path, 0, NULL, 0, 1)){
+                    $eimg = $eimg_path;
+                } else {
+                    $eimg = base_url()."assets/1.png";
                 }
             ?>
+            <img src="<?php echo $eimg; ?>" class="img-responsive" />
         </div>
         <!--col-md-4 col-sm-4 col-xs-12 close-->
 

@@ -43,8 +43,16 @@
         white-space: nowrap;
         overflow: hidden;
    }
+       
+   .eimg > img.img1.img-rounded{
+        height: 66px;
+        overflow-y: hidden;
+   }
 
    @media (min-width: 992px) and (max-width: 1199px){
+       .eimg > img.img1.img-rounded{
+          height: 50px;
+      }
        .well{
          height: 150px;   
        }
@@ -132,27 +140,36 @@
                                         <div class="eimg col-lg-4 col-sm-4 col-md-4 col-xs-4">
                                             <?php
                                                 if($e->social_login == 1){
-                                                    $eimg = $e->image;
+                                                    $eimg_path = $e->image;
                                                 } else {
                                                     if(!$e->image){
-                                                        $eimg = base_url()."assets/1.png"; 
+                                                        $eimg_path = base_url()."assets/1.png"; 
                                                     } else {
-                                                        $eimg = base_url()."assets/uploads/experts/".$e->image;
+                                                        $eimg_path = base_url()."assets/uploads/experts/".$e->image;
                                                     }
-                                                }              
+                                                }
+                                                //check if image is available on this path or not.
+                                                if(@file_get_contents($eimg_path, 0, NULL, 0, 1)){
+                                                    $eimg = $eimg_path;
+                                                } else {
+                                                    $eimg = base_url()."assets/1.png";
+                                                }
                                             ?>
-                                            <img src="<?php echo $eimg; ?>" class="img1 img-rounded"/>
+                                            <img src="<?php echo $eimg; ?>" class="img1 img-rounded" alt="<?php echo strtoupper(mb_substr($e->last_name, 0, 11, 'utf-8')); ?> - Language Expert at Langjobs.com " />
                                         </div>
                                         <div class="details col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                             <?php 
                                                 if($e->expert_in){
                                                     $break_lang = explode(',',$e->expert_in);
                                                     foreach($break_lang as $b){
-                                                        $lang_known .= $languages[$b-1]->name.",";
+                                                        //corrected the search in array.
+                                                        $key = array_search($b, array_column($languages, 'id'));
+                                                        $lang_known .= $languages[$key]->name.", ";
                                                     }   
                                                 }
                                             ?>
                                               <div class="profile">
+                                                    <?php if($lang_known == "") $lang_known = "English,"; ?>
                                                     Languages: <?php echo $lang_known; ?>
                                                 </div>
                                                 <div class="exp">
@@ -165,9 +182,10 @@
                                                     ?>
                                                 </div>
                                                 <div class="skill">
-                                                    Location: <?php 
-                                                        if($e->address){ 
-                                                            echo $e->address; 
+                                                    Country: <?php 
+                                                        if($e->country){ 
+                                                            $key = array_search($e->country, array_column($countries, 'id'));
+                                                            echo $countries[$key]->c_name;
                                                         }
                                                     ?>
                                                 </div>

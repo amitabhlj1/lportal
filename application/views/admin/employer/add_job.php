@@ -79,7 +79,7 @@
 					<div class="form-group">					
 					  <label for="inputEmail1" class="col-lg-2 col-sm-2 control-label">Languages</label>
 					  <div class="col-lg-10">
-						<select required="true" class="form-control m-b-10" name="languages[]" id="languages" multiple>
+						<select class="form-control m-b-10 select2" name="languages[]" id="languages" multiple required>
 							<option value="">Select</option>
 							<?php
 								foreach($langs as $lang)	
@@ -184,8 +184,8 @@
 						<div class="form-group">					
 						  <label for="inputEmail1" class="col-lg-2 col-sm-2 control-label">From Languages</label>
 						  <div class="col-lg-10">
-							<select required="true" class="form-control m-b-10" name="f_language" id="f_language">
-								<option value="">Select</option>
+							<select required="true" class="form-control m-b-10 select2" name="f_language" id="f_language">
+								<option value=""></option>
 								<?php
 									foreach($langs as $lang)	
 									{
@@ -200,8 +200,8 @@
 						<div class="form-group">					
 						  <label for="inputEmail1" class="col-lg-2 col-sm-2 control-label">To  Languages</label>
 						  <div class="col-lg-10">
-							<select required="true" class="form-control m-b-10" name="to_language" id="to_language">
-								<option value="">Select</option>
+							<select required="true" class="form-control m-b-10 select2" name="to_language" id="to_language">
+								<option value=""></option>
 								<?php
 									foreach($langs as $lang)	
 									{
@@ -339,7 +339,8 @@ function savePrjJobs()
 	$("#err_f_cat").html('');
 	$("#err_flang").html('');
 	$("#err_tlang").html('');
-	
+	$("#err_f_loc").html('');
+
 	$("#err_f_title").html('');  
 	$("#err_f_skills").html('');
 	$("#err_f_det").html('');
@@ -357,6 +358,7 @@ function savePrjJobs()
 	var j_unit   = $("#unit_name").val();
 	var unit_numbers   = $("#unit_numbers").val();
 	var work_rate   = $("#work_rate").val();
+    var location = $('#autocomplete1').val()
 	
 	if(f_lang == '')
 	{
@@ -386,6 +388,12 @@ function savePrjJobs()
 		return false;
 	}
 	
+    if(location == '')
+	{
+		$("#err_f_loc").html('please enter job location');		
+		return false;
+	}
+    
 	if(description == '')
 	{
 		$("#err_f_det").html('please enter job description');		
@@ -422,19 +430,28 @@ function savePrjJobs()
 function saveJobs()
 {		
 	$("#err_type").html('');
-	//$("#err_cat").html('');
+	$("#err_langs").html('');
 	$("#err_title").html('');
 	$("#err_skills").html('');
 	$("#err_det").html(''); 
 	$("#err_exp").html('');
+	$("#err_loc").html('');
 	
+	var j_langs    = $("#languages").val();
 	var j_type     = $("#j_type").val();
 	var j_category = $("#j_category").val();
 	var title      = $("#title").val();
 	var skills     = $("#skills").val();
 	var description = tinyMCE.activeEditor.getContent();
 	var total_exp = $("#total_exp").val();
+	var location = $("#autocomplete").val();
 	
+    if(!j_langs)
+	{
+		$("#err_langs").html('please select language(s)');		
+		return false;
+	}
+    
 	if(j_type == '')
 	{
 		$("#err_type").html('please select job type');		
@@ -453,6 +470,12 @@ function saveJobs()
 		return false;
 	}
 	
+    if(location == '')
+	{
+		$("#err_loc").html('please enter job location');		
+		return false;
+	}
+    
 	if(description == '')
 	{
 		$("#err_det").html('please enter job description');		

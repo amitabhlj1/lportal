@@ -53,11 +53,24 @@
             $("html, body").animate({ scrollTop: '120px' }, 500);
         });
 		$(document).ready(function (){
+            //Added Place holder and Sorted by Alphabet
 			$('.select2').select2({
+                    placeholder: "Select here",
 					width:"100%",
 					height:'33px',
 					border: "none",
 					allowClear: true,
+                    sorter: function(data) {
+                        return data.sort(function (a, b) {
+                            if (a.text > b.text) {
+                                return 1;
+                            }
+                            if (a.text < b.text) {
+                                return -1;
+                            }
+                            return 0;
+                        });
+                    }
             	});
 			});
 		
